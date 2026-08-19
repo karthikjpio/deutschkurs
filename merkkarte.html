@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merkkarte: Konnektoren — Grund, Gegengrund, Alternative</title>
+<style>
+/* ============================================================
+   Merkkarte — eigenständige Seite, funktioniert auch ohne den Kurs.
+   Farben: kategoriale Slots 1–3 der validierten Referenzpalette
+   (geprüft mit dataviz/validate_palette.js, hell und dunkel bestanden).
+   Jede Farbe trägt zusätzlich ein Textlabel — nie Farbe allein.
+   ============================================================ */
+:root{
+  --bg:#f6f7f9; --surface:#fff; --surface-2:#f0f2f5; --border:#dfe3e8;
+  --text:#16191d; --soft:#5b636e; --faint:#8b929c;
+  --accent:#2f5fd0; --accent-soft:#e8effc; --accent-text:#1c4099;
+  --g1:#2a78d6;  --g1-soft:#e8f1fd;   /* Grund       */
+  --g2:#eb6834;  --g2-soft:#fdefe8;   /* Gegengrund  */
+  --g3:#1baf7a;  --g3-soft:#e6f7f0;   /* Alternative */
+  --g4:#6b7280;  --g4-soft:#f1f2f4;   /* Regeln      */
+  --warn:#fab219; --warn-soft:#fdf3e0;
+  --r:12px; --rs:8px;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 14px rgba(16,24,40,.05);
+}
+html[data-theme="dark"]{
+  --bg:#14161a; --surface:#1c1f25; --surface-2:#23272e; --border:#31363f;
+  --text:#e8eaed; --soft:#a2a9b4; --faint:#767d88;
+  --accent:#6f9bff; --accent-soft:#1e2a44; --accent-text:#a8c3ff;
+  --g1:#3987e5; --g1-soft:#16233a;
+  --g2:#d95926; --g2-soft:#331c12;
+  --g3:#199e70; --g3-soft:#0f2a20;
+  --g4:#9ca3af; --g4-soft:#24272c;
+  --warn:#fab219; --warn-soft:#322614;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px 80px}
+
+/* Kopf */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--surface) 90%,transparent);
+     backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.top-in{max-width:1080px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text)}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.top .sp{flex:1}
+.btn{font:inherit;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;
+     border:1px solid var(--border);background:var(--surface);color:var(--soft);cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--accent);color:var(--accent-text)}
+
+.head{padding:30px 0 10px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px}
+h1{font-size:30px;line-height:1.2;letter-spacing:-.02em;margin:0 0 8px}
+.lead{color:var(--soft);font-size:15px;margin:0 0 4px;max-width:70ch}
+.lead b{color:var(--text)}
+
+/* Filter */
+.filter{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 6px}
+.chip{font:inherit;font-size:13px;font-weight:650;padding:6px 13px;border-radius:999px;cursor:pointer;
+      border:1px solid var(--border);background:var(--surface);color:var(--soft);display:inline-flex;align-items:center;gap:7px}
+.chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.chip[aria-pressed="true"]{border-color:currentColor}
+.chip.f-alle[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-text)}
+.chip.f-grund[aria-pressed="true"]{background:var(--g1-soft);color:var(--g1)}
+.chip.f-gegen[aria-pressed="true"]{background:var(--g2-soft);color:var(--g2)}
+.chip.f-alt[aria-pressed="true"]{background:var(--g3-soft);color:var(--g3)}
+.chip.f-regel[aria-pressed="true"]{background:var(--g4-soft);color:var(--g4)}
+
+/* Tabelle */
+.tbox{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+thead th{background:var(--surface-2);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+         color:var(--soft);text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.gruppenstart td{border-top:2px solid var(--border)}
+
+/* Gruppenkennzeichnung: farbige Kante PLUS Textlabel */
+td.grp{width:1%;white-space:nowrap;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+       border-left:4px solid transparent;padding-left:11px}
+tr[data-g="grund"] td.grp{border-left-color:var(--g1);color:var(--g1);background:var(--g1-soft)}
+tr[data-g="gegen"] td.grp{border-left-color:var(--g2);color:var(--g2);background:var(--g2-soft)}
+tr[data-g="alt"]   td.grp{border-left-color:var(--g3);color:var(--g3);background:var(--g3-soft)}
+tr[data-g="regel"] td.grp{border-left-color:var(--g4);color:var(--g4);background:var(--g4-soft)}
+td.grp small{display:block;font-weight:500;text-transform:none;letter-spacing:0;font-size:10.5px;opacity:.85;margin-top:2px}
+
+.wort{font-weight:700;font-size:15px;white-space:nowrap}
+.wort small{display:block;font-weight:500;font-size:11.5px;color:var(--faint);white-space:normal;margin-top:2px}
+
+/* Bauform-Badge — die wichtigste Information: wo steht das Verb? */
+.bf{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap;margin-bottom:4px}
+.bf.ende{background:var(--g1-soft);color:var(--g1)}
+.bf.zwei{background:var(--warn-soft);color:#8a6100}
+html[data-theme="dark"] .bf.zwei{color:var(--warn)}
+.bf.praep{background:var(--surface-2);color:var(--soft)}
+.bfx{display:block;font-size:12px;color:var(--soft)}
+
+td.bsp{font-size:14.5px;min-width:16em}
+td.bsp b{color:var(--accent-text);font-weight:700}
+td.bsp .verb{border-bottom:2px solid var(--accent);font-weight:700}
+td.trick{font-size:13.5px;color:var(--soft);min-width:14em}
+td.trick .warnung{color:var(--g2);font-weight:650}
+td.trick .deins{display:inline-block;font-size:11px;font-weight:700;background:var(--g2-soft);color:var(--g2);
+                padding:1px 6px;border-radius:5px;margin-left:4px;white-space:nowrap}
+
+/* Der Merksatz */
+.merksatz{background:var(--accent-soft);border-radius:var(--r);padding:18px 20px;margin:26px 0 10px;border:1px solid transparent}
+.merksatz .t{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px}
+.merksatz p{margin:0;font-size:17px;line-height:1.75;color:var(--text)}
+.merksatz b{color:var(--accent-text)}
+.merksatz .warum{margin-top:10px;font-size:13.5px;color:var(--soft)}
+
+.fuss{text-align:center;color:var(--faint);font-size:12px;padding:26px 0 0}
+.fuss a{color:var(--accent-text)}
+
+/* ---------- Mobil: Tabelle wird zu Karten ---------- */
+@media (max-width:760px){
+  h1{font-size:24px}
+  .tbox{background:transparent;border:none;box-shadow:none;overflow:visible}
+  thead{display:none}
+  tbody,tr,td{display:block;width:auto}
+  tbody tr{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--border);
+           border-radius:var(--rs);margin-bottom:10px;padding:12px 14px;box-shadow:var(--shadow)}
+  tbody tr[data-g="grund"]{border-left-color:var(--g1)}
+  tbody tr[data-g="gegen"]{border-left-color:var(--g2)}
+  tbody tr[data-g="alt"]{border-left-color:var(--g3)}
+  tbody tr[data-g="regel"]{border-left-color:var(--g4)}
+  tbody td{border:none;padding:0 0 7px}
+  tbody td:last-child{padding-bottom:0}
+  td.grp{background:transparent!important;border-left:none;padding-left:0;width:auto}
+  td.bsp,td.trick{min-width:0}
+  td.trick::before{content:"💡 ";}
+}
+
+/* ---------- Druck: passt auf zwei A4-Seiten ---------- */
+@media print{
+  :root{--bg:#fff;--surface:#fff;--surface-2:#f4f4f4;--border:#c9ccd1;--shadow:none}
+  .top,.filter,.noprint{display:none!important}
+  body{font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  .head{padding:0 0 8px}
+  h1{font-size:18pt}
+  table{font-size:9pt}
+  thead th,tbody td{padding:5px 7px}
+  tbody tr{page-break-inside:avoid}
+  .merksatz{border:1px solid var(--border);background:#fafafa}
+  a{text-decoration:none;color:inherit}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="top-in">
+  <a class="brand" href="index.html"><span class="dot"></span>Deutsch B2 · Merkkarte</a>
+  <span class="sp"></span>
+  <a class="btn" href="index.html">Übersicht</a>
+  <a class="btn" href="b1-fundament.html">📖 Grammatik</a>
+  <button class="btn" onclick="window.print()">🖨 Drucken</button>
+  <button class="btn" onclick="thema()" title="Hell / Dunkel">◐</button>
+</div></div>
+
+<div class="wrap">
+
+  <div class="head">
+    <div class="eyebrow">Tag 2 + Tag 3 · zum Auswendiglernen</div>
+    <h1>Konnektoren: Grund, Gegengrund, Alternative</h1>
+    <p class="lead">Drei Bedeutungen, vier Bauformen — und <b>eine</b> Frage entscheidet alles:
+      <b>Wo steht das Verb?</b> Die Spalte „Bauform“ ist deshalb die wichtigste der Tabelle.
+      Unterstrichen im Beispiel: das konjugierte Verb.</p>
+  </div>
+
+  <div class="filter noprint" role="group" aria-label="Nach Bedeutung filtern">
+    <button class="chip f-alle"  aria-pressed="true"  data-f="alle">Alle 18</button>
+    <button class="chip f-grund" aria-pressed="false" data-f="grund"><i style="background:var(--g1)"></i>Grund</button>
+    <button class="chip f-gegen" aria-pressed="false" data-f="gegen"><i style="background:var(--g2)"></i>Gegengrund</button>
+    <button class="chip f-alt"   aria-pressed="false" data-f="alt"><i style="background:var(--g3)"></i>Alternative</button>
+    <button class="chip f-regel" aria-pressed="false" data-f="regel"><i style="background:var(--g4)"></i>Die 4 Regeln</button>
+  </div>
+
+  <div class="tbox">
+  <table>
+    <thead><tr>
+      <th>Bedeutung</th><th>Wort</th><th>Bauform → Verb</th><th>Beispiel</th><th>Trick / Falle</th>
+    </tr></thead>
+    <tbody>
+
+    <!-- ============ GRUND ============ -->
+    <tr data-g="grund" class="gruppenstart">
+      <td class="grp">Grund<small>warum? → logische Folge</small></td>
+      <td class="wort">weil</td>
+      <td><span class="bf ende">Verb ans ENDE</span><span class="bfx">Nebensatz</span></td>
+      <td class="bsp">Ich lerne viel, <b>weil</b> ich die Prüfung bestehen <span class="verb">will</span>.</td>
+      <td class="trick">Nennt einen <b>neuen</b> Grund. Steht meist <b>hinten</b>.</td>
+    </tr>
+    <tr data-g="grund">
+      <td class="grp">Grund</td>
+      <td class="wort">da</td>
+      <td><span class="bf ende">Verb ans ENDE</span><span class="bfx">Nebensatz</span></td>
+      <td class="bsp"><b>Da</b> du das ja <span class="verb">weißt</span>, erkläre ich es kurz.</td>
+      <td class="trick">Grund ist <b>schon bekannt</b>. Steht meist <b>vorne</b>. Im Brief eleganter als „weil“.</td>
+    </tr>
+    <tr data-g="grund">
+      <td class="grp">Grund</td>
+      <td class="wort">denn</td>
+      <td><span class="bf zwei">Verb POSITION 2</span><span class="bfx">2 Hauptsätze</span></td>
+      <td class="bsp">Ich lerne viel, <b>denn</b> ich <span class="verb">will</span> bestehen.</td>
+      <td class="trick"><span class="warnung">Falle:</span> kein Nebensatz! Die Wortstellung ändert sich <b>nicht</b>.</td>
+    </tr>
+    <tr data-g="grund">
+      <td class="grp">Grund</td>
+      <td class="wort">deshalb<small>= deswegen = daher</small></td>
+      <td><span class="bf zwei">Verb POSITION 2</span><span class="bfx">Verbindungsadverb</span></td>
+      <td class="bsp">Ich will bestehen, <b>deshalb</b> <span class="verb">lerne</span> ich viel.</td>
+      <td class="trick">Alle drei sind identisch. Der <b>Grund steht vorher</b>, die Folge danach. Verb sofort nach dem Konnektor, <b>dann</b> das Subjekt.<span class="deins">dein Top-Fehler</span></td>
+    </tr>
+    <tr data-g="grund">
+      <td class="grp">Grund</td>
+      <td class="wort">wegen<small>+ Genitiv</small></td>
+      <td><span class="bf praep">kein Nebensatz</span><span class="bfx">Präposition + Nomen</span></td>
+      <td class="bsp"><b>Wegen der Prüfung</b> <span class="verb">lerne</span> ich viel.</td>
+      <td class="trick">Kurzform für „weil“. <span class="warnung">wegen der Krankheit</span>, nicht „wegen den“.<span class="deins">dein Fehler</span></td>
+    </tr>
+    <tr data-g="grund">
+      <td class="grp">Grund</td>
+      <td class="wort">aus<small>+ Dativ, ohne Artikel</small></td>
+      <td><span class="bf praep">kein Nebensatz</span><span class="bfx">Präposition + abstraktes Nomen</span></td>
+      <td class="bsp"><b>Aus Angst</b> vor der Prüfung <span class="verb">lerne</span> ich früh.</td>
+      <td class="trick">Nur bei Gefühlen und Abstraktem: aus <b>Angst</b>, aus <b>Zeitmangel</b>, aus <b>Langeweile</b>, aus <b>Freude</b>.</td>
+    </tr>
+
+    <!-- ============ GEGENGRUND ============ -->
+    <tr data-g="gegen" class="gruppenstart">
+      <td class="grp">Gegengrund<small>obwohl → NICHT erwartete Folge</small></td>
+      <td class="wort">obwohl</td>
+      <td><span class="bf ende">Verb ans ENDE</span><span class="bfx">Nebensatz</span></td>
+      <td class="bsp"><b>Obwohl</b> ich viel <span class="verb">lerne</span>, mache ich Fehler.</td>
+      <td class="trick">Der Standardfall — damit bist du immer auf der sicheren Seite.</td>
+    </tr>
+    <tr data-g="gegen">
+      <td class="grp">Gegengrund</td>
+      <td class="wort">trotzdem<small>= dennoch</small></td>
+      <td><span class="bf zwei">Verb POSITION 2</span><span class="bfx">Verbindungsadverb</span></td>
+      <td class="bsp">Ich lerne viel, <b>trotzdem</b> <span class="verb">mache</span> ich Fehler.</td>
+      <td class="trick">Beide identisch. Der Gegengrund steht <b>vorher</b>.</td>
+    </tr>
+    <tr data-g="gegen">
+      <td class="grp">Gegengrund</td>
+      <td class="wort">zwar … aber</td>
+      <td><span class="bf zwei">Verb POSITION 2</span><span class="bfx">zweiteilig, 2 Hauptsätze</span></td>
+      <td class="bsp"><b>Zwar</b> <span class="verb">lerne</span> ich viel, <b>aber</b> ich <span class="verb">mache</span> Fehler.</td>
+      <td class="trick">„zwar“ = das Zugeständnis, „aber“ = die Überraschung. Beide dürfen auch in der Satzmitte stehen.</td>
+    </tr>
+    <tr data-g="gegen">
+      <td class="grp">Gegengrund</td>
+      <td class="wort">trotz<small>+ Genitiv</small></td>
+      <td><span class="bf praep">kein Nebensatz</span><span class="bfx">Präposition + Nomen</span></td>
+      <td class="bsp"><b>Trotz des Lernens</b> <span class="verb">mache</span> ich Fehler.</td>
+      <td class="trick">Kurzform für „obwohl“. <span class="warnung">trotz der Kritik</span> — „Kritik“ ist feminin.<span class="deins">dein Fehler</span></td>
+    </tr>
+
+    <!-- ============ ALTERNATIVE ============ -->
+    <tr data-g="alt" class="gruppenstart">
+      <td class="grp">Alternative<small>statt → was NICHT passiert</small></td>
+      <td class="wort">anstatt dass</td>
+      <td><span class="bf ende">Verb ans ENDE</span><span class="bfx">Nebensatz</span></td>
+      <td class="bsp"><b>Anstatt dass</b> der Lehrer <span class="verb">erklärt</span>, lesen die Schüler selbst.</td>
+      <td class="trick"><span class="warnung">Nur bei verschiedenen Subjekten</span> (Lehrer ≠ Schüler).</td>
+    </tr>
+    <tr data-g="alt">
+      <td class="grp">Alternative</td>
+      <td class="wort">anstatt … zu</td>
+      <td><span class="bf ende">zu + Infinitiv ans ENDE</span><span class="bfx">Infinitivkonstruktion</span></td>
+      <td class="bsp"><b>Anstatt</b> Serien <span class="verb">zu schauen</span>, lerne ich Deutsch.</td>
+      <td class="trick"><span class="warnung">Nur bei gleichem Subjekt</span> — und das Subjekt <b>nicht nennen</b>! Es ist automatisch dasselbe wie im Hauptsatz.<span class="deins">dein Fehler</span></td>
+    </tr>
+    <tr data-g="alt">
+      <td class="grp">Alternative</td>
+      <td class="wort">stattdessen</td>
+      <td><span class="bf zwei">Verb POSITION 2</span><span class="bfx">Verbindungsadverb</span></td>
+      <td class="bsp">Ich schaue keine Serien, <b>stattdessen</b> <span class="verb">lerne</span> ich.</td>
+      <td class="trick"><span class="warnung">Gegenteil von „anstatt“:</span> zeigt, was <b>wirklich</b> passiert.</td>
+    </tr>
+    <tr data-g="alt">
+      <td class="grp">Alternative</td>
+      <td class="wort">statt / anstelle<small>+ Genitiv</small></td>
+      <td><span class="bf praep">kein Nebensatz</span><span class="bfx">Präposition + Nomen</span></td>
+      <td class="bsp"><b>Statt eines Films</b> <span class="verb">lese</span> ich ein Buch.</td>
+      <td class="trick">Kurzform für den ganzen „anstatt“-Nebensatz.</td>
+    </tr>
+
+    <!-- ============ DIE 4 REGELN ============ -->
+    <tr data-g="regel" class="gruppenstart">
+      <td class="grp">Regel ①<small>der Erkennungstest</small></td>
+      <td class="wort">Welche Familie?</td>
+      <td><span class="bf praep">Diagnose</span></td>
+      <td class="bsp">„…, <b>trotzdem</b> <span class="verb">mache</span> ich …“ ↔ „…, <b>obwohl</b> ich es <span class="verb">mache</span>.“</td>
+      <td class="trick"><b>Verb sofort nach dem Komma</b> → Verbindungsadverb.<br><b>Verb am Satzende</b> → Nebensatzkonnektor. Damit erkennst du jede Lücke in Sprachbausteine.</td>
+    </tr>
+    <tr data-g="regel">
+      <td class="grp">Regel ②<small>Nebensatz vorne</small></td>
+      <td class="wort">Verb-Komma-Verb</td>
+      <td><span class="bf ende">Position 1 belegt</span></td>
+      <td class="bsp"><b>Obwohl</b> es <span class="verb">regnet</span>, <span class="verb">gehen</span> wir spazieren.</td>
+      <td class="trick">Der Nebensatz ist <b>Position 1</b> → der Hauptsatz beginnt mit dem <b>Verb</b>. Merke die Form: <b>Verb , Verb</b>.</td>
+    </tr>
+    <tr data-g="regel">
+      <td class="grp">Regel ③<small>Genitivendungen</small></td>
+      <td class="wort">wegen · trotz<br>statt · anstelle</td>
+      <td><span class="bf praep">+ Genitiv</span></td>
+      <td class="bsp">wegen d<b>es</b> Job<b>s</b> · trotz d<b>er</b> Prüfung · statt d<b>er</b> Filme</td>
+      <td class="trick">maskulin / neutrum → <b>-es</b> (+ Nomen bekommt -s)<br>feminin / Plural → <b>-er</b><br>ohne Artikel nur die Adjektivendung: trotz <b>zahlreicher</b> Ratgeber.</td>
+    </tr>
+    <tr data-g="regel">
+      <td class="grp">Regel ④<small>alles ist umformbar</small></td>
+      <td class="wort">Der telc-Kern</td>
+      <td><span class="bf praep">3 Formen, 1 Sinn</span></td>
+      <td class="bsp"><b>Wegen der Krankheit</b> … = <b>Weil</b> sie krank <span class="verb">war</span>, … = Sie war krank, <b>deshalb</b> …</td>
+      <td class="trick">Genau diesen Wechsel prüft telc in Sprachbausteine Teil 1. Wer eine Form kennt, kann alle drei — wenn er die Verbposition beherrscht.</td>
+    </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div class="merksatz">
+    <div class="t">Der eine Satz, der alles enthält</div>
+    <p><b>Obwohl</b> ich müde <b>bin</b>, lerne ich weiter, <b>denn</b> die Prüfung <b>kommt</b> bald —
+      <b>deshalb schaue ich</b> heute keine Serien, <b>stattdessen mache ich</b> zehn Aufgaben,
+      <b>anstatt</b> sie auf morgen <b>zu verschieben</b>.</p>
+    <p class="warum">Darin stecken alle drei Bedeutungen und alle vier Bauformen: obwohl (Nebensatz) ·
+      denn (Hauptsatz) · deshalb und stattdessen (Verbindungsadverb, Verb auf Position 2) ·
+      anstatt … zu (Infinitiv). Sprich ihn dreimal laut — dann hast du das Muster im Ohr, nicht nur im Kopf.</p>
+  </div>
+
+  <p class="fuss">Deutsch B2 · telc — Tag 2 und Tag 3 · <a href="index.html">Kursübersicht</a> ·
+    <a href="b1-fundament.html">Grammatik-Bibliothek</a> · <span class="noprint">🖨 druckbar</span></p>
+</div>
+
+<script>
+/* Filter — Bedeutungsgruppen ein-/ausblenden */
+var chips = document.querySelectorAll(".chip[data-f]");
+chips.forEach(function (c) {
+  c.addEventListener("click", function () {
+    var f = c.dataset.f;
+    chips.forEach(function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+    document.querySelectorAll("tbody tr").forEach(function (tr) {
+      tr.style.display = (f === "alle" || tr.dataset.g === f) ? "" : "none";
+    });
+    /* Trennlinien nur zwischen sichtbaren Gruppen */
+    var letzte = null;
+    document.querySelectorAll("tbody tr").forEach(function (tr) {
+      if (tr.style.display === "none") return;
+      tr.classList.toggle("gruppenstart", tr.dataset.g !== letzte);
+      letzte = tr.dataset.g;
+    });
+  });
+});
+
+/* Hell / Dunkel — merkt sich die Wahl, falls möglich */
+function thema() {
+  var el = document.documentElement;
+  var neu = el.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  el.setAttribute("data-theme", neu);
+  try { localStorage.setItem("deutschB2.thema", neu); } catch (e) {}
+}
+(function () {
+  var t = null;
+  try { t = localStorage.getItem("deutschB2.thema"); } catch (e) {}
+  if (!t && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+  if (t) document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+</body>
+</html>

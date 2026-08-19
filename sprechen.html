@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprechen · Deutsch B2</title>
+<link rel="stylesheet" href="assets/kurs.css">
+<script src="assets/kurs.js"></script>
+<script src="assets/daten/kurs-liste.js"></script>
+<script src="assets/daten/fundament.js"></script>
+<script src="assets/daten/beruf.js"></script>
+<script src="assets/daten/einstufung.js"></script>
+<script src="assets/daten/tag-01.js"></script>
+<script src="assets/daten/tag-02.js"></script>
+<script src="assets/daten/tag-03.js"></script>
+<script src="assets/daten/tag-04.js"></script>
+<script src="assets/daten/sprechen.js"></script>
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-in">
+  <a class="brand" href="index.html"><span class="dot"></span>Deutsch B2 · telc</a>
+  <span class="spacer"></span>
+  <a class="navbtn" href="index.html"><span class="lbl">Übersicht</span></a>
+  <span style="width:1px;height:18px;background:var(--border)"></span>
+  <a class="navbtn" href="merkkarte.html" title="Merkkarte: Konnektoren auf einer Seite">🃏<span class="lbl"> Merkkarte</span></a>
+  <a class="navbtn" href="b1-fundament.html" title="Nachschlagewerk: alle Grammatik-Erklärungen">📖<span class="lbl"> Grammatik</span></a>
+  <a class="navbtn" href="berufsdeutsch.html" title="Nachschlagewerk: Bewerbung, Gespräch, E-Mail">💼<span class="lbl"> Beruf</span></a>
+  <a class="navbtn" href="sprechen.html" title="Sprechblatt für den KI-Sprechpartner">🎙<span class="lbl"> Sprechen</span></a>
+  <script>document.write(KURS.spracheUmschalter())</script>
+  <button class="navbtn" onclick="KURS.themaWechseln()" title="Hell / Dunkel"><svg width="13" height="13" viewBox="0 0 12 12" aria-hidden="true" style="vertical-align:-1px"><circle cx="6" cy="6" r="5.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6 .9a5.1 5.1 0 010 10.2z" fill="currentColor"/></svg></button>
+</div></div>
+
+<div class="wrap">
+  <div class="pagehead">
+    <div class="eyebrow">Sprechen · telc B1 mündliche Prüfung</div>
+    <h1>Dein Sprechblatt</h1>
+    <p class="sub">Kopiere den Text unten in deinen KI-Sprechpartner (Sprachmodus) und leg los.
+      Er spielt dann die komplette telc-B1-Prüfung mit dir durch — Teil 1, 2 und 3, mit Korrekturen.
+      <span class="en">Copy the block below into your voice AI. It runs the full telc B1 oral exam with you and corrects you as you go.</span></p>
+  </div>
+
+  <div class="hinweisbox info"><b>Zweimal bis dreimal pro Woche, 15 Minuten</b>
+    Das ist die echte Prüfungslänge. Mehr bringt wenig, weniger auch nicht.
+    Am Ende gibt dir die KI ein <b>Protokoll</b> mit deinen drei häufigsten Fehlern —
+    <b>das schickst du mir</b>, dann kommen sie am nächsten Abend als Aufgaben zurück.
+    <span class="en">15 minutes is the real exam length. Send me the protocol at the end and those mistakes come back as exercises.</span></div>
+
+  <div class="card">
+    <div class="card-title">🎙 Für die Sprach-KI <span class="en">— copy this into your voice AI</span></div>
+    <p class="sub">Einmal kopieren, in den Sprachmodus einfügen, Mikrofon an. Nichts anpassen nötig —
+      deine echten Fehler aus dem Kurs stehen schon drin.</p>
+    <div class="btnrow" style="margin:10px 0">
+      <button class="btn primary" onclick="kopieren()">📋 Text kopieren <span class="bl-en">· Copy</span></button>
+      <button class="btn" onclick="wechseln(-1)">← anderer Tag</button>
+      <button class="btn" onclick="wechseln(1)">anderer Tag →</button>
+      <span id="kopiert"></span>
+    </div>
+    <pre class="promptbox" id="prompt"></pre>
+  </div>
+
+  <h2>Was dich erwartet <span class="en">— so you know before you start</span></h2>
+  <div class="card" id="ueberblick"></div>
+
+  <h2>Redemittel für die drei Teile <span class="en">— learn these by heart</span></h2>
+  <div class="card" id="redemittel"></div>
+
+  <p class="fuss"><a href="index.html">← Kursübersicht</a></p>
+</div>
+
+<script>
+var aktuell = (function () {
+  var heute = new Date().toLocaleDateString("sv");
+  var f = KURS.manifest.filter(function (m) { return m.datum <= heute && m.status !== "leer"; });
+  return f.length ? f[f.length - 1].nr : 1;
+})();
+
+function wechseln(d) {
+  var max = KURS.manifest.filter(function (m) { return m.status !== "leer"; }).length;
+  aktuell = Math.min(Math.max(1, aktuell + d), Math.max(1, max));
+  zeichnen();
+}
+
+function kopieren() {
+  var t = document.getElementById("prompt").textContent;
+  var ok = function () {
+    document.getElementById("kopiert").innerHTML =
+      '<span class="fb-gesendet">✓ Kopiert — jetzt in die Sprach-KI einfügen</span>';
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(ok, auswaehlen);
+  } else { auswaehlen(); }
+}
+function auswaehlen() {
+  var r = document.createRange();
+  r.selectNodeContents(document.getElementById("prompt"));
+  var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  document.getElementById("kopiert").innerHTML =
+    '<span class="fb-gesendet">Markiert — jetzt ⌘C drücken</span>';
+}
+
+function zeichnen() {
+  var bl = KURS.sprechblatt(aktuell);
+  document.getElementById("prompt").textContent = KURS.sprechPrompt(bl);
+  document.getElementById("kopiert").innerHTML = "";
+
+  var h = '<p class="sub" style="margin-bottom:10px"><b>Tag ' + bl.tagNr +
+    (bl.titel ? ' · ' + KURS.esc(bl.titel) : '') + '</b> — Gesamtdauer etwa 15 Minuten, ' +
+    'genau wie in der Prüfung. In der echten Prüfung sitzt ein Partner neben dir; ' +
+    'hier übernimmt die KI beide Rollen.</p><div class="schichten">' +
+    schicht("1", "Kontaktaufnahme", "3 Min",
+      "Du stellst dich vor: Name, Wohnort, Arbeit, Sprachen, Familie, Hobbys. " +
+      "Die KI fragt nach — antworte nie nur mit einem Satz.",
+      "Introduce yourself and answer follow-up questions.") +
+    schicht("2", "Gespräch über ein Thema", "6 Min",
+      "<b>" + KURS.esc(bl.teil2.thema) + "</b><br>Du sprichst 1–2 Minuten am Stück, danach wird diskutiert. " +
+      "Punkte: " + bl.teil2.stichpunkte.map(KURS.esc).join(" · "),
+      "Speak for 1-2 minutes, then discuss.") +
+    schicht("3", "Gemeinsam etwas planen", "6 Min",
+      "<b>" + KURS.esc(bl.teil3.titel) + "</b><br>Punkte: " + bl.teil3.punkte.map(KURS.esc).join(" · ") +
+      "<br>Wichtig: <b>Vorschläge machen</b>, nicht nur zustimmen. Genau darauf achten die Prüfer.",
+      "Make proposals, do not just agree. That is what examiners score.") +
+    '</div>';
+
+  if (bl.prio.length || bl.fehler.length) {
+    h += '<div class="hinweisbox" style="margin-top:14px"><b>Was heute im Blatt steht — aus deinem echten Fortschritt</b>';
+    if (bl.prio.length) {
+      h += 'Schwachstellen: ' + bl.prio.map(function (p) {
+        return KURS.themaName(p.thema) + ' (' + p.quote + ' %)';
+      }).join(' · ') + '<br>';
+    }
+    if (bl.fehler.length) {
+      h += bl.fehler.length + ' konkrete Fehler aus deinen letzten Übungen. ' +
+        'Die KI baut die Fragen so, dass du genau diese Formen benutzen musst.';
+    }
+    h += '<span class="en">Your real weak spots and mistakes are already inside the prompt.</span></div>';
+  }
+  document.getElementById("ueberblick").innerHTML = h;
+
+  var w = bl.woerter.length
+    ? '<p class="sub">Diese Wörter aus Tag ' + bl.tagNr + ' sollst du im Gespräch unterbringen:</p><div class="vok">' +
+      bl.woerter.map(function (x) {
+        return '<div class="vokk" onclick="this.classList.toggle(\'auf\')">' +
+          '<div class="de">' + KURS.esc(x.de) + '</div>' +
+          '<div class="tipp">tippen zum Aufdecken</div>' +
+          '<div class="rueckseite">' + KURS.esc(x.en) + '</div></div>';
+      }).join("") + '</div>'
+    : '';
+  document.getElementById("redemittel").innerHTML = w + REDEMITTEL;
+}
+
+function schicht(nr, titel, zeit, txt, en) {
+  return '<div class="schicht"><span class="s-nr">' + nr + '</span>' +
+    '<span class="s-txt"><b>' + titel + '</b><small>' + txt +
+    ' <span class="en">' + en + '</span></small></span>' +
+    '<span class="s-ort">' + zeit + '</span></div>';
+}
+
+var REDEMITTEL =
+  '<div class="tabellenbox"><table class="gr"><thead><tr><th>Wofür</th><th>Sag das</th></tr></thead><tbody>' +
+  '<tr><td><b>Teil 1</b> · über dich</td><td>Ich komme ursprünglich aus … · Ich lebe seit … in Aachen. · ' +
+    'Beruflich bin ich … · In meiner Freizeit … · Deutsch lerne ich, <b>weil</b> …</td></tr>' +
+  '<tr><td><b>Teil 2</b> · Meinung</td><td><b>Meiner Meinung nach</b> … · <b>Ich finde, dass</b> … · ' +
+    '<b>Aus meiner Erfahrung</b> … · <b>Einerseits</b> …, <b>andererseits</b> …</td></tr>' +
+  '<tr><td><b>Teil 2</b> · begründen</td><td>… , <b>weil</b> … · <b>Deshalb</b> … · ' +
+    '<b>Zum Beispiel</b> … · <b>Obwohl</b> … , … · <b>Trotzdem</b> …</td></tr>' +
+  '<tr><td><b>Teil 2</b> · vergleichen</td><td><b>Verglichen mit</b> Chennai ist Aachen … · ' +
+    '<b>Im Gegensatz zu</b> … · Bei uns gibt es <b>zwar</b> … , <b>aber</b> …</td></tr>' +
+  '<tr><td><b>Teil 3</b> · vorschlagen</td><td><b>Wie wäre es, wenn</b> wir … ? · ' +
+    '<b>Ich schlage vor, dass</b> … · <b>Wir könnten</b> … · <b>Sollen wir</b> … ?</td></tr>' +
+  '<tr><td><b>Teil 3</b> · zustimmen</td><td><b>Das ist eine gute Idee.</b> · <b>Damit bin ich einverstanden.</b> · ' +
+    '<b>Einverstanden</b>, machen wir das so.</td></tr>' +
+  '<tr><td><b>Teil 3</b> · ablehnen</td><td><b>Das finde ich nicht so gut</b>, weil … · ' +
+    '<b>Da bin ich anderer Meinung.</b> · <b>Lieber</b> … , <b>oder</b>?</td></tr>' +
+  '<tr><td><b>immer</b> · Zeit gewinnen</td><td><b>Moment, lass mich kurz überlegen.</b> · ' +
+    '<b>Das ist eine gute Frage.</b> · <b>Wie sagt man das …</b></td></tr>' +
+  '<tr><td><b>immer</b> · nachfragen</td><td><b>Können Sie das bitte wiederholen?</b> · ' +
+    '<b>Habe ich das richtig verstanden, dass</b> … ? · <b>Was bedeutet</b> … ?</td></tr>' +
+  '</tbody></table></div>' +
+  '<p class="sub" style="margin-top:10px">Die letzten beiden Zeilen sind die wichtigsten. ' +
+  'Wer in der Prüfung <b>nachfragt</b> statt zu schweigen, verliert keine Punkte — Schweigen kostet welche. ' +
+  '<span class="en">Asking for repetition costs nothing. Silence costs points.</span></p>';
+
+zeichnen();
+</script>
+</body>
+</html>

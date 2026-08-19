@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tag 22 · Deutsch B2</title>
+<link rel="stylesheet" href="assets/kurs.css">
+<script src="assets/kurs.js"></script>
+<script src="assets/daten/kurs-liste.js"></script>
+<script src="assets/daten/fundament.js"></script>
+<script src="assets/daten/beruf.js"></script>
+<script src="assets/daten/pruefung.js"></script>
+<script src="assets/daten/schreiben.js"></script>
+</head>
+<body>
+<script>KURS.kopf("tag-22");</script>
+<div class="wrap">
+  <div id="kopf"></div>
+  <div id="kurs-app"></div>
+  <p class="fuss"><a href="index.html">← Kursübersicht</a> · Tag 22 · Do 27.08.2026 · VHS Aachen 261-14125</p>
+</div>
+<script>
+(function () {
+  var id = "tag-22";
+  if (KURS.seiten[id]) {
+    document.getElementById("kopf").innerHTML = KURS.seitenkopf(id);
+    KURS.starte(id, "kurs-app");
+  } else {
+    document.getElementById("kopf").innerHTML =
+      '<div class="pagehead"><div class="eyebrow">Tag 22 · Do 27.08.2026</div>' +
+      '<h1>Noch kein Material</h1></div>';
+    document.getElementById("kurs-app").innerHTML = KURS.leereSeite(22, "27.08.2026");
+  }
+})();
+</script>
+</body>
+</html>
