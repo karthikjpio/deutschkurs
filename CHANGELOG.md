@@ -2,6 +2,49 @@
 Hier steht, was ich an der Website geändert habe und warum. Basis: Karthiks Feedback,
 seine 🚩-Markierungen und die Fehler aus den exportierten Fortschrittsdateien.
 ---
+## 2026-08-19 (spätestens) · Engine 2.4.2 · Struktur: eine Leiste, ein Abschnitt = Erklärung + Aufgaben
+
+Karthiks Rückmeldung: „Die Struktur ist ein bisschen problematisch, vor allem ein
+Inhaltsverzeichnis ohne Links. Erst stehen alle Erklärungen, dann noch einmal eine
+Erklärung, dann die Aufgaben. Wäre es nicht besser: Inhalt links, beim Klick rechts
+Erklärung und direkt darunter die Aufgaben? MECE, sauber strukturiert."
+
+**Das Problem war doppelt.** Erstens: alle Konzeptkarten standen als Block oben,
+alle Aufgabenblöcke als Block unten, ohne Verbindung zwischen einer Erklärung und
+ihren Aufgaben. Zweitens: über jedem Aufgabenblock stand zusätzlich ein
+„Spickzettel", der dieselbe Regel ein zweites Mal zusammenfasste. Wer die Karte
+oben gelesen hatte, las sie unten noch einmal.
+
+**Neu: Abschnitte.** Jede Erklärung und ihre Aufgaben bilden jetzt einen
+Abschnitt, nummeriert, mit eigener Überschrift und eigenem Fortschrittszähler.
+Eine Sprungleiste links (auf schmalen Bildschirmen oben, aufklappbar) verlinkt
+jeden Abschnitt, mit Live-Zähler `3/8` und einem Häkchen, sobald der Abschnitt
+fertig ist. Ein Klick scrollt direkt zu Erklärung und Aufgaben zusammen.
+Scroll-Spy markiert automatisch, wo man gerade liest.
+
+**MECE geprüft, nicht nur behauptet.** Ein Skript läuft über jede Seite und
+zählt: jedes Konzept genau einem Abschnitt zugeordnet, jeder Aufgabenblock genau
+einem, jede einzelne Aufgabe genau einmal vorhanden. Ergebnis über alle 8 Seiten:
+**43 Konzepte, 56 Blöcke, 451 Aufgaben, keine Lücke, keine Dopplung.**
+Der Spickzettel erscheint nur noch dort, wo ein Abschnitt keine eigene
+Konzeptkarte hat (z. B. Wiederholungsblöcke) und ersetzt dort weiterhin die
+fehlende Erklärung.
+
+**Ein 12-Aufgaben-Deckel ist gefallen.** Er kürzte „Phase ②" auf ~12 Aufgaben,
+weil ein Abend früher vier Phasen haben musste. Seit ein Modul die Portion ist,
+gehört der ganze Stoff des Moduls sichtbar in seine Abschnitte statt in die
+Zugabe zu verschwinden.
+
+**Zwei Fehler beim Umbau selbst gefunden und behoben**
+- Der Lektion-1/Lektion-2-Trenner in `einheit-01-d.js` verglich Blocktitel als
+  exakten String. Die Em-Dash-Bereinigung vom letzten Durchgang hatte die
+  Blocktitel („Lektion 2 A: …") von den Vergleichs-Strings („Lektion 2 A, …")
+  auseinanderlaufen lassen, zwei Blöcke blieben dadurch fälschlich in Modul D.
+  Jetzt ein robuster Stichwort-Abgleich statt exaktem Vergleich.
+- Fünf weitere Konzepte trugen ein falsches `thema` (u. a. „Satzakzent" als
+  `sprachbausteine`, „Wortstellung" als `leseverstehen`), gefunden beim
+  Nachprüfen der Konzept-zu-Aufgabe-Zuordnung.
+
 ## 2026-08-19 (spät) · Engine 2.3.0  Erklärungen, die man ohne Vorwissen versteht
 **Karthiks Rückmeldung:** „Ich weiß nicht, was wo ist. Und geh durch die Inhalte, sodass
 das auch ein Fünfjähriger versteht: einfach, vollständig, und mit Beispielen."

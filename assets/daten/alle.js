@@ -11,7 +11,7 @@
    pruefung.js und schreiben.js an und muss danach kommen.
    ============================================================ */
 (function () {
-  var V = "2.3.0";
+  var V = "2.4.2";
   var dateien = [
     "kurs-liste",
     "fundament",

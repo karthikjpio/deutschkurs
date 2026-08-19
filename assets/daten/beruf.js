@@ -390,8 +390,10 @@ KURS.berufBlock = function (tagNr) {
   var konzepte = [], bloecke = [];
   KURS.berufPlan.forEach(function (t) {
     var f = KURS.beruf[t];
+    var abschnitt = konzepte.length + 1;
+    f.konzept.abschnitt = abschnitt;
     konzepte.push(f.konzept);
-    bloecke.push({ titel: f.titel, telc: "Beruf", hinweis: f.kurz, items: f.items });
+    bloecke.push({ abschnitt: abschnitt, titel: f.titel, telc: "Beruf", hinweis: f.kurz, items: f.items });
   });
   KURS.seiten["berufsdeutsch"] = {
     id: "berufsdeutsch", nr: 0, datum: "",

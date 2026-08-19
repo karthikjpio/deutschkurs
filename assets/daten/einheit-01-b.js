@@ -20,6 +20,7 @@ videos: [
 konzepte: [
 {
   titel: "① Zwei Familien von Konnektoren: der ganze Trick",
+  abschnitt: 1,
   thema: "konnektoren",
   einfach: {
     kern: "Zwei Wörter können dasselbe bedeuten, und trotzdem steht das Verb an einer ganz anderen Stelle.",
@@ -57,6 +58,7 @@ konzepte: [
 },
 {
   titel: "② Grund nennen: kausal",
+  abschnitt: 2,
   thema: "nebensatz",
   einfach: {
     kern: "Du willst sagen, <b>warum</b> etwas so ist. Dafür gibt es drei Bauarten. Such dir eine aus.",
@@ -90,6 +92,7 @@ konzepte: [
 },
 {
   titel: "③ Gegengrund nennen: konzessiv",
+  abschnitt: 3,
   thema: "konnektoren",
   einfach: {
     kern: "Du erwartest ein Ergebnis, und dann kommt genau das Gegenteil.",
@@ -123,7 +126,8 @@ konzepte: [
 },
 {
   titel: "④ Wortstellung: die Tabelle zum Auswendiglernen",
-  thema: "leseverstehen",
+  abschnitt: 4,
+  thema: "nebensatz",
   einfach: {
     kern: "Wenn der Nebensatz vorne steht, kommt danach sofort das Verb.",
     paare: [
@@ -154,7 +158,8 @@ konzepte: [
 },
 {
   titel: "⑤ Lesestile: global und selektiv (telc Leseverstehen)",
-  thema: "adjektivendungen",
+  abschnitt: 5,
+  thema: "leseverstehen",
   einfach: {
     kern: "Es gibt zwei Arten zu lesen. Du entscheidest vorher, welche du brauchst.",
     paare: [
@@ -186,7 +191,8 @@ konzepte: [
 },
 {
   titel: "⑥ Wortbildung: Komposita mit „Lern-“ und Adjektive auf -iv / -al",
-  thema: "perfekt-praeteritum",
+  abschnitt: 6,
+  thema: "wortbildung",
   einfach: {
     kern: "Zwei Nomen werden ein Wort. Den Artikel gibt immer das letzte Wort.",
     paare: [
@@ -227,6 +233,7 @@ bloecke: [
 /* ---------------- 1. Konnektor erkennen ---------------- */
 {
 titel: "Konnektoren erkennen: Grund oder Gegengrund?",
+abschnitt: 1,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Aus Kursbuch 3a und 3c. Kausal = Grund und logische Folge. Konzessiv = Gegengrund und nicht erwartete Folge.",
 items: [
@@ -267,6 +274,7 @@ items: [
 /* ---------------- 2. Wortstellung: Verb an die richtige Stelle ---------------- */
 {
 titel: "Wortstellung: wohin mit dem Verb?",
+abschnitt: 4,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Schreib nur das fehlende Wort in die Lücke. Achte genau darauf, ob ein Nebensatz oder ein Hauptsatz folgt.",
 items: [
@@ -325,6 +333,7 @@ items: [
 /* ---------------- 3. Sätze bauen ---------------- */
 {
 titel: "Sätze bauen: Wörter in die richtige Reihenfolge klicken",
+abschnitt: 3,
 telc: "Schriftlicher Ausdruck",
 hinweis: "Klick die Wörter in der richtigen Reihenfolge an. Nochmal klicken schickt ein Wort zurück.",
 items: [
@@ -357,6 +366,7 @@ items: [
 /* ---------------- 4. Umformen ---------------- */
 {
 titel: "Umformen: gleicher Sinn, andere Struktur",
+abschnitt: 2,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Genau das prüft telc am liebsten: denselben Inhalt einmal mit Nebensatz und einmal mit Verbindungsadverb.",
 items: [
@@ -409,6 +419,7 @@ items: [
 /* ---------------- 5. Sprachbausteine Cloze ---------------- */
 {
 titel: "Lückentext im telc-Format",
+abschnitt: 7,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Wähle für jede Lücke die richtige Option. Nur eine passt grammatisch UND inhaltlich.",
 text: "<b>Aus einem Forum zum Thema Lernen</b>",
@@ -435,6 +446,7 @@ items: [
 /* ---------------- 6. Wortschatz & Wortbildung ---------------- */
 {
 titel: "Wortbildung: Komposita mit „Lern-“",
+abschnitt: 6,
 telc: "Sprachbausteine Teil 2",
 hinweis: "Arbeitsbuch B1b. Schreib Artikel + Wort, z. B. „der Lerntipp“.",
 items: [
@@ -490,6 +502,7 @@ items: [
 /* ---------------- 7. Wortbedeutung im Kontext ---------------- */
 {
 titel: "Wortbedeutung im Textzusammenhang",
+abschnitt: 5,
 telc: "Leseverstehen Teil 2",
 hinweis: "Arbeitsbuch B2. Was bedeutet das Wort HIER im Text? Nicht: was bedeutet es allgemein?",
 items: [
@@ -524,6 +537,7 @@ items: [
 /* ---------------- 8. B1-Check ---------------- */
 {
 titel: "B1-Check: Grundlagen, die bei B2 wehtun",
+abschnitt: 8,
 hinweis: "Diese Themen kommen aus B1, aber telc B2 setzt sie voraus. Fehler hier kosten in jeder Prüfungsteil Punkte.",
 items: [
   { typ:"luecke", thema:"adjektivendungen", b1:true,
@@ -572,6 +586,7 @@ items: [
 /* ---------------- 9. Schreiben ---------------- */
 {
 titel: "Schriftlicher Ausdruck: dein Forumsbeitrag",
+abschnitt: 9,
 telc: "Schriftlicher Ausdruck",
 hinweis: "Kursbuch Aufgabe 4. Antworte auf Nias Frage im Forum: Welche Lernmethode funktioniert für dich?",
 items: [

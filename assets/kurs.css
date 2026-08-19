@@ -942,3 +942,84 @@ input.luecke.fast {
 .sh-txt small {
   display: block; font-size: 13.5px; color: var(--text-soft); margin-top: 2px; line-height: 1.55;
 }
+
+/* ============================================================
+   Modulseite: Inhaltsleiste links, Abschnitte rechts.
+   Ein Abschnitt = eine Erklaerung + genau ihre Aufgaben.
+   ============================================================ */
+.modul-grid { display: block; }
+.modul-inhalt { min-width: 0; }
+
+/* Ab 1080 px zwei Spalten. Die Leiste klebt mit. */
+@media (min-width: 1080px) {
+  .modul-grid {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .modul-nav {
+    position: sticky; top: calc(var(--topbar-h) + 14px);
+    max-height: calc(100vh - var(--topbar-h) - 30px);
+    overflow-y: auto; scrollbar-width: thin;
+    display: flex; flex-direction: column; gap: 1px;
+    padding-right: 4px;
+  }
+}
+/* Erst wenn links wirklich Platz neben der Textspalte ist, rueckt die
+   Leiste aus dem Lesebereich heraus. Vorher wurde sie bei ~1280 px
+   knapp aus dem Bild geschoben. */
+@media (min-width: 1420px) {
+  .modul-grid { grid-template-columns: 214px minmax(0, 1fr); gap: 30px; margin-left: -244px; }
+}
+@media (max-width: 1079px) {
+  /* Schmal: die Leiste wird zu einer aufklappbaren Liste oben. */
+  .modul-nav {
+    display: flex; flex-direction: column; gap: 1px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 10px 12px; margin: 14px 0 16px;
+    max-height: 232px; overflow-y: auto;
+  }
+}
+
+.mn-kopf {
+  font-size: 10.5px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-faint); padding: 4px 8px 8px;
+}
+.mn-i {
+  display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 8px;
+  align-items: baseline; padding: 6px 8px; border-radius: var(--radius-s);
+  text-decoration: none; color: var(--text-soft); font-size: 13px; line-height: 1.4;
+}
+.mn-i:hover { background: var(--surface-2); color: var(--text); }
+.mn-i.ist-hier { background: var(--accent-soft); color: var(--accent-text); font-weight: 650; }
+.mn-nr {
+  font-size: 11px; font-weight: 700; color: var(--text-faint);
+  font-variant-numeric: tabular-nums; text-align: right;
+}
+.mn-i.ist-hier .mn-nr { color: var(--accent-text); }
+.mn-t { overflow: hidden; text-overflow: ellipsis; }
+.mn-z {
+  font-size: 11px; color: var(--text-faint); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.mn-i.fertig .mn-z { color: var(--ok-text); font-weight: 700; }
+.mn-i.fertig .mn-nr::after { content: " ✓"; color: var(--ok-text); }
+
+/* Abschnitt */
+.abschnitt { scroll-margin-top: calc(var(--topbar-h) + 14px); margin: 0 0 34px; }
+.ab-kopf {
+  display: flex; align-items: baseline; gap: 11px;
+  padding-bottom: 9px; margin-bottom: 4px; border-bottom: 2px solid var(--border);
+}
+.ab-nr {
+  flex: 0 0 auto; font-size: 12px; font-weight: 750; color: #fff;
+  background: var(--accent); border-radius: 6px; padding: 2px 8px;
+  font-variant-numeric: tabular-nums; align-self: center;
+}
+.ab-t { font-size: 18px; letter-spacing: -.015em; margin: 0; flex: 1 1 auto; min-width: 0; }
+.ab-z {
+  flex: 0 0 auto; font-size: 12px; font-weight: 700; color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+.abblock { margin: 12px 0; }
+.abschnitt .konzeptkarte { margin: 12px 0; }

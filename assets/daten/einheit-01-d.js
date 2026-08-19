@@ -33,6 +33,7 @@ videos: [
 konzepte: [
 {
   titel: "① Die Stellungnahme: der Bauplan, den telc sehen will",
+  abschnitt: 1,
   thema: "stellungnahme",
   einfach: {
     kern: "Du schreibst deine Meinung zu einem Text. Immer in drei Teilen, immer in dieser Reihenfolge.",
@@ -69,6 +70,7 @@ konzepte: [
 },
 {
   titel: "② Die Einleitung: vier Angaben, dann deine These",
+  abschnitt: 2,
   thema: "stellungnahme",
   einfach: {
     kern: "In den ersten zwei Sätzen sagst du, über welchen Text du schreibst und was du selbst denkst.",
@@ -102,6 +104,7 @@ konzepte: [
 },
 {
   titel: "③ Fremde Meinung wiedergeben: und dann Stellung nehmen",
+  abschnitt: 3,
   thema: "stellungnahme",
   einfach: {
     kern: "Jeder Absatz hat zwei Schritte: erst was der andere sagt, dann was du dazu sagst.",
@@ -137,6 +140,7 @@ konzepte: [
 },
 {
   titel: "④ Argumente verknüpfen: die Redemittel-Leiter",
+  abschnitt: 4,
   thema: "stellungnahme",
   einfach: {
     kern: "Deine Argumente sollen zusammenhängen und nicht wie eine Einkaufsliste wirken.",
@@ -177,6 +181,7 @@ konzepte: [
 },
 {
   titel: "⑤ Lektion 2 beginnt: Leben in Großstädten",
+  abschnitt: 6,
   thema: "wortschatz",
   einfach: {
     kern: "Du sollst zwei Städte vergleichen. Dafür gibt es vier feste Satzanfänge.",
@@ -215,6 +220,7 @@ konzepte: [
 },
 {
   titel: "⑥ Strukturierte Notizen beim Hören (telc Hörverstehen)",
+  abschnitt: 8,
   thema: "hoerverstehen",
   einfach: {
     kern: "Beim Hören schreibst du keine Sätze, sondern Stichwörter in zwei Spalten.",
@@ -255,6 +261,7 @@ bloecke: [
 /* ---------------- 1. Der Bauplan ---------------- */
 {
 titel: "Der Bauplan einer Stellungnahme",
+abschnitt: 1,
 telc: "Schriftlicher Ausdruck",
 hinweis: "Arbeitsbuch D1a (S. 145) und die Handreichung deiner Lehrerin. Ordne jede Angabe ihrem Teil zu.",
 items: [
@@ -308,6 +315,7 @@ items: [
 /* ---------------- 2. Die Einleitung ---------------- */
 {
 titel: "Die Einleitung bauen",
+abschnitt: 2,
 telc: "Schriftlicher Ausdruck",
 hinweis: "Arbeitsbuch D1b (S. 145), die Sätze, die du im Unterricht ergänzt hast.",
 items: [
@@ -352,6 +360,7 @@ items: [
 /* ---------------- 3. Stellung nehmen ---------------- */
 {
 titel: "Fremde Meinung wiedergeben: und Stellung nehmen",
+abschnitt: 3,
 telc: "Schriftlicher Ausdruck",
 hinweis: "Arbeitsbuch D1b, Hauptteil (Nr. 3–6). Genau die Sätze, die du heute geschrieben hast.",
 items: [
@@ -407,6 +416,7 @@ items: [
 /* ---------------- 4. Redemittel verknüpfen ---------------- */
 {
 titel: "Argumente verknüpfen: Redemittel im Text",
+abschnitt: 4,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Handreichung, Abschnitt 2. Die Wendungen, die deinen Text zusammenhalten.",
 items: [
@@ -471,6 +481,7 @@ items: [
 /* ---------------- 5. Leben in Großstädten ---------------- */
 {
 titel: "Lektion 2 A: Leben in Großstädten",
+abschnitt: 6,
 telc: "Wortschatz & Sprachbausteine",
 hinweis: "Kursbuch S. 148 (A1a) und Arbeitsbuch S. 149 (2 A1), der Augsburg-Text, den du ergänzt hast.",
 items: [
@@ -540,6 +551,7 @@ items: [
 /* ---------------- 6. Vergleichen ---------------- */
 {
 titel: "Vergleiche ausdrücken: Aachen gegen Chennai",
+abschnitt: 7,
 telc: "Mündlicher Ausdruck",
 hinweis: "Kursbuch A1b (S. 148). Diese Formeln brauchst du in der mündlichen Prüfung beim Bildvergleich.",
 items: [
@@ -577,6 +589,7 @@ items: [
 /* ---------------- 7. Notizen beim Hören ---------------- */
 {
 titel: "Strukturierte Notizen beim Hören",
+abschnitt: 8,
 telc: "Hörverstehen Teil 2",
 hinweis: "Kursbuch A2a/A2b (S. 149), der Vortrag „Zukunft in der Stadt gestalten“.",
 items: [
@@ -619,6 +632,7 @@ items: [
 /* ---------------- 8. Schreiben ---------------- */
 {
 titel: "Schriftlicher Ausdruck: deine erste vollständige Stellungnahme",
+abschnitt: 5,
 telc: "Schriftlicher Ausdruck",
 hinweis: "Das ist die Prüfungsaufgabe. Nimm dir 25 Minuten, so wie in der echten Prüfung.",
 items: [
@@ -702,12 +716,11 @@ dialog:
    ============================================================ */
 (function () {
   var d = KURS.seiten["e1-d"];
-  var nachL2 = {
-    "Lektion 2 A, Leben in Großstädten": 1,
-    "Vergleiche ausdrücken, Aachen gegen Chennai": 1,
-    "Strukturierte Notizen beim Hören": 1
-  };
-  var konzepteL2 = { "⑤": 1, "⑥": 1 };
+  /* Auf Stichwort pruefen, nicht auf den kompletten Titel: eine spaetere
+     Korrektur an der Zeichensetzung darf die Zuordnung nicht stillschweigend
+     zerreissen (genau das ist einmal passiert). */
+  var nachL2 = /Leben in Gro\u00dfst\u00e4dten|Vergleiche ausdr\u00fccken|Strukturierte Notizen beim H\u00f6ren/;
+  var konzepteL2 = { "\u2464": 1, "\u2465": 1 };
 
   function raus(liste, treffer) {
     var bleibt = [], geht = [];
@@ -715,7 +728,7 @@ dialog:
     return { bleibt: bleibt, geht: geht };
   }
 
-  var bl = raus(d.bloecke,   function (b) { return nachL2[b.titel]; });
+  var bl = raus(d.bloecke,   function (b) { return nachL2.test(b.titel || ""); });
   var kz = raus(d.konzepte,  function (k) { return konzepteL2[(k.titel || "").charAt(0)]; });
 
   d.bloecke  = bl.bleibt;

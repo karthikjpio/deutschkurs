@@ -1400,9 +1400,13 @@ KURS.planNeu = function (seiteId) {
   var konzepte = [], bloecke = [];
   KURS.fundamentPlan.forEach(function (t) {
     var f = KURS.fundament[t];
+    /* Konzept und Aufgabenblock desselben Themas bilden EINEN Abschnitt. */
+    var abschnitt = konzepte.length + 1;
+    f.konzept.abschnitt = abschnitt;
     konzepte.push(f.konzept);
     var vk = KURS.videoKarten(t);
     bloecke.push({
+      abschnitt: abschnitt,
       titel: f.titel,
       telc: "Sprachbausteine",
       hinweis: f.kurz +

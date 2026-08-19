@@ -28,6 +28,7 @@ videos: [
 konzepte: [
 {
   titel: "① Alternativen ausdrücken: die vierte Konnektoren-Familie",
+  abschnitt: 1,
   thema: "konnektoren",
   einfach: {
     kern: "Du sagst, was du nicht machst, und was du dafür machst.",
@@ -66,6 +67,7 @@ konzepte: [
 },
 {
   titel: "② Die wichtigste Regel des Tages: „anstatt dass“ oder „anstatt … zu“?",
+  abschnitt: 2,
   thema: "infinitiv-zu",
   einfach: {
     kern: "Es hängt nur daran, ob in beiden Satzteilen dieselbe Person handelt.",
@@ -98,6 +100,7 @@ konzepte: [
 },
 {
   titel: "③ Angaben mit Präposition ↔ Nebensatz",
+  abschnitt: 3,
   thema: "kasus",
   einfach: {
     kern: "Dieselbe Information geht kurz mit einem Nomen oder lang mit einem halben Satz.",
@@ -135,6 +138,7 @@ konzepte: [
 },
 {
   titel: "④ Genitivendungen: hier verlierst du Punkte",
+  abschnitt: 3,
   thema: "kasus",
   einfach: {
     kern: "Nach wegen und trotz ändert sich das kleine Wort vor dem Nomen.",
@@ -167,6 +171,7 @@ konzepte: [
 },
 {
   titel: "⑤ Hörstile: global und selektiv (telc Hörverstehen)",
+  abschnitt: 4,
   thema: "hoerverstehen",
   einfach: {
     kern: "Beim Hören suchst du entweder das große Thema oder eine einzelne Information.",
@@ -199,6 +204,7 @@ konzepte: [
 },
 {
   titel: "⑥ Wortbildung: alles mit „Schrift“",
+  abschnitt: 5,
   thema: "wortbildung",
   einfach: {
     kern: "Bei langen zusammengesetzten Wörtern entscheidet immer der letzte Teil über der, die oder das.",
@@ -239,6 +245,7 @@ bloecke: [
 /* ---------------- 1. Alternativen erkennen ---------------- */
 {
 titel: "Alternativen erkennen: welche Bauform?",
+abschnitt: 1,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Kursbuch C2a/2b (S. 14). Alle Sätze stammen aus dem Radiointerview.",
 items: [
@@ -281,6 +288,7 @@ items: [
 /* ---------------- 2. Die Subjektregel ---------------- */
 {
 titel: "„anstatt dass“ oder „anstatt … zu“?: die Subjektregel",
+abschnitt: 2,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Arbeitsbuch C3a–d (S. 143). Genau hier war dein Fehler im Unterricht, bitte langsam lesen.",
 items: [
@@ -337,6 +345,7 @@ items: [
 /* ---------------- 3. Präposition ↔ Nebensatz ---------------- */
 {
 titel: "Angaben mit Präposition ↔ Nebensatz",
+abschnitt: 3,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Arbeitsbuch B6 und B7 (S. 140–141). Die Umformung in beide Richtungen, telc-Lieblingsaufgabe.",
 items: [
@@ -399,6 +408,7 @@ items: [
 /* ---------------- 4. Hörverstehen (Transkript-Simulation) ---------------- */
 {
 titel: "Hörverstehen: globales und selektives Hören",
+abschnitt: 4,
 telc: "Hörverstehen Teil 1 & 2",
 hinweis: "Das Radiointerview „Neurowissenschaft und Lernen“ aus Kursbuch C1. Ich kann kein Audio abspielen, " +
          "deshalb arbeitest du hier mit den Aussagen. <b>Lies zuerst alle Aussagen, dann entscheide.</b>",
@@ -447,6 +457,7 @@ items: [
 /* ---------------- 5. Wortschatz & Wortbildung ---------------- */
 {
 titel: "Wortschatz rund ums Schreiben",
+abschnitt: 5,
 telc: "Leseverstehen Teil 2 · Sprachbausteine Teil 2",
 hinweis: "Arbeitsbuch C1 und C2 (S. 142).",
 items: [
@@ -511,6 +522,7 @@ items: [
 /* ---------------- 6. Wiederholung Tag 2 ---------------- */
 {
 titel: "Wiederholung aus Tag 2",
+abschnitt: 6,
 telc: "Sprachbausteine Teil 1",
 hinweis: "Deine Fehler von gestern kommen zurück, plus die Sätze aus Arbeitsbuch B5d/B5e, die du heute im Kurs gemacht hast.",
 items: [
@@ -546,6 +558,7 @@ items: [
 /* ---------------- 7. Schreiben ---------------- */
 {
 titel: "Schriftlicher Ausdruck: Forumsbeitrag ergänzen",
+abschnitt: 7,
 telc: "Schriftlicher Ausdruck",
 hinweis: "Arbeitsbuch B8 (S. 141), der Beitrag, den du im Kurs noch nicht fertig hattest.",
 items: [

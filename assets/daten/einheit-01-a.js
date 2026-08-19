@@ -21,6 +21,7 @@ videos: [
 konzepte: [
 {
   titel: "Nachgeholt: jetzt vollständig",
+  abschnitt: 1,
   thema: "wortschatz",
   einfach: {
     kern: "Diese Stunde hast du verpasst. Hier ist sie komplett, mit Fokus auf Sprechen.",
@@ -41,7 +42,8 @@ konzepte: [
 },
 {
   titel: "① Wie lernt man?: die Ausdrücke aus dem Kursbuch",
-  thema: "redemittel",
+  abschnitt: 2,
+  thema: "wortschatz",
   einfach: {
     kern: "Diese Wörter brauchst du, wenn du erzählst, wie du Deutsch lernst.",
     paare: [
@@ -81,6 +83,7 @@ konzepte: [
 },
 {
   titel: "② Die Redemittel: das Prüfungsgold der Lektion",
+  abschnitt: 3,
   thema: "redemittel",
   einfach: {
     kern: "Du sagst nie nur „ja“ oder „nein“, du sagst immer auch warum.",
@@ -117,6 +120,7 @@ konzepte: [
 },
 {
   titel: "③ Die fünf Aussagen aus dem Kurs",
+  abschnitt: 4,
   thema: "infinitiv-zu",
   einfach: {
     kern: "Zu jeder dieser Aussagen sollst du deine Meinung sagen, immer mit Grund.",
@@ -144,6 +148,7 @@ konzepte: [
 },
 {
   titel: "④ Aussprache: Satzakzent in kurzen Sätzen",
+  abschnitt: 5,
   thema: "sprechen",
   einfach: {
     kern: "In jedem kurzen Satz sprichst du ein Wort kräftiger, den Rest ganz normal.",
@@ -176,6 +181,7 @@ konzepte: [
 bloecke: [
 {
 titel: "Lernstrategien: die Sätze aus dem Arbeitsbuch",
+abschnitt: 2,
 telc: "Sprachbausteine Teil 2",
 hinweis: "Arbeitsbuch A1 (S. 136), alle zehn Sätze. Ergänze den fehlenden Ausdruck.",
 items: [
@@ -205,6 +211,7 @@ items: [
 
 {
 titel: "Redemittel: zustimmen oder widersprechen?",
+abschnitt: 3,
 telc: "Mündlicher Ausdruck",
 hinweis: "Arbeitsbuch A2a (S. 136). Ordne jedes Original-Redemittel richtig zu.",
 items: [
@@ -246,6 +253,7 @@ items: [
 
 {
 titel: "Stellung nehmen: deine eigenen Antworten",
+abschnitt: 4,
 telc: "Mündlicher Ausdruck",
 hinweis: "Arbeitsbuch A2b (S. 136). Zu jeder Aussage Stellung nehmen, mit Redemittel UND Begründung.",
 items: [
@@ -285,6 +293,7 @@ items: [
 
 {
 titel: "Aussprache: Satzakzent",
+abschnitt: 5,
 telc: "Mündlicher Ausdruck",
 hinweis: "Arbeitsbuch A3 (S. 137 oben). Sprich jeden Satz laut, bevor du klickst.",
 items: [
@@ -304,6 +313,7 @@ items: [
 
 {
 titel: "B1-Check",
+abschnitt: 6,
 hinweis: "Grundlagen, die du für die Redemittel brauchst.",
 items: [
   { typ:"luecke", thema:"kasus", b1:true, frage:"Wechselpräposition, wohin?",

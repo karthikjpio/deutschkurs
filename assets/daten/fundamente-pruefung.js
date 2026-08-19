@@ -54,5 +54,8 @@
   }
 
   if (!bloecke.length) return;
+  /* Eigene Abschnitte hinter den Grammatikthemen, ohne Konzeptkarte. */
+  var start = (seite.konzepte || []).length;
+  bloecke.forEach(function (b, i) { b.abschnitt = start + 1 + i; });
   seite.bloecke = (seite.bloecke || []).concat(bloecke);
 })();

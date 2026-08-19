@@ -14,7 +14,7 @@
 var KURS = window.KURS = window.KURS || {};
 KURS.seiten = KURS.seiten || {};
 KURS.SCHLUESSEL = "deutschB2.v1";
-KURS.ENGINE = "2.3.0";
+KURS.ENGINE = "2.4.2";
 
 /* ---------- Themen-Register: Anzeigenamen für Schwachstellen ---------- */
 KURS.THEMEN = {
@@ -661,10 +661,7 @@ Uebung.prototype.render = function (seite) {
         '<span class="ph-zeit">' + p.min + ' Min · ' + p.anzahl + ' ' + KURS.bl("Aufgaben", "tasks") + '</span>' +
       '</div>');
 
-    /* Konzepte gehören in Phase ②, vor die Aufgaben, nicht in einen eigenen Abschnitt */
-    if (p.konzepte && p.konzepte.length) {
-      p.konzepte.forEach(function (k) { h.push(konzeptHtml(k)); });
-    }
+    /* Videos zuerst, danach die Abschnitte: Erklärung und ihre Aufgaben zusammen. */
     if (p.videos && p.videos.length) {
       h.push('<details class="card blockkarte"><summary><span class="bk-t">📺 ' +
         KURS.bl("Videos zu diesem Tag", "Videos for today") + '</span>' +
@@ -680,16 +677,26 @@ Uebung.prototype.render = function (seite) {
       h.push('</div></div></details>');
     }
 
-    p.bloecke.forEach(function (b) {
-      h.push('<div class="card phasenblock">');
-      if (b.titel) h.push('<div class="card-title">' + esc(b.titel) +
-        (b.telc ? ' <span class="chip accent">telc · ' + esc(b.telc) + '</span>' : '') + '</div>');
-      if (b.hinweis) h.push('<p class="sub">' + b.hinweis + '</p>');
-      if (b.text) h.push('<div class="regel" style="line-height:1.75">' + b.text + '</div>');
-      h.push(spickHtml(b.items, self._gesehen));   /* Theorie zuerst, dann die Aufgaben */
-      (b.items || []).forEach(function (it) { h.push(self.itemHtml(it)); });
-      h.push('</div>');
-    });
+    var ab = self.baueAbschnitte(p.konzepte, p.bloecke);
+    if (p.nr === 2) {
+      /* Das Modul selbst bekommt die Sprungleiste. */
+      self._abschnitte = ab;
+      h.push('<div class="modul-grid">');
+      h.push(self.abschnittNavHtml(ab));
+      h.push('<div class="modul-inhalt">');
+      ab.forEach(function (a, i) { h.push(self.abschnittHtml(a, i + 1)); });
+      h.push('</div></div>');
+    } else {
+      /* Auffrischen: eine kurze Liste, keine eigene Gliederung nötig. */
+      p.bloecke.forEach(function (b) {
+        h.push('<div class="card phasenblock">');
+        if (b.titel) h.push('<div class="card-title">' + esc(b.titel) + '</div>');
+        if (b.hinweis) h.push('<p class="sub">' + b.hinweis + '</p>');
+        h.push(spickHtml(b.items, self._gesehen));
+        (b.items || []).forEach(function (it) { h.push(self.itemHtml(it)); });
+        h.push('</div>');
+      });
+    }
 
     h.push('<div class="ph-fertig" id="ph-fertig-' + p.nr + '" hidden>' +
       '<span class="pf-haken">✓</span><span>' +
@@ -764,6 +771,7 @@ Uebung.prototype.render = function (seite) {
   this.stelleWiederHer();
   this.zeigeVersuche();
   this.aktualisiere();
+  this.navMitlaufen();
 };
 
 /* ------------------------------------------------------------------
@@ -774,22 +782,26 @@ Uebung.prototype.baueEinheit = function (seite, tagNr) {
   var heuteBl = alle.filter(function (b) { return b.phase !== 3 && b.phase !== 4; });
   var tiefBl  = alle.filter(function (b) { return b.phase === 3; });
 
-  /* Phase ②: der Stoff des Tages, auf ~12 Aufgaben begrenzt.
-     Schreibaufgaben (typ "frei") wandern nach hinten, sie kosten 20 Minuten. */
+  /* Das Modul ist die Portion. Frueher wurde hier auf 12 Aufgaben gekuerzt,
+     weil ein Abend vier Phasen hatte; der Rest verschwand in der Zugabe.
+     Jetzt entspricht ein Modul einem Buchmodul, also bleibt es vollstaendig.
+     Nur Schreibaufgaben (typ "frei") wandern ans Ende, sie kosten 20 Minuten. */
   var heuteItems = [], rest = [];
   heuteBl.forEach(function (b) {
     (b.items || []).forEach(function (it) {
       (it.typ === "frei" ? rest : heuteItems).push({ b: b, it: it });
     });
   });
-  var genommen = heuteItems.slice(0, 12);
-  var uebrig = heuteItems.slice(12).concat(rest);
+  var genommen = heuteItems;
+  var uebrig = rest;
 
   function grupp(liste) {
     var raus = [], letzte = null;
     liste.forEach(function (x) {
       if (!letzte || letzte.q !== x.b) {
-        letzte = { q: x.b, titel: x.b.titel, telc: x.b.telc, hinweis: x.b.hinweis, text: x.b.text, items: [] };
+        /* abschnitt MUSS mitwandern, sonst verliert der Block seine Erklaerung */
+        letzte = { q: x.b, abschnitt: x.b.abschnitt, titel: x.b.titel, telc: x.b.telc,
+                   hinweis: x.b.hinweis, text: x.b.text, items: [] };
         raus.push(letzte);
       }
       letzte.items.push(x.it);
@@ -850,6 +862,7 @@ Uebung.prototype.phasenPruefen = function () {
   });
   var bar = document.getElementById("eh-bar-i");
   if (bar) bar.style.width = (gesamt ? Math.round(fertig / gesamt * 100) : 0) + "%";
+  this.abschnitteStand();
 
   var alles = gesamt > 0 && fertig >= gesamt;
   var vorher = KURS.dosisStand(this.seiteId);
@@ -876,25 +889,137 @@ Uebung.prototype.phasenPruefen = function () {
 };
 
 /* Modulseiten (Fundament, Beruf, Einstufungstest) behalten den einfachen Aufbau. */
+/* ============================================================
+   ABSCHNITTE: Erklärung und die dazugehörigen Aufgaben als EINE Einheit.
+
+   Vorher standen erst alle Konzeptkarten untereinander, danach die
+   Aufgabenblöcke, und über jedem Block noch einmal ein Spickzettel mit
+   derselben Erklärung. Man las die Theorie also zweimal und musste
+   zwischen oben und unten hin und her springen.
+
+   Jetzt gilt: ein Abschnitt = eine Erklärung + genau ihre Aufgaben.
+   Jedes Konzept und jeder Block kommt genau einmal vor, nichts fehlt.
+   Verknüpft über das Feld `abschnitt` in den Daten.
+   ============================================================ */
+Uebung.prototype.baueAbschnitte = function (konzepte, bloecke) {
+  var gruppen = {}, reihenfolge = [];
+  function fach(nr) {
+    if (!gruppen[nr]) { gruppen[nr] = { nr: nr, konzepte: [], bloecke: [] }; reihenfolge.push(nr); }
+    return gruppen[nr];
+  }
+  /* Ohne `abschnitt` bekommt der Eintrag einen eigenen, damit nichts verschwindet. */
+  var frei = 1000;
+  (konzepte || []).forEach(function (k) { fach(k.abschnitt || frei++).konzepte.push(k); });
+  (bloecke  || []).forEach(function (b) { fach(b.abschnitt || frei++).bloecke.push(b); });
+
+  reihenfolge.sort(function (a, b) { return a - b; });
+  return reihenfolge.map(function (nr) { return gruppen[nr]; });
+};
+
+Uebung.prototype.abschnittHtml = function (ab, pos) {
+  var self = this, h = [];
+  var titel = (ab.konzepte[0] && ab.konzepte[0].titel) ||
+              (ab.bloecke[0] && ab.bloecke[0].titel) || "Abschnitt " + pos;
+  var anzahl = ab.bloecke.reduce(function (n, b) { return n + (b.items || []).length; }, 0);
+
+  h.push('<section class="abschnitt" id="ab-' + pos + '" data-ab="' + pos + '">');
+  h.push('<div class="ab-kopf"><span class="ab-nr">' + pos + '</span>' +
+         '<h2 class="ab-t">' + esc(titel) + '</h2>' +
+         (anzahl ? '<span class="ab-z" id="ab-z-' + pos + '">0/' + anzahl + '</span>' : '') +
+         '</div>');
+
+  ab.konzepte.forEach(function (k) { h.push(konzeptHtml(k)); });
+
+  ab.bloecke.forEach(function (b) {
+    h.push('<div class="card abblock">');
+    /* Blocktitel nur zeigen, wenn er nicht schon die Abschnittsüberschrift ist */
+    if (b.titel && b.titel !== titel) {
+      h.push('<div class="card-title">' + esc(b.titel) +
+        (b.telc ? ' <span class="chip accent">telc · ' + esc(b.telc) + '</span>' : '') + '</div>');
+    } else if (b.telc) {
+      h.push('<div class="card-title"><span class="chip accent">telc · ' + esc(b.telc) + '</span></div>');
+    }
+    if (b.hinweis) h.push('<p class="sub">' + b.hinweis + '</p>');
+    if (b.text) h.push('<div class="regel" style="line-height:1.75">' + b.text + '</div>');
+    /* Spickzettel nur, wenn dieser Abschnitt KEINE eigene Erklärung hat.
+       Sonst stünde dieselbe Regel zweimal auf einem Bildschirm. */
+    if (!ab.konzepte.length) h.push(spickHtml(b.items, self._gesehen));
+    (b.items || []).forEach(function (it) { h.push(self.itemHtml(it)); });
+    h.push('</div>');
+  });
+
+  h.push('</section>');
+  return h.join("");
+};
+
+/* Sprungleiste: jeder Abschnitt ein Link, mit Zähler. */
+Uebung.prototype.abschnittNavHtml = function (abschnitte) {
+  var h = ['<nav class="modul-nav" id="modul-nav"><div class="mn-kopf">' +
+           KURS.bl("Inhalt", "Contents") + '</div>'];
+  abschnitte.forEach(function (ab, i) {
+    var pos = i + 1;
+    var titel = (ab.konzepte[0] && ab.konzepte[0].titel) ||
+                (ab.bloecke[0] && ab.bloecke[0].titel) || "Abschnitt " + pos;
+    var anzahl = ab.bloecke.reduce(function (n, b) { return n + (b.items || []).length; }, 0);
+    h.push('<a class="mn-i" href="#ab-' + pos + '" id="mn-' + pos + '">' +
+      '<span class="mn-nr">' + pos + '</span>' +
+      '<span class="mn-t">' + esc(titel) + '</span>' +
+      (anzahl ? '<span class="mn-z" id="mn-z-' + pos + '">0/' + anzahl + '</span>' : '') +
+      '</a>');
+  });
+  return h.join("") + '</nav>';
+};
+
+/* Zähler je Abschnitt aktualisieren, in der Leiste und in der Überschrift. */
+/* Markiert in der Leiste, wo man gerade liest. */
+Uebung.prototype.navMitlaufen = function () {
+  var links = [].slice.call(document.querySelectorAll(".mn-i"));
+  if (!links.length || !window.IntersectionObserver) return;
+  var zu = {};
+  links.forEach(function (a) { zu[a.getAttribute("href").slice(1)] = a; });
+  var obs = new IntersectionObserver(function (eintraege) {
+    eintraege.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (a) { a.classList.remove("ist-hier"); });
+      if (zu[e.target.id]) zu[e.target.id].classList.add("ist-hier");
+    });
+  }, { rootMargin: "-12% 0px -70% 0px" });
+  document.querySelectorAll(".abschnitt").forEach(function (el) { obs.observe(el); });
+};
+
+Uebung.prototype.abschnitteStand = function () {
+  if (!this._abschnitte) return;
+  var self = this;
+  this._abschnitte.forEach(function (ab, i) {
+    var pos = i + 1, ges = 0, fertig = 0;
+    ab.bloecke.forEach(function (b) {
+      (b.items || []).forEach(function (roh) {
+        var e = self.items.filter(function (x) { return x.id === roh.id; })[0];
+        ges++; if (e && e.erledigt) fertig++;
+      });
+    });
+    if (!ges) return;
+    var txt = fertig + '/' + ges;
+    var a = document.getElementById('mn-z-' + pos); if (a) a.textContent = txt;
+    var b = document.getElementById('ab-z-' + pos); if (b) b.textContent = txt;
+    var link = document.getElementById('mn-' + pos);
+    if (link) link.classList.toggle('fertig', fertig === ges);
+  });
+};
+
 Uebung.prototype.renderModul = function (seite) {
   var self = this, h = [];
   this._gesehen = {};
-  if (seite.konzepte && seite.konzepte.length) {
-    h.push('<h2>' + KURS.bl("Erklärungen", "Explanations") + '</h2>');
-    seite.konzepte.forEach(function (k) { h.push(konzeptHtml(k)); });
-  }
-  (seite.bloecke || []).forEach(function (b) {
-    h.push('<details class="card blockkarte" open><summary>' +
-      '<span class="bk-t">' + esc(b.titel) + '</span>' +
-      (b.telc ? ' <span class="chip accent">telc · ' + esc(b.telc) + '</span>' : '') +
-      '<span class="bk-n">' + (b.items || []).length + ' ' + KURS.bl("Aufgaben", "exercises") + '</span>' +
-      '</summary><div class="bk-body">');
-    if (b.hinweis) h.push('<p class="sub">' + b.hinweis + '</p>');
-    if (b.text) h.push('<div class="regel" style="line-height:1.75">' + b.text + '</div>');
-    h.push(spickHtml(b.items, self._gesehen));
-    (b.items || []).forEach(function (it) { h.push(self.itemHtml(it)); });
-    h.push('</div></details>');
-  });
+
+  var abschnitte = this.baueAbschnitte(seite.konzepte, seite.bloecke);
+  this._abschnitte = abschnitte;
+
+  h.push('<div class="modul-grid">');
+  h.push(this.abschnittNavHtml(abschnitte));
+  h.push('<div class="modul-inhalt">');
+  abschnitte.forEach(function (ab, i) { h.push(self.abschnittHtml(ab, i + 1)); });
+  h.push('</div></div>');
+
   h.push('<div class="sticky-score" id="k-leiste">' +
     '<span class="pkt" id="k-punkte">0 / 0</span>' +
     '<span class="bar" style="flex:1"><i id="k-bar" style="width:0%"></i></span>' +
@@ -908,6 +1033,7 @@ Uebung.prototype.renderModul = function (seite) {
   this.stelleWiederHer();
   this.zeigeVersuche();
   this.aktualisiere();
+  this.navMitlaufen();
 };
 
 /* Der Spickzettel über einem Aufgabenblock.
@@ -1445,6 +1571,7 @@ Uebung.prototype.aktualisiere = function () {
     }
     el.textContent = pkt(s.punkte) + " / " + s.maxB + " Punkte · " + Math.min(s.fertig, ges) + "/" + ges + " Aufgaben";
   }
+  this.abschnitteStand();
   var bar = document.getElementById("k-bar");
   if (bar) {
     bar.style.width = s.quote + "%";
