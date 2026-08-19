@@ -4,8 +4,9 @@
            Arbeitsbuch S. 137–139 (B1a/b/c, B2, B3a/b, B4a/b, B5a/b/c)
    Kernthema: Konnektoren — Grund & Gegengrund + Wortstellung
    ============================================================ */
-KURS.seiten["tag-02"] = {
-id: "tag-02", nr: 2, datum: "2026-07-28",
+KURS.seiten["e1-b"] = {
+id: "e1-b",
+modulTitel: "Modul B · Auf dem Weg zum Wissen", nr: 2, datum: "2026-07-28",
 titel: "Auf dem Weg zum Wissen",
 untertitel: "Konnektoren: Grund und Gegengrund · Wortstellung im Haupt- und Nebensatz · Lesestile · Wortbildung mit „Lern-“",
 themen: ["konnektoren", "nebensatz", "leseverstehen", "wortbildung"],
@@ -561,8 +562,3 @@ dialog:
   "<b>3.</b> Erkläre mir in 3 Sätzen den Unterschied zwischen globalem und selektivem Lesen — auf Deutsch.</p>" +
   "<p class='en'>Answer in German in the chat. I will quote each sentence, correct it, and name the rule.</p>"
 };
-
-/* Täglicher Fundament-Block (10 Aufgaben aus der Wiederholungsliste der Lehrerin) */
-if (KURS.fundamentBlock) KURS.seiten["tag-02"].bloecke.push(KURS.fundamentBlock(2, "tag-02"));
-/* Berufsdeutsch — 5 Aufgaben für das eigentliche Ziel: der Job */
-if (KURS.berufBlock)     KURS.seiten["tag-02"].bloecke.push(KURS.berufBlock(2));

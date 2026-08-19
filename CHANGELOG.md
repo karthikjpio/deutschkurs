@@ -5,6 +5,52 @@ seine 🚩-Markierungen und die Fehler aus den exportierten Fortschrittsdateien.
 
 ---
 
+## 2026-08-19 (später) · Engine 2.1.1 — Schritt 2 und 3: ein Fundamente-Kurs, Module statt Tage
+
+**Schritt 2 — alles B1 an einen Ort.**
+Das B1-Material lag vorher dreifach verteilt: als Phase ③ in jeder Tagesseite, als eigene Seite,
+und das telc-B1-Prüfungstraining noch einmal getrennt als Phase ④, das nach Wochentag rotierte.
+Dadurch war das B1-Training über 40 Seiten verstreut und nirgends vollständig oder abhakbar.
+
+- Neu `assets/daten/fundamente-pruefung.js` — hängt Sprachbausteine (12), Leseverstehen (12)
+  und die zehn B1-Briefe an den Fundamente-Kurs an. Der Kurs hat jetzt **18 Blöcke mit
+  205 Aufgaben**: 15 Grammatikthemen + 3 Prüfungsblöcke.
+- `b1-fundament.html` heißt inhaltlich **B2-Fundamente** und ist Kurs ① von ②. Der Kasten
+  „Der Tagesrhythmus — 15 Themen, 3 Wochen pro Runde" ist raus: die Rotation gibt es nicht mehr.
+- `KURS.fundamentBlock()` und `KURS.berufBlock()` werden nicht mehr in die Modulseiten injiziert.
+- `KURS.pruefungsBlock()` entfernt (49 Zeilen) — ohne Phase ④ hatte es keinen Aufrufer mehr.
+  Die B2-Schreibaufgaben in `schreiben.js` bleiben unangetastet für den B2-Prüfungsteil.
+
+**Schritt 3 — aus Kurstagen werden Buchmodule.**
+
+- `tag-01…04.js` → `einheit-01-a…d.js`, Seiten-ids `tag-0N` → `e1-a`…`e1-d`.
+- **Tag 4 umfasste zwei Buchmodule** (Lektion 1 D „Stellung nehmen" *und* Lektion 2 A
+  „Leben in Großstädten"). Die Blöcke werden am Ende von `einheit-01-d.js` nach Titel getrennt;
+  daraus entsteht `e2-a`. Kein Inhalt wurde neu getippt.
+  - `e1-d`: Bauplan · Einleitung · Fremde Meinung · Argumente verknüpfen · Stellungnahme schreiben
+  - `e2-a`: Leben in Großstädten · Vergleiche ausdrücken · Strukturierte Notizen beim Hören
+- Modulseiten haben jetzt **zwei** Phasen statt vier: ① Auffrischen, ② das Modul selbst.
+- Seitenkopf zeigt „Einheit 2 · Stadt & Leben · Modul A · Hören" statt „Tag 4 · 30.07.2026".
+- `datum` und der ganze Kalenderbezug sind aus den Modulseiten raus.
+
+**Fortschritt geht nicht verloren.** `migriere()` benennt gespeicherte Schlüssel einmalig um
+(`tag-01`→`e1-a` …) und führt Versuche zusammen, falls beide existieren. Getestet.
+
+**Eine Ladeliste für alle Seiten.** Neu `assets/daten/alle.js`. Vorher pflegte jede HTML-Datei
+ihre eigene `<script>`-Liste — und sie waren schon auseinandergelaufen: `b1-fundament.html`
+kannte nur zwei Tagesdateien, `index.html` lud `pruefung.js` gar nicht. Genau daran wäre der
+neue Prüfungsteil still gescheitert. Jetzt bindet jede Seite **eine** Datei ein.
+
+**Behoben**
+
+- `.einheit` klebte bei festen `top: 44px`, die Kopfleiste ist aber 56 px hoch — die Karte
+  verschwand beim Scrollen darunter. Jetzt `--topbar-h`, an einer Stelle gepflegt.
+- Die Überschrift der Einheitskarte hieß auf jeder Seite „Deine Einheit heute"; sie nennt
+  jetzt das Modul.
+
+**Weiter offen:** Hörverstehen (0 von 456 Aufgaben), Einheit 2 B–D und 3–5, die Seitenangaben
+gegen den Teilband, B2.2.
+
 ## 2026-08-19 · Engine 2.0.1 — Vom Kalender zu Einheiten (Schritt 1: Gerüst)
 
 **Karthiks Rückmeldung:** „Zu unübersichtlich, zu viel gleichzeitig. Ich weiß nicht, wo ich

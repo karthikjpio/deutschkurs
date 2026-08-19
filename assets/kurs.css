@@ -29,6 +29,9 @@
   --ok-text:       #0a7d0a;   /* lesbare Textvariante auf hellem Grund */
   --warn-text:     #8a6100;
 
+  /* Höhe der Kopfleiste — alles, was darunter klebt, rechnet damit. */
+  --topbar-h:      56px;
+
   --radius:        12px;
   --radius-s:      8px;
   --shadow:        0 1px 2px rgba(16,24,40,.05), 0 4px 14px rgba(16,24,40,.05);
@@ -64,8 +67,8 @@ html[data-theme="dark"] {
 }
 
 * { box-sizing: border-box; }
-html { scroll-padding-top: 66px; }
-.uebung { scroll-margin-top: 66px; }
+html { scroll-padding-top: calc(var(--topbar-h) + 10px); }
+.uebung { scroll-margin-top: calc(var(--topbar-h) + 10px); }
 
 body {
   margin: 0;
@@ -450,6 +453,7 @@ hr.tr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
   table.gr { min-width: 420px; font-size: 13px; }
   table.gr th, table.gr td { padding: 6px 8px; }
   .satz { overflow-wrap: anywhere; }
+  :root { --topbar-h: 50px; }
   .topbar-in { padding: 9px 12px; gap: 6px; }
   .navbtn { padding: 5px 9px; font-size: 12.5px; }
   /* Die Labels bleiben. Vorher standen hier fünf unbeschriftete Emoji —
@@ -520,7 +524,7 @@ hr.tr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
    Die Abendeinheit — Kopf, Phasenleiste, Phasen
    ============================================================ */
 .einheit {
-  position: sticky; top: 44px; z-index: 20;
+  position: sticky; top: var(--topbar-h); z-index: 20;
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); box-shadow: var(--shadow);
   padding: 14px 16px 12px; margin: 18px 0 22px;

@@ -15,8 +15,9 @@
    Thema an Tag 3 und wird hier NICHT neu erklärt — diese Formen kommen nur noch über den
    adaptiven Fundament-Block und die Fehlerwiederholung zurück.
    ============================================================ */
-KURS.seiten["tag-04"] = {
-id: "tag-04", nr: 4, datum: "2026-07-30",
+KURS.seiten["e1-d"] = {
+id: "e1-d",
+modulTitel: "Modul D · In einer Lerngruppe oder allein?", nr: 4, datum: "2026-07-30",
 titel: "Stellung nehmen — und rein in die Großstadt",
 untertitel: "Die Stellungnahme: Bauplan, Einleitung, Argumente verknüpfen · fremde Meinungen wiedergeben · Lektion 2 beginnt: Leben in Großstädten · strukturierte Notizen beim Hören",
 themen: ["schreiben", "stellungnahme", "wortschatz", "hoerverstehen", "vergleichen"],
@@ -618,7 +619,52 @@ dialog:
   "<b>3.</b> Was ist für dich der größte <b>Stressfaktor</b> in einer Großstadt — und was wäre eine Lösung? Ein Satz mit „Eine mögliche Lösung wäre …“.</p>"
 };
 
-/* Täglicher Fundament-Block (10 Aufgaben aus der Wiederholungsliste der Lehrerin) */
-if (KURS.fundamentBlock) KURS.seiten["tag-04"].bloecke.push(KURS.fundamentBlock(4, "tag-04"));
-/* Berufsdeutsch — 5 Aufgaben für das eigentliche Ziel: der Job */
-if (KURS.berufBlock)     KURS.seiten["tag-04"].bloecke.push(KURS.berufBlock(4));
+/* ============================================================
+   AUFTEILUNG: dieser Kurstag umfasste zwei Buch-Module.
+   KB S. 15 (D1a–c) gehört zu Lektion 1 D „Stellung nehmen",
+   die Seiten zu „Leben in Großstädten" gehören schon zu Lektion 2 A.
+   Statt den Inhalt neu zu tippen, wird er hier nach Titel getrennt:
+   was zu Lektion 2 gehört, wandert nach e2-a.
+   ============================================================ */
+(function () {
+  var d = KURS.seiten["e1-d"];
+  var nachL2 = {
+    "Lektion 2 A — Leben in Großstädten": 1,
+    "Vergleiche ausdrücken — Aachen gegen Chennai": 1,
+    "Strukturierte Notizen beim Hören": 1
+  };
+  var konzepteL2 = { "⑤": 1, "⑥": 1 };
+
+  function raus(liste, treffer) {
+    var bleibt = [], geht = [];
+    (liste || []).forEach(function (x) { (treffer(x) ? geht : bleibt).push(x); });
+    return { bleibt: bleibt, geht: geht };
+  }
+
+  var bl = raus(d.bloecke,   function (b) { return nachL2[b.titel]; });
+  var kz = raus(d.konzepte,  function (k) { return konzepteL2[(k.titel || "").charAt(0)]; });
+
+  d.bloecke  = bl.bleibt;
+  d.konzepte = kz.bleibt;
+  d.titel      = "In einer Lerngruppe oder allein?";
+  d.untertitel = "Stellung nehmen: Bauplan, Einleitung, Argumente verknüpfen · fremde Meinungen wiedergeben";
+  d.modulTitel = "Modul D · In einer Lerngruppe oder allein?";
+  d.themen     = ["schreiben", "redemittel", "konnektoren"];
+
+  KURS.seiten["e2-a"] = {
+    id: "e2-a", nr: 2,
+    modulTitel: "Modul A · Leben in Großstädten",
+    titel: "Leben in Großstädten",
+    untertitel: "Detailliertes Hören und strukturierte Notizen · Vergleiche ausdrücken",
+    themen: ["hoerverstehen", "wortschatz"],
+    konzepte: kz.geht,
+    bloecke: bl.geht,
+    videos: (d.videos || []).filter(function (v) {
+      return /Stadt|Land/i.test(v.titel);
+    }),
+    wortschatz: [],
+    dialog: d.dialog
+  };
+  /* Die Stadt-Videos gehören zu Lektion 2, nicht mehr zu Modul D */
+  d.videos = (d.videos || []).filter(function (v) { return !/Stadt|Land/i.test(v.titel); });
+})();

@@ -5,8 +5,9 @@
    Kernthema: Lernstrategien + mündlich Stellung nehmen (Redemittel)
    ABGRENZUNG: Teil B (KB S.10ff / AB S.137 unten) gehört zu Tag 2 — hier NICHT wiederholen.
    ============================================================ */
-KURS.seiten["tag-01"] = {
-id: "tag-01", nr: 1, datum: "2026-07-27",
+KURS.seiten["e1-a"] = {
+id: "e1-a",
+modulTitel: "Modul A · Zur Sprache kommen", nr: 1, datum: "2026-07-27",
 titel: "Zur Sprache kommen",
 untertitel: "Lernstrategien beschreiben · mündlich Stellung nehmen: zustimmen und widersprechen · Satzakzent",
 themen: ["redemittel", "sprechen", "wortschatz", "nebensatz"],
@@ -297,8 +298,3 @@ dialog:
   "<b>2.</b> Reagiere auf: „<i>Grammatik lernen ist am wichtigsten.</i>“ — einmal zustimmend, einmal widersprechend, jeweils mit Begründung.<br>" +
   "<b>3.</b> Schreib eine eigene Aussage mit „<b>Es hilft, … zu …</b>“.</p>"
 };
-
-/* Täglicher Fundament-Block (10 Aufgaben aus der Wiederholungsliste der Lehrerin) */
-if (KURS.fundamentBlock) KURS.seiten["tag-01"].bloecke.push(KURS.fundamentBlock(1, "tag-01"));
-/* Berufsdeutsch — 5 Aufgaben für das eigentliche Ziel: der Job */
-if (KURS.berufBlock)     KURS.seiten["tag-01"].bloecke.push(KURS.berufBlock(1));

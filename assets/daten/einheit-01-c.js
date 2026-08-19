@@ -10,8 +10,9 @@
    Hier NEU: die Alternative (anstatt) und die Präposition↔Nebensatz-Umformung.
    Nur die Wiederholungsaufgaben greifen bewusst auf Tag 2 zurück.
    ============================================================ */
-KURS.seiten["tag-03"] = {
-id: "tag-03", nr: 3, datum: "2026-07-29",
+KURS.seiten["e1-c"] = {
+id: "e1-c",
+modulTitel: "Modul C · Mit der Hand schreiben — wozu?", nr: 3, datum: "2026-07-29",
 titel: "Mit der Hand schreiben — wozu?",
 untertitel: "Alternativen ausdrücken: anstatt dass / anstatt … zu / stattdessen · Angaben mit Präposition und ihre Nebensätze · globales und selektives Hören · Wortbildung mit „Schrift“",
 themen: ["konnektoren", "infinitiv-zu", "kasus", "hoerverstehen", "wortbildung"],
@@ -543,8 +544,3 @@ dialog:
   "<b>2.</b> Nenne etwas, das du <b>trotz</b> einer Schwierigkeit schaffst. Ein Satz mit „trotz“ + Genitiv.<br>" +
   "<b>3.</b> Schreibst du lieber mit der Hand oder tippst du? Begründe in zwei Sätzen und benutze einmal „stattdessen“.</p>"
 };
-
-/* Täglicher Fundament-Block (10 Aufgaben aus der Wiederholungsliste der Lehrerin) */
-if (KURS.fundamentBlock) KURS.seiten["tag-03"].bloecke.push(KURS.fundamentBlock(3, "tag-03"));
-/* Berufsdeutsch — 5 Aufgaben für das eigentliche Ziel: der Job */
-if (KURS.berufBlock)     KURS.seiten["tag-03"].bloecke.push(KURS.berufBlock(3));

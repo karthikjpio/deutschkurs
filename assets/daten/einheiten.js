@@ -23,17 +23,17 @@ KURS.einheiten = [
     grammatik: ["Wortstellung im Haupt- und Nebensatz", "Kausal- und Konzessivsätze", "Alternativsätze"],
     pruefung: "Kommunikation bei der Arbeit",
     module: [
-      { m: "A", fertigkeit: "sprechen",  titel: "Zur Sprache kommen",             seite: "tag-01" },
-      { m: "B", fertigkeit: "lesen",     titel: "Auf dem Weg zum Wissen",         seite: "tag-02" },
-      { m: "C", fertigkeit: "hoeren",    titel: "Mit der Hand schreiben — wozu?", seite: "tag-03" },
-      { m: "D", fertigkeit: "schreiben", titel: "In einer Lerngruppe oder allein?", seite: "tag-04" }
+      { m: "A", fertigkeit: "sprechen",  titel: "Zur Sprache kommen",             seite: "e1-a" },
+      { m: "B", fertigkeit: "lesen",     titel: "Auf dem Weg zum Wissen",         seite: "e1-b" },
+      { m: "C", fertigkeit: "hoeren",    titel: "Mit der Hand schreiben — wozu?", seite: "e1-c" },
+      { m: "D", fertigkeit: "schreiben", titel: "In einer Lerngruppe oder allein?", seite: "e1-d" }
     ] },
 
   { nr: 2, thema: "Stadt & Leben", band: "B2.1", kb: "18–31", ub: "82–93",
     grammatik: ["Passiv in Gegenwart und Vergangenheit", "Passiv mit Modalverben"],
     pruefung: "Attraktionen in und um Hamburg", film: "Wohnen in der Stadt",
     module: [
-      { m: "A", fertigkeit: "hoeren",    titel: "Leben in Großstädten",  seite: null },
+      { m: "A", fertigkeit: "hoeren",    titel: "Leben in Großstädten",  seite: "e2-a" },
       { m: "B", fertigkeit: "lesen",     titel: "Städte werden grün",    seite: null },
       { m: "C", fertigkeit: "schreiben", titel: "Abreißen oder umbauen?", seite: null },
       { m: "D", fertigkeit: "sprechen",  titel: "Mein Kurzvortrag",      seite: null }
@@ -88,6 +88,17 @@ KURS.naechstesModul = function () {
       if (!m.seite || !KURS.seiten[m.seite]) continue;
       var st = KURS.seitenStand(m.seite);
       if (!st || !st.versuche) return { einheit: e, modul: m };
+    }
+  }
+  return null;
+};
+
+/* Zu welcher Einheit/Modul gehört eine Seiten-id? Für den Seitenkopf. */
+KURS.einheitVon = function (seiteId) {
+  for (var i = 0; i < KURS.einheiten.length; i++) {
+    var e = KURS.einheiten[i];
+    for (var j = 0; j < e.module.length; j++) {
+      if (e.module[j].seite === seiteId) return { einheit: e, modul: e.module[j] };
     }
   }
   return null;

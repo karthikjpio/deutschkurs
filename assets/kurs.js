@@ -14,7 +14,7 @@
 var KURS = window.KURS = window.KURS || {};
 KURS.seiten = KURS.seiten || {};
 KURS.SCHLUESSEL = "deutschB2.v1";
-KURS.ENGINE = "2.0.1";
+KURS.ENGINE = "2.1.1";
 
 /* ---------- Themen-Register: Anzeigenamen für Schwachstellen ---------- */
 KURS.THEMEN = {
@@ -144,10 +144,33 @@ function schreib(d) {
 
 /* Schema-Migration: hier kommt jede künftige Änderung rein.
    Niemals Felder löschen — nur ergänzen. */
+/* Umbau 08/2026: aus Kurstagen wurden Buchmodule. Alter Fortschritt darf
+   dabei nicht verwaisen, deshalb wandern die Schlüssel einmalig mit. */
+var UMBENANNT = { "tag-01": "e1-a", "tag-02": "e1-b", "tag-03": "e1-c", "tag-04": "e1-d" };
+
 function migriere(d) {
   if (!d || typeof d !== "object") return leer();
   if (!d.version) d.version = 1;
   if (!d.seiten) d.seiten = {};
+
+  Object.keys(UMBENANNT).forEach(function (alt) {
+    var neu = UMBENANNT[alt];
+    if (!d.seiten[alt]) return;
+    if (d.seiten[neu]) {
+      /* Beide vorhanden: Versuche zusammenführen, nichts überschreiben. */
+      var z = d.seiten[neu];
+      z.versuche = (z.versuche || []).concat(d.seiten[alt].versuche || [])
+        .sort(function (a, b) { return a.datum < b.datum ? -1 : 1; });
+    } else {
+      d.seiten[neu] = d.seiten[alt];
+    }
+    delete d.seiten[alt];
+    if (d.geuebteSeiten && d.geuebteSeiten[alt]) {
+      d.geuebteSeiten[neu] = d.geuebteSeiten[neu] || d.geuebteSeiten[alt];
+      delete d.geuebteSeiten[alt];
+    }
+  });
+
   Object.keys(d.seiten).forEach(function (k) {
     var s = d.seiten[k];
     if (!s.versuche) s.versuche = [];
@@ -429,55 +452,6 @@ KURS.warmup = function (tagNr, seiteId) {
   return out;
 };
 
-/* ---- Phase ④: telc-Training. Mo–Do B1, Fr B2. ------------------- */
-KURS.pruefungsBlock = function (tagNr, datum) {
-  if (!KURS.pruefung && !KURS.schreibAufgaben) return null;
-  var wt = datum ? new Date(datum + "T12:00:00").getDay() : ((tagNr - 1) % 5) + 1;
-  var freitag = wt === 5;
-  var items = [], titel, hinweis;
-
-  if (freitag && KURS.schreibAufgaben && KURS.schreibAufgaben.b2) {
-    var b2 = KURS.schreibAufgaben.b2;
-    items = [b2[(Math.floor((tagNr - 1) / 5)) % b2.length]];
-    titel = "telc B2 · Schriftlicher Ausdruck";
-    hinweis = "<b>Freitag ist Stretch-Tag.</b> Eine komplette B2-Schreibaufgabe, mindestens 150 Wörter in 30 Minuten. " +
-              "Wenn du das kannst, ist die B1-Prüfung im November kein Thema mehr. " +
-              "<span class='en'>Friday is the stretch task: a full B2 writing prompt.</span>";
-  } else if (wt === 2 || wt === 4) {
-    var b1 = (KURS.schreibAufgaben && KURS.schreibAufgaben.b1) || [];
-    if (b1.length) items = [b1[(tagNr - 1) % b1.length]];
-    titel = "telc B1 · Schriftliche Kommunikation";
-    hinweis = "<b>Das ist die echte Prüfungsaufgabe.</b> Ein Brief mit vier Leitpunkten — telc zieht Punkte ab, " +
-              "wenn ein Leitpunkt fehlt. Nimm dir 30 Minuten. " +
-              "<span class='en'>The real B1 writing task: cover all four bullet points.</span>";
-  } else {
-    var pool = [];
-    if (KURS.pruefung) {
-      var quellen = wt === 3 ? ["b1-lesen", "b1-sprachbausteine"] : ["b1-sprachbausteine", "b1-lesen"];
-      quellen.forEach(function (k) { if (KURS.pruefung[k]) pool = pool.concat(KURS.pruefung[k].items || []); });
-    }
-    if (!pool.length) return null;
-    var start = ((tagNr - 1) * 3) % pool.length;
-    for (var i = 0; i < 4; i++) {
-      var it = pool[(start + i) % pool.length];
-      var c = {}; for (var f in it) c[f] = it[f];
-      c.id = "pr" + tagNr + "-" + i;
-      items.push(c);
-    }
-    titel = wt === 3 ? "telc B1 · Leseverstehen" : "telc B1 · Sprachbausteine";
-    hinweis = "<b>Prüfungsformat, nicht Übungsformat.</b> Genau diese Aufgabentypen kommen im November dran. " +
-              "In der echten Prüfung hast du für Lesen und Sprachbausteine zusammen 90 Minuten. " +
-              "<span class='en'>These are the actual telc B1 task types you will meet in November.</span>";
-  }
-  if (!items.length || !items[0]) return null;
-  items = items.map(function (it, i) {
-    var c = {}; for (var f in it) c[f] = it[f];
-    if (!c.id) c.id = "pr" + tagNr + "-s" + i;
-    return c;
-  });
-  return { titel: titel, phase: 4, telc: freitag ? "B2" : "B1", hinweis: hinweis, items: items };
-};
-
 /* Hat er die Tagesdosis an diesem Datum geschafft? */
 KURS.dosisStand = function (seiteId) {
   var d = lies(), s = d.seiten[seiteId];
@@ -647,12 +621,13 @@ KURS.starte = function (seiteId, containerId) {
 
 Uebung.prototype.render = function (seite) {
   var self = this, h = [];
-  var istTag = /^tag-\d\d$/.test(this.seiteId);
+  /* Modulseiten einer Einheit heißen e<Einheit>-<Modul>, z. B. e1-c.
+     Nachschlagemodule (b1-fundament, beruf, einstufung) laufen über renderModul. */
+  var istModul = /^e\d+-[a-z]$/.test(this.seiteId);
 
-  if (!istTag) { return this.renderModul(seite); }
+  if (!istModul) { return this.renderModul(seite); }
 
-  /* ---------- Die Abendeinheit: vier Phasen, ein Balken ---------- */
-  var tagNr = seite.nr || parseInt(this.seiteId.slice(4), 10);
+  var tagNr = seite.nr || 1;
   var phasen = this.baueEinheit(seite, tagNr);
   this.phasen = phasen;
   this._gesehen = {};   /* jedes Thema bekommt seinen Spickzettel genau einmal pro Seite */
@@ -662,7 +637,7 @@ Uebung.prototype.render = function (seite) {
   h.push('<section class="einheit" id="einheit">' +
     '<div class="eh-kopf">' +
       '<div class="eh-txt">' +
-        '<span class="eh-t">' + KURS.bl("Deine Einheit heute", "Your session today") + '</span>' +
+        '<span class="eh-t">' + esc(seite.modulTitel || KURS.bl("Dieses Modul", "This module")) + '</span>' +
         '<span class="eh-s" id="eh-status">' +
           KURS.bl(gesamt + " Aufgaben · etwa " + minuten + " Minuten",
                   gesamt + " exercises · about " + minuten + " minutes") + '</span>' +
@@ -826,50 +801,30 @@ Uebung.prototype.baueEinheit = function (seite, tagNr) {
   }
 
   var warm = KURS.warmup ? KURS.warmup(tagNr, this.seiteId) : [];
-  var pruef = KURS.pruefungsBlock ? KURS.pruefungsBlock(tagNr, seite.datum) : null;
 
   var phasen = [];
   function anzahl(bl) { return bl.reduce(function (n, b) { return n + (b.items || []).length; }, 0); }
 
   if (warm.length) {
-    phasen.push({ nr: 1, titel: "Aufwärmen", en: "Warm-up", min: 5,
-      warum: "Verteilte Wiederholung: die letzten Kurstage und die Themen, in denen du Fehler hattest. " +
-             "<span class='en'>Spaced repetition from earlier days and your own mistakes.</span>",
+    phasen.push({ nr: 1, titel: "Auffrischen", en: "Warm-up", min: 5,
+      warum: "Verteilte Wiederholung: frühere Module und die Themen, in denen du Fehler hattest. " +
+             "<span class='en'>Spaced repetition from earlier modules and your own mistakes.</span>",
       bloecke: [{ titel: "", items: warm }], anzahl: warm.length });
   }
 
+  /* Das Modul selbst. Die B1-Anteile (Fundament, Berufsdeutsch, telc-B1-Prüfung)
+     standen früher als Phase ③ und ④ in JEDER Tagesseite — sie leben jetzt
+     geschlossen im Kurs „B2-Fundamente", damit ein Modul ein Modul bleibt. */
   var bl2 = grupp(genommen);
-  phasen.push({ nr: 2, titel: "Heute", en: "Today", min: 10,
-    warum: "Der Stoff aus dem Unterricht von heute. Erst die Erklärungen, dann die Aufgaben. " +
-           "<span class='en'>Today's class material: concepts first, then practice.</span>",
+  phasen.push({ nr: 2, titel: seite.modulTitel || "Das Modul", en: "The module", min: 15,
+    warum: "Der Stoff dieses Buchmoduls. Erst die Erklärungen, dann die Aufgaben. " +
+           "<span class='en'>This unit module: concepts first, then practice.</span>",
     konzepte: seite.konzepte, videos: seite.videos,
     bloecke: bl2, anzahl: anzahl(bl2) });
 
-  /* Phase ③ ist auf 8 Aufgaben gedeckelt — sonst stehen dort 50 und die
-     „8 Minuten" sind eine Lüge. Was übrig bleibt, landet unten als Zugabe. */
-  var GRENZE3 = 8, bl3 = [], zuviel = [], genutzt = 0;
-  tiefBl.forEach(function (b) {
-    var frei = Math.max(0, GRENZE3 - genutzt);
-    var nimm = (b.items || []).slice(0, frei);
-    var weg  = (b.items || []).slice(frei);
-    genutzt += nimm.length;
-    if (nimm.length) bl3.push({ titel: b.titel, telc: b.telc, hinweis: b.hinweis, text: b.text, items: nimm });
-    if (weg.length)  zuviel.push({ titel: b.titel, telc: b.telc, items: weg });
-  });
-  if (bl3.length) {
-    phasen.push({ nr: 3, titel: "Fundament", en: "B1 foundations", min: 8,
-      warum: "Deine B1-Lücken, aus deinen eigenen Ergebnissen ausgewählt — plus Berufsdeutsch. " +
-             "<span class='en'>Your B1 gaps, chosen from your own results.</span>",
-      bloecke: bl3, anzahl: anzahl(bl3) });
-  }
-  this.zugabe = zuviel.concat(grupp(uebrig));
-
-  if (pruef) {
-    phasen.push({ nr: 4, titel: "Prüfungstraining", en: "Exam practice", min: 7,
-      warum: "telc-Aufgabenformate für die Prüfung im November. " +
-             "<span class='en'>Real telc task formats for the November exam.</span>",
-      bloecke: [pruef], anzahl: (pruef.items || []).length });
-  }
+  /* Falls eine Seite doch noch phase-3-Blöcke mitbringt, gehen sie in die Zugabe
+     statt eine eigene Phase aufzumachen. */
+  this.zugabe = tiefBl.concat(grupp(uebrig));
   return phasen;
 };
 
@@ -1686,13 +1641,18 @@ function zeigeFeedbackListe(seiteId) {
 }
 
 /* ============================================================
-   8. SEITENKOPF FÜR TAG-SEITEN
+   8. SEITENKOPF FÜR MODULSEITEN
    ============================================================ */
 KURS.seitenkopf = function (seiteId) {
   var s = KURS.seiten[seiteId]; if (!s) return "";
   var st = KURS.seitenStand(seiteId);
+  /* Eyebrow zeigt Einheit und Modul, kein Datum — der Kalender ist weg. */
+  var e = KURS.einheitVon ? KURS.einheitVon(seiteId) : null;
+  var oben = e ? 'Einheit ' + e.einheit.nr + ' · ' + e.einheit.thema +
+                 ' · Modul ' + e.modul.m + ' · ' + KURS.FERTIGKEITEN[e.modul.fertigkeit][0]
+               : (s.modulTitel || '');
   return '<div class="pagehead">' +
-    '<div class="eyebrow">Tag ' + s.nr + (s.datum ? ' · ' + s.datum.split("-").reverse().join(".") : "") + '</div>' +
+    (oben ? '<div class="eyebrow">' + esc(oben) + '</div>' : '') +
     '<h1>' + esc(s.titel) + '</h1>' +
     (s.untertitel ? '<p class="sub">' + esc(s.untertitel) + '</p>' : "") +
     (s.themen ? '<div class="btnrow">' + s.themen.map(function (t) {
@@ -1701,13 +1661,14 @@ KURS.seitenkopf = function (seiteId) {
     '</div>';
 };
 
-/* Leere Tag-Seite (noch kein Material) */
-KURS.leereSeite = function (nr, datum) {
+/* Modul ohne Inhalt — kommt nur vor, wenn ein Manifest-Eintrag auf eine
+   Datendatei zeigt, die es noch nicht gibt. */
+KURS.leereSeite = function () {
   return '<div class="leerzustand"><div class="gross">📄</div>' +
-    '<h2 style="margin:0 0 6px">Noch kein Material für Tag ' + nr + '</h2>' +
-    '<p>Leg deine Notizen, Fotos und Buchseiten in den Ordner<br><b>Session ' +
-    (nr < 10 ? "0" + nr : nr) + ' - ' + datum + '</b><br>und sag mir im Chat: „Session ' + nr + ' ist da".</p>' +
-    '<p class="en">Drop your notes into the session folder, then tell me in chat — I\'ll build this page.</p></div>';
+    '<h2 style="margin:0 0 6px">Dieses Modul ist noch nicht gebaut</h2>' +
+    '<p>Es steht im Einheiten-Manifest, hat aber noch keine Aufgaben.<br>' +
+    '<a href="index.html">Zurück zu den Einheiten</a></p></div>';
 };
+
 
 })();
