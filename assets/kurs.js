@@ -14,7 +14,7 @@
 var KURS = window.KURS = window.KURS || {};
 KURS.seiten = KURS.seiten || {};
 KURS.SCHLUESSEL = "deutschB2.v1";
-KURS.ENGINE = "1.2.0";
+KURS.ENGINE = "2.0.1";
 
 /* ---------- Themen-Register: Anzeigenamen für Schwachstellen ---------- */
 KURS.THEMEN = {
@@ -227,19 +227,6 @@ KURS.schwachstellen = function (n) {
   return n ? liste.slice(0, n) : liste;
 };
 
-/* Alle falschen Antworten des jeweils letzten Versuchs — Futter für Wiederholungsaufgaben */
-KURS.alleFehler = function () {
-  var d = lies(), out = [];
-  Object.keys(d.seiten).forEach(function (id) {
-    var v = d.seiten[id].versuche;
-    if (!v.length) return;
-    (v[v.length - 1].falsch || []).forEach(function (f) {
-      out.push({ seite: id, frage: f.frage, deine: f.deine, richtig: f.richtig, thema: f.thema });
-    });
-  });
-  return out;
-};
-
 KURS.seitenStand = function (id) {
   var d = lies(), s = d.seiten[id];
   if (!s || !s.versuche.length) return null;
@@ -383,17 +370,6 @@ KURS.themaQuote = function (thema) {
      ④ Prüfung    — telc B1 (Mo–Do), freitags B2             ~7 Min
    ============================================================ */
 KURS.DOSIS = 5;          /* Umfang von Phase ① */
-KURS.PHASEN = [
-  { nr: 1, schl: "aufwaermen", titel: "Aufwärmen",       en: "Warm-up",        min: 5,
-    warum: "Verteilte Wiederholung — die letzten Tage und deine echten Fehler." },
-  { nr: 2, schl: "heute",      titel: "Heute",           en: "Today",          min: 10,
-    warum: "Der Stoff aus dem Unterricht von heute." },
-  { nr: 3, schl: "fundament",  titel: "Fundament",       en: "B1 foundations", min: 8,
-    warum: "Deine B1-Lücken, nach deinen Ergebnissen ausgewählt." },
-  { nr: 4, schl: "pruefung",   titel: "Prüfungstraining", en: "Exam practice", min: 7,
-    warum: "telc-Aufgabenformate — B1 werktags, freitags eine B2-Aufgabe." }
-];
-
 /* ---- Phase ①: verteilte Wiederholung ----------------------------
    Erst die eigenen Fehler, dann Aufgaben aus früheren Kurstagen.
    Deterministisch, damit Versuchsvergleiche gültig bleiben. */
@@ -516,10 +492,12 @@ KURS.dosisMerken = function (seiteId, erledigt, fertig) {
   s.dosis = { datum: heute(), erledigt: erledigt, fertig: fertig };
   if (fertig) {
     if (!d.geuebteTage) d.geuebteTage = {};
-    d.geuebteTage[heute()] = (d.geuebteTage[heute()] || 0) + 1;
+    /* Flag, kein Zähler: der Wert wuchs vorher mit JEDER beantworteten Aufgabe
+       unbegrenzt an und blähte den Export auf. Gelesen werden nur die Schlüssel. */
+    d.geuebteTage[heute()] = 1;
     /* Zwei verschiedene Zähler, weil zwei verschiedene Fragen:
-       geuebteTage  = an welchen ABENDEN habe ich geübt  → Wochenband
-       geuebteSeiten = welche KURSTAGE habe ich aufgearbeitet → „X von 40" */
+       geuebteTage   = an welchen ABENDEN habe ich geübt
+       geuebteSeiten = welche EINHEITEN habe ich aufgearbeitet */
     if (!d.geuebteSeiten) d.geuebteSeiten = {};
     d.geuebteSeiten[seiteId] = heute();
   }
@@ -536,24 +514,6 @@ KURS.geuebteTage = function () {
 KURS.geuebteSeiten = function () {
   var d = lies();
   return Object.keys(d.geuebteSeiten || {}).sort();
-};
-
-/* Ring mit KURS.DOSIS Segmenten. Reines SVG, keine Abhängigkeit. */
-KURS.ring = function (erledigt, gesamt, groesse) {
-  var g = groesse || 64, r = (g - 8) / 2, c = g / 2;
-  var seg = gesamt, luecke = 5, umfang = 2 * Math.PI * r;
-  var pro = umfang / seg, strich = pro - luecke;
-  var h = ['<svg class="ring" width="' + g + '" height="' + g + '" viewBox="0 0 ' + g + ' ' + g + '" aria-hidden="true">'];
-  for (var i = 0; i < seg; i++) {
-    var off = -i * pro;
-    h.push('<circle cx="' + c + '" cy="' + c + '" r="' + r + '" fill="none" stroke-width="5" ' +
-      'stroke-linecap="round" class="ring-seg' + (i < erledigt ? " voll" : "") + '" ' +
-      'stroke-dasharray="' + strich.toFixed(2) + ' ' + (umfang - strich).toFixed(2) + '" ' +
-      'stroke-dashoffset="' + off.toFixed(2) + '" transform="rotate(-90 ' + c + ' ' + c + ')"/>');
-  }
-  h.push('<text x="' + c + '" y="' + (c + 5) + '" text-anchor="middle" class="ring-txt">' +
-         erledigt + '/' + gesamt + '</text></svg>');
-  return h.join("");
 };
 
 /* ============================================================
@@ -625,25 +585,27 @@ KURS.importieren = function (datei, fertig) {
 /* ============================================================
    4. GEMEINSAME KOPFZEILE
    ============================================================ */
-KURS.kopf = function (aktuell) {
-  var vor = null, zurueck = null, ids = KURS.reihenfolge || [];
-  var i = ids.indexOf(aktuell);
-  if (i > 0) zurueck = ids[i - 1];
-  if (i > -1 && i < ids.length - 1) vor = ids[i + 1];
+/* Eine Leiste für ALLE Seiten. Drei Ziele, immer beschriftet, auch auf dem Handy.
+   Vorher: drei verschiedene, von Hand kopierte Varianten — daher „wo bin ich?".
+   `ziel` ist eines von: lernen | nachschlagen | fortschritt */
+KURS.ZIELE = [
+  { id: "lernen",       href: "index.html",         txt: "Lernen" },
+  { id: "nachschlagen", href: "nachschlagen.html",  txt: "Nachschlagen" },
+  { id: "fortschritt",  href: "fortschritt.html",   txt: "Fortschritt" }
+];
 
+KURS.kopf = function (ziel) {
   var h = '<div class="topbar"><div class="topbar-in">' +
-    '<a class="brand" href="index.html"><span class="dot"></span>Deutsch B2 · telc</a>' +
+    '<a class="brand" href="index.html"><span class="dot"></span><span class="brand-t">Deutsch</span></a>' +
+    '<nav class="hauptnav">' +
+    KURS.ZIELE.map(function (z) {
+      return '<a class="navbtn' + (z.id === ziel ? " ist-hier" : "") + '" href="' + z.href + '">' +
+             z.txt + '</a>';
+    }).join("") +
+    '</nav>' +
     '<span class="spacer"></span>' +
-    (zurueck ? '<a class="navbtn" href="' + zurueck + '.html">←</a>' : '<span class="navbtn is-off">←</span>') +
-    (vor ? '<a class="navbtn" href="' + vor + '.html">→</a>' : '<span class="navbtn is-off">→</span>') +
-    '<a class="navbtn" href="index.html">Übersicht</a>' +
-    '<span style="width:1px;height:18px;background:var(--border)"></span>' +
-    '<a class="navbtn" href="merkkarte.html" title="Merkkarte: Konnektoren auf einer Seite">🃏</a>' +
-    '<a class="navbtn" href="b1-fundament.html" title="Nachschlagewerk: alle Grammatik-Erklärungen">📖</a>' +
-    '<a class="navbtn" href="berufsdeutsch.html" title="Nachschlagewerk: Bewerbung, Gespräch, E-Mail">💼</a>' +
-    '<a class="navbtn" href="sprechen.html" title="Sprechblatt für den KI-Sprechpartner">🎙</a>' +
     KURS.spracheUmschalter() +
-    '<button class="navbtn" onclick="KURS.themaWechseln()" title="Hell / Dunkel"><svg width="13" height="13" viewBox="0 0 12 12" aria-hidden="true" style="vertical-align:-1px"><circle cx="6" cy="6" r="5.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6 .9a5.1 5.1 0 010 10.2z" fill="currentColor"/></svg></button>' +
+    '<button class="navbtn nav-icon" onclick="KURS.themaWechseln()" title="Hell / Dunkel" aria-label="Hell oder Dunkel"><svg width="13" height="13" viewBox="0 0 12 12" aria-hidden="true" style="vertical-align:-1px"><circle cx="6" cy="6" r="5.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6 .9a5.1 5.1 0 010 10.2z" fill="currentColor"/></svg></button>' +
     '</div></div>';
   document.write(h);
 };
@@ -705,8 +667,6 @@ Uebung.prototype.render = function (seite) {
           KURS.bl(gesamt + " Aufgaben · etwa " + minuten + " Minuten",
                   gesamt + " exercises · about " + minuten + " minutes") + '</span>' +
       '</div>' +
-      '<button class="btn" id="eh-kurz" onclick="KURS.aktiv.kurzversion()">' +
-        KURS.bl("Kurzversion · 15 Min", "Short version · 15 min") + '</button>' +
     '</div>' +
     '<div class="eh-bar"><i id="eh-bar-i" style="width:0%"></i></div>' +
     '<div class="eh-schritte" id="eh-schritte">' +
@@ -913,19 +873,9 @@ Uebung.prototype.baueEinheit = function (seite, tagNr) {
   return phasen;
 };
 
-/* Kurzversion: Phase ③ und ④ ausblenden. Für Abende, an denen 30 Minuten nicht drin sind. */
-Uebung.prototype.kurzversion = function () {
-  var an = document.body.classList.toggle("kurz");
-  var b = document.getElementById("eh-kurz");
-  if (b) b.textContent = an ? KURS.bl("Volle Einheit · 30 Min", "Full session · 30 min")
-                            : KURS.bl("Kurzversion · 15 Min", "Short version · 15 min");
-  this.phasenPruefen();
-};
-
 /* Fortschritt je Phase + Gesamtbalken. Ersetzt die alte dosisPruefen(). */
 Uebung.prototype.phasenPruefen = function () {
   if (!this.phasen || !this.phasen.length) return;
-  var self = this, kurz = document.body.classList.contains("kurz");
   var ids = {};
   this.phasen.forEach(function (p) {
     p.bloecke.forEach(function (b) { (b.items || []).forEach(function (it) { ids[it.id] = p.nr; }); });
@@ -933,7 +883,6 @@ Uebung.prototype.phasenPruefen = function () {
   var proPhase = {}, gesamt = 0, fertig = 0;
   this.items.forEach(function (e) {
     var nr = ids[e.id]; if (!nr) return;
-    if (kurz && nr > 2) return;
     proPhase[nr] = proPhase[nr] || [0, 0];
     proPhase[nr][1]++; gesamt++;
     if (e.erledigt) { proPhase[nr][0]++; fertig++; }
@@ -960,7 +909,7 @@ Uebung.prototype.phasenPruefen = function () {
   /* Eine Quelle für den Statustext: Umfang der aktuellen Ansicht + Stand */
   var st = document.getElementById("eh-status");
   if (st) {
-    var sicht = (this.phasen || []).filter(function (p) { return !kurz || p.nr <= 2; });
+    var sicht = this.phasen || [];
     var g = sicht.reduce(function (n, p) { return n + p.anzahl; }, 0);
     var m = sicht.reduce(function (n, p) { return n + p.min; }, 0);
     var umfang = KURS.bl(g + " Aufgaben · etwa " + m + " Minuten",
@@ -1175,17 +1124,24 @@ function hMc(it, id) {
   return h.join("") + '</div>';
 }
 
-/* -- Wörter ordnen -- */
-function hOrdnen(it, id) {
-  var mix = it.woerter.slice();
-  /* deterministischer Fisher-Yates mit LCG — gleiche Reihenfolge bei jedem Laden,
-     aber wirklich gemischt (der alte Ausdruck verschob nur drei Wörter) */
+/* Deterministischer Fisher-Yates mit LCG: gleiche Reihenfolge bei jedem Laden,
+   aber wirklich gemischt. Eine Quelle für „Wörter ordnen" UND „Zuordnen" —
+   das Zuordnen hatte vorher einen eigenen Ausdruck, der bei vier Paaren nur
+   die Liste umdrehte und ab sieben Paaren gar nichts mehr tat. */
+function mischen(arr, id) {
+  var mix = arr.slice();
   var seed = 0; for (var q = 0; q < id.length; q++) seed = (seed * 31 + id.charCodeAt(q)) % 233280;
   for (var i = mix.length - 1; i > 0; i--) {
     seed = (seed * 9301 + 49297) % 233280;
     var j = Math.floor(seed / 233280 * (i + 1));
     var t = mix[i]; mix[i] = mix[j]; mix[j] = t;
   }
+  return mix;
+}
+
+/* -- Wörter ordnen -- */
+function hOrdnen(it, id) {
+  var mix = mischen(it.woerter, id);
   var h = ['<div class="wortpool ziel" id="zi-' + id + '"></div><div class="wortpool" id="po-' + id + '">'];
   mix.forEach(function (w, i) {
     h.push('<button class="wort" data-w="' + esc(w) + '" onclick="KURS.aktiv.wortKlick(\'' + id + '\',this,1)">' + esc(w) + '</button>');
@@ -1198,8 +1154,7 @@ function hOrdnen(it, id) {
 /* -- Zuordnen -- */
 function hZuordnen(it, id) {
   var links = it.paare.map(function (p, i) { return { t: p[0], i: i }; });
-  var rechts = it.paare.map(function (p, i) { return { t: p[1], i: i }; });
-  rechts = rechts.slice().sort(function (a, b) { return ((a.i * 13 + 5) % 7) - ((b.i * 13 + 5) % 7); });
+  var rechts = mischen(it.paare.map(function (p, i) { return { t: p[1], i: i }; }), id + "r");
   var h = ['<div class="paare"><div class="paar-sp">'];
   links.forEach(function (x) {
     h.push('<button class="paar" data-s="l" data-i="' + x.i + '" onclick="KURS.aktiv.paarKlick(\'' + id + '\',this)">' + esc(x.t) + '</button>');
@@ -1490,44 +1445,6 @@ Uebung.prototype.stand = function () {
            quote: mB ? Math.round(p / mB * 100) : 0 };
 };
 
-/* Zählt die erledigten Aufgaben der Tagesdosis und blendet den Zielstrich ein. */
-Uebung.prototype.dosisPruefen = function () {
-  var seite = KURS.seiten[this.seiteId];
-  if (!seite || !seite.dosisItems || !seite.dosisItems.length) return;
-  var ids = {}, self = this;
-  seite.dosisItems.forEach(function (it) { ids[it.id] = 1; });
-  var fertig = 0;
-  this.items.forEach(function (e) { if (ids[e.id] && e.erledigt) fertig++; });
-
-  var ring = document.getElementById("dosis-ring");
-  if (ring) ring.innerHTML = KURS.ring(fertig, KURS.DOSIS, 68);
-
-  var alleFertig = fertig >= Math.min(KURS.DOSIS, seite.dosisItems.length);
-  var vorher = KURS.dosisStand(this.seiteId);
-  KURS.dosisMerken(this.seiteId, fertig, alleFertig || vorher.fertig);
-
-  var ziel = document.getElementById("dosis-ziel");
-  var status = document.getElementById("dosis-status");
-  if (alleFertig) {
-    document.getElementById("dosis").classList.add("fertig");
-    if (status) status.innerHTML = KURS.bl("Geschafft. Alles Weitere ist freiwillig.",
-                                           "Done. Everything below is optional.");
-    if (ziel && ziel.hasAttribute("hidden")) {
-      ziel.removeAttribute("hidden");
-      ziel.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  } else if (status) {
-    status.innerHTML = KURS.bl((KURS.DOSIS - fertig) + " von " + KURS.DOSIS + " übrig",
-                               (KURS.DOSIS - fertig) + " of " + KURS.DOSIS + " left");
-  }
-};
-
-/* Knopf unter dem Zielstrich: klappt den ersten freiwilligen Block auf */
-Uebung.prototype.weiterUeben = function () {
-  var d = document.querySelector("details.blockkarte");
-  if (d) { d.open = true; d.scrollIntoView({ behavior: "smooth", block: "start" }); }
-};
-
 Uebung.prototype.aktualisiere = function () {
   var s = this.stand();
   var el = document.getElementById("k-punkte");
@@ -1537,10 +1454,6 @@ Uebung.prototype.aktualisiere = function () {
     var ges = s.gesamt;
     if (this.phasen && this.phasen.length) {
       ges = this.phasen.reduce(function (n, p) { return n + p.anzahl; }, 0);
-      if (document.body.classList.contains("kurz")) {
-        ges = this.phasen.filter(function (p) { return p.nr <= 2; })
-                         .reduce(function (n, p) { return n + p.anzahl; }, 0);
-      }
     }
     el.textContent = pkt(s.punkte) + " / " + s.maxB + " Punkte · " + Math.min(s.fertig, ges) + "/" + ges + " Aufgaben";
   }

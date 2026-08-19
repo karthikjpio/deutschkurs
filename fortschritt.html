@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deutsch — Fortschritt</title>
+<link rel="stylesheet" href="assets/kurs.css?v=2.0.1">
+<script src="assets/kurs.js?v=2.0.1"></script>
+<script src="assets/daten/kurs-liste.js?v=2.0.1"></script>
+<script src="assets/daten/fundament.js?v=2.0.1"></script>
+<script src="assets/daten/beruf.js?v=2.0.1"></script>
+<script src="assets/daten/pruefung.js?v=2.0.1"></script>
+<script src="assets/daten/schreiben.js?v=2.0.1"></script>
+<script src="assets/daten/einstufung.js?v=2.0.1"></script>
+<script src="assets/daten/tag-01.js?v=2.0.1"></script>
+<script src="assets/daten/tag-02.js?v=2.0.1"></script>
+<script src="assets/daten/tag-03.js?v=2.0.1"></script>
+<script src="assets/daten/tag-04.js?v=2.0.1"></script>
+<script src="assets/daten/einheiten.js?v=2.0.1"></script>
+</head>
+<body>
+<script>KURS.kopf("fortschritt");</script>
+
+<div class="wrap">
+
+  <div class="pagehead">
+    <h1>Fortschritt</h1>
+    <p class="sub">Alles, was vorher die Startseite verstopft hat — an einem Ort.
+      <span class="en">Everything that used to clog the home page, in one place.</span></p>
+  </div>
+
+  <div class="grid c4" id="statistik"></div>
+
+  <h2>Meine Schwachstellen <span class="en">— what to fix first</span></h2>
+  <div class="card" id="schwachstellen"></div>
+
+  <h2>Entwicklung <span class="en">— first attempt → now</span></h2>
+  <div class="card" id="entwicklung"></div>
+
+  <h2>Prüfungsteile <span class="en">— readiness by exam part</span></h2>
+  <div class="card" id="pruefungsteile"></div>
+
+  <h2>Sichern <span class="en">— export &amp; backup</span></h2>
+  <div class="card">
+    <div class="card-title">⬇︎ Fortschritt exportieren</div>
+    <p class="sub">Lädt <b>fortschritt-JJJJ-MM-TT.json</b> herunter. Leg die Datei in den Ordner
+      <b>_Fortschritt</b>. Der Fortschritt liegt sonst nur in diesem Browser — wird der Speicher
+      gelöscht, ist er weg.</p>
+    <div class="btnrow">
+      <button class="btn primary" onclick="KURS.exportieren()">⬇︎ Exportieren</button>
+      <button class="btn" onclick="document.getElementById('imp').click()">⬆︎ Sicherung einlesen</button>
+      <input type="file" id="imp" accept="application/json" style="display:none" onchange="einlesen(this)">
+      <span id="imp-ok"></span>
+    </div>
+  </div>
+
+  <div class="card fb">
+    <div class="card-title">💬 Feedback zum Kurs</div>
+    <p class="sub">Was funktioniert nicht? Was brauchst du mehr? Ich baue den Kurs danach um.</p>
+    <textarea class="frei" id="fb" placeholder="z. B. „Mehr Hörverstehen“ · „Erklärungen bitte kürzer“"></textarea>
+    <div class="btnrow"><button class="btn" onclick="fbSenden()">Feedback speichern</button><span id="fb-ok"></span></div>
+    <div class="fb-liste" id="fb-liste"></div>
+  </div>
+
+  <p class="fuss">Engine <span id="ver"></span></p>
+</div>
+
+<script>
+document.getElementById("ver").textContent = KURS.ENGINE;
+
+/* ---------- Kennzahlen ---------- */
+(function () {
+  var d = KURS.daten(), seiten = 0, versuche = 0, punkte = 0, max = 0, aufgaben = 0;
+  Object.keys(d.seiten).forEach(function (id) {
+    var v = d.seiten[id].versuche || [];
+    if (!v.length) return;
+    seiten++; versuche += v.length;
+    var l = v[v.length - 1];
+    punkte += l.punkte; max += l.max; aufgaben += l.bearbeitet || 0;
+  });
+  var quote = max ? Math.round(punkte / max * 100) : 0;
+  document.getElementById("statistik").innerHTML =
+    kachel(seiten, "Module bearbeitet", "modules done") +
+    kachel(aufgaben, "Aufgaben gelöst", "exercises done") +
+    kachel(max ? quote + "%" : "—", "Trefferquote", "accuracy", quote) +
+    kachel(versuche, "Versuche gesamt", "attempts");
+})();
+
+function kachel(wert, lbl, en, farbe) {
+  var c = farbe === undefined ? "" : (farbe >= 80 ? "color:var(--ok)" : farbe >= 60 ? "color:var(--warn)" : "color:var(--bad)");
+  return '<div class="card stat"><div class="num" style="' + c + '">' + wert + '</div>' +
+         '<div class="lbl">' + lbl + '<span class="en">' + en + '</span></div></div>';
+}
+
+/* ---------- Schwachstellen ---------- */
+(function () {
+  var box = document.getElementById("schwachstellen");
+  var prio = KURS.prioritaeten(Object.keys(KURS.fundament || {}).concat(
+              ["adjektivendungen","kasus","wechselpraepositionen","reflexiv","n-deklination","sprachbausteine","leseverstehen"]));
+  var mitDaten = prio.filter(function (p) { return p.quote !== null; });
+
+  if (!mitDaten.length) {
+    box.innerHTML = '<div class="leerzustand"><div class="gross">🎯</div>' +
+      '<p><b>Noch keine Daten.</b><br>Mach den <a href="einstufungstest.html">Einstufungstest</a> — ' +
+      'danach steht hier, woran wir zuerst arbeiten.</p></div>';
+    return;
+  }
+  var h = ['<p class="sub">Neuere Versuche zählen mehr als alte. Das oberste Thema kommt automatisch ' +
+           'in deinen nächsten Fundament-Block.</p>'];
+  mitDaten.slice(0, 6).forEach(function (x, i) {
+    var b = KURS.band(x.quote);
+    h.push('<div class="themerow"><div class="nm">' +
+      (i === 0 ? '<span class="chip accent">als Nächstes dran</span> ' : '') +
+      KURS.esc(KURS.themaName(x.thema)) +
+      '<small>' + KURS.esc(x.grund) + '</small>' +
+      '<span class="bar ' + b.k + '"><i style="width:' + x.quote + '%"></i></span></div>' +
+      '<div class="pct">' + KURS.statusHtml(x.quote) + '</div></div>');
+  });
+  var f = KURS.fehlerListe(6);
+  if (f.length) {
+    h.push('<h3>Aufgaben, die du wiederholen solltest <span class="en">— these come back automatically</span></h3>');
+    f.forEach(function (x) {
+      h.push('<div class="fb-eintrag" style="border-left-color:var(--bad)"><span class="meta">' +
+        KURS.esc(KURS.themaName(x.thema)) + (x.anzahl > 1 ? ' · ' + x.anzahl + '× falsch' : '') + '</span>' +
+        KURS.esc(x.frage) + '<br><span style="color:var(--bad)">Du: ' + KURS.esc(x.deine) +
+        '</span> → <span style="color:var(--ok-text)">' + KURS.esc(x.richtig) + '</span></div>');
+    });
+  }
+  box.innerHTML = h.join("");
+})();
+
+/* ---------- Entwicklung ---------- */
+(function () {
+  var box = document.getElementById("entwicklung");
+  var st = KURS.lernstand().themen;
+  var reihen = Object.keys(st).map(function (t) { return { t: t, x: st[t] }; })
+    .filter(function (r) { return r.x.verlauf.length >= 2 && r.x.erst !== null; });
+
+  if (!reihen.length) {
+    box.innerHTML = '<div class="leerzustand"><div class="gross">📈</div>' +
+      '<p>Hier erscheint dein Vorher-Nachher, sobald du ein Thema <b>zweimal</b> geübt hast.</p></div>';
+    return;
+  }
+  reihen.sort(function (a, b) { return (b.x.letzt - b.x.erst) - (a.x.letzt - a.x.erst); });
+
+  var h = ['<p class="sub">Heller Punkt = erster Versuch, voller Punkt = jetzt.</p>',
+           '<div class="db-legende">' +
+           '<span><i class="db-a" style="border:2px solid var(--accent);background:var(--surface-2)"></i>erster Versuch</span>' +
+           '<span><i class="db-b" style="background:var(--accent)"></i>jetzt</span></div>'];
+  reihen.slice(0, 8).forEach(function (r) {
+    var a = r.x.erst, b = r.x.letzt, d = b - a;
+    var lo = Math.min(a, b), hi = Math.max(a, b);
+    h.push('<div class="db">' +
+      '<div class="db-kopf"><span class="db-nm">' + KURS.esc(KURS.themaName(r.t)) + '</span>' +
+      '<span class="db-delta" style="color:' + (d > 0 ? 'var(--ok-text)' : d < 0 ? 'var(--bad)' : 'var(--text-faint)') + '">' +
+      (d > 0 ? '▲ +' : d < 0 ? '▼ ' : '● ') + d + ' Punkte</span></div>' +
+      '<div class="db-spur">' +
+      '<div class="db-linie" style="left:' + lo + '%;width:' + Math.max(0, hi - lo) + '%"></div>' +
+      '<div class="db-pkt db-a" style="left:' + a + '%" title="erster Versuch: ' + a + ' %"></div>' +
+      '<div class="db-pkt db-b" style="left:' + b + '%" title="jetzt: ' + b + ' %"></div>' +
+      '</div>' +
+      '<div class="db-skala"><span>' + a + ' %</span><span>' + b + ' %</span></div></div>');
+  });
+  box.innerHTML = h.join("");
+})();
+
+/* ---------- Prüfungsteile ---------- */
+(function () {
+  var karte = {
+    "Leseverstehen": ["leseverstehen", "wortschatz"],
+    "Sprachbausteine": ["sprachbausteine","konnektoren","nebensatz","adjektivendungen","kasus","verben-mit-praep",
+                        "passiv","konjunktiv2","relativsatz","n-deklination","reflexiv","wechselpraepositionen",
+                        "perfekt-praeteritum","verbformen","wortbildung"],
+    "Hörverstehen": ["hoerverstehen"],
+    "Schriftlicher Ausdruck": ["schreiben"],
+    "Mündlicher Ausdruck": ["sprechen","redemittel"]
+  };
+  var b = KURS.themenBilanz(), h = [], irgendwas = false;
+  h.push('<p class="sub">Grobe Einschätzung auf Basis deiner bisherigen Antworten.</p>');
+  Object.keys(karte).forEach(function (teil) {
+    var r = 0, g = 0;
+    karte[teil].forEach(function (t) { if (b[t]) { r += b[t][0]; g += b[t][1]; } });
+    var pz = g ? Math.round(r / g * 100) : null;
+    if (pz !== null) irgendwas = true;
+    h.push('<div class="themerow"><div class="nm">' + teil +
+      '<small>' + (g ? r + '/' + g + ' Punkte' : 'noch keine Daten') + '</small>' +
+      '<span class="bar ' + (pz === null ? "" : pz >= 80 ? "ok" : pz >= 60 ? "mid" : "bad") + '"><i style="width:' + (pz || 0) + '%"></i></span></div>' +
+      '<div class="pct">' + (pz === null ? "—" : pz + "%") + '</div></div>');
+  });
+  if (!irgendwas) h.push('<div class="hinweisbox">Mach den <a href="einstufungstest.html">Einstufungstest</a>, damit hier echte Werte stehen.</div>');
+  document.getElementById("pruefungsteile").innerHTML = h.join("");
+})();
+
+/* ---------- Feedback ---------- */
+function fbSenden() {
+  var ta = document.getElementById("fb"), txt = ta.value.trim();
+  if (!txt) return;
+  var d = KURS.daten();
+  if (!d.seiten["index"]) d.seiten["index"] = { versuche: [], frei: {}, flags: {}, feedback: [] };
+  d.seiten["index"].feedback.push({ datum: new Date().toISOString(), text: txt });
+  KURS.speichern(d);
+  ta.value = "";
+  document.getElementById("fb-ok").innerHTML = '<span class="fb-gesendet">✓ Gespeichert — kommt in den nächsten Export</span>';
+  fbListe();
+}
+function fbListe() {
+  var f = KURS.alleFeedback();
+  document.getElementById("fb-liste").innerHTML = f.slice(0, 12).map(function (x) {
+    return '<div class="fb-eintrag"><span class="meta">' + x.datum.slice(8, 10) + "." + x.datum.slice(5, 7) + ". · " + x.seite + '</span>' + KURS.esc(x.text) + '</div>';
+  }).join("");
+}
+fbListe();
+
+function einlesen(inp) {
+  if (!inp.files || !inp.files[0]) return;
+  KURS.importieren(inp.files[0], function (ok) {
+    document.getElementById("imp-ok").innerHTML = ok
+      ? '<span class="fb-gesendet">✓ Eingelesen — Seite wird neu geladen</span>'
+      : '<span style="color:var(--bad)">Datei konnte nicht gelesen werden.</span>';
+    if (ok) setTimeout(function () { location.reload(); }, 800);
+  });
+}
+</script>
+</body>
+</html>

@@ -5,6 +5,79 @@ seine 🚩-Markierungen und die Fehler aus den exportierten Fortschrittsdateien.
 
 ---
 
+## 2026-08-19 · Engine 2.0.1 — Vom Kalender zu Einheiten (Schritt 1: Gerüst)
+
+**Karthiks Rückmeldung:** „Zu unübersichtlich, zu viel gleichzeitig. Ich weiß nicht, wo ich
+hin soll. Es gibt eine einfache und eine ausführliche Version — ich will die ausführliche."
+
+**Der Befund.** Das Tagesmodell war längst zusammengebrochen: 4 von 40 Kurstagen hatten
+Inhalt, 36 Seiten sagten „Noch kein Material". Die Startseite war 14 692 px hoch. Es gab
+**drei verschiedene Navigationsleisten** — `KURS.kopf()` für die Tagesseiten, eine von Hand
+kopierte in `index.html`/`b1-fundament`/`berufsdeutsch`, und eine dritte in `sprechen.html`,
+der der Test-Link fehlte. Auf Handybreite war die Navigation fünf unbeschriftete Emoji.
+
+**Die neue Struktur.** Statt 40 Kurstagen jetzt zwei Kurse:
+① **B2-Fundamente (B1)** — die 15 Grammatikthemen der Lehrerin, die telc-B1-Formate und die
+B1-Briefe an einem Ort. Kompakt, zuerst durchzuziehen.
+② **B2 · Lektion 1–10** — die Einheiten aus Kompass DaF. Jede Lektion hat im Buch vier Module
+A–D mit je einer Fertigkeit (Lesen/Hören/Schreiben/Sprechen) plus „Auf dem Weg zur Prüfung".
+Diese Struktur übernimmt die App, statt eigene Phasen zu erfinden. B2.1 = Lektion 1–5 liegt
+vor, B2.2 = Lektion 6–10 folgt.
+
+**Gebaut**
+
+- `assets/daten/einheiten.js` — Einheiten-Manifest aus dem Inhaltsverzeichnis von B2.1,
+  Seite für Seite geprüft. Ersetzt den 40-Tage-Kalender als Rückgrat.
+- `seite.html?id=…` — **eine** Seite für jeden Inhalt. Ersetzt 40 fast identische
+  `tag-NN.html` (rund 1 500 Zeilen), die jeweils ihre eigene Script-Liste pflegen mussten
+  und dabei auseinanderliefen.
+- `index.html` neu — nur noch drei Dinge: Weitermachen, Kurs ①, Kurs ②.
+  Von elf Blöcken auf drei, von 14 692 px auf 2 659 px.
+- `fortschritt.html` — Kennzahlen, Schwachstellen, Entwicklung, Prüfungsteile, Export
+  und Feedback. Alles, was vorher die Startseite verstopft hat.
+- `nachschlagen.html` — ein Ziel für Grammatik, Merkkarte, Berufsdeutsch und Sprechen.
+
+**Entfernt**
+
+- **Die Kurzversion.** Sie war ein reiner CSS-Schalter ohne Speicher — und zählte falsch:
+  ausgeblendete Aufgaben blieben wertbar, „kurz" verkleinerte nur den Nenner der
+  Aufgabenzahl, nie den der Punkte. Mit dem Wegfall verschwindet der Widerspruch.
+- **Der Kalender** — 40 Termine, Wochenband, „Deine Zeit", „Material fehlt"-Warnungen.
+  Fortschritt zählt jetzt pro Modul.
+- **Zwei doppelte Navigationsleisten**; alle Seiten nutzen jetzt `KURS.kopf(ziel)`.
+- **Toter Code:** `alleFehler`, `PHASEN`, `ring` (hatte nie CSS), `dosisPruefen`,
+  `weiterUeben`, `dosisItems` — zusammen 118 Zeilen ohne einen einzigen Aufrufer.
+- „Wortschatz gesamt" auf der Startseite — der Vokabeltrainer kann das besser und ist
+  bereits nach Lektionen organisiert.
+
+**Behobene Fehler**
+
+1. `geuebteTage` zählte **jede beantwortete Aufgabe** statt Tage und wuchs im Export
+   unbegrenzt. Jetzt ein Flag.
+2. Das „Mischen" in `hZuordnen` war keins: bei vier Paaren drehte es die Liste nur um,
+   ab sieben Paaren tat es gar nichts. Nutzt jetzt denselben LCG-Fisher-Yates wie
+   „Wörter ordnen" (neue gemeinsame Funktion `mischen`).
+3. Navigation auf dem Handy: die Labels blieben ausgeblendet, übrig waren fünf Emoji.
+   Jetzt weicht der Markenname, die drei Ziele bleiben beschriftet.
+4. Zeilen in Kurs ① liefen auf 375 px über den Kartenrand — Grid-Kinder haben
+   `min-width:auto`; jetzt `minmax(0,1fr)`.
+
+**Technische Entscheidung**
+
+- Alle Asset-Verweise tragen `?v=…`. Pythons `http.server` sendet kein `Cache-Control`,
+  der Browser hielt kurs.js und kurs.css deshalb heuristisch für frisch und zeigte nach
+  einem Update die alte Version. Die Version steht in `KURS.ENGINE` und in den HTML-Dateien.
+
+**Bewusst noch offen (Schritt 2–6)**
+
+- Die Modulseiten zeigen intern noch die alten vier Phasen (Aufwärmen/Heute/Fundament/
+  Prüfung). Der Umbau auf die Buchmodule A–D ist Schritt 3.
+- Tag 1–4 liegen noch als `tag-01`…`tag-04` vor und werden zu Einheit 1 A–D umsortiert.
+- Hörverstehen fehlt weiter vollständig — 0 von 456 Aufgaben. Schritt 5.
+- Die Seitenangaben im alten Material lösen sich nicht gegen diesen Teilband auf
+  (zitiert „AB S. 136–137", dort steht der Grammatikanhang) und müssen neu hergeleitet werden.
+- `sprechen.html` und der KI-Sprechpartner sind **archiviert, nicht gelöscht**.
+
 ## 2026-07-28 · Engine 1.0.0 — Erstaufbau
 
 **Neu gebaut**

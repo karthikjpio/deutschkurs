@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deutsch — Nachschlagen</title>
+<link rel="stylesheet" href="assets/kurs.css?v=2.0.1">
+<script src="assets/kurs.js?v=2.0.1"></script>
+<script src="assets/daten/kurs-liste.js?v=2.0.1"></script>
+<script src="assets/daten/fundament.js?v=2.0.1"></script>
+<script src="assets/daten/beruf.js?v=2.0.1"></script>
+<script src="assets/daten/einheiten.js?v=2.0.1"></script>
+</head>
+<body>
+<script>KURS.kopf("nachschlagen");</script>
+
+<div class="wrap">
+
+  <div class="pagehead">
+    <h1>Nachschlagen</h1>
+    <p class="sub">Zum Blättern, nicht zum Üben. Geübt wird unter <a href="index.html">Lernen</a>.
+      <span class="en">Reference only — practice lives under „Lernen“.</span></p>
+  </div>
+
+  <div class="kursreihe" id="hub"></div>
+
+  <h2>Grammatik nach Einheit <span class="en">— what each unit drills</span></h2>
+  <div class="card"><div class="tabellenbox"><table class="gr">
+    <thead><tr><th>Einheit</th><th>Thema</th><th>Grammatik</th></tr></thead>
+    <tbody id="gram"></tbody>
+  </table></div></div>
+
+</div>
+
+<script>
+(function () {
+  var ziele = [
+    { href: "b1-fundament.html", t: "Grammatik B1-Fundament",
+      s: "Die 15 Themen deiner Lehrerin, mit allen Erklärungen und dem kompletten Aufgabenvorrat." },
+    { href: "merkkarte.html", t: "Merkkarte Konnektoren",
+      s: "Grund, Gegengrund und Alternative auf einer Seite — filterbar und druckbar." },
+    { href: "berufsdeutsch.html", t: "Berufsdeutsch",
+      s: "Anschreiben, Vorstellungsgespräch, E-Mails und Meetings." },
+    { href: "sprechen.html", t: "Sprechen mit der KI",
+      s: "Vorlage für den KI-Sprechpartner. Archiviert — kommt als Sprech-Modul der Einheiten zurück." }
+  ];
+  document.getElementById("hub").innerHTML = ziele.map(function (z) {
+    return '<a class="tocitem fertig" href="' + z.href + '">' +
+      '<span class="tag-txt"><span class="tag-t">' + z.t + '</span>' +
+      '<span class="tag-s">' + z.s + '</span></span></a>';
+  }).join("");
+
+  document.getElementById("gram").innerHTML = KURS.einheiten.map(function (e) {
+    return '<tr><td><b>' + e.nr + '</b></td><td>' + KURS.esc(e.thema) + '</td><td>' +
+      KURS.esc(e.grammatik.join(" · ")) + '</td></tr>';
+  }).join("") +
+  '<tr><td><b>6–10</b></td><td colspan="2" style="color:var(--text-faint)">B2.2 — folgt mit dem PDF</td></tr>';
+})();
+</script>
+</body>
+</html>

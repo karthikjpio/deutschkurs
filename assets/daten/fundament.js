@@ -1176,44 +1176,6 @@ KURS.fundamentBlock = function (tagNr, seiteId) {
   };
 };
 
-/* ------------------------------------------------------------------
-   TAGESDOSIS — die fünf Aufgaben, die der Tag verlangt.
-   Zusammensetzung: 2 aus echten Fehlern · 2 zum Thema des Tages · 1 Beruf.
-   Wird wie der Plan pro Tag eingefroren, damit die Seite stabil bleibt.
-   ------------------------------------------------------------------ */
-KURS.dosisItems = function (tagNr, seiteId) {
-  var d = KURS.daten(), s = d.seiten[seiteId];
-  if (!s) { s = d.seiten[seiteId] = { versuche: [], frei: {}, flags: {}, feedback: [] }; }
-
-  if (!s.dosisPlan || s.dosisPlan.v !== 1) {
-    var plan = s.plan && s.plan.v === 2 ? s.plan : KURS.planBerechnen(tagNr);
-    var wdh = (plan.wdh || []).slice(0, 2);
-    var haupt = (plan.haupt || []).filter(function (k) { return wdh.indexOf(k) === -1; }).slice(0, 2);
-    var bt = KURS.berufPlan ? KURS.berufPlan[(tagNr - 1) % KURS.berufPlan.length] : null;
-    s.dosisPlan = { v: 1, wdh: wdh, haupt: haupt, beruf: bt, berufIdx: (tagNr - 1) % 9 };
-    KURS.speichern(d);
-  }
-  var dp = s.dosisPlan, out = [];
-
-  function hol(k, wdh) {
-    var it = KURS.fundamentIndex[k]; if (!it) return null;
-    var c = {}; for (var f in it) c[f] = it[f];
-    c.wdh = !!wdh; c.dosis = true;
-    c.id = "dos" + tagNr + "-" + k.replace(/[^a-zA-Z0-9]/g, "");
-    return c;
-  }
-  dp.wdh.forEach(function (k) { var x = hol(k, true); if (x) out.push(x); });
-  dp.haupt.forEach(function (k) { var x = hol(k, false); if (x) out.push(x); });
-
-  if (dp.beruf && KURS.beruf && KURS.beruf[dp.beruf]) {
-    var pool = KURS.beruf[dp.beruf].items.filter(function (i) { return i.typ !== "frei"; });
-    var bi = pool[dp.berufIdx % pool.length];
-    if (bi) { var c = {}; for (var f in bi) c[f] = bi[f];
-              c.dosis = true; c.id = "dosb" + tagNr; out.push(c); }
-  }
-  return out.slice(0, KURS.DOSIS || 5);
-};
-
 /* Knopf: Plan verwerfen und aus dem aktuellen Lernstand neu bauen */
 KURS.planNeu = function (seiteId) {
   var d = KURS.daten();

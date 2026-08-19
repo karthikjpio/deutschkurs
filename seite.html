@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deutsch — Einheit</title>
+<link rel="stylesheet" href="assets/kurs.css?v=2.0.1">
+<script src="assets/kurs.js?v=2.0.1"></script>
+<!-- Eine Seite für JEDEN Inhalt: seite.html?id=tag-02
+     Vorher waren das 40 fast identische Dateien, die alle ihre eigene
+     Script-Liste pflegen mussten — und dabei auseinanderliefen.
+     Hier stehen die Datendateien genau einmal. -->
+<script src="assets/daten/kurs-liste.js?v=2.0.1"></script>
+<script src="assets/daten/fundament.js?v=2.0.1"></script>
+<script src="assets/daten/beruf.js?v=2.0.1"></script>
+<script src="assets/daten/pruefung.js?v=2.0.1"></script>
+<script src="assets/daten/schreiben.js?v=2.0.1"></script>
+<script src="assets/daten/einstufung.js?v=2.0.1"></script>
+<script src="assets/daten/tag-01.js?v=2.0.1"></script>
+<script src="assets/daten/tag-02.js?v=2.0.1"></script>
+<script src="assets/daten/tag-03.js?v=2.0.1"></script>
+<script src="assets/daten/tag-04.js?v=2.0.1"></script>
+</head>
+<body>
+<script>KURS.kopf("lernen");</script>
+<div class="wrap">
+  <div id="kopf"></div>
+  <div id="kurs-app"></div>
+  <p class="fuss"><a href="index.html">← Alle Einheiten</a></p>
+</div>
+<script>
+(function () {
+  var id = new URLSearchParams(location.search).get("id") || "";
+  var kopf = document.getElementById("kopf"), app = document.getElementById("kurs-app");
+
+  if (KURS.seiten[id]) {
+    document.title = (KURS.seiten[id].titel || "Einheit") + " · Deutsch";
+    kopf.innerHTML = KURS.seitenkopf(id);
+    KURS.starte(id, "kurs-app");
+    return;
+  }
+
+  /* Unbekannte oder fehlende id: kein Sackgassen-Text, sondern ein Weg zurück. */
+  kopf.innerHTML = '<div class="pagehead"><div class="eyebrow">Nicht gefunden</div>' +
+    '<h1>Diese Einheit gibt es (noch) nicht</h1>' +
+    '<p class="sub">Die Adresse zeigt auf <b>' + KURS.esc(id || "—") + '</b>. ' +
+    'Wähle links eine Einheit, die schon steht.</p></div>';
+
+  var da = Object.keys(KURS.seiten);
+  app.innerHTML = '<div class="card"><div class="card-title">Verfügbar</div><div class="toc">' +
+    da.map(function (k) {
+      var s = KURS.seiten[k];
+      return '<a class="tocitem fertig" href="seite.html?id=' + encodeURIComponent(k) + '">' +
+        '<span class="tag-nr">' + (s.nr || "·") + '</span>' +
+        '<span class="tag-txt"><span class="tag-t">' + KURS.esc(s.titel || k) + '</span>' +
+        '<span class="tag-s">' + KURS.esc(s.untertitel || "") + '</span></span></a>';
+    }).join("") + '</div></div>';
+})();
+</script>
+</body>
+</html>

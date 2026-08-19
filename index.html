@@ -3,445 +3,130 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deutsch B2 · telc — Kursübersicht</title>
-<link rel="stylesheet" href="assets/kurs.css">
-<script src="assets/kurs.js"></script>
-<script src="assets/daten/kurs-liste.js"></script>
-<script src="assets/daten/fundament.js"></script>
-<script src="assets/daten/beruf.js"></script>
-<script src="assets/daten/einstufung.js"></script>
-<script src="assets/daten/tag-01.js"></script>
-<script src="assets/daten/tag-02.js"></script>
-<script src="assets/daten/tag-03.js"></script>
-<script src="assets/daten/tag-04.js"></script>
+<title>Deutsch — Lernen</title>
+<link rel="stylesheet" href="assets/kurs.css?v=2.0.1">
+<script src="assets/kurs.js?v=2.0.1"></script>
+<script src="assets/daten/kurs-liste.js?v=2.0.1"></script>
+<script src="assets/daten/fundament.js?v=2.0.1"></script>
+<script src="assets/daten/beruf.js?v=2.0.1"></script>
+<script src="assets/daten/pruefung.js?v=2.0.1"></script>
+<script src="assets/daten/schreiben.js?v=2.0.1"></script>
+<script src="assets/daten/einstufung.js?v=2.0.1"></script>
+<script src="assets/daten/tag-01.js?v=2.0.1"></script>
+<script src="assets/daten/tag-02.js?v=2.0.1"></script>
+<script src="assets/daten/tag-03.js?v=2.0.1"></script>
+<script src="assets/daten/tag-04.js?v=2.0.1"></script>
+<script src="assets/daten/einheiten.js?v=2.0.1"></script>
 </head>
 <body>
-
-<div class="topbar"><div class="topbar-in">
-  <a class="brand" href="index.html"><span class="dot"></span>Deutsch B2 · telc</a>
-  <span class="spacer"></span>
-  <a class="navbtn" href="index.html"><span class="lbl">Übersicht</span><span aria-hidden="true" style="display:none">⌂</span></a>
-  <span style="width:1px;height:18px;background:var(--border)"></span>
-  <a class="navbtn" href="merkkarte.html" title="Merkkarte: Konnektoren auf einer Seite">🃏<span class="lbl"> Merkkarte</span></a>
-  <a class="navbtn" href="b1-fundament.html" title="Nachschlagewerk: alle Grammatik-Erklärungen">📖<span class="lbl"> Grammatik</span></a>
-  <a class="navbtn" href="berufsdeutsch.html" title="Nachschlagewerk: Bewerbung, Gespräch, E-Mail">💼<span class="lbl"> Beruf</span></a>
-  <a class="navbtn" href="sprechen.html" title="Sprechblatt für den KI-Sprechpartner">🎙<span class="lbl"> Sprechen</span></a>
-  <a class="navbtn" href="einstufungstest.html" title="Standortbestimmung">📊<span class="lbl"> Test</span></a>
-  <script>document.write(KURS.spracheUmschalter())</script>
-  <button class="navbtn" onclick="KURS.themaWechseln()" title="Hell / Dunkel"><svg width="13" height="13" viewBox="0 0 12 12" aria-hidden="true" style="vertical-align:-1px"><circle cx="6" cy="6" r="5.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6 .9a5.1 5.1 0 010 10.2z" fill="currentColor"/></svg></button>
-</div></div>
+<script>KURS.kopf("lernen");</script>
 
 <div class="wrap">
 
   <div class="pagehead">
-    <div class="eyebrow">VHS Aachen · Kurs 261-14125 · B2 Intensiv</div>
-    <h1>Mein Weg zur telc-B2-Prüfung</h1>
-    <p class="sub">40 Kurstage, 27.07. – 22.09.2026, Mo–Fr 09:00–12:30 bei Jasmine Morawietz. Jeden Kurstag kommt eine Einheit dazu — plus zehn Fundament-Aufgaben aus der Wiederholungsliste deiner Lehrerin. Deine Antworten werden gespeichert, damit du siehst, wo du besser wirst.</p>
+    <h1>Lernen</h1>
+    <p class="sub">Zwei Kurse. Erst die Fundamente, dann die zehn Einheiten aus dem Buch.
+      <span class="en">Two courses: the foundations first, then the ten textbook units.</span></p>
   </div>
 
-  <div id="heute-karte"></div>
+  <div id="weiter"></div>
 
-  <div class="grid c4" id="statistik"></div>
+  <h2>① B2-Fundamente <span class="en">— the B1 base B2 builds on</span></h2>
+  <div id="kurs-fundament"></div>
 
+  <h2>② B2 · Einheit 1–10 <span class="en">— Kompass DaF</span></h2>
+  <div id="kurs-b2"></div>
 
-  <div class="card" id="aufbau">
-    <div class="card-title">So läuft ein Abend <span class="en">— your 30 minutes, in four phases</span></div>
-    <p class="sub">Du öffnest <b>immer nur die Seite des Tages</b>. Dort steht eine Einheit aus vier Phasen —
-      alles sichtbar, nichts versteckt, zusammen etwa 30 Minuten.
-      Wenn ein Abend nicht passt: der Knopf <b>„Kurzversion · 15 Min"</b> blendet Phase ③ und ④ aus,
-      und der Tag zählt trotzdem als geübt.
-      <span class="en">Four visible phases, about 30 minutes. On a bad evening, the short version covers phases 1 and 2.</span></p>
-    <div class="schichten">
-      <div class="schicht">
-        <span class="s-nr">①</span>
-        <span class="s-txt"><b>Aufwärmen · 5 Aufgaben</b> <span class="chip accent">5 Min</span>
-          <small>Aufgaben aus den letzten Kurstagen und aus den Themen, in denen du Fehler hattest.
-            Verteilte Wiederholung — der wirksamste Teil des Abends.
-            <span class="en">Spaced repetition from earlier days and your own mistakes.</span></small></span>
-        <span class="s-ort">oben auf der Tagesseite</span>
-      </div>
-      <div class="schicht">
-        <span class="s-nr">②</span>
-        <span class="s-txt"><b>Heute · 12 Aufgaben</b> <span class="chip accent">10 Min</span>
-          <small>Der Stoff aus dem Unterricht von heute, aus deinen Fotos gebaut.
-            Erst die Erklärungen, dann die Aufgaben.
-            <span class="en">Today's class material: concepts first, then practice.</span></small></span>
-        <span class="s-ort">Phase ② der Einheit</span>
-      </div>
-      <div class="schicht">
-        <span class="s-nr">③</span>
-        <span class="s-txt"><b>Fundament · 8 Aufgaben</b> <span class="chip">8 Min</span>
-          <small>Die B1-Liste deiner Lehrerin, <b>adaptiv</b> nach deinen Ergebnissen ausgewählt,
-            plus Berufsdeutsch für die Jobsuche.
-            <span class="en">Your B1 gaps plus workplace German.</span></small></span>
-        <span class="s-ort">Phase ③<br>
-          <a href="b1-fundament.html">📖 Grammatik</a> · <a href="berufsdeutsch.html">💼 Beruf</a></span>
-      </div>
-      <div class="schicht">
-        <span class="s-nr">④</span>
-        <span class="s-txt"><b>Prüfungstraining</b> <span class="chip">7 Min</span>
-          <small>Echte <b>telc-B1-Aufgabenformate</b> für deine Prüfung im November:
-            Sprachbausteine, Leseverstehen und Schriftliche Kommunikation.
-            <b>Freitags</b> stattdessen eine B2-Schreibaufgabe als Stretch.
-            <span class="en">Real telc B1 task formats; Fridays a B2 stretch task.</span></small></span>
-        <span class="s-ort">Phase ④ der Einheit</span>
-      </div>
-    </div>
-    <p class="sub" style="margin-top:10px">Was nicht in die 30 Minuten passt, steht unten als <b>Zugabe</b> —
-      eingeklappt und ohne Anspruch. Die Bibliotheken oben in der Leiste sind nur zum <b>Nachschlagen</b>.
-      Für die Konnektoren aus Tag 2 und 3 gibt es die
-      <a href="merkkarte.html"><b>🃏 Merkkarte</b></a>: alles auf einer Seite, filterbar und druckbar.</p>
-  </div>
-
-  <h2>Meine Schwachstellen <span class="en">— what to fix first</span></h2>
-  <div class="card" id="schwachstellen"></div>
-
-  <h2>Entwicklung <span class="en">— first attempt → now</span></h2>
-  <div class="card" id="entwicklung"></div>
-
-  <h2>telc-Prüfungsteile <span class="en">— readiness by exam part</span></h2>
-  <div class="card" id="pruefungsteile"></div>
-
-  <div id="countdown"></div>
-
-  <h2>Der Kurs <span class="en">— one section per class day</span></h2>
-  <div class="toc" id="toc"></div>
-
-  <h2>Wortschatz gesamt <span class="en">— cumulative vocabulary</span></h2>
-  <div class="card tight"><p class="sub" id="vokzahl"></p><div class="vok" id="wortschatz"></div></div>
-
-  <h2>Fortschritt sichern <span class="en">— export &amp; backup</span></h2>
-  <div class="card">
-    <div class="card-title">⬇︎ Fortschritt exportieren</div>
-    <p class="sub">Lädt eine Datei <b>fortschritt-JJJJ-MM-TT.json</b> herunter. Leg sie in den Ordner
-      <b>_Fortschritt</b> im Projekt. Ich lese sie vor der nächsten Einheit: welche Aufgaben du falsch hattest,
-      welche Themen schwach sind, was du geflaggt und ins Feedback geschrieben hast.</p>
-    <div class="btnrow">
-      <button class="btn primary" onclick="KURS.exportieren()">⬇︎ Fortschritt exportieren</button>
-      <button class="btn" onclick="document.getElementById('imp').click()">⬆︎ Sicherung einlesen</button>
-      <input type="file" id="imp" accept="application/json" style="display:none" onchange="einlesen(this)">
-      <span id="imp-ok"></span>
-    </div>
-    <p class="sub" style="margin-top:6px">Der Fortschritt liegt nur in diesem Browser. Wenn du den Browserspeicher löschst, ist er weg — deshalb ab und zu exportieren.</p>
-  </div>
-
-  <div class="card fb">
-    <div class="card-title">💬 Feedback zum ganzen Kurs</div>
-    <p class="sub">Was funktioniert nicht? Was brauchst du mehr? Zu schnell, zu leicht, zu wenig Übungen?
-      Ich baue den Kurs danach um.</p>
-    <textarea class="frei" id="fb" placeholder="z. B. „Mehr Hörverstehen“ · „Erklärungen bitte kürzer“ · „Ich will jeden Tag einen Schreibauftrag“"></textarea>
-    <div class="btnrow"><button class="btn" onclick="fbSenden()">Feedback speichern</button><span id="fb-ok"></span></div>
-    <div class="fb-liste" id="fb-liste"></div>
-  </div>
-
-  <h2>So läuft es ab <span class="en">— the daily loop</span></h2>
-  <div class="card">
-    <ol class="bsp">
-      <li>Nach dem Unterricht: Notizen, Fotos und Buchseiten in den Ordner <b>Session NN - TT.MM.JJJJ</b> legen.</li>
-      <li>Im Chat sagen: <b>„Session 3 ist da"</b>.</li>
-      <li>Ich erkläre die Konzepte auf Deutsch, baue die neue Tag-Seite und aktualisiere diese Übersicht.</li>
-      <li>Du übst, klickst auf <b>Auswertung</b> und exportierst den Fortschritt in <b>_Fortschritt</b>.</li>
-      <li>Deine Fehler kommen als Wiederholungsaufgaben in die nächste Einheit zurück.</li>
-    </ol>
-    <div class="hinweisbox info"><b>Hörverstehen</b>Ich kann kein Audio abspielen. Dieser Teil wird hier mit Transkripten unter Zeitdruck simuliert —
-      übe zusätzlich mit echtem Audio (z. B. „Nachrichtenleicht", Deutschlandfunk, telc-Übungstests).</div>
-  </div>
-
-  <p class="fuss">Deutsch B2 · telc — persönlicher Kurs für Karthik · Engine <span id="ver"></span></p>
 </div>
 
 <script>
-document.getElementById("ver").textContent = KURS.ENGINE;
-
-/* ---------- Heute: Anker, Wochenband, Zähler ----------
-   Kein Streak, keine Warnfarbe. Der Zähler kann nur steigen, Lücken bleiben still. */
+/* ---------- Weitermachen ---------- */
 (function () {
-  var ANKER = "deutschB2.anker";
-  var heute = new Date().toLocaleDateString("sv");
-  var geuebt = KURS.geuebteTage ? KURS.geuebteTage() : [];
-  var seitenGeuebt = KURS.geuebteSeiten ? KURS.geuebteSeiten() : [];
-  var gemacht = {}; geuebt.forEach(function (t) { gemacht[t] = 1; });
+  var n = KURS.naechstesModul();
+  var box = document.getElementById("weiter");
+  if (!n) { box.innerHTML = ""; return; }
+  box.innerHTML =
+    '<a class="card weiterkarte" href="seite.html?id=' + encodeURIComponent(n.modul.seite) + '">' +
+      '<span class="wk-l">' +
+        '<span class="wk-e">Einheit ' + n.einheit.nr + ' · Modul ' + n.modul.m + '</span>' +
+        '<span class="wk-t">' + KURS.esc(n.modul.titel) + '</span>' +
+        '<span class="wk-s">' + KURS.esc(n.einheit.thema) + '</span>' +
+      '</span>' +
+      '<span class="btn primary">Weitermachen</span>' +
+    '</a>';
+})();
 
-  /* Tagesseite: der letzte Kurstag, der nicht in der Zukunft liegt */
-  var fertig = KURS.manifest.filter(function (m) { return m.datum <= heute && m.status !== "leer"; });
-  var m = fertig.length ? fertig[fertig.length - 1] : KURS.manifest[0];
-
-  /* Wochenband: Mo–Fr der Woche des aktuellen Kurstags */
-  var d0 = new Date(m.datum + "T12:00:00");
-  var mo = new Date(d0); mo.setDate(d0.getDate() - ((d0.getDay() + 6) % 7));
-  var punkte = [], namen = ["Mo", "Di", "Mi", "Do", "Fr"];
-  for (var i = 0; i < 5; i++) {
-    var t = new Date(mo); t.setDate(mo.getDate() + i);
-    var iso = t.toLocaleDateString("sv");
-    punkte.push('<span class="wb-tag' + (gemacht[iso] ? " voll" : "") + (iso === heute ? " heute" : "") +
-      '" title="' + iso.split("-").reverse().join(".") + '"><i></i>' + namen[i] + '</span>');
-  }
-
-  var anker = "";
-  try { anker = localStorage.getItem(ANKER) || ""; } catch (e) {}
-  var fertigHeute = !!gemacht[heute];
-
-  document.getElementById("heute-karte").innerHTML =
-    '<div class="card heutekarte' + (fertigHeute ? " fertig" : "") + '">' +
-      '<div class="hk-links">' +
-        '<div class="hk-t">' + (fertigHeute
-          ? 'Heute erledigt <span class="en">— done for today</span>'
-          : 'Tag ' + m.nr + ' · deine Einheit <span class="en">— about 30 minutes</span>') + '</div>' +
-        '<div class="hk-s">' + (fertigHeute
-          ? 'Der Tag ist gezählt. Morgen geht es weiter.'
-          : 'Vier Phasen, etwa 30 Minuten. Wenig Zeit? Der Knopf „Kurzversion“ macht 15 daraus.') + '</div>' +
-        '<a class="btn primary" href="' + m.id + '.html">' +
-          (fertigHeute ? 'Seite öffnen · Open' : 'Loslegen · Start') + '</a>' +
+/* ---------- Kurs ①: Fundamente ---------- */
+(function () {
+  var themen = Object.keys(KURS.fundament || {}).length;
+  var st = KURS.seitenStand("b1-fundament");
+  var ein = KURS.seitenStand("einstufung");
+  document.getElementById("kurs-fundament").innerHTML =
+    '<div class="card">' +
+      '<p class="sub">Die ' + themen + ' Grammatikthemen deiner Lehrerin, die telc-B1-Aufgabenformate ' +
+      'und die B1-Briefe — zusammen an einem Ort. Alles, was die B1-Prüfung verlangt und was B2 ' +
+      'voraussetzt. Kompakt gehalten: einmal durchziehen, dann weiter zu B2.</p>' +
+      '<div class="kursreihe">' +
+        kurszeile("b1-fundament.html", "Grammatik & Übungen",
+                  themen + " Themen · adaptive Auswahl nach deinen Fehlern", st) +
+        kurszeile("einstufungstest.html", "Einstufungstest",
+                  "Wo stehst du zwischen B1 und B2? 42 Aufgaben.", ein) +
       '</div>' +
-      '<div class="hk-rechts">' +
-        '<div class="wochenband">' + punkte.join("") + '</div>' +
-        '<div class="hk-zaehler"><b>' + seitenGeuebt.length + '</b> von ' + KURS.manifest.length +
-          ' Kurstagen geübt <span class="en">— days practised</span></div>' +
-      '</div>' +
-      '<div class="hk-anker">🕗 <b>Deine Zeit:</b> ' +
-        '<input id="anker-txt" class="anker-in" value="' + anker.replace(/"/g, "&quot;") + '" ' +
-        'placeholder="abends nach dem Essen, bevor der Fernseher angeht">' +
-        '<span class="en">— one fixed moment beats willpower</span></div>' +
     '</div>';
 
-  var inp = document.getElementById("anker-txt");
-  inp.addEventListener("change", function () {
-    try { localStorage.setItem(ANKER, inp.value); } catch (e) {}
-  });
-})();
-
-/* ---------- Kurs-Fortschritt (Tage) ---------- */
-(function () {
-  var heute = new Date().toLocaleDateString("sv");
-  var vergangen = KURS.manifest.filter(function (m) { return m.datum <= heute; }).length;
-  var fertig = KURS.manifest.filter(function (m) { return m.status === "fertig"; }).length;
-  var gesamt = KURS.manifest.length;
-  var pz = Math.round(vergangen / gesamt * 100);
-  var offen = KURS.manifest.filter(function (m) { return m.datum <= heute && m.status === "leer"; });
-  var h = '<div class="card" style="margin-top:14px"><div class="card-title">Kursfortschritt ' +
-    '<span class="en">— ' + vergangen + ' von ' + gesamt + ' Kurstagen</span></div>' +
-    '<div class="bar" style="margin:8px 0"><i style="width:' + pz + '%"></i></div>' +
-    '<p class="sub">Kursende <b>22.09.2026</b> · ' + fertig + ' Einheiten aufgebaut · ' +
-    (gesamt - vergangen) + ' Kurstage liegen noch vor dir.</p>';
-  if (offen.length) {
-    h += '<div class="hinweisbox"><b>Material fehlt</b>Für ' + offen.length +
-      ' vergangene(n) Kurstag(e) liegt noch nichts im Ordner: ' +
-      offen.map(function (m) { return "Tag " + m.nr + " (" + m.datum.split("-").reverse().join(".") + ")"; }).join(" · ") +
-      '</div>';
+  function kurszeile(href, titel, kurz, stand) {
+    var r = stand && stand.versuche
+      ? '<span class="tag-r">' + stand.letzt + '%<br><span style="font-size:11px">' +
+        stand.versuche + ' Versuch(e)</span></span>'
+      : '<span class="tag-r"><span style="font-size:11px">noch nicht begonnen</span></span>';
+    return '<a class="tocitem fertig" href="' + href + '">' +
+      '<span class="tag-txt"><span class="tag-t">' + titel + '</span>' +
+      '<span class="tag-s">' + kurz + '</span></span>' + r + '</a>';
   }
-  h += '</div>';
-  document.getElementById("countdown").innerHTML = h;
 })();
 
-
-/* ---------- Kennzahlen ---------- */
-(function () {
-  var d = KURS.daten(), tage = 0, versuche = 0, punkte = 0, max = 0, aufgaben = 0;
-  Object.keys(d.seiten).forEach(function (id) {
-    var v = d.seiten[id].versuche || [];
-    if (!v.length) return;
-    tage++; versuche += v.length;
-    var l = v[v.length - 1];
-    punkte += l.punkte; max += l.max; aufgaben += l.bearbeitet || 0;
-  });
-  var quote = max ? Math.round(punkte / max * 100) : 0;
-  document.getElementById("statistik").innerHTML =
-    kachel(tage, "Einheiten bearbeitet", "sections done") +
-    kachel(aufgaben, "Aufgaben gelöst", "exercises done") +
-    kachel(max ? quote + "%" : "—", "Trefferquote", "accuracy", quote) +
-    kachel(versuche, "Versuche gesamt", "attempts");
-})();
-
-function kachel(wert, lbl, en, farbe) {
-  var c = farbe === undefined ? "" : (farbe >= 80 ? "color:var(--ok)" : farbe >= 60 ? "color:var(--warn)" : "color:var(--bad)");
-  return '<div class="card stat"><div class="num" style="' + c + '">' + wert + '</div>' +
-         '<div class="lbl">' + lbl + '<span class="en">' + en + '</span></div></div>';
-}
-
-/* ---------- Schwachstellen (gewichtet: neuere Versuche zählen mehr) ---------- */
-(function () {
-  var box = document.getElementById("schwachstellen");
-  var prio = KURS.prioritaeten(Object.keys(KURS.fundament || {}).concat(
-              ["adjektivendungen","kasus","wechselpraepositionen","reflexiv","n-deklination","sprachbausteine","leseverstehen"]));
-  var mitDaten = prio.filter(function (p) { return p.quote !== null; });
-
-  if (!mitDaten.length) {
-    box.innerHTML = '<div class="leerzustand"><div class="gross">🎯</div>' +
-      '<p><b>Noch keine Daten.</b><br>Mach den <a href="einstufungstest.html">Einstufungstest</a> — ' +
-      'danach steht hier, woran wir zuerst arbeiten, und die Tagesseiten richten sich danach aus.</p></div>';
-    return;
-  }
-  var h = ['<p class="sub">Nach aktuellem Stand — neuere Versuche zählen mehr als alte. ' +
-           'Das oberste Thema kommt automatisch in deinen nächsten Fundament-Block.</p>'];
-  mitDaten.slice(0, 6).forEach(function (x, i) {
-    var b = KURS.band(x.quote);
-    h.push('<div class="themerow"><div class="nm">' +
-      (i === 0 ? '<span class="chip accent">als Nächstes dran</span> ' : '') +
-      KURS.esc(KURS.themaName(x.thema)) +
-      '<small>' + KURS.esc(x.grund) + '</small>' +
-      '<span class="bar ' + b.k + '"><i style="width:' + x.quote + '%"></i></span></div>' +
-      '<div class="pct">' + KURS.statusHtml(x.quote) + '</div></div>');
-  });
-  var f = KURS.fehlerListe(6);
-  if (f.length) {
-    h.push('<h3>Aufgaben, die du wiederholen solltest <span class="en">— these come back automatically</span></h3>');
-    f.forEach(function (x) {
-      h.push('<div class="fb-eintrag" style="border-left-color:var(--bad)"><span class="meta">' +
-        KURS.esc(KURS.themaName(x.thema)) + (x.anzahl > 1 ? ' · ' + x.anzahl + '× falsch' : '') + '</span>' +
-        KURS.esc(x.frage) + '<br><span style="color:var(--bad)">Du: ' + KURS.esc(x.deine) +
-        '</span> → <span style="color:var(--ok-text)">' + KURS.esc(x.richtig) + '</span></div>');
-    });
-  }
-  box.innerHTML = h.join("");
-})();
-
-/* ---------- Entwicklung: Dumbbell erster Versuch → jetzt ---------- */
-(function () {
-  var box = document.getElementById("entwicklung");
-  var st = KURS.lernstand().themen;
-  var reihen = Object.keys(st).map(function (t) { return { t: t, x: st[t] }; })
-    .filter(function (r) { return r.x.verlauf.length >= 2 && r.x.erst !== null; });
-
-  if (!reihen.length) {
-    box.innerHTML = '<div class="leerzustand"><div class="gross">📈</div>' +
-      '<p>Hier erscheint dein Vorher-Nachher, sobald du ein Thema <b>zweimal</b> geübt hast.<br>' +
-      'Mach eine Seite, dann „Nochmal üben" — der Vergleich baut sich von selbst auf.</p></div>';
-    return;
-  }
-  reihen.sort(function (a, b) { return (b.x.letzt - b.x.erst) - (a.x.letzt - a.x.erst); });
-
-  var h = ['<p class="sub">Jede Zeile zeigt ein Thema: heller Punkt = erster Versuch, voller Punkt = jetzt. ' +
-           'Je länger die Linie, desto größer der Fortschritt.</p>',
-           '<div class="db-legende">' +
-           '<span><i class="db-a" style="border:2px solid var(--accent);background:var(--surface-2)"></i>erster Versuch</span>' +
-           '<span><i class="db-b" style="background:var(--accent)"></i>jetzt</span></div>'];
-  reihen.slice(0, 8).forEach(function (r) {
-    var a = r.x.erst, b = r.x.letzt, d = b - a;
-    var lo = Math.min(a, b), hi = Math.max(a, b);
-    h.push('<div class="db">' +
-      '<div class="db-kopf"><span class="db-nm">' + KURS.esc(KURS.themaName(r.t)) + '</span>' +
-      '<span class="db-delta" style="color:' + (d > 0 ? 'var(--ok-text)' : d < 0 ? 'var(--bad)' : 'var(--text-faint)') + '">' +
-      (d > 0 ? '▲ +' : d < 0 ? '▼ ' : '● ') + d + ' Punkte</span></div>' +
-      '<div class="db-spur">' +
-      '<div class="db-linie" style="left:' + lo + '%;width:' + Math.max(0, hi - lo) + '%"></div>' +
-      '<div class="db-pkt db-a" style="left:' + a + '%" title="erster Versuch: ' + a + ' %"></div>' +
-      '<div class="db-pkt db-b" style="left:' + b + '%" title="jetzt: ' + b + ' %"></div>' +
-      '</div>' +
-      '<div class="db-skala"><span>' + a + ' %</span><span>' + b + ' %</span></div></div>');
-  });
-  h.push('<details class="trans"><summary>Als Tabelle anzeigen</summary><div><table class="gr">' +
-    '<thead><tr><th>Thema</th><th>Erster Versuch</th><th>Jetzt</th><th>Differenz</th></tr></thead><tbody>' +
-    reihen.map(function (r) {
-      return '<tr><td>' + KURS.esc(KURS.themaName(r.t)) + '</td><td>' + r.x.erst + ' %</td><td>' +
-             r.x.letzt + ' %</td><td>' + (r.x.letzt - r.x.erst > 0 ? '+' : '') + (r.x.letzt - r.x.erst) + '</td></tr>';
-    }).join("") + '</tbody></table></div></details>');
-  box.innerHTML = h.join("");
-})();
-
-/* ---------- telc-Prüfungsteile ---------- */
-(function () {
-  var karte = {
-    "Leseverstehen": ["leseverstehen", "wortschatz"],
-    "Sprachbausteine": ["sprachbausteine","konnektoren","nebensatz","adjektivendungen","kasus","verben-mit-praep",
-                        "passiv","konjunktiv2","relativsatz","n-deklination","reflexiv","wechselpraepositionen",
-                        "perfekt-praeteritum","verbformen","wortbildung"],
-    "Hörverstehen": ["hoerverstehen"],
-    "Schriftlicher Ausdruck": ["schreiben"],
-    "Mündlicher Ausdruck": ["sprechen","redemittel"]
-  };
-  var b = KURS.themenBilanz(), h = [], irgendwas = false;
-  h.push('<p class="sub">Grobe Einschätzung auf Basis deiner bisherigen Antworten. Das ersetzt keine echte Prüfung, zeigt aber, wo Punkte liegen bleiben.</p>');
-  Object.keys(karte).forEach(function (teil) {
-    var r = 0, g = 0;
-    karte[teil].forEach(function (t) { if (b[t]) { r += b[t][0]; g += b[t][1]; } });
-    var pz = g ? Math.round(r / g * 100) : null;
-    if (pz !== null) irgendwas = true;
-    h.push('<div class="themerow"><div class="nm">' + teil +
-      '<small>' + (g ? r + '/' + g + ' Punkte' : 'noch keine Daten') + '</small>' +
-      '<span class="bar ' + (pz === null ? "" : pz >= 80 ? "ok" : pz >= 60 ? "mid" : "bad") + '"><i style="width:' + (pz || 0) + '%"></i></span></div>' +
-      '<div class="pct">' + (pz === null ? "—" : pz + "%") + '</div></div>');
-  });
-  if (!irgendwas) h.push('<div class="hinweisbox">Mach den <a href="einstufungstest.html">Einstufungstest</a>, damit hier echte Werte stehen.</div>');
-  h.push('<div class="hinweisbox">Hörverstehen bleibt hier leer, solange wir es nicht üben — ' +
-    'plan dafür echte Audioquellen ein, sonst wird das dein schwächster Prüfungsteil.</div>');
-  document.getElementById("pruefungsteile").innerHTML = h.join("");
-})();
-
-/* ---------- Inhaltsverzeichnis ---------- */
+/* ---------- Kurs ②: die zehn Einheiten ---------- */
 (function () {
   var h = [];
-  h.push(zeile("einstufungstest.html", "0", "Einstufungstest", "Wo stehst du zwischen B1 und B2? 40 Aufgaben.", KURS.seitenStand("einstufung"), "fertig"));
-  KURS.manifest.forEach(function (m) {
-    var st = KURS.seitenStand(m.id);
-    var klasse = m.status === "leer" ? "leer" : m.status === "nachholen" ? "verpasst" : "fertig";
-    var titel = m.status === "leer" ? "Noch kein Material" : m.titel;
-    var kurz = m.status === "leer"
-      ? "Ordner „Session " + (m.nr < 10 ? "0" + m.nr : m.nr) + " - " + m.datum.split("-").reverse().join(".") + "\" befüllen"
-      : m.kurz + (m.quelle ? " · " + m.quelle : "");
-    if (m.status === "nachholen") titel += "  ⚠️ Verpasst — Nachholen";
-    h.push(zeile(m.id + ".html", m.nr, "Tag " + m.nr + " · " + titel, kurz, st, klasse, m.wt + " " + m.datum.split("-").reverse().join(".")));
-  });
-  document.getElementById("toc").innerHTML = h.join("");
 
-  function zeile(href, nr, titel, kurz, st, klasse, datum) {
-    var rechts = st ? (st.letzt + "%<br><span style='font-size:11px'>" + st.versuche + " Versuch(e)</span>")
-                    : (datum || "");
-    return '<a class="tocitem ' + klasse + '" href="' + href + '">' +
-      '<span class="tag-nr">' + nr + '</span>' +
-      '<span class="tag-txt"><span class="tag-t">' + KURS.esc(titel).replace("⚠️", "⚠️") + '</span>' +
-      '<span class="tag-s">' + KURS.esc(kurz) + '</span></span>' +
-      '<span class="tag-r">' + rechts + '</span></a>';
-  }
+  KURS.einheiten.forEach(function (e) {
+    var fertig = KURS.einheitFertig(e);
+    h.push('<div class="ehk' + (fertig.length ? "" : " wartet") + '">' +
+      '<div class="ehk-kopf">' +
+        '<span class="ehk-nr">' + e.nr + '</span>' +
+        '<span class="ehk-txt"><span class="ehk-t">' + KURS.esc(e.thema) + '</span>' +
+        '<span class="ehk-s">KB ' + e.kb + ' · ÜB ' + e.ub + '</span></span>' +
+        '<span class="ehk-z">' + fertig.length + '/4</span>' +
+      '</div>' +
+      '<div class="ehk-mod">' +
+        e.module.map(function (m) {
+          var da = m.seite && KURS.seiten[m.seite];
+          var st = da ? KURS.seitenStand(m.seite) : null;
+          var pct = st && st.versuche ? '<span class="mo-p">' + st.letzt + '%</span>' : '';
+          var inner =
+            '<span class="mo-m">' + m.m + '</span>' +
+            '<span class="mo-f f-' + m.fertigkeit + '">' + KURS.FERTIGKEITEN[m.fertigkeit][0] + '</span>' +
+            '<span class="mo-t">' + KURS.esc(m.titel) + '</span>' + pct;
+          return da
+            ? '<a class="mo" href="seite.html?id=' + encodeURIComponent(m.seite) + '">' + inner + '</a>'
+            : '<span class="mo mo-off">' + inner + '</span>';
+        }).join("") +
+      '</div>' +
+      '<div class="ehk-fuss"><b>Grammatik:</b> ' + KURS.esc(e.grammatik.join(" · ")) +
+        '<br><b>Prüfungstraining:</b> ' + KURS.esc(e.pruefung) +
+        (e.film ? ' · <b>Film:</b> ' + KURS.esc(e.film) : '') + '</div>' +
+    '</div>');
+  });
+
+  h.push('<div class="ehk wartet ehk-spaeter">' +
+    '<div class="ehk-kopf"><span class="ehk-nr">6–10</span>' +
+    '<span class="ehk-txt"><span class="ehk-t">B2.2 · Lektion 6–10</span>' +
+    '<span class="ehk-s">gleicher Aufbau: vier Module + Prüfungstraining</span></span></div>' +
+    '<div class="ehk-fuss">Werden angelegt, sobald das B2.2-PDF im Projekt liegt. ' +
+    'Am Code ändert sich dafür nichts — nur fünf neue Datendateien.</div></div>');
+
+  document.getElementById("kurs-b2").innerHTML = h.join("");
 })();
-
-/* ---------- Kumulativer Wortschatz ---------- */
-(function () {
-  var alle = [], gesehen = {};
-  KURS.reihenfolge.concat(["einstufung"]).forEach(function (id) {
-    var s = KURS.seiten[id];
-    if (!s || !s.wortschatz) return;
-    s.wortschatz.forEach(function (v) {
-      if (gesehen[v.de]) return;
-      gesehen[v.de] = 1; alle.push(v);
-    });
-  });
-  document.getElementById("vokzahl").textContent = alle.length + " Wörter und Wendungen aus allen bisherigen Einheiten. Antippen zum Aufdecken.";
-  document.getElementById("wortschatz").innerHTML = alle.map(function (v) {
-    return '<div class="vokk" onclick="this.classList.toggle(\'auf\')"><div class="de">' + KURS.esc(v.de) + '</div>' +
-      '<div class="tipp">tippen zum Aufdecken</div><div class="rueckseite">' + KURS.esc(v.en) +
-      (v.bsp ? '<span class="satz-bsp">' + KURS.esc(v.bsp) + '</span>' : '') + '</div></div>';
-  }).join("");
-})();
-
-/* ---------- Feedback ---------- */
-function fbSenden() {
-  var ta = document.getElementById("fb"), txt = ta.value.trim();
-  if (!txt) return;
-  var d = KURS.daten();
-  if (!d.seiten["index"]) d.seiten["index"] = { versuche: [], frei: {}, flags: {}, feedback: [] };
-  d.seiten["index"].feedback.push({ datum: new Date().toISOString(), text: txt });
-  KURS.speichern(d);
-  ta.value = "";
-  document.getElementById("fb-ok").innerHTML = '<span class="fb-gesendet">✓ Gespeichert — kommt in den nächsten Export</span>';
-  fbListe();
-}
-function fbListe() {
-  var f = KURS.alleFeedback();
-  document.getElementById("fb-liste").innerHTML = f.slice(0, 12).map(function (x) {
-    return '<div class="fb-eintrag"><span class="meta">' + x.datum.slice(8, 10) + "." + x.datum.slice(5, 7) + ". · " + x.seite + '</span>' + KURS.esc(x.text) + '</div>';
-  }).join("");
-}
-fbListe();
-
-function einlesen(inp) {
-  if (!inp.files || !inp.files[0]) return;
-  KURS.importieren(inp.files[0], function (ok) {
-    document.getElementById("imp-ok").innerHTML = ok
-      ? '<span class="fb-gesendet">✓ Eingelesen — Seite wird neu geladen</span>'
-      : '<span style="color:var(--bad)">Datei konnte nicht gelesen werden.</span>';
-    if (ok) setTimeout(function () { location.reload(); }, 800);
-  });
-}
 </script>
 </body>
 </html>
