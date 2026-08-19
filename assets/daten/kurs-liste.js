@@ -1,4 +1,4 @@
-/* Kurs-Manifest — Quelle: offizieller VHS-Kursplan Kurstage_Kurs_261-14125.pdf
+/* Kurs-Manifest, Quelle: offizieller VHS-Kursplan Kurstage_Kurs_261-14125.pdf
    VHS Aachen · Kurs 261-14125 · B2 Intensivkurs vormittags · Mo–Fr 09:00–12:30
    Kursleiterin: Jasmine Morawietz · Peterstraße 21–25
    40 Termine: 27.07.2026 – 22.09.2026 (Ferienlücke: 06.08. + 07.08. fallen aus)
@@ -20,12 +20,12 @@ KURS.manifest = [
     quelle:"KB S. 10–12 (B1, B2, B3a–c) · AB S. 137–139 (B1–B5c)" },
 
   { id:"tag-03", nr:3, datum:"2026-07-29", wt:"Mi", status:"fertig",
-    titel:"Mit der Hand schreiben — wozu?",
+    titel:"Mit der Hand schreiben: wozu?",
     kurz:"Alternativen: anstatt dass / anstatt … zu / stattdessen · Angaben mit Präposition (Genitiv) · Hörstile · Wortbildung „Schrift“",
     quelle:"KB S. 12–14 (B3d, B4, C1, C2, C3) · AB S. 140–143 (B5d–B8, C1–C3)" },
 
   { id:"tag-04", nr:4,  datum:"2026-07-30", wt:"Do", status:"fertig",
-    titel:"Stellung nehmen — und rein in die Großstadt",
+    titel:"Stellung nehmen: und rein in die Großstadt",
     kurz:"Stellungnahme: Bauplan, Einleitung, Argumente verknüpfen · fremde Meinung wiedergeben · Lektion 2: Leben in Großstädten · Notizen beim Hören",
     quelle:"KB S. 15 (D1a–c), S. 148–149 (2 A1, A2) · AB S. 144–147, S. 149 · Handreichung „Stellungnahme schreiben“" },
   { id:"tag-05", nr:5,  datum:"2026-07-31", wt:"Fr", status:"leer", titel:"", kurz:"", quelle:"" },

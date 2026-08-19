@@ -1,5 +1,5 @@
 /* ============================================================
-   EINSTUFUNGSTEST — wo stehst du wirklich?
+   EINSTUFUNGSTEST, wo stehst du wirklich?
    ~40 Items über die klassischen B1→B2-Stolperstellen.
    Das Ergebnis füllt den Schwachstellen-Tracker auf index.html.
    ============================================================ */
@@ -12,14 +12,28 @@ themen: ["kasus", "adjektivendungen", "nebensatz", "konnektoren", "passiv", "kon
 konzepte: [
 {
   titel: "So funktioniert der Test",
+  einfach: {
+    kern: "Ein kurzer Test, der zeigt, welche Themen dein Kurs zuerst braucht.",
+    paare: [
+      { satz: "Du beantwortest etwa 40 Aufgaben zu Kasus, Adjektivendungen, Nebensätzen, Passiv und Konjunktiv II.",
+        notiz: "Genau da klemmt es zwischen B1 und B2 bei fast allen. Du brauchst ungefähr 25 Minuten." },
+      { satz: "Du weißt eine Antwort nicht? Rate ehrlich und geh weiter, aber schlag nichts nach.",
+        notiz: "Nachschlagen macht das Ergebnis wertlos. Eine falsche Antwort sagt mir mehr als eine abgeschriebene richtige." },
+      { satz: "Am Ende klickst du auf <b>Auswertung</b> und siehst dein Profil nach Themen.",
+        notiz: "Deine schwächsten Themen landen automatisch auf der Übersichtsseite und kommen als Übungen zurück." },
+      { satz: "12 von 40 Punkten heißt nicht „durchgefallen“, sondern: hier fangen wir an.",
+        notiz: "Der Test ist keine Prüfung. Du kannst ihn jederzeit wiederholen, und die Seite vergleicht deine Versuche." }
+    ],
+    merk: "Je ehrlicher du hier bist, desto genauer passt der Kurs zu dir. Ein niedriges Ergebnis ist eine Information, kein Urteil."
+  },
   de: "<p>40 Aufgaben zu den Themen, an denen fast alle zwischen B1 und B2 scheitern. " +
-      "<b>Nicht nachschlagen</b> — falsche Antworten sind hier wertvoller als richtige, " +
+      "<b>Nicht nachschlagen</b>, falsche Antworten sind hier wertvoller als richtige, " +
       "weil sie mir zeigen, worauf ich den Kurs ausrichten muss.</p>" +
       "<p>Am Ende auf <b>Auswertung</b> klicken. Dann siehst du dein Profil nach Themen, " +
       "und die Übersichtsseite zeigt deine Top-Schwachstellen.</p>" +
-      "<p>Du kannst den Test später jederzeit wiederholen — dann vergleicht die Seite automatisch die Versuche.</p>",
+      "<p>Du kannst den Test später jederzeit wiederholen, dann vergleicht die Seite automatisch die Versuche.</p>",
   regel: "Ehrlich raten ist erlaubt, aber schreib nichts ab. Der Test ist für mich, nicht für dich.",
-  en: "40 items on the classic B1→B2 problem areas. Don't look anything up — wrong answers are more useful to me than right ones. Retake it any time; the page compares your attempts."
+  en: "40 items on the classic B1→B2 problem areas. Don't look anything up, wrong answers are more useful to me than right ones. Retake it any time; the page compares your attempts."
 }
 ],
 
@@ -112,14 +126,14 @@ items: [
 {
 titel: "Teil 5 · Verben mit Präposition",
 telc: "Sprachbausteine Teil 2",
-hinweis: "Diese Verbindungen kann man nicht logisch herleiten — nur auswendig lernen.",
+hinweis: "Diese Verbindungen kann man nicht logisch herleiten, nur auswendig lernen.",
 items: [
   { typ:"luecke", thema:"verben-mit-praep", frage:"", satz:"Ich interessiere mich sehr ___ Technik.", loesung:[["für"]],
     regel:"sich interessieren für + Akkusativ.", en:"sich interessieren für + acc." },
   { typ:"luecke", thema:"verben-mit-praep", frage:"", satz:"Wir freuen uns ___ das Wochenende.", loesung:[["auf"]],
     regel:"sich freuen auf + Akkusativ = Vorfreude (Zukunft). sich freuen über = Freude über etwas Vergangenes.",
     en:"freuen auf = look forward to; freuen über = be pleased about." },
-  { typ:"luecke", thema:"verben-mit-praep", frage:"", satz:"Sie hat lange ___ ihre Prüfung gearbeitet — nein, sie hat sich ___ die Prüfung vorbereitet.", loesung:[["an"],["auf"]],
+  { typ:"luecke", thema:"verben-mit-praep", frage:"", satz:"Sie hat lange ___ ihre Prüfung gearbeitet, nein, sie hat sich ___ die Prüfung vorbereitet.", loesung:[["an"],["auf"]],
     regel:"arbeiten an + Dativ, sich vorbereiten auf + Akkusativ.", en:"arbeiten an + dat; sich vorbereiten auf + acc." },
   { typ:"luecke", thema:"verben-mit-praep", frage:"", satz:"Er denkt oft ___ seine Familie.", loesung:[["an"]],
     regel:"denken an + Akkusativ.", en:"denken an + acc." },
@@ -160,8 +174,8 @@ titel: "Teil 7 · Reflexive Verben und Wortschatz",
 telc: "Sprachbausteine Teil 2",
 items: [
   { typ:"luecke", thema:"reflexiv", frage:"Reflexivpronomen im Dativ:", satz:"Ich kann ___ die Namen einfach nicht merken.", loesung:[["mir"]],
-    regel:"„sich etwas merken“ — das Reflexivpronomen steht im Dativ, weil „die Namen“ schon Akkusativ ist.",
-    en:"sich (dat.) etwas merken — the reflexive is dative when there is a direct object." },
+    regel:"„sich etwas merken“ das Reflexivpronomen steht im Dativ, weil „die Namen“ schon Akkusativ ist.",
+    en:"sich (dat.) etwas merken, the reflexive is dative when there is a direct object." },
   { typ:"luecke", thema:"reflexiv", frage:"Akkusativ:", satz:"Wir treffen ___ um acht vor dem Kino.", loesung:[["uns"]],
     regel:"sich treffen + Akkusativ: wir treffen uns.", en:"sich treffen takes the accusative reflexive." },
   { typ:"mc", thema:"wortschatz", frage:"Was bedeutet „<b>zahlreich</b>“?",
@@ -204,7 +218,7 @@ items: [
     mindestWorte:70,
     hinweise:["weil / da","obwohl","deshalb / trotzdem","Mein Ziel ist es, … zu …","Außerdem"],
     muster:"Ich lerne Deutsch, <b>weil</b> ich in Nordrhein-Westfalen lebe und hier beruflich weiterkommen möchte. " +
-      "In meinem Bereich — Technologie und Beratung — sind Englischkenntnisse zwar Standard, <b>trotzdem</b> öffnet Deutsch die wichtigeren Türen. " +
+      "In meinem Bereich, Technologie und Beratung, sind Englischkenntnisse zwar Standard, <b>trotzdem</b> öffnet Deutsch die wichtigeren Türen. " +
       "<b>Obwohl</b> ich schon viel verstehe, fällt mir das freie Sprechen noch schwer. " +
       "<b>Deshalb</b> ist mein Ziel, die telc-B2-Prüfung zu bestehen und danach Bewerbungsgespräche sicher auf Deutsch zu führen.",
     kriterien:"telc bewertet: Aufgabengerechtheit (beide Fragen beantwortet?), kommunikative Gestaltung (Aufbau, Übergänge) und formale Richtigkeit (Wortstellung, Kasus, Verbformen)." , en:"Answer both questions, and check the form: two Nebensätze plus one Verbindungsadverb like <b>trotzdem</b>, which keeps the verb second." }

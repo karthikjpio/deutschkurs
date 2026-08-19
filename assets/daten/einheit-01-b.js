@@ -1,8 +1,8 @@
 /* ============================================================
-   TAG 2 — 28.07.2026
+   TAG 2, 28.07.2026
    Quelle: Kursbuch S. 10–12 (B1, B2a/b, B3a/b/c) +
            Arbeitsbuch S. 137–139 (B1a/b/c, B2, B3a/b, B4a/b, B5a/b/c)
-   Kernthema: Konnektoren — Grund & Gegengrund + Wortstellung
+   Kernthema: Konnektoren, Grund & Gegengrund + Wortstellung
    ============================================================ */
 KURS.seiten["e1-b"] = {
 id: "e1-b",
@@ -13,14 +13,24 @@ themen: ["konnektoren", "nebensatz", "leseverstehen", "wortbildung"],
 
 videos: [
   { titel: "Die Konnektoren „obwohl“ und „trotzdem“ (B1–B2)", kanal: "Benjamin – Der Deutschlehrer", sprache: "Deutsch", warum: "Genau das Kernthema von Tag 2: obwohl schickt das Verb ans Ende, trotzdem erzwingt Inversion.", url: "https://www.youtube.com/watch?v=DOsTLqnbivo" },
-  { titel: "Satzbau und Konnektoren: weil, obwohl, wegen, trotz, deshalb, trotzdem", kanal: "Learn German Today", sprache: "Deutsch", warum: "Stellt alle drei Bauformen nebeneinander — Nebensatz, Adverb und Präposition. Die Brücke zu Tag 3.", url: "https://www.youtube.com/watch?v=Pskb8dIVTpA" },
-  { titel: "deshalb, deswegen, darum, daher, sodass, so … dass", kanal: "Learn German Today", sprache: "Deutsch", warum: "Die vier fast gleichen Adverbien sauber getrennt — damit du beim Sprechen variieren kannst statt immer „weil“.", url: "https://www.youtube.com/watch?v=3lIFhnnlIeg" }
+  { titel: "Satzbau und Konnektoren: weil, obwohl, wegen, trotz, deshalb, trotzdem", kanal: "Learn German Today", sprache: "Deutsch", warum: "Stellt alle drei Bauformen nebeneinander: Nebensatz, Adverb und Präposition. Die Brücke zu Tag 3.", url: "https://www.youtube.com/watch?v=Pskb8dIVTpA" },
+  { titel: "deshalb, deswegen, darum, daher, sodass, so … dass", kanal: "Learn German Today", sprache: "Deutsch", warum: "Die vier fast gleichen Adverbien sauber getrennt: damit du beim Sprechen variieren kannst statt immer „weil“.", url: "https://www.youtube.com/watch?v=3lIFhnnlIeg" }
 ],
 
 konzepte: [
 {
-  titel: "① Zwei Familien von Konnektoren — der ganze Trick",
+  titel: "① Zwei Familien von Konnektoren: der ganze Trick",
   thema: "konnektoren",
+  einfach: {
+    kern: "Zwei Wörter können dasselbe bedeuten, und trotzdem steht das Verb an einer ganz anderen Stelle.",
+    paare: [
+      { satz: "Ich bleibe zu Hause, <b>weil</b> es <b>regnet</b>.",
+        notiz: "Nach „weil“ rutscht das Verb ganz ans Ende. Erst kommt alles andere, das Verb macht die Tür zu." },
+      { satz: "Es regnet. <b>Deshalb bleibe</b> ich zu Hause.",
+        notiz: "Nach „deshalb“ kommt das Verb sofort. Es klebt am Wort davor." }
+    ],
+    merk: "Beide Sätze heißen dasselbe. Frag dich immer nur: <b>Wo steht das Verb?</b> Ans Ende bei <i>weil, da, obwohl</i>. Sofort dahinter bei <i>deshalb, darum, trotzdem</i>."
+  },
   de: "<p>Heute geht es um <b>Konnektoren</b>. Ein Konnektor verbindet zwei Aussagen. " +
       "Für die Prüfung ist nur <b>eine</b> Frage wichtig: <b>Wo steht das Verb?</b></p>" +
       "<p>Es gibt zwei Familien. Sie haben fast die gleiche Bedeutung, aber eine <b>ganz andere Wortstellung</b>.</p>",
@@ -43,11 +53,23 @@ konzepte: [
     "Lucky macht nach jeder Lernportion eine Pause. <b>Deshalb fühlt</b> er sich nicht so gestresst. <span class='en'>(Verb Position 2)</span>",
     "Er fühlt sich <b>deshalb</b> nicht so gestresst. <span class='en'>Verbindungsadverben dürfen auch in der Satzmitte stehen.</span>"
   ],
-  en: "German has two ways to say <b>because</b> and <b>although</b>. Subjunctions (weil, da, obwohl) push the verb to the very end of their clause. Conjunctional adverbs (deshalb, trotzdem…) are adverbs, so they take position 1 and the verb comes right after them — verb second. Same meaning, completely different word order. This is the single most tested point in telc Sprachbausteine."
+  en: "German has two ways to say <b>because</b> and <b>although</b>. Subjunctions (weil, da, obwohl) push the verb to the very end of their clause. Conjunctional adverbs (deshalb, trotzdem…) are adverbs, so they take position 1 and the verb comes right after them, verb second. Same meaning, completely different word order. This is the single most tested point in telc Sprachbausteine."
 },
 {
-  titel: "② Grund nennen — kausal",
+  titel: "② Grund nennen: kausal",
   thema: "nebensatz",
+  einfach: {
+    kern: "Du willst sagen, <b>warum</b> etwas so ist. Dafür gibt es drei Bauarten. Such dir eine aus.",
+    paare: [
+      { satz: "Ich lerne mit Karten, <b>weil</b> das besser <b>funktioniert</b>.",
+        notiz: "„weil“: Verb ganz nach hinten. Das ist die häufigste Art." },
+      { satz: "Karten funktionieren besser. <b>Deshalb lerne</b> ich damit.",
+        notiz: "„deshalb“: Verb sofort danach. Erst der Grund, dann die Folge." },
+      { satz: "Ich lerne mit Karten, <b>denn</b> das <b>funktioniert</b> besser.",
+        notiz: "„denn“ ändert gar nichts. Der Satz dahinter bleibt ein normaler Satz." }
+    ],
+    merk: "„denn“ ist die bequemste Variante: du musst nichts umstellen. Aber im Test wird meistens „weil“ und „deshalb“ abgefragt."
+  },
   de: "<p>Ein <b>Grund</b> erklärt eine <b>logische Folge</b>. Warum? → Deshalb!</p>",
   tabelle: {
     kopf: ["Konnektor", "Typ", "Satzbau", "Beispiel"],
@@ -60,17 +82,29 @@ konzepte: [
   },
   regel: "„da“ benutzt man, wenn der Grund schon bekannt ist. Es steht meistens am Satzanfang: „Da Sie ja schon wissen …“. „weil“ nennt einen neuen Grund und steht oft hinten.",
   beispiele: [
-    "<b>deshalb = deswegen = daher</b> — die drei sind Synonyme. <span class='en'>All three mean “therefore”.</span>",
+    "<b>deshalb = deswegen = daher</b>, die drei sind Synonyme. <span class='en'>All three mean “therefore”.</span>",
     "Der Grund steht <b>immer vor</b> dem Satz mit dem Verbindungsadverb.",
     "Achtung bei <b>denn</b>: kein Nebensatz! Das Verb bleibt an Position 2: „…, denn <b>ich</b> <b>bin</b> müde.“"
   ],
   en: "Causal connectors give a reason and a logical result. weil / da = subordinating (verb final). deshalb / deswegen / daher = adverbs (verb second). denn is different again: it joins two main clauses and changes nothing about word order."
 },
 {
-  titel: "③ Gegengrund nennen — konzessiv",
-  thema: "wortbildung",
+  titel: "③ Gegengrund nennen: konzessiv",
+  thema: "konnektoren",
+  einfach: {
+    kern: "Du erwartest ein Ergebnis, und dann kommt genau das Gegenteil.",
+    paare: [
+      { satz: "Ich habe zwei Stunden gelernt. <b>Trotzdem habe</b> ich am nächsten Tag alles vergessen.",
+        notiz: "Normal wäre: viel lernen, viel behalten. Hier passiert das Gegenteil. Nach „trotzdem“ kommt sofort das Verb." },
+      { satz: "<b>Obwohl</b> ich zwei Stunden <b>gelernt habe</b>, habe ich am nächsten Tag alles vergessen.",
+        notiz: "Gleiche Aussage, anderes Wort. Nach „obwohl“ rutscht das Verb ganz ans Ende." },
+      { satz: "<b>Zwar</b> ist mein Deutsch viel besser geworden, <b>aber</b> im Meeting sage ich immer noch nichts.",
+        notiz: "„zwar … aber“ kommt immer als Paar. Beide Teile sind ganz normale Sätze." }
+    ],
+    merk: "Frag dich: passt die Folge zum Grund? Ja, dann <i>weil / deshalb</i>. Nein, dann <i>obwohl / trotzdem</i>."
+  },
   de: "<p>Ein <b>Gegengrund</b> nennt eine Ausgangssituation und eine <b>nicht erwartete</b> Folge. " +
-      "Man erwartet A — aber es passiert B.</p>",
+      "Man erwartet A, aber es passiert B.</p>",
   tabelle: {
     kopf: ["Konnektor", "Typ", "Beispiel"],
     zeilen: [
@@ -81,15 +115,25 @@ konzepte: [
   },
   regel: "Vergleiche: „Weil Clara wiederholt, merkt sie sich Wörter gut.“ (logische Folge) ↔ „Obwohl Clara wiederholt, merkt sie sich Wörter nicht.“ (nicht erwartete Folge).",
   beispiele: [
-    "<b>trotzdem = dennoch</b> — Synonyme. <span class='en'>Both mean “nevertheless”.</span>",
+    "<b>trotzdem = dennoch</b>, Synonyme. <span class='en'>Both mean “nevertheless”.</span>",
     "„<b>zwar</b>“ betont den Gegengrund, „<b>aber</b>“ die nicht erwartete Folge.",
     "Enzo spricht schon sehr gut, <b>trotzdem hat</b> er Angst zu sprechen."
   ],
   en: "Concessive connectors set up an expectation and then break it. obwohl = although (verb final). trotzdem / dennoch = nevertheless (verb second). zwar … aber is a two-part frame across two main clauses."
 },
 {
-  titel: "④ Wortstellung — die Tabelle zum Auswendiglernen",
+  titel: "④ Wortstellung: die Tabelle zum Auswendiglernen",
   thema: "leseverstehen",
+  einfach: {
+    kern: "Wenn der Nebensatz vorne steht, kommt danach sofort das Verb.",
+    paare: [
+      { satz: "Ich nehme heute den Bus, <b>weil</b> mein Fahrrad kaputt <b>ist</b>.",
+        notiz: "Die normale Reihenfolge. Erst dein Satz, dann der Grund." },
+      { satz: "<b>Weil</b> mein Fahrrad kaputt <b>ist</b>, <b>nehme</b> ich heute den Bus.",
+        notiz: "Jetzt steht der Grund vorne. Direkt nach dem Komma kommt „nehme“, und erst danach „ich“." }
+    ],
+    merk: "Achte auf das Muster Verb, Komma, Verb. „Weil mein Fahrrad kaputt ist, ich nehme den Bus“ ist der Klassiker unter den Fehlern."
+  },
   de: "<p>So sortiert das Kursbuch (Aufgabe 3b) die Sätze:</p>",
   tabelle: {
     kopf: ["Muster", "Teil 1", "Teil 2"],
@@ -106,30 +150,53 @@ konzepte: [
     ]
   },
   regel: "Steht der Nebensatz vorne, rutscht das Verb des Hauptsatzes direkt hinter das Komma: „Weil …, hat der Psychologe …“ Nebensatz = Position 1, Verb = Position 2.",
-  en: "If the subordinate clause comes first, it occupies position 1 of the whole sentence — so the main clause verb must come immediately after the comma. Verb-comma-verb is a good visual check."
+  en: "If the subordinate clause comes first, it occupies position 1 of the whole sentence, so the main clause verb must come immediately after the comma. Verb-comma-verb is a good visual check."
 },
 {
-  titel: "⑤ Lesestile — global und selektiv (telc Leseverstehen)",
+  titel: "⑤ Lesestile: global und selektiv (telc Leseverstehen)",
   thema: "adjektivendungen",
+  einfach: {
+    kern: "Es gibt zwei Arten zu lesen. Du entscheidest vorher, welche du brauchst.",
+    paare: [
+      { satz: "Du bekommst eine Wohnungsanzeige und schaust <b>20 Sekunden</b> drauf: Wohnung, Aachen, zu teuer.",
+        notiz: "Das ist <b>globales</b> Lesen. Du willst nur wissen, worum es überhaupt geht." },
+      { satz: "Jetzt willst du nur eins wissen: <b>Wie hoch ist die Miete?</b> Den Rest überspringst du.",
+        notiz: "Das ist <b>selektives</b> Lesen. Du hast eine Frage und suchst genau diese eine Antwort." },
+      { satz: "Frage: „Die Person fängt spät mit dem Lernen an.“ Im Text steht: „Ich <b>schiebe</b> das Lernen gern <b>auf</b>.“",
+        notiz: "Dasselbe Wort steht fast nie im Text. Du suchst ein Wort mit der gleichen Bedeutung."
+      }
+    ],
+    merk: "In der Prüfung immer zuerst die Fragen lesen, dann den Text. Und such nach Synonymen, nicht nach demselben Wort."
+  },
   de: "<p>Zwei Techniken aus dem Kursbuch. In der telc-Prüfung entscheidet die Technik über die Zeit.</p>",
   tabelle: {
     kopf: ["Lesestil", "Was mache ich?", "Wofür?"],
     zeilen: [
-      ["<b>Globales Lesen</b>", "Den Text schnell ganz überfliegen, nicht auf jedes Wort achten. Überschriften, Fettdruck, Unterüberschriften beachten.", "Einen kurzen Eindruck vom Inhalt bekommen — z. B. eine Überschrift wählen."],
-      ["<b>Selektives Lesen</b>", "Nur bestimmte Informationen suchen. Ausdrücke, die ähnlich sind (Synonyme!), nicht wörtlich gleich.", "Aussagen einem Text zuordnen — telc Leseverstehen Teil 3."]
+      ["<b>Globales Lesen</b>", "Den Text schnell ganz überfliegen, nicht auf jedes Wort achten. Überschriften, Fettdruck, Unterüberschriften beachten.", "Einen kurzen Eindruck vom Inhalt bekommen, z. B. eine Überschrift wählen."],
+      ["<b>Selektives Lesen</b>", "Nur bestimmte Informationen suchen. Ausdrücke, die ähnlich sind (Synonyme!), nicht wörtlich gleich.", "Aussagen einem Text zuordnen, telc Leseverstehen Teil 3."]
     ]
   },
   regel: "Beim selektiven Lesen findest du fast nie das gleiche Wort. Du findest ein Synonym. Deshalb: erst die Aufgabe lesen, dann den Text.",
   beispiele: [
     "Aufgabe: „Die Person braucht oft lange, bis sie anfängt zu lernen.“ → Text: „<b>schiebe ich das Lernen gern auf</b>“ (Lucky)",
     "Aufgabe: „Lernen durch Lehren“ → Text: „am besten mit einem Lernpartner“",
-    "<b>Nie das ganze Wörterbuch benutzen</b> — Wörter aus dem Kontext erschließen."
+    "<b>Nie das ganze Wörterbuch benutzen</b>, Wörter aus dem Kontext erschließen."
   ],
-  en: "Global reading = skim for the gist (choose a headline). Selective reading = hunt for one specific piece of information. In telc you will almost never find the exact word from the question in the text — you find a synonym. Read the questions first."
+  en: "Global reading = skim for the gist (choose a headline). Selective reading = hunt for one specific piece of information. In telc you will almost never find the exact word from the question in the text, you find a synonym. Read the questions first."
 },
 {
   titel: "⑥ Wortbildung: Komposita mit „Lern-“ und Adjektive auf -iv / -al",
   thema: "perfekt-praeteritum",
+  einfach: {
+    kern: "Zwei Nomen werden ein Wort. Den Artikel gibt immer das letzte Wort.",
+    paare: [
+      { satz: "die Gruppe → <b>die</b> Lerngruppe. Am Dienstag treffe ich meine Lerngruppe im Café.",
+        notiz: "„Gruppe“ steht hinten, also bleibt „die“. „Lern“ sagt nur, was für eine Gruppe es ist." },
+      { satz: "der Plan → <b>der</b> Lernplan. Mein Lernplan hängt am Kühlschrank.",
+        notiz: "Hinten steht „Plan“, also „der“. Das vordere Wort ändert am Artikel nie etwas." }
+    ],
+    merk: "Nicht alles lässt sich kombinieren: „Lernprüfung“, „Lernstudent“ und „Lernsinnesorgan“ gibt es nicht. Und Adjektive aus Fremdwörtern enden meist auf -iv oder -al: aktiv, effektiv, optimal."
+  },
   de: "<p><b>Nomen + Nomen = ein neues Nomen.</b> Der Artikel kommt immer vom <b>letzten</b> Wort.</p>",
   tabelle: {
     kopf: ["Kompositum", "Artikel + Plural", "Bedeutung"],
@@ -159,7 +226,7 @@ bloecke: [
 
 /* ---------------- 1. Konnektor erkennen ---------------- */
 {
-titel: "Konnektoren erkennen — Grund oder Gegengrund?",
+titel: "Konnektoren erkennen: Grund oder Gegengrund?",
 telc: "Sprachbausteine Teil 1",
 hinweis: "Aus Kursbuch 3a und 3c. Kausal = Grund und logische Folge. Konzessiv = Gegengrund und nicht erwartete Folge.",
 items: [
@@ -181,7 +248,7 @@ items: [
   { typ:"mc", thema:"konnektoren",
     frage:"Es gibt ja immer so viel Stoff! <b>Deshalb</b> mache ich zuerst einen Lernplan.",
     optionen:["Grund (kausal)","Gegengrund (konzessiv)"], richtig:0,
-    regel:"„deshalb“ ist kausal — es zeigt die logische Folge aus dem Grund davor.",
+    regel:"„deshalb“ ist kausal, es zeigt die logische Folge aus dem Grund davor.",
     en:"deshalb = therefore, causal." },
   { typ:"mc", thema:"konnektoren",
     frage:"Welches Wort ist KEIN Synonym von „deshalb“?",
@@ -191,7 +258,7 @@ items: [
     en:"dennoch belongs to the concessive family (= trotzdem)." },
   { typ:"mc", thema:"konnektoren",
     frage:"Wann benutzt man „<b>da</b>“ statt „weil“?",
-    optionen:["Wenn der Grund schon bekannt ist — meist am Satzanfang.","Wenn der Grund neu und wichtig ist.","Wenn man einen Gegengrund nennt."],
+    optionen:["Wenn der Grund schon bekannt ist, meist am Satzanfang.","Wenn der Grund neu und wichtig ist.","Wenn man einen Gegengrund nennt."],
     richtig:0,
     regel:"Tipp aus dem Arbeitsbuch: „da“ verwendet man, wenn der Grund schon bekannt ist. Es steht meist am Satzanfang: „Da Sie ja schon wissen …“",
     en:"da introduces a reason the listener already knows; it usually starts the sentence." }
@@ -199,7 +266,7 @@ items: [
 
 /* ---------------- 2. Wortstellung: Verb an die richtige Stelle ---------------- */
 {
-titel: "Wortstellung — wohin mit dem Verb?",
+titel: "Wortstellung: wohin mit dem Verb?",
 telc: "Sprachbausteine Teil 1",
 hinweis: "Schreib nur das fehlende Wort in die Lücke. Achte genau darauf, ob ein Nebensatz oder ein Hauptsatz folgt.",
 items: [
@@ -210,17 +277,17 @@ items: [
     regel:"Nach „weil“ steht das konjugierte Verb ganz am Ende. Trennbare Verben werden dabei wieder zusammengeschrieben: nach|denken → nachdenkt.",
     en:"After weil the conjugated verb goes last; separable verbs re-join." },
   { typ:"luecke", thema:"nebensatz",
-    frage:"Nebensatz zuerst — was passiert mit dem Hauptsatz?",
+    frage:"Nebensatz zuerst, was passiert mit dem Hauptsatz?",
     satz:"Weil er verschiedene Lerntechniken überprüfen wollte, ___ der Psychologe zahlreiche Praxistests angeschaut.",
     loesung:["hat"],
     regel:"Der Nebensatz ist Position 1. Also muss das Verb des Hauptsatzes direkt nach dem Komma stehen: Verb – Komma – Verb.",
     gegenbeispiel:"Falsch: „Weil er … wollte, der Psychologe hat …“",
     en:"A fronted subordinate clause fills slot 1, so the main verb comes immediately after the comma." },
   { typ:"luecke", thema:"konnektoren",
-    frage:"Verbindungsadverb — Verb auf Position 2.",
+    frage:"Verbindungsadverb, Verb auf Position 2.",
     satz:"Es gibt ja immer so viel Stoff! Deshalb ___ ich zuerst einen Lernplan.",
     loesung:["mache"],
-    regel:"„Deshalb“ steht auf Position 1, also kommt das Verb sofort danach auf Position 2 — und erst dann das Subjekt „ich“.",
+    regel:"„Deshalb“ steht auf Position 1, also kommt das Verb sofort danach auf Position 2, und erst dann das Subjekt „ich“.",
     en:"deshalb occupies slot 1, so the verb is slot 2 and the subject follows." },
   { typ:"luecke", thema:"konnektoren",
     frage:"Ergänze das passende Verbindungsadverb (kausal).",
@@ -229,19 +296,19 @@ items: [
     regel:"Alle drei sind richtig: deshalb / deswegen / daher. Der Grund steht vorher, die Folge danach.",
     en:"deshalb, deswegen and daher are interchangeable here." },
   { typ:"luecke", thema:"nebensatz",
-    frage:"Aus zwei Sätzen einen machen (Arbeitsbuch B3a, Satz 2 — mit „weil“).",
+    frage:"Aus zwei Sätzen einen machen (Arbeitsbuch B3a, Satz 2, mit „weil“).",
     satz:"Kira räumt immer vor dem Lernen auf, weil Ordnung hilfreich ___.",
     loesung:["ist"],
     regel:"„sein“ ist hier das konjugierte Verb und wandert im Nebensatz ans Ende.",
     en:"The copula ist moves to the end of the weil-clause." },
   { typ:"luecke", thema:"nebensatz",
-    frage:"Arbeitsbuch B3a, Satz 4 — mit „da“.",
+    frage:"Arbeitsbuch B3a, Satz 4, mit „da“.",
     satz:"Da es keine optimale Lernmethode ___, ist ein Methodenmix am allerbesten.",
     loesung:["gibt"],
     regel:"„es gibt“ → im Nebensatz: „da es … gibt“. Danach folgt der Hauptsatz mit Verb an Position 2: „ist“.",
     en:"es gibt becomes ...da es ... gibt, then the main clause starts with its verb." },
   { typ:"luecke", thema:"nebensatz",
-    frage:"Arbeitsbuch B3b — den Nebensatz nach vorne stellen.",
+    frage:"Arbeitsbuch B3b, den Nebensatz nach vorne stellen.",
     satz:"Obwohl das ihre Angst vergrößert, ___ viele das Lernen gerne auf.",
     loesung:["schieben"],
     regel:"Trennbares Verb „aufschieben“: der Stamm steht auf Position 2, das Präfix „auf“ bleibt am Satzende.",
@@ -257,7 +324,7 @@ items: [
 
 /* ---------------- 3. Sätze bauen ---------------- */
 {
-titel: "Sätze bauen — Wörter in die richtige Reihenfolge klicken",
+titel: "Sätze bauen: Wörter in die richtige Reihenfolge klicken",
 telc: "Schriftlicher Ausdruck",
 hinweis: "Klick die Wörter in der richtigen Reihenfolge an. Nochmal klicken schickt ein Wort zurück.",
 items: [
@@ -289,7 +356,7 @@ items: [
 
 /* ---------------- 4. Umformen ---------------- */
 {
-titel: "Umformen — gleicher Sinn, andere Struktur",
+titel: "Umformen: gleicher Sinn, andere Struktur",
 telc: "Sprachbausteine Teil 1",
 hinweis: "Genau das prüft telc am liebsten: denselben Inhalt einmal mit Nebensatz und einmal mit Verbindungsadverb.",
 items: [
@@ -318,25 +385,25 @@ items: [
     regel:"Adverb auf Position 1 → Verb Position 2 → dann das Subjekt „Kira“.",
     en:"adverb, verb, subject." },
   { typ:"luecke", thema:"konnektoren",
-    frage:"Kursbuch 3d — aus einer Präposition einen Nebensatz machen. „<b>Aus Angst</b> vor dem großen Berg schiebe ich das Lernen gern auf.“",
+    frage:"Kursbuch 3d, aus einer Präposition einen Nebensatz machen. „<b>Aus Angst</b> vor dem großen Berg schiebe ich das Lernen gern auf.“",
     satz:"___ ich Angst vor dem großen Berg ___, schiebe ich das Lernen gern auf.",
     loesung:[["weil","da"], "habe"],
     regel:"Präposition + Nomen wird zum Nebensatz: aus Angst → weil ich Angst habe. Das Verb steht am Ende.",
     en:"Turn the prepositional phrase into a clause: aus Angst → weil ich Angst habe.",
     tipp:"„Angst haben“ ist die Verbindung, die im Buch in Klammern steht." },
   { typ:"luecke", thema:"konnektoren",
-    frage:"Kursbuch 3d — „<b>Wegen</b> der Beschäftigung mit diesen Fragen fällt es mir leichter, in das Thema einzusteigen.“",
+    frage:"Kursbuch 3d, „<b>Wegen</b> der Beschäftigung mit diesen Fragen fällt es mir leichter, in das Thema einzusteigen.“",
     satz:"___ ich mich mit diesen Fragen ___, fällt es mir leichter, in das Thema einzusteigen.",
     loesung:[["da","weil"], "beschäftige"],
     regel:"„wegen“ (Grund) → „da“ oder „weil“. Reflexives Verb: sich beschäftigen mit + Dativ.",
     en:"wegen signals a reason, so use da or weil; note the reflexive sich beschäftigen mit." },
   { typ:"luecke", thema:"konnektoren",
-    frage:"Kursbuch 3d — „<b>Trotz</b> gegenteiliger Behauptungen existiert keine optimale Lernmethode.“",
+    frage:"Kursbuch 3d, „<b>Trotz</b> gegenteiliger Behauptungen existiert keine optimale Lernmethode.“",
     satz:"___ das Gegenteil behauptet ___, existiert keine optimale Lernmethode.",
     loesung:["obwohl","wird"],
     regel:"„trotz“ (Gegengrund) → „obwohl“. Hier im Passiv: „das Gegenteil wird behauptet“ → im Nebensatz ans Ende.",
     en:"trotz → obwohl; passive wird behauptet goes to the end.",
-    tipp:"Das Buch gibt „(das Gegenteil wird behauptet)“ vor — Passiv Präsens." }
+    tipp:"Das Buch gibt „(das Gegenteil wird behauptet)“ vor, Passiv Präsens." }
 ]},
 
 /* ---------------- 5. Sprachbausteine Cloze ---------------- */
@@ -367,7 +434,7 @@ items: [
 
 /* ---------------- 6. Wortschatz & Wortbildung ---------------- */
 {
-titel: "Wortbildung — Komposita mit „Lern-“",
+titel: "Wortbildung: Komposita mit „Lern-“",
 telc: "Sprachbausteine Teil 2",
 hinweis: "Arbeitsbuch B1b. Schreib Artikel + Wort, z. B. „der Lerntipp“.",
 items: [
@@ -395,7 +462,7 @@ items: [
     regel:"„Lernsinnesorgan“ gibt es nicht. Ebenso nicht: Lernprüfung, Lernstudent. Aber: der Lernstil, die Lernerfahrung.",
     en:"Sinnesorgan, Prüfung and Student are the three that do not combine." },
   { typ:"zuordnen", thema:"wortschatz",
-    frage:"Arbeitsbuch B1a — welches Verb passt zu welchem Ausdruck?",
+    frage:"Arbeitsbuch B1a, welches Verb passt zu welchem Ausdruck?",
     paare:[
       ["Informationen hervorheben","markieren / unterstreichen"],
       ["Inhalte wiedergeben","zusammenfassen / erklären"],
@@ -404,7 +471,7 @@ items: [
     ],
     regel:"Aus B1a. Nicht passend waren dort: „wiederholen“ (bei hervorheben), „abfragen“ (bei Wörter schreiben), „abhaken“ (bei Methode verwenden)." , en:"Match each learning step to its verb: hervorheben means marking text, wiedergeben means restating content in your words." },
   { typ:"cloze", thema:"wortbildung",
-    frage:"Arbeitsbuch B1c — Adjektive auf -iv und -al ergänzen.",
+    frage:"Arbeitsbuch B1c, Adjektive auf -iv und -al ergänzen.",
     text:"Da ich eher der ___ Typ bin, lerne ich sehr gut durch Hören. Aber am besten behalte ich Stoff, wenn ich ihn wiedergebe, " +
          "also ___ etwas damit mache. Das ist eine sehr ___ Methode; für mich ist sie ___. " +
          "Wenn man einen Text liest, sollte man ihn zuerst ___ lesen, d. h. man sollte als Erstes einen Überblick über den Text gewinnen. " +
@@ -436,7 +503,7 @@ items: [
     optionen:["darstellen","abbilden","vorlesen"], richtig:0,
     regel:"„wiedergeben“ = den Inhalt selbst noch einmal darstellen, mit eigenen Worten. „Vorlesen“ wäre nur ablesen, „abbilden“ ist ein Bild machen.",
     gegenbeispiel:"Merke: Inhalte wiedergeben = zusammenfassen, erklären, darstellen (siehe B1a).",
-    en:"wiedergeben = to reproduce/present the content yourself — not to read aloud." },
+    en:"wiedergeben = to reproduce/present the content yourself, not to read aloud." },
   { typ:"mc", thema:"leseverstehen",
     frage:"„Ich <b>hake</b> das Thema dann <b>ab</b>.“ (Lucky)",
     optionen:["ankreuzen","kennzeichnen","für sich abschließen"], richtig:2,
@@ -456,7 +523,7 @@ items: [
 
 /* ---------------- 8. B1-Check ---------------- */
 {
-titel: "B1-Check — Grundlagen, die bei B2 wehtun",
+titel: "B1-Check: Grundlagen, die bei B2 wehtun",
 hinweis: "Diese Themen kommen aus B1, aber telc B2 setzt sie voraus. Fehler hier kosten in jeder Prüfungsteil Punkte.",
 items: [
   { typ:"luecke", thema:"adjektivendungen", b1:true,
@@ -475,8 +542,8 @@ items: [
     frage:"Verb mit fester Präposition:",
     satz:"Ich beschäftige mich intensiv ___ diesen Fragen.",
     loesung:[["mit"]],
-    regel:"sich beschäftigen <b>mit</b> + Dativ. Diese Verbindungen muss man auswendig lernen — telc prüft sie in Sprachbausteine Teil 2.",
-    en:"sich beschäftigen mit + dative — memorise verb+preposition pairs." },
+    regel:"sich beschäftigen <b>mit</b> + Dativ. Diese Verbindungen muss man auswendig lernen, telc prüft sie in Sprachbausteine Teil 2.",
+    en:"sich beschäftigen mit + dative, memorise verb+preposition pairs." },
   { typ:"luecke", thema:"verben-mit-praep", b1:true,
     frage:"Noch eine feste Verbindung:",
     satz:"Viele Studierende haben Angst ___ der Prüfung.",
@@ -504,7 +571,7 @@ items: [
 
 /* ---------------- 9. Schreiben ---------------- */
 {
-titel: "Schriftlicher Ausdruck — dein Forumsbeitrag",
+titel: "Schriftlicher Ausdruck: dein Forumsbeitrag",
 telc: "Schriftlicher Ausdruck",
 hinweis: "Kursbuch Aufgabe 4. Antworte auf Nias Frage im Forum: Welche Lernmethode funktioniert für dich?",
 items: [
@@ -513,7 +580,7 @@ items: [
     mindestWorte:80,
     hinweise:["Ich behalte neuen Stoff am besten, wenn ich …","Daher finde ich den Vorschlag von … sehr gut.","Meiner Erfahrung nach …","Das funktioniert bei mir, weil …","Obwohl … , finde ich …"],
     muster:"Hallo Nia,<br><br>ich behalte neuen Stoff am besten, wenn ich ihn jemandem erkläre. " +
-      "<b>Da</b> ich im Beruf viel mit KI-Themen arbeite, muss ich ständig komplizierte Inhalte einfach ausdrücken — " +
+      "<b>Da</b> ich im Beruf viel mit KI-Themen arbeite, muss ich ständig komplizierte Inhalte einfach ausdrücken, " +
       "und genau das ist auch beim Lernen die beste Methode. <b>Deshalb</b> suche ich mir immer einen Lernpartner.<br><br>" +
       "<b>Obwohl</b> „Hervorheben von Informationen“ im Test schlecht abgeschnitten hat, markiere ich trotzdem wichtige Stellen. " +
       "Für mich ist das nur der erste Schritt; danach fasse ich alles mit eigenen Worten zusammen.<br><br>" +
@@ -550,15 +617,15 @@ zusammenfassung:
   "<li><b>Verbindungsadverben</b> (deshalb, deswegen, daher / trotzdem, dennoch) → Verb auf <b>Position 2</b>, dann das Subjekt.</li>" +
   "<li><b>kausal</b> = Grund + logische Folge. <b>konzessiv</b> = Gegengrund + <i>nicht erwartete</i> Folge.</li>" +
   "<li>Steht der Nebensatz vorne, folgt sofort das Verb des Hauptsatzes: <i>Weil …, hat der Psychologe …</i></li>" +
-  "<li><b>denn</b> ist kein Nebensatzkonnektor — Wortstellung bleibt normal.</li>" +
+  "<li><b>denn</b> ist kein Nebensatzkonnektor, Wortstellung bleibt normal.</li>" +
   "<li>Lesen: erst <b>global</b> (Überblick), dann <b>selektiv</b> (gezielt suchen, über Synonyme).</li>" +
   "<li>Komposita nehmen den Artikel vom <b>letzten</b> Wort: die Gruppe → <b>die</b> Lerngruppe.</li>" +
   "</ul>",
 
 dialog:
-  "<p>Antworte mir im Chat auf Deutsch — ich korrigiere jeden Satz:</p>" +
+  "<p>Antworte mir im Chat auf Deutsch, ich korrigiere jeden Satz:</p>" +
   "<p><b>1.</b> Warum lernst du gerade Deutsch? Antworte mit <b>weil</b> <i>und</i> noch einmal mit <b>deshalb</b>.<br>" +
   "<b>2.</b> Was am Deutschlernen fällt dir schwer, obwohl du es oft übst? Benutze <b>obwohl</b> und <b>trotzdem</b>.<br>" +
-  "<b>3.</b> Erkläre mir in 3 Sätzen den Unterschied zwischen globalem und selektivem Lesen — auf Deutsch.</p>" +
+  "<b>3.</b> Erkläre mir in 3 Sätzen den Unterschied zwischen globalem und selektivem Lesen, auf Deutsch.</p>" +
   "<p class='en'>Answer in German in the chat. I will quote each sentence, correct it, and name the rule.</p>"
 };

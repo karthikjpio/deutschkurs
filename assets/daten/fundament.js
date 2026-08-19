@@ -1,5 +1,5 @@
 /* ============================================================
-   B1-FUNDAMENT — der Aufgabenvorrat
+   B1-FUNDAMENT, der Aufgabenvorrat
    Sechs Themen, die im Einstufungstest vom 29.07.2026 auf 0–20 % lagen.
    Aus diesem Pool zieht sich jede Tag-Seite ihren täglichen 10er-Block:
      3 × Verben mit Präposition (jeden Tag) + 7 × Thema des Tages.
@@ -10,10 +10,24 @@ KURS.fundament = {
 /* ---------------------------------------------------------- */
 "verben-mit-praep": {
 titel: "Verben mit Präposition",
-kurz: "Einstufung: 0/6 — reines Auswendiglernen, kommt jeden Tag zurück",
+kurz: "Einstufung: 0/6, reines Auswendiglernen, kommt jeden Tag zurück",
 konzept: {
   titel: "Verben mit fester Präposition",
-  de: "<p>Manche Verben haben eine <b>feste</b> Präposition. Die kann man <b>nicht</b> logisch herleiten — " +
+  einfach: {
+    kern: "Manche Verben haben eine feste Präposition. Die musst du mitlernen.",
+    paare: [
+      { satz: "Ich <b>warte auf</b> den Bus.",
+        notiz: "„warten“ kommt fast nie allein. Es bringt „auf“ mit, und danach steht der Akkusativ: den Bus." },
+      { satz: "Ich <b>freue mich auf</b> das Wochenende.",
+        notiz: "„auf“ zeigt: es kommt erst noch. Du freust dich vorher." },
+      { satz: "Ich <b>freue mich über</b> deine Nachricht.",
+        notiz: "„über“ zeigt: es ist schon passiert. Gleiches Verb, andere Präposition, andere Zeit." },
+      { satz: "Ich <b>bewerbe mich um</b> die Stelle <b>bei</b> einer Firma in Aachen.",
+        notiz: "Ein Verb, zwei Präpositionen. „um“ zeigt die Stelle, „bei“ zeigt die Firma." }
+    ],
+    merk: "Lerne nie nur das Verb. Lerne immer drei Sachen zusammen: Verb, Präposition, Kasus. Und: <b>mit, von, bei, zu</b> sind immer Dativ, das sind geschenkte Punkte."
+  },
+  de: "<p>Manche Verben haben eine <b>feste</b> Präposition. Die kann man <b>nicht</b> logisch herleiten, " +
       "man muss das Paar als Einheit lernen: nicht „warten“, sondern „<b>warten auf</b> + Akkusativ“.</p>" +
       "<p>Lerne immer <b>drei</b> Dinge zusammen: Verb + Präposition + Kasus.</p>",
   tabelle: {
@@ -31,13 +45,13 @@ konzept: {
       ["sprechen <b>über</b> (ein Thema)", "sich bedanken <b>für</b> (Akk.!)"]
     ]
   },
-  regel: "Merktrick: „an“ und „auf“ und „über“ sind meistens Akkusativ. „mit“, „von“, „bei“, „zu“ sind IMMER Dativ — das sind reine Dativpräpositionen.",
+  regel: "Merktrick: „an“ und „auf“ und „über“ sind meistens Akkusativ. „mit“, „von“, „bei“, „zu“ sind IMMER Dativ, das sind reine Dativpräpositionen.",
   beispiele: [
     "Ich freue mich <b>auf</b> das Wochenende. <span class='en'>(es kommt noch → Vorfreude)</span>",
     "Ich freue mich <b>über</b> dein Geschenk. <span class='en'>(ist schon passiert)</span>",
     "Ich bewerbe mich <b>um</b> die Stelle <b>bei</b> Siemens. <span class='en'>(zwei verschiedene Präpositionen!)</span>"
   ],
-  en: "Some verbs are welded to one preposition, and you cannot derive which one — you memorise the pair. Always learn three things together: verb + preposition + case. Note that mit, von, bei and zu are dative prepositions in every context, so those are free points."
+  en: "Some verbs are welded to one preposition, and you cannot derive which one, you memorise the pair. Always learn three things together: verb + preposition + case. Note that mit, von, bei and zu are dative prepositions in every context, so those are free points."
 },
 items: [
   { typ:"luecke", thema:"verben-mit-praep", satz:"Ich interessiere mich sehr ___ Technik.", loesung:[["für"]],
@@ -50,9 +64,9 @@ items: [
   { typ:"luecke", thema:"verben-mit-praep", satz:"Er denkt oft ___ seine Familie in Indien.", loesung:[["an"]],
     frage:"", regel:"denken <b>an</b> + Akkusativ.", en:"think of/about" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Das hängt ___ dem Wetter ab.", loesung:[["von"]],
-    frage:"Achtung: das Verb ist trennbar — „abhängen“.",
+    frage:"Achtung: das Verb ist trennbar, „abhängen“.",
     regel:"abhängen <b>von</b> + Dativ. Das „ab“ am Satzende gehört zum Verb, die Lücke braucht die Präposition.",
-    gegenbeispiel:"Nicht „hängt ab ab“ — die Präposition ist <b>von</b>.", en:"depend on" },
+    gegenbeispiel:"Nicht „hängt ab ab“ die Präposition ist <b>von</b>.", en:"depend on" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Ich bereite mich gerade ___ die Prüfung vor.", loesung:[["auf"]],
     frage:"", regel:"sich vorbereiten <b>auf</b> + Akkusativ.", en:"prepare for" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Sie arbeitet seit Wochen ___ diesem Projekt.", loesung:[["an"]],
@@ -62,13 +76,13 @@ items: [
   { typ:"luecke", thema:"verben-mit-praep", satz:"Ich beschäftige mich beruflich ___ künstlicher Intelligenz.", loesung:[["mit"]],
     frage:"", regel:"sich beschäftigen <b>mit</b> + Dativ.", en:"deal with, work on" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Erinnerst du dich noch ___ unseren ersten Kurstag?", loesung:[["an"]],
-    frage:"", regel:"sich erinnern <b>an</b> + Akkusativ — „unseren“ zeigt den Akkusativ.", en:"remember" },
+    frage:"", regel:"sich erinnern <b>an</b> + Akkusativ, „unseren“ zeigt den Akkusativ.", en:"remember" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Ich warte schon eine Stunde ___ den Bus.", loesung:[["auf"]],
     frage:"", regel:"warten <b>auf</b> + Akkusativ.", en:"wait for" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Er nimmt regelmäßig ___ Online-Kursen teil.", loesung:[["an"]],
     frage:"Trennbares Verb: „teilnehmen“.", regel:"teilnehmen <b>an</b> + Dativ.", en:"take part in" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Ich bewerbe mich ___ eine Stelle ___ einem Beratungsunternehmen.", loesung:[["um"],["bei"]],
-    frage:"Zwei Lücken — Achtung, zwei verschiedene Präpositionen:",
+    frage:"Zwei Lücken, Achtung, zwei verschiedene Präpositionen:",
     regel:"sich bewerben <b>um</b> + Akkusativ (die Stelle) / sich bewerben <b>bei</b> + Dativ (die Firma).",
     en:"apply for a position at a company" },
   { typ:"luecke", thema:"verben-mit-praep", satz:"Wir haben lange ___ dieses Thema gesprochen.", loesung:[["über"]],
@@ -91,14 +105,28 @@ items: [
 /* ---------------------------------------------------------- */
 "relativsatz": {
 titel: "Relativsätze",
-kurz: "Einstufung: 0/4 — eine Tabelle mit zwölf Feldern, an einem Abend machbar",
+kurz: "Einstufung: 0/4, eine Tabelle mit zwölf Feldern, an einem Abend machbar",
 konzept: {
-  titel: "Relativpronomen — die ganze Tabelle",
+  titel: "Relativpronomen: die ganze Tabelle",
+  einfach: {
+    kern: "So beschreibst du eine Person oder Sache genauer, ohne einen neuen Satz anzufangen.",
+    paare: [
+      { satz: "Das ist der Kollege, <b>der</b> mir immer hilft.",
+        notiz: "Er hilft, er ist also der Handelnde. Dann heißt es „der“." },
+      { satz: "Das ist der Kollege, <b>den</b> ich gestern getroffen habe.",
+        notiz: "Jetzt handelt er nicht, sondern ich. Dann heißt es „den“." },
+      { satz: "Die Kollegin, <b>der</b> ich geholfen habe, sitzt neben mir.",
+        notiz: "„helfen“ verlangt den Dativ. Feminin Dativ ist „der“, auch wenn es komisch aussieht." },
+      { satz: "Das Projekt, <b>an dem</b> ich gerade arbeite, ist fast fertig.",
+        notiz: "„arbeiten an“ bringt seine Präposition mit. Sie steht vorne, direkt nach dem Komma." }
+    ],
+    merk: "Ob „der“ oder „den“, entscheidet nur der Teil <i>nach</i> dem Komma, nie der Teil davor. Und das Verb rutscht immer ans Ende."
+  },
   de: "<p>Ein Relativsatz beschreibt ein Nomen genauer. Das Relativpronomen sieht fast aus wie der bestimmte Artikel " +
-      "(der, die, das) — nur zwei Formen sind anders (Dativ Plural und Genitiv).</p>" +
+      "(der, die, das), nur zwei Formen sind anders (Dativ Plural und Genitiv).</p>" +
       "<p>Zwei Fragen entscheiden über die Form:<br>" +
       "<b>1. Genus/Numerus</b> kommt vom <b>Bezugswort</b> davor.<br>" +
-      "<b>2. Kasus</b> kommt von der <b>Rolle im Relativsatz</b> — nicht vom Hauptsatz!</p>",
+      "<b>2. Kasus</b> kommt von der <b>Rolle im Relativsatz</b>, nicht vom Hauptsatz!</p>",
   tabelle: {
     kopf: ["Kasus", "maskulin", "feminin", "neutrum", "Plural"],
     zeilen: [
@@ -108,7 +136,7 @@ konzept: {
       ["Genitiv (wessen?)", "<b>dessen</b> ⚠", "<b>deren</b> ⚠", "<b>dessen</b> ⚠", "<b>deren</b> ⚠"]
     ]
   },
-  regel: "Das Verb steht im Relativsatz IMMER am Ende — es ist ein Nebensatz. Und es steht immer ein Komma davor.",
+  regel: "Das Verb steht im Relativsatz IMMER am Ende, es ist ein Nebensatz. Und es steht immer ein Komma davor.",
   beispiele: [
     "Das ist der Mann, <b>der</b> nebenan wohnt. <span class='en'>(maskulin + Subjekt → Nominativ)</span>",
     "Das ist der Film, <b>den</b> ich gesehen habe. <span class='en'>(maskulin + Objekt → Akkusativ)</span>",
@@ -123,12 +151,12 @@ items: [
   { typ:"luecke", thema:"relativsatz", satz:"Das ist das Buch, ___ ich gestern gekauft habe.", loesung:["das"],
     frage:"Neutrum, Objekt:", regel:"„das Buch“ + Objekt (was habe ich gekauft?) → Akkusativ neutrum = <b>das</b>." , en:"Neuter accusative looks the same as nominative, so <b>das</b> stays das even when it is the object." },
   { typ:"luecke", thema:"relativsatz", satz:"Der Film, ___ wir gesehen haben, war sehr gut.", loesung:["den"],
-    frage:"Maskulin, Objekt — Achtung:", regel:"„der Film“ + Objekt → Akkusativ maskulin = <b>den</b>. Nur im Maskulinum ändert sich die Form!",
+    frage:"Maskulin, Objekt, Achtung:", regel:"„der Film“ + Objekt → Akkusativ maskulin = <b>den</b>. Nur im Maskulinum ändert sich die Form!",
     gegenbeispiel:"Nominativ wäre „der Film, <b>der</b> gut war“." , en:"Masculine is the only gender whose accusative changes shape, so the object form is <b>den</b>, not der." },
   { typ:"luecke", thema:"relativsatz", satz:"Die Frau, ___ ich das Paket gegeben habe, war meine Nachbarin.", loesung:["der"],
     frage:"Feminin, Dativ:", regel:"„geben“ + wem? → Dativ. Feminin Dativ = <b>der</b>." , en:"<b>geben</b> hands something to somebody, so the pronoun is Dativ, and feminine Dativ is der, not die." },
   { typ:"luecke", thema:"relativsatz", satz:"Das sind die Studenten, ___ ich geholfen habe.", loesung:["denen"],
-    frage:"Plural, Dativ — die Sonderform:", regel:"„helfen“ + Dativ, Plural → <b>denen</b>. Das ist die einzige Dativform, die vom Artikel abweicht." , en:"<b>helfen</b> always takes Dativ, and the plural Dativ adds -en, giving denen instead of die." },
+    frage:"Plural, Dativ, die Sonderform:", regel:"„helfen“ + Dativ, Plural → <b>denen</b>. Das ist die einzige Dativform, die vom Artikel abweicht." , en:"<b>helfen</b> always takes Dativ, and the plural Dativ adds -en, giving denen instead of die." },
   { typ:"luecke", thema:"relativsatz", satz:"Das ist das Projekt, an ___ ich gerade arbeite.", loesung:["dem"],
     frage:"Mit Präposition:", regel:"„arbeiten an“ + Dativ, neutrum → an <b>dem</b>. Die Präposition steht VOR dem Relativpronomen." , en:"<b>arbeiten an</b> takes Dativ, and the preposition moves in front of the relative pronoun." },
   { typ:"luecke", thema:"relativsatz", satz:"Die Firma, bei ___ ich mich beworben habe, hat geantwortet.", loesung:["der"],
@@ -158,12 +186,26 @@ items: [
 /* ---------------------------------------------------------- */
 "nebensatz": {
 titel: "Nebensatz-Wortstellung",
-kurz: "Einstufung: 1/5 — B2 lebt von komplexen Sätzen",
+kurz: "Einstufung: 1/5, B2 lebt von komplexen Sätzen",
 konzept: {
   titel: "Wo steht das Verb im Nebensatz?",
+  einfach: {
+    kern: "Nach Wörtern wie „dass“, „weil“ oder „wenn“ rutscht das Verb ganz nach hinten.",
+    paare: [
+      { satz: "Ich <b>muss</b> heute länger arbeiten.",
+        notiz: "Ein normaler Satz. Das Verb steht an zweiter Stelle." },
+      { satz: "Ich glaube, dass ich heute länger <b>arbeiten muss</b>.",
+        notiz: "Nach „dass“ rutscht alles nach hinten. Das Verb mit der Endung steht ganz zum Schluss." },
+      { satz: "Er sagt, dass er den Film schon <b>gesehen hat</b>.",
+        notiz: "Erst das Partizip, dann „hat“. Der Chef („hat“) steht hier immer ganz hinten." },
+      { satz: "<b>Wenn ich Zeit habe, gehe</b> ich joggen.",
+        notiz: "Steht der Nebensatz vorne, kommt im Hauptsatz sofort das Verb nach dem Komma." }
+    ],
+    merk: "Klassischer Fehler: „Obwohl es regnet, <i>wir gehen</i> spazieren.“ Richtig ist „…, <b>gehen wir</b> spazieren“."
+  },
   de: "<p>Ein Nebensatz beginnt mit einem Konnektor (dass, weil, obwohl, wenn, als, ob, damit, während …) " +
       "oder einem Fragewort. Danach gilt <b>eine</b> Regel: das konjugierte Verb geht ganz <b>ans Ende</b>.</p>" +
-      "<p>Bei zusammengesetzten Zeiten wird es interessant — das <b>Hilfsverb</b> steht ganz hinten, " +
+      "<p>Bei zusammengesetzten Zeiten wird es interessant, das <b>Hilfsverb</b> steht ganz hinten, " +
       "nach dem Partizip oder Infinitiv.</p>",
   tabelle: {
     kopf: ["Form", "Hauptsatz", "Nebensatz"],
@@ -175,7 +217,7 @@ konzept: {
       ["Passiv", "Es <b>wird</b> heute <b>gemacht</b>.", "…, dass es heute <b>gemacht wird</b>."]
     ]
   },
-  regel: "Das Hilfsverb (hat, ist, wird, muss, kann) ist der Chef — im Nebensatz steht der Chef ganz hinten.",
+  regel: "Das Hilfsverb (hat, ist, wird, muss, kann) ist der Chef, im Nebensatz steht der Chef ganz hinten.",
   beispiele: [
     "Ich weiß, dass du gestern <b>gekommen bist</b>. <span class='en'>(Partizip vor Hilfsverb)</span>",
     "Weißt du, wann der Zug <b>abfährt</b>? <span class='en'>(indirekte Frage = Nebensatz)</span>",
@@ -187,14 +229,14 @@ items: [
   { typ:"luecke", thema:"nebensatz", satz:"Ich weiß, dass er morgen nach Berlin ___.", loesung:[["fährt"]],
     frage:"Präsens:", regel:"Nach „dass“ steht das konjugierte Verb am Ende: fährt." , en:"<b>dass</b> sends the conjugated verb to the very end, so fährt closes the whole clause." },
   { typ:"luecke", thema:"nebensatz", satz:"Er sagt, dass er den Film schon ___ ___.", loesung:["gesehen","hat"],
-    frage:"Perfekt — zwei Lücken, richtige Reihenfolge:", regel:"Partizip zuerst, dann das Hilfsverb ganz am Ende: „gesehen hat“.",
+    frage:"Perfekt, zwei Lücken, richtige Reihenfolge:", regel:"Partizip zuerst, dann das Hilfsverb ganz am Ende: „gesehen hat“.",
     gegenbeispiel:"Falsch: „…, dass er den Film schon hat gesehen.“" , en:"In a subordinate clause the participle comes first and the auxiliary <b>hat</b> lands at the very end." },
   { typ:"luecke", thema:"nebensatz", satz:"Ich glaube, dass sie heute länger ___ ___.", loesung:["arbeiten","muss"],
     frage:"Modalverb:", regel:"Infinitiv zuerst, dann das Modalverb: „arbeiten muss“." , en:"The infinitive comes first and the modal <b>muss</b> takes the final slot in the dass clause." },
   { typ:"luecke", thema:"nebensatz", satz:"Weißt du, wann der Zug ___?", loesung:[["abfährt","ankommt"]],
     frage:"Indirekte Frage, trennbares Verb:", regel:"Indirekte Frage = Nebensatz. Trennbares Verb wird wieder zusammengeschrieben: abfährt." , en:"An indirect question is a subordinate clause, so the separable prefix rejoins the verb: <b>abfährt</b>." },
   { typ:"luecke", thema:"nebensatz", satz:"Als ich klein war, ___ ich viel gelesen.", loesung:["habe"],
-    frage:"Nebensatz steht vorne — was passiert im Hauptsatz?",
+    frage:"Nebensatz steht vorne, was passiert im Hauptsatz?",
     regel:"Der Nebensatz besetzt Position 1, also muss das Verb des Hauptsatzes direkt nach dem Komma stehen: „…, habe ich …“.",
     gegenbeispiel:"Falsch: „Als ich klein war, ich habe viel gelesen.“" , en:"The subordinate clause fills position one, so the main clause verb comes directly after the comma." },
   { typ:"luecke", thema:"nebensatz", satz:"Er fragt, ob wir am Freitag Zeit ___.", loesung:[["haben"]],
@@ -207,7 +249,7 @@ items: [
     loesung:"Ich freue mich, dass du gekommen bist.",
     regel:"Partizip „gekommen“, dann das Hilfsverb „bist“ ganz am Ende." , en:"The participle <b>gekommen</b> comes first and the auxiliary bist finishes the dass clause." },
   { typ:"ordnen", thema:"nebensatz",
-    frage:"Nebensatz zuerst — achte auf den Hauptsatz.",
+    frage:"Nebensatz zuerst, achte auf den Hauptsatz.",
     woerter:["Wenn","ich","Zeit","habe,","gehe","ich","joggen."],
     loesung:"Wenn ich Zeit habe, gehe ich joggen.",
     regel:"Nebensatz = Position 1 → Hauptsatz beginnt mit dem Verb „gehe“, dann das Subjekt." , en:"With the wenn clause in position one, the main clause starts with the verb <b>gehe</b>, then the subject." },
@@ -224,9 +266,23 @@ items: [
 /* ---------------------------------------------------------- */
 "passiv": {
 titel: "Passiv",
-kurz: "Einstufung: 0/3 — Standard in jedem Sachtext und Geschäftsbrief",
+kurz: "Einstufung: 0/3, Standard in jedem Sachtext und Geschäftsbrief",
 konzept: {
-  titel: "Passiv — wenn die Handlung wichtiger ist als die Person",
+  titel: "Passiv: wenn die Handlung wichtiger ist als die Person",
+  einfach: {
+    kern: "Wenn egal ist, wer etwas macht, drehst du den Satz um.",
+    paare: [
+      { satz: "Der Chef <b>unterschreibt</b> den Vertrag.",
+        notiz: "Hier ist wichtig, wer handelt: der Chef." },
+      { satz: "Der Vertrag <b>wird unterschrieben</b>.",
+        notiz: "Jetzt zählt nur noch, was passiert. Die Formel ist „werden“ plus Partizip." },
+      { satz: "Der Vertrag <b>wurde</b> gestern <b>unterschrieben</b>.",
+        notiz: "Für die Vergangenheit änderst du nur „werden“ zu „wurde“. Das Partizip bleibt gleich." },
+      { satz: "Das Problem muss heute noch <b>gelöst werden</b>.",
+        notiz: "Steht ein Modalverb dabei, geht „werden“ als Infinitiv ganz ans Ende." }
+    ],
+    merk: "Die häufigste Falle: „Die E-Mail ist gesendet <b>worden</b>“, nicht „geworden“. Im Passiv verliert „werden“ das „ge-“."
+  },
   de: "<p>Aktiv: <i>Der Chef unterschreibt den Vertrag.</i> → Wer handelt, ist wichtig.<br>" +
       "Passiv: <i>Der Vertrag <b>wird</b> unterschrieben.</i> → Was passiert, ist wichtig.</p>" +
       "<p>Die Formel ist immer gleich: <b>werden</b> + <b>Partizip II</b>. " +
@@ -255,7 +311,7 @@ items: [
   { typ:"luecke", thema:"passiv", satz:"Die Ergebnisse ___ nächste Woche veröffentlicht.", loesung:[["werden"]],
     frage:"Passiv Präsens, Plural:", regel:"„Die Ergebnisse“ ist Plural → werden." , en:"<b>Die Ergebnisse</b> is plural, so the passive auxiliary agrees with it and becomes werden." },
   { typ:"luecke", thema:"passiv", satz:"Der Vertrag ist gestern unterschrieben ___.", loesung:[["worden"]],
-    frage:"Passiv Perfekt — die klassische Falle:",
+    frage:"Passiv Perfekt, die klassische Falle:",
     regel:"Im Passiv Perfekt heißt das Partizip von „werden“ <b>worden</b>, nicht „geworden“.",
     gegenbeispiel:"„geworden“ nur im Aktiv: „Er ist Ingenieur geworden.“" , en:"In the passive perfect the participle of werden drops its ge- and becomes <b>worden</b>." },
   { typ:"luecke", thema:"passiv", satz:"Das Problem muss sofort gelöst ___.", loesung:[["werden"]],
@@ -265,7 +321,7 @@ items: [
   { typ:"luecke", thema:"passiv", satz:"Der Brief wurde ___ meiner Kollegin geschrieben.", loesung:[["von"]],
     frage:"Wer hat gehandelt?", regel:"Die handelnde Person steht mit <b>von</b> + Dativ." , en:"The person who acts is marked by <b>von</b> plus Dativ, never by für or durch." },
   { typ:"luecke", thema:"passiv", satz:"Aktiv: „Man repariert die Maschine.“ → Passiv: Die Maschine ___ repariert.", loesung:[["wird"]],
-    frage:"Umformen — „man“ verschwindet im Passiv:", regel:"Das Akkusativobjekt des Aktivsatzes wird im Passiv zum Subjekt. „man“ fällt weg." , en:"The accusative object of the active sentence becomes the passive subject, and <b>man</b> simply disappears." },
+    frage:"Umformen, „man“ verschwindet im Passiv:", regel:"Das Akkusativobjekt des Aktivsatzes wird im Passiv zum Subjekt. „man“ fällt weg." , en:"The accusative object of the active sentence becomes the passive subject, and <b>man</b> simply disappears." },
   { typ:"mc", thema:"passiv", frage:"Welcher Satz ist korrekt?",
     optionen:["Die E-Mail ist schon gesendet geworden.","Die E-Mail ist schon gesendet worden."],
     richtig:1, regel:"Passiv Perfekt → <b>worden</b>, immer ohne „ge-“." , en:"Passive perfect always uses <b>worden</b> without ge-; geworden only appears in active sentences." },
@@ -278,21 +334,35 @@ items: [
     loesung:"Ihre Bewerbung wird von unserem Team sorgfältig geprüft.",
     regel:"wird auf Position 2, Partizip „geprüft“ ganz am Ende. Der Handelnde mit „von“ + Dativ." , en:"<b>wird</b> sits in position two and the participle geprüft closes the sentence, with von marking the agent." },
   { typ:"luecke", thema:"passiv", satz:"Ich habe gehört, dass die Stelle schon besetzt ___ ___.", loesung:["worden","ist"],
-    frage:"Passiv Perfekt im Nebensatz — zwei Lücken:",
+    frage:"Passiv Perfekt im Nebensatz, zwei Lücken:",
     regel:"Im Nebensatz steht das Hilfsverb ganz hinten: „besetzt worden ist“." , en:"In a subordinate clause the auxiliary moves behind the participles: besetzt <b>worden ist</b>." },
   { typ:"luecke", thema:"passiv", satz:"In diesem Büro ___ nur Deutsch gesprochen.", loesung:[["wird"]],
-    frage:"Unpersönliches Passiv:", regel:"Ohne echtes Subjekt: „wird gesprochen“ — sehr häufig auf Schildern und in Regeln." , en:"Impersonal passive has no real subject; German just says <b>wird gesprochen</b>, common on signs and rules." }
+    frage:"Unpersönliches Passiv:", regel:"Ohne echtes Subjekt: „wird gesprochen“ sehr häufig auf Schildern und in Regeln." , en:"Impersonal passive has no real subject; German just says <b>wird gesprochen</b>, common on signs and rules." }
 ]},
 
 /* ---------------------------------------------------------- */
 "konjunktiv2": {
 titel: "Konjunktiv II",
-kurz: "Einstufung: 0/3 — aber du warst nah dran: „Können“ statt „Könnten“",
+kurz: "Einstufung: 0/3, aber du warst nah dran: „Können“ statt „Könnten“",
 konzept: {
-  titel: "Konjunktiv II — höflich sein und Irreales ausdrücken",
+  titel: "Konjunktiv II: höflich sein und Irreales ausdrücken",
+  einfach: {
+    kern: "Diese Formen brauchst du für Höflichkeit und für alles, was nicht echt ist.",
+    paare: [
+      { satz: "<b>Können</b> Sie mir helfen?",
+        notiz: "Das ist eine echte Frage nach der Fähigkeit. Es klingt ziemlich direkt." },
+      { satz: "<b>Könnten</b> Sie mir bitte helfen?",
+        notiz: "Ein Umlaut und ein „-t“ mehr, und daraus wird eine höfliche Bitte." },
+      { satz: "Wenn ich mehr Zeit <b>hätte</b>, <b>würde</b> ich mehr lesen.",
+        notiz: "„hätte“ statt „habe“ zeigt: Die Zeit hast du eben nicht. Es ist nur eine Vorstellung." },
+      { satz: "Ich <b>hätte gern</b> einen Termin am Freitag.",
+        notiz: "Die feste Formel für Wünsche. „Ich will einen Termin“ klingt auf Deutsch grob." }
+    ],
+    merk: "Fünf Formen reichen fast immer: <b>hätte, wäre, könnte, müsste, würde</b>. Alle anderen Verben baust du mit „würde“ plus Infinitiv."
+  },
   de: "<p>Du brauchst ihn für <b>zwei</b> Dinge:</p>" +
-      "<p><b>1. Höflichkeit</b> — im Brief, im Gespräch, in der Prüfung: <i>Könnten Sie …? / Ich hätte gern …</i><br>" +
-      "<b>2. Irreales</b> — etwas, das nicht real ist: <i>Wenn ich Zeit hätte, würde ich …</i></p>" +
+      "<p><b>1. Höflichkeit</b>, im Brief, im Gespräch, in der Prüfung: <i>Könnten Sie …? / Ich hätte gern …</i><br>" +
+      "<b>2. Irreales</b>, etwas, das nicht real ist: <i>Wenn ich Zeit hätte, würde ich …</i></p>" +
       "<p>Nur wenige Verben haben eine eigene Form. Alle anderen bauen mit <b>würde + Infinitiv</b>.</p>",
   tabelle: {
     kopf: ["Verb", "Konjunktiv II", "Beispiel"],
@@ -311,22 +381,22 @@ konzept: {
     "Höflich statt direkt: „Ich <b>will</b> einen Termin“ → „Ich <b>hätte gern</b> einen Termin.“ <span class='en'>(Prüfungsrelevant!)</span>",
     "Vorschlag: „Wir <b>könnten</b> uns am Freitag treffen.“"
   ],
-  en: "Konjunktiv II does two jobs: politeness (Könnten Sie…? / Ich hätte gern…) and unreal situations (Wenn ich Zeit hätte…). Only a handful of verbs have their own form — hätte, wäre, könnte, müsste, würde. Everything else uses würde + infinitive. The difference from the present tense is often just an umlaut, which is exactly where you lost points."
+  en: "Konjunktiv II does two jobs: politeness (Könnten Sie…? / Ich hätte gern…) and unreal situations (Wenn ich Zeit hätte…). Only a handful of verbs have their own form, hätte, wäre, könnte, müsste, würde. Everything else uses würde + infinitive. The difference from the present tense is often just an umlaut, which is exactly where you lost points."
 },
 items: [
   { typ:"luecke", thema:"konjunktiv2", satz:"___ Sie mir bitte kurz helfen?", loesung:[["Könnten","könnten","Würden","würden"]],
-    frage:"Höfliche Bitte — nicht „Können“:",
+    frage:"Höfliche Bitte, nicht „Können“:",
     regel:"„Können Sie…?“ ist eine echte Frage nach Fähigkeit. „<b>Könnten</b> Sie…?“ ist die höfliche Bitte. Ein Umlaut plus „-t“.",
-    gegenbeispiel:"Im Brief immer Konjunktiv II — das erwartet telc." , en:"Können Sie asks whether you are able; <b>Könnten</b> Sie is the polite request. Umlaut plus -t." },
+    gegenbeispiel:"Im Brief immer Konjunktiv II, das erwartet telc." , en:"Können Sie asks whether you are able; <b>Könnten</b> Sie is the polite request. Umlaut plus -t." },
   { typ:"luecke", thema:"konjunktiv2", satz:"Wenn ich mehr Zeit ___, würde ich mehr lesen.", loesung:[["hätte"]],
     frage:"Irreale Bedingung:", regel:"„habe“ ist real, „<b>hätte</b>“ ist irreal. Die Bedingung ist nicht erfüllt." , en:"The wenn-clause sets an unreal condition, so it needs <b>hätte</b>, not the real form habe." },
   { typ:"luecke", thema:"konjunktiv2", satz:"Das ___ wirklich super!", loesung:[["wäre"]],
     frage:"Von „sein“:", regel:"sein → <b>wäre</b>. „Das ist super“ = Tatsache; „Das wäre super“ = Vorstellung." , en:"sein becomes <b>wäre</b> in Konjunktiv II; it marks an imagined situation rather than a fact." },
   { typ:"luecke", thema:"konjunktiv2", satz:"Wenn ich das gewusst ___, ___ ich früher gekommen.", loesung:["hätte","wäre"],
-    frage:"Vergangenheit irreal — zwei Lücken:",
+    frage:"Vergangenheit irreal, zwei Lücken:",
     regel:"Konjunktiv II der Vergangenheit = <b>hätte</b>/<b>wäre</b> + Partizip II. „kommen“ nimmt „wäre“ (Bewegungsverb)." , en:"Past Konjunktiv II is hätte or wäre plus Partizip II; kommen is a motion verb, so <b>wäre</b>." },
   { typ:"luecke", thema:"konjunktiv2", satz:"Ich ___ gern einen Termin für nächste Woche.", loesung:[["hätte"]],
-    frage:"Höflicher Wunsch:", regel:"„Ich hätte gern …“ — die höfliche Standardformel. Nie „Ich will …“ im formellen Kontext." , en:"<b>Ich hätte gern</b> is the fixed polite formula; Ich will sounds blunt in formal German." },
+    frage:"Höflicher Wunsch:", regel:"„Ich hätte gern …“ die höfliche Standardformel. Nie „Ich will …“ im formellen Kontext." , en:"<b>Ich hätte gern</b> is the fixed polite formula; Ich will sounds blunt in formal German." },
   { typ:"luecke", thema:"konjunktiv2", satz:"An deiner Stelle ___ ich mit dem Chef sprechen.", loesung:[["würde"]],
     frage:"Ratschlag geben:", regel:"„An deiner Stelle würde ich …“ = wenn ich du wäre. Standardformel für Ratschläge." , en:"An deiner Stelle plus <b>würde</b> is the standard advice pattern, meaning if I were you." },
   { typ:"luecke", thema:"konjunktiv2", satz:"Ich ___ eigentlich mehr für die Prüfung lernen.", loesung:[["müsste","sollte"]],
@@ -334,7 +404,7 @@ items: [
   { typ:"mc", thema:"konjunktiv2", frage:"Welcher Satz ist im formellen Brief richtig?",
     optionen:["Ich will einen früheren Termin.","Ich hätte gern einen früheren Termin.","Ich würde gern einen früheren Termin haben."],
     richtig:1, regel:"„Ich hätte gern“ ist am kürzesten und am höflichsten. Option 3 ist auch korrekt, aber umständlich.",
-    gegenbeispiel:"„Ich will“ wirkt im Deutschen unhöflich — vermeide es im Brief komplett." , en:"<b>Ich hätte gern</b> is the shortest polite option; the würde version is correct but clumsy." },
+    gegenbeispiel:"„Ich will“ wirkt im Deutschen unhöflich, vermeide es im Brief komplett." , en:"<b>Ich hätte gern</b> is the shortest polite option; the würde version is correct but clumsy." },
   { typ:"mc", thema:"konjunktiv2", frage:"Welcher Satz ist korrekt?",
     optionen:["Wenn ich reich wäre, würde ich viel reisen.","Wenn ich reich wäre, würde ich viel reisen würde."],
     richtig:0, regel:"Nur einmal „würde“ pro Satzteil. Im wenn-Satz steht die eigene Form „wäre“." , en:"Use <b>würde</b> only once, in the main clause; the wenn-clause takes its own form <b>wäre</b>." },
@@ -348,20 +418,34 @@ items: [
     woerter:["Könnten","Sie","mir","bitte","die","Unterlagen","zuschicken?"],
     loesung:"Könnten Sie mir bitte die Unterlagen zuschicken?",
     regel:"Frage → Verb auf Position 1. „bitte“ steht meist nach dem Dativobjekt." , en:"In a question the verb comes first, and <b>bitte</b> normally follows the dative object mir." },
-  { typ:"luecke", thema:"konjunktiv2", satz:"Wir ___ uns am Freitag treffen — passt dir das?", loesung:[["könnten"]],
+  { typ:"luecke", thema:"konjunktiv2", satz:"Wir ___ uns am Freitag treffen, passt dir das?", loesung:[["könnten"]],
     frage:"Vorschlag machen:", regel:"„Wir könnten …“ ist der freundliche Vorschlag. Prüfungsrelevant für die mündliche Prüfung." , en:"<b>Wir könnten</b> is the polite way to suggest something, and examiners listen for it in the oral exam." }
 ]},
 
 /* ---------------------------------------------------------- */
 "perfekt-praeteritum": {
 titel: "Zeitformen",
-kurz: "Lehrerliste Nr. 3 · Einstufung: 0/2 — Perfekt, Präteritum und Plusquamperfekt",
+kurz: "Lehrerliste Nr. 3 · Einstufung: 0/2, Perfekt, Präteritum und Plusquamperfekt",
 konzept: {
   titel: "Welche Vergangenheit wann?",
-  de: "<p>Deutsch hat zwei Vergangenheitsformen mit fast gleicher Bedeutung — der Unterschied ist die <b>Textsorte</b>:</p>" +
+  einfach: {
+    kern: "Zwei Vergangenheitsformen, gleiche Bedeutung. Es geht nur um Sprechen oder Schreiben.",
+    paare: [
+      { satz: "Gestern <b>bin</b> ich nach Köln <b>gefahren</b>.",
+        notiz: "So erzählst du im Gespräch und in einer E-Mail an Freunde." },
+      { satz: "Der Psychologe <b>schaute</b> viele Tests <b>an</b>.",
+        notiz: "So steht es in der Zeitung, im Bericht, im Roman. Beim Sprechen klingt es steif." },
+      { satz: "Ich <b>war</b> gestern müde und <b>hatte</b> keine Zeit.",
+        notiz: "„sein“, „haben“ und die Modalverben bleiben immer so, auch beim Sprechen." },
+      { satz: "Ich <b>habe</b> gestern lange <b>gearbeitet</b> und <b>bin</b> heute früh <b>aufgestanden</b>.",
+        notiz: "„haben“ ist der Normalfall. „sein“ nimmst du bei Bewegung von A nach B und bei Veränderung." }
+    ],
+    merk: "Faustregel für „sein“: Bewegt sich jemand, oder ändert sich ein Zustand? Dazu die Ausnahme <b>bleiben</b>: „ich bin geblieben“, obwohl nichts passiert."
+  },
+  de: "<p>Deutsch hat zwei Vergangenheitsformen mit fast gleicher Bedeutung, der Unterschied ist die <b>Textsorte</b>:</p>" +
       "<p><b>Perfekt</b> (ich habe gemacht) → gesprochene Sprache, E-Mails an Freunde, Erzählen im Gespräch.<br>" +
       "<b>Präteritum</b> (ich machte) → geschriebene Sprache: Zeitung, Bericht, Literatur, formeller Brief.</p>" +
-      "<p><b>Ausnahme:</b> sein, haben und die Modalverben stehen fast <b>immer</b> im Präteritum — auch beim Sprechen: " +
+      "<p><b>Ausnahme:</b> sein, haben und die Modalverben stehen fast <b>immer</b> im Präteritum, auch beim Sprechen: " +
       "<i>ich war, ich hatte, ich konnte, ich musste, ich wollte</i>.</p>",
   tabelle: {
     kopf: ["Verbtyp", "Perfekt mit", "Beispiel"],
@@ -375,7 +459,7 @@ konzept: {
   regel: "Faustregel für „sein“: Bewegt sich etwas von A nach B, oder verändert sich ein Zustand? → sein. Sonst → haben.",
   beispiele: [
     "Gespräch: „Gestern <b>bin</b> ich nach Köln <b>gefahren</b>.“",
-    "Bericht: „Der Psychologe <b>schaute</b> zahlreiche Praxistests <b>an</b>.“ <span class='en'>(Präteritum — Textsorte!)</span>",
+    "Bericht: „Der Psychologe <b>schaute</b> zahlreiche Praxistests <b>an</b>.“ <span class='en'>(Präteritum, Textsorte!)</span>",
     "Immer Präteritum: „Ich <b>war</b> müde und <b>hatte</b> keine Zeit.“ <span class='en'>(nicht: „bin gewesen“, „habe gehabt“)</span>"
   ],
   en: "Both tenses mean the same thing; the difference is register. Perfekt for speech and informal writing, Präteritum for written reports, news and literature. But sein, haben and the modal verbs use Präteritum almost always, even when speaking. For the perfect auxiliary: movement from A to B or a change of state takes sein, everything else takes haben."
@@ -390,9 +474,9 @@ items: [
   { typ:"luecke", thema:"perfekt-praeteritum", satz:"Heute Morgen ___ ich sehr früh aufgestanden.", loesung:[["bin"]],
     frage:"", regel:"„aufstehen“ ist eine Zustandsänderung → <b>sein</b>." , en:"aufstehen is a change of state, so it forms the Perfekt with <b>sein</b>." },
   { typ:"luecke", thema:"perfekt-praeteritum", satz:"Ich ___ gestern sehr müde und ___ keine Zeit zum Lernen.", loesung:[["war"],["hatte"]],
-    frage:"Zwei Lücken — welche Form ist üblich?",
+    frage:"Zwei Lücken, welche Form ist üblich?",
     regel:"„sein“ und „haben“ stehen fast immer im Präteritum: <b>war</b>, <b>hatte</b>. „bin gewesen“ und „habe gehabt“ klingen falsch.",
-    gegenbeispiel:"Das gilt auch beim Sprechen — das ist die wichtigste Ausnahme." , en:"sein and haben stay in the Präteritum even when speaking: <b>war</b> and <b>hatte</b>, not bin gewesen." },
+    gegenbeispiel:"Das gilt auch beim Sprechen, das ist die wichtigste Ausnahme." , en:"sein and haben stay in the Präteritum even when speaking: <b>war</b> and <b>hatte</b>, not bin gewesen." },
   { typ:"luecke", thema:"perfekt-praeteritum", satz:"Als Kind ___ ich sehr gern Fußball spielen.", loesung:[["wollte","konnte","durfte"]],
     frage:"Modalverb in der Vergangenheit:", regel:"Modalverben stehen fast immer im Präteritum: wollte, konnte, musste, durfte." , en:"Modal verbs almost always appear in the Präteritum: wollte, konnte, musste, <b>durfte</b>, not the Perfekt." },
   { typ:"mc", thema:"perfekt-praeteritum", frage:"Welche Form passt in einen <b>Zeitungsbericht</b>?",
@@ -403,14 +487,14 @@ items: [
     richtig:1, regel:"Im Gespräch nimmt man Perfekt. „Ich fuhr“ klingt wie aus einem Roman." , en:"Spoken German uses the Perfekt; <b>ich fuhr</b> sounds like a line from a novel." },
   { typ:"mc", thema:"perfekt-praeteritum", frage:"Welcher Satz ist korrekt?",
     optionen:["Ich habe gestern zu Hause geblieben.","Ich bin gestern zu Hause geblieben."],
-    richtig:1, regel:"„bleiben“ nimmt immer <b>sein</b> — obwohl keine Bewegung stattfindet. Eine der Ausnahmen, die man lernen muss." , en:"<b>bleiben</b> takes sein in the Perfekt although nothing moves; it is an exception to memorise." },
+    richtig:1, regel:"„bleiben“ nimmt immer <b>sein</b>, obwohl keine Bewegung stattfindet. Eine der Ausnahmen, die man lernen muss." , en:"<b>bleiben</b> takes sein in the Perfekt although nothing moves; it is an exception to memorise." },
   { typ:"konjugation", thema:"perfekt-praeteritum",
     frage:"Ergänze das Perfekt in der ich-Form (2 Wörter, z. B. „habe gemacht“).",
     kopf:["Verb","Perfekt (ich)"],
     zeilen:[["arbeiten","habe gearbeitet"],["fahren",["bin gefahren"]],["sehen",["habe gesehen"]],["aufstehen",["bin aufgestanden"]],["bleiben",["bin geblieben"]]],
     regel:"Bewegung oder Zustandsänderung → sein. Alles andere → haben." , en:"Motion or change of state takes sein, everything else haben. <b>bleiben</b> is the odd exception." },
   { typ:"luecke", thema:"perfekt-praeteritum", satz:"Nachdem ich die Hausaufgaben gemacht ___, sah ich fern.", loesung:[["hatte"]],
-    frage:"Plusquamperfekt — die Vor-Vergangenheit:",
+    frage:"Plusquamperfekt, die Vor-Vergangenheit:",
     regel:"Nach „nachdem“ steht das Plusquamperfekt: hatte/war + Partizip II. Es zeigt, was ZUERST passiert ist.",
     en:"nachdem forces the past perfect: the earlier event takes hatte/war + participle." },
   { typ:"luecke", thema:"perfekt-praeteritum", satz:"Nachdem sie angekommen ___, rief sie mich an.", loesung:[["war"]],
@@ -426,9 +510,23 @@ items: [
 /* ---------------------------------------------------------- */
 "infinitiv-zu": {
 titel: "Infinitiv mit „zu“",
-kurz: "Lehrerliste Nr. 2 — wann „zu“ vor den Infinitiv gehört und wann nicht",
+kurz: "Lehrerliste Nr. 2: wann „zu“ vor den Infinitiv gehört und wann nicht",
 konzept: {
-  titel: "Infinitiv mit „zu“ — die Regel und die drei Ausnahmen",
+  titel: "Infinitiv mit „zu“: die Regel und die drei Ausnahmen",
+  einfach: {
+    kern: "Nach vielen Verben braucht das zweite Verb ein kleines „zu“ vor sich.",
+    paare: [
+      { satz: "Ich habe keine Zeit, jeden Abend drei Stunden <b>zu lernen</b>.",
+        notiz: "Nach „Zeit haben“ kommt „zu“ plus Infinitiv, ganz am Ende." },
+      { satz: "Ich <b>muss</b> heute noch <b>lernen</b>.",
+        notiz: "Nach Modalverben steht nie ein „zu“. Der Infinitiv steht nackt am Ende." },
+      { satz: "Es ist schwer, jeden Morgen früh <b>aufzustehen</b>.",
+        notiz: "Bei trennbaren Verben rutscht „zu“ in die Mitte. Es bleibt ein einziges Wort." },
+      { satz: "Ich lerne Deutsch, <b>um</b> hier gut <b>zu arbeiten</b>.",
+        notiz: "„um … zu“ nennt dein Ziel. „um“ steht direkt nach dem Komma, „zu“ vor dem Infinitiv." }
+    ],
+    merk: "Kein „zu“ nach müssen, können, wollen, dürfen, sollen, nach sehen und hören („ich sehe ihn kommen“) und nach „ich werde lernen“."
+  },
   de: "<p>Nach vielen Verben und Ausdrücken folgt ein Infinitiv mit <b>zu</b>: " +
       "<i>Ich versuche, jeden Tag <b>zu lernen</b>.</i></p>" +
       "<p><b>Kein „zu“</b> nach: <b>Modalverben</b> (ich muss lernen), " +
@@ -451,13 +549,13 @@ konzept: {
     "Vergiss nicht, die Übung <b>zu exportieren</b>!",
     "Er lernt jeden Abend, <b>um</b> die Prüfung <b>zu bestehen</b>."
   ],
-  en: "Many verbs and expressions take zu + infinitive at the clause end. No zu after modal verbs, perception verbs (sehen/hören), gehen/lassen, or the future werde. With separable verbs, zu goes inside the verb: aufzustehen, anzurufen — written as one word."
+  en: "Many verbs and expressions take zu + infinitive at the clause end. No zu after modal verbs, perception verbs (sehen/hören), gehen/lassen, or the future werde. With separable verbs, zu goes inside the verb: aufzustehen, anzurufen, written as one word."
 },
 items: [
   { typ:"luecke", thema:"infinitiv-zu", satz:"Ich habe keine Zeit, jeden Tag drei Stunden ___ lernen.", loesung:[["zu"]],
     frage:"", regel:"Nomen + haben (keine Zeit) → Infinitiv mit „zu“ am Satzende." , en:"A noun plus haben, like keine Zeit haben, triggers an infinitive with <b>zu</b> at the end." },
   { typ:"luecke", thema:"infinitiv-zu", satz:"Es ist wichtig, jeden Morgen früh ___.", loesung:[["aufzustehen"]],
-    frage:"Trennbares Verb — ein Wort:",
+    frage:"Trennbares Verb, ein Wort:",
     regel:"„zu“ wandert zwischen Präfix und Stamm: auf + zu + stehen = <b>aufzustehen</b>.",
     gegenbeispiel:"Falsch: „zu aufstehen“ oder „auf zu stehen“." , en:"With separable verbs <b>zu</b> sits between prefix and stem, written as one word: aufzustehen." },
   { typ:"luecke", thema:"infinitiv-zu", satz:"Vergiss nicht, mich morgen ___! (anrufen)", loesung:[["anzurufen"]],
@@ -467,7 +565,7 @@ items: [
     richtig:0, regel:"Nach Modalverben steht NIE „zu“. Der Infinitiv steht nackt am Ende.",
     en:"Modal verbs never take zu." },
   { typ:"luecke", thema:"infinitiv-zu", satz:"Ich lerne Deutsch, ___ in NRW arbeiten ___ können.", loesung:["um","zu"],
-    frage:"Ziel/Absicht — zwei Lücken:",
+    frage:"Ziel/Absicht, zwei Lücken:",
     regel:"„um … zu“ drückt ein Ziel aus. „um“ direkt nach dem Komma, „zu“ vor dem Infinitiv.",
     en:"um…zu expresses purpose (in order to)." },
   { typ:"luecke", thema:"infinitiv-zu", satz:"Er hat endlich aufgehört ___ rauchen.", loesung:[["zu"]],
@@ -484,8 +582,8 @@ items: [
     woerter:["Es","ist","nicht","leicht,","alle","Endungen","richtig","zu","lernen."],
     loesung:"Es ist nicht leicht, alle Endungen richtig zu lernen.",
     regel:"„zu + Infinitiv“ steht ganz am Ende des Satzteils." , en:"The zu-infinitive closes the clause, so <b>zu lernen</b> stands right at the end." },
-  { typ:"mc", thema:"infinitiv-zu", frage:"Er ging nach Hause, ohne sich ___ verabschieden. — Was fehlt?",
-    optionen:["zu","—  (nichts)","für"], richtig:0,
+  { typ:"mc", thema:"infinitiv-zu", frage:"Er ging nach Hause, ohne sich ___ verabschieden. Was fehlt?",
+    optionen:["zu","  (nichts)","für"], richtig:0,
     regel:"„ohne … zu“ + Infinitiv: ohne sich zu verabschieden.", en:"ohne…zu = without doing." },
   { typ:"luecke", thema:"infinitiv-zu", satz:"Ich habe vor, nächstes Jahr die telc-Prüfung ___ machen.", loesung:[["zu"]],
     frage:"", regel:"vorhaben + zu-Infinitiv. Der zu-Satz wird fast immer mit Komma abgetrennt." , en:"<b>vorhaben</b> is one of the verbs that needs a zu-infinitive, and the clause takes a comma." }
@@ -494,9 +592,23 @@ items: [
 /* ---------------------------------------------------------- */
 "zweiteilige-konnektoren": {
 titel: "Zweiteilige Konnektoren",
-kurz: "Lehrerliste Nr. 4 — sowohl…als auch, weder…noch, je…desto & Co.",
+kurz: "Lehrerliste Nr. 4: sowohl…als auch, weder…noch, je…desto & Co.",
 konzept: {
-  titel: "Zweiteilige Konnektoren — Paare, die zusammengehören",
+  titel: "Zweiteilige Konnektoren: Paare, die zusammengehören",
+  einfach: {
+    kern: "Diese Wörter kommen immer zu zweit. Fehlt der Partner, kippt der Satz.",
+    paare: [
+      { satz: "Ich spreche <b>sowohl</b> Englisch <b>als auch</b> ein bisschen Deutsch.",
+        notiz: "Beides trifft zu. „als auch“ bleibt immer zusammen." },
+      { satz: "Ich habe heute <b>weder</b> Zeit <b>noch</b> Lust.",
+        notiz: "Beides trifft nicht zu. Das „nicht“ steckt schon in „weder … noch“ drin." },
+      { satz: "<b>Je</b> mehr ich <b>übe</b>, <b>desto</b> besser <b>werde</b> ich.",
+        notiz: "Im ersten Teil steht das Verb hinten. Nach „desto“ kommt sofort das Verb, dann das Subjekt." },
+      { satz: "<b>Einerseits</b> will ich sparen, <b>andererseits</b> brauche ich neue Bücher.",
+        notiz: "Damit wägst du zwei Seiten ab. Perfekt für die mündliche Prüfung." }
+    ],
+    merk: "Merk dir „weder … noch“ extra: Es verneint schon selbst. „Ich habe <i>nicht</i> weder Zeit noch Lust“ ist falsch."
+  },
   de: "<p>Diese Konnektoren kommen immer als <b>Paar</b>. telc liebt sie in den Sprachbausteinen: " +
       "meist steht ein Teil im Text und du musst den Partner finden.</p>",
   tabelle: {
@@ -513,23 +625,23 @@ konzept: {
   },
   regel: "„je … desto“ hat eine Sonder-Wortstellung: je + Komparativ + NEBENSATZ (Verb am Ende), Komma, desto + Komparativ + Verb + Subjekt. → Je mehr ich ÜBE, desto besser WERDE ich.",
   beispiele: [
-    "„weder … noch“ ist schon negativ — <b>kein</b> zusätzliches „nicht“! → Ich habe weder Zeit noch Lust.",
+    "„weder … noch“ ist schon negativ, <b>kein</b> zusätzliches „nicht“! → Ich habe weder Zeit noch Lust.",
     "Je länger du <b>wartest</b>, desto schwerer <b>wird</b> es.",
     "Merke: „einerseits … andererseits“ ist perfekt für die mündliche Prüfung (Vor- und Nachteile abwägen)."
   ],
-  en: "These connectors always come in pairs — telc loves testing the missing partner. Special word order with je…desto: the je-part is a subordinate clause (verb final), the desto-part inverts (verb before subject). And weder…noch already contains the negation — never add nicht."
+  en: "These connectors always come in pairs, telc loves testing the missing partner. Special word order with je…desto: the je-part is a subordinate clause (verb final), the desto-part inverts (verb before subject). And weder…noch already contains the negation, never add nicht."
 },
 items: [
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"Er spricht ___ Englisch ___ auch Deutsch.", loesung:["sowohl","als"],
     frage:"Beides trifft zu:", regel:"sowohl … als auch. Die drei Wörter „als auch“ bleiben immer zusammen." , en:"Both parts apply, so use <b>sowohl</b> ... <b>als auch</b>; the pair <b>als auch</b> never splits." },
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"Ich habe heute ___ Zeit ___ Lust auf Hausaufgaben.", loesung:["weder","noch"],
     frage:"Beides trifft NICHT zu:",
-    regel:"weder … noch — die doppelte Verneinung. Kein zusätzliches „nicht“!",
+    regel:"weder … noch, die doppelte Verneinung. Kein zusätzliches „nicht“!",
     gegenbeispiel:"Falsch: „Ich habe nicht weder Zeit noch Lust.“" , en:"<b>weder</b> ... <b>noch</b> already carries the negation, so an extra nicht would negate twice and is wrong." },
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"___ lernst du jeden Tag ein bisschen, ___ du machst am Ende einen Nacht-Marathon.", loesung:["Entweder","oder"],
     frage:"Eins von beiden:", regel:"entweder … oder. Nach „entweder“ am Satzanfang folgt oft das Verb: „Entweder lernst du …“." , en:"<b>Entweder</b> in first position pushes the verb straight after it; <b>oder</b> then opens a normal main clause." },
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"Je mehr ich übe, ___ besser werde ich.", loesung:[["desto","umso"]],
-    frage:"", regel:"je … desto (oder: je … umso — beides richtig)." , en:"After the je clause the second half starts with <b>desto</b> or <b>umso</b>; both are equally correct." },
+    frage:"", regel:"je … desto (oder: je … umso, beides richtig)." , en:"After the je clause the second half starts with <b>desto</b> or <b>umso</b>; both are equally correct." },
   { typ:"ordnen", thema:"zweiteilige-konnektoren",
     frage:"Bau den je-desto-Satz. Achte auf die Verbposition in beiden Teilen!",
     woerter:["Je","mehr","du","liest,","desto","größer","wird","dein","Wortschatz."],
@@ -542,12 +654,12 @@ items: [
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"Sie lernt nicht nur Grammatik, ___ ___ viele Redemittel.", loesung:["sondern","auch"],
     frage:"", regel:"nicht nur … sondern auch. Vor „sondern“ steht immer ein Komma." , en:"<b>nicht nur</b> pairs with <b>sondern auch</b>, and a comma always stands before <b>sondern</b>." },
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"___ ist der Kurs anstrengend, ___ er macht wirklich Spaß.", loesung:["Zwar","aber"],
-    frage:"Zugeständnis + Einwand:", regel:"zwar … aber — der konzessive Klassiker aus Tag 2." , en:"<b>Zwar</b> concedes the point and <b>aber</b> brings the objection; both halves stay main clauses." },
+    frage:"Zugeständnis + Einwand:", regel:"zwar … aber, der konzessive Klassiker aus Tag 2." , en:"<b>Zwar</b> concedes the point and <b>aber</b> brings the objection; both halves stay main clauses." },
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"___ möchte ich mehr Sport machen, ___ fehlt mir abends die Energie.", loesung:["Einerseits","andererseits"],
-    frage:"Zwei Seiten abwägen:", regel:"einerseits … andererseits — Gold wert in der mündlichen Prüfung (Vor-/Nachteile)." , en:"Weighing two sides: <b>einerseits</b> opens the first view, <b>andererseits</b> the opposing one." },
+    frage:"Zwei Seiten abwägen:", regel:"einerseits … andererseits, Gold wert in der mündlichen Prüfung (Vor-/Nachteile)." , en:"Weighing two sides: <b>einerseits</b> opens the first view, <b>andererseits</b> the opposing one." },
   { typ:"luecke", thema:"zweiteilige-konnektoren", satz:"Je ___ ich schlafe, desto müder bin ich am nächsten Tag.", loesung:[["weniger"]],
     frage:"Komparativ einsetzen:", regel:"Nach „je“ steht immer ein Komparativ: je weniger, je mehr, je öfter." , en:"<b>je</b> always takes a comparative, so it must be <b>weniger</b> and never plain wenig." },
-  { typ:"mc", thema:"zweiteilige-konnektoren", frage:"„Ich mag weder Kaffee noch Tee.“ — Was bedeutet das?",
+  { typ:"mc", thema:"zweiteilige-konnektoren", frage:"„Ich mag weder Kaffee noch Tee.“ Was bedeutet das?",
     optionen:["Ich mag beides nicht.","Ich mag eins von beiden.","Ich mag beides."],
     richtig:0, regel:"weder … noch verneint BEIDE Teile.", en:"weder…noch negates both items." }
 ]},
@@ -555,9 +667,23 @@ items: [
 /* ---------------------------------------------------------- */
 "temporalsaetze": {
 titel: "Temporalsätze",
-kurz: "Lehrerliste Nr. 5 — bevor, nachdem, während, seit, bis, als/wenn",
+kurz: "Lehrerliste Nr. 5: bevor, nachdem, während, seit, bis, als/wenn",
 konzept: {
-  titel: "Temporalsätze — wann passiert was?",
+  titel: "Temporalsätze: wann passiert was?",
+  einfach: {
+    kern: "Kleine Wörter, die sagen, ob etwas vorher, gleichzeitig oder danach passiert.",
+    paare: [
+      { satz: "<b>Als</b> ich nach Aachen kam, konnte ich kein Deutsch.",
+        notiz: "Einmal passiert, und zwar in der Vergangenheit. Dann nimmst du „als“." },
+      { satz: "Immer <b>wenn</b> ich koche, höre ich einen Podcast.",
+        notiz: "Das passiert jedes Mal. Dann nimmst du „wenn“, nie „als“." },
+      { satz: "<b>Nachdem</b> ich gegessen <b>hatte</b>, ging ich los.",
+        notiz: "Was zuerst war, geht eine Stufe weiter zurück: „hatte gegessen“." },
+      { satz: "<b>Seit</b> ich in Aachen <b>wohne</b>, lerne ich Deutsch.",
+        notiz: "Nach „seit“ bleibt Deutsch in der Gegenwart. Englisch nimmt hier das Perfekt, Deutsch nicht." }
+    ],
+    merk: "Der Dauerfehler ist „als“ gegen „wenn“. „als“ nur für ein einziges Ereignis in der Vergangenheit, sonst immer „wenn“."
+  },
   de: "<p>Alle Temporalkonnektoren leiten <b>Nebensätze</b> ein → Verb ans Ende. " +
       "Die Kunst ist, den richtigen zu wählen:</p>",
   tabelle: {
@@ -572,11 +698,11 @@ konzept: {
       ["<b>wenn</b>", "wiederholt oder Zukunft", "Immer <b>wenn</b> ich Zeit habe, … / <b>Wenn</b> der Kurs endet, …"]
     ]
   },
-  regel: "als vs. wenn — der ewige Fehler: „als“ nur für EINMALIGE Ereignisse in der Vergangenheit. Alles Wiederholte („immer wenn“) und alles in Gegenwart/Zukunft nimmt „wenn“.",
+  regel: "als vs. wenn, der ewige Fehler: „als“ nur für EINMALIGE Ereignisse in der Vergangenheit. Alles Wiederholte („immer wenn“) und alles in Gegenwart/Zukunft nimmt „wenn“.",
   beispiele: [
     "<b>Als</b> ich 2024 nach Deutschland kam, konnte ich kein Deutsch. <span class='en'>(einmalig, Vergangenheit)</span>",
     "<b>Wenn</b> ich Vokabeln lerne, benutze ich Karteikarten. <span class='en'>(jedes Mal)</span>",
-    "„seit“ + Präsens: Seit ich hier <b>wohne</b>, … — das Deutsche bleibt im Präsens, anders als Englisch!"
+    "„seit“ + Präsens: Seit ich hier <b>wohne</b>, …, das Deutsche bleibt im Präsens, anders als Englisch!"
   ],
   en: "All of these start subordinate clauses (verb final). The classic trap is als vs. wenn: als only for one-time past events; wenn for repeated events and the future. And after seit, German uses the present tense where English uses the perfect: Seit ich hier wohne = since I have been living here."
 },
@@ -589,8 +715,8 @@ items: [
     frage:"Wiederholt:", regel:"„immer wenn“ = jedes Mal → wenn, nie als." , en:"Repeated events take <b>wenn</b>; <b>als</b> only fits one single completed event in the past." },
   { typ:"luecke", thema:"temporalsaetze", satz:"___ ich in Deutschland wohne, lerne ich Deutsch.", loesung:[["Seit","Seitdem"]],
     frage:"Von damals bis heute:",
-    regel:"seit/seitdem + Präsens! „Seit ich hier wohne“ — nicht „gewohnt habe“.",
-    gegenbeispiel:"Englisch sagt „since I have lived“, Deutsch bleibt im Präsens." , en:"Something running from the past into now stays in Präsens after <b>seit</b>, unlike the English present perfect." },
+    regel:"seit/seitdem + Präsens! „Seit ich hier wohne“ nicht „gewohnt habe“.",
+    gegenbeispiel:"Englisch sagt „since I have lived“ Deutsch bleibt im Präsens." , en:"Something running from the past into now stays in Präsens after <b>seit</b>, unlike the English present perfect." },
   { typ:"luecke", thema:"temporalsaetze", satz:"Ich bleibe im Kursraum, ___ der Lehrer alle Fragen beantwortet hat.", loesung:[["bis"]],
     frage:"", regel:"„bis“ = bis zu diesem Zeitpunkt." , en:"<b>bis</b> names the end point of the waiting, and its clause keeps the verb at the end." },
   { typ:"luecke", thema:"temporalsaetze", satz:"Nachdem er die B1-Prüfung bestanden ___, begann er mit B2.", loesung:[["hatte"]],
@@ -598,13 +724,13 @@ items: [
   { typ:"luecke", thema:"temporalsaetze", satz:"___ ich koche, höre ich deutsche Podcasts.", loesung:[["Während"]],
     frage:"Gleichzeitig:", regel:"„während“ = zwei Dinge passieren zur selben Zeit." , en:"<b>während</b> means both actions run at the same time; the fronted clause puts <b>höre</b> after the comma." },
   { typ:"luecke", thema:"temporalsaetze", satz:"Wiederhole die Vokabeln, ___ du schlafen gehst.", loesung:[["bevor"]],
-    frage:"Vorher:", regel:"„bevor“ + Präsens. Kein „zu“, kein Infinitiv — ein normaler Nebensatz." , en:"<b>bevor</b> is an ordinary subordinating conjunction with Präsens, not the English before plus -ing or zu." },
+    frage:"Vorher:", regel:"„bevor“ + Präsens. Kein „zu“, kein Infinitiv, ein normaler Nebensatz." , en:"<b>bevor</b> is an ordinary subordinating conjunction with Präsens, not the English before plus -ing or zu." },
   { typ:"ordnen", thema:"temporalsaetze",
-    frage:"Bau den Satz — Nebensatz zuerst!",
+    frage:"Bau den Satz, Nebensatz zuerst!",
     woerter:["Bevor","ich","zur","Arbeit","gehe,","trinke","ich","einen","Kaffee."],
     loesung:"Bevor ich zur Arbeit gehe, trinke ich einen Kaffee.",
     regel:"Nebensatz vorne → Hauptsatz beginnt mit dem Verb „trinke“." , en:"The sub-clause fills position one, so the main clause starts with the verb <b>trinke</b>, then the subject." },
-  { typ:"mc", thema:"temporalsaetze", frage:"Ich lerne ___ zwei Jahren Deutsch. — Was passt?",
+  { typ:"mc", thema:"temporalsaetze", frage:"Ich lerne ___ zwei Jahren Deutsch. Was passt?",
     optionen:["seit","vor","bis"], richtig:0,
     regel:"„seit“ = es läuft noch. „vor zwei Jahren“ wäre ein Zeitpunkt in der Vergangenheit (abgeschlossen).",
     en:"seit = ongoing; vor = ago (finished)." },
@@ -616,11 +742,25 @@ items: [
 /* ---------------------------------------------------------- */
 "modalverben": {
 titel: "Modalverben",
-kurz: "Lehrerliste Nr. 6 — Bedeutungen, Verneinung und Vergangenheit",
+kurz: "Lehrerliste Nr. 6: Bedeutungen, Verneinung und Vergangenheit",
 konzept: {
-  titel: "Modalverben — sechs Verben, die alles steuern",
+  titel: "Modalverben: sechs Verben, die alles steuern",
+  einfach: {
+    kern: "Sechs Verben zeigen, ob etwas Pflicht, erlaubt, möglich oder gewollt ist.",
+    paare: [
+      { satz: "Du <b>musst nicht</b> kommen, wenn du keine Zeit hast.",
+        notiz: "Das heißt: Es ist keine Pflicht. Kommen darfst du trotzdem." },
+      { satz: "Hier <b>darfst</b> du <b>nicht</b> rauchen.",
+        notiz: "Das ist ein Verbot. Genau hier stolpert man vom Englischen her: „must not“ heißt „darf nicht“." },
+      { satz: "Der Arzt sagt, ich <b>soll</b> mehr schlafen.",
+        notiz: "„sollen“ kommt von außen, jemand anderes empfiehlt es. Dein eigener Wille wäre „will“." },
+      { satz: "Als Kind <b>musste</b> ich immer um acht ins Bett.",
+        notiz: "In der Vergangenheit nimmst du fast immer diese kurze Form, nicht „habe gemusst“." }
+    ],
+    merk: "„muss nicht“ und „darf nicht“ sind zwei verschiedene Welten: keine Pflicht gegen Verbot. Das ist der teuerste Fehler in dieser Gruppe."
+  },
   de: "<p>Das Modalverb steht auf Position 2, der Infinitiv ganz am <b>Ende</b>. " +
-      "Die Formen kennst du — die Prüfung testet die <b>Bedeutungen</b>:</p>",
+      "Die Formen kennst du, die Prüfung testet die <b>Bedeutungen</b>:</p>",
   tabelle: {
     kopf: ["Verb", "Bedeutung", "Präteritum (üblich!)"],
     zeilen: [
@@ -642,19 +782,19 @@ konzept: {
   en: "Modal verb in position 2, infinitive at the end. The exam tests meanings, especially the negation trap: nicht müssen = don't have to (it's optional), but nicht dürfen = must not (it's forbidden). English speakers mix these up constantly because \"must not\" looks like \"muss nicht\"."
 },
 items: [
-  { typ:"luecke", thema:"modalverben", satz:"Hier ___ man nicht rauchen — das ist verboten.", loesung:[["darf"]],
+  { typ:"luecke", thema:"modalverben", satz:"Hier ___ man nicht rauchen, das ist verboten.", loesung:[["darf"]],
     frage:"Verbot:", regel:"Verbot = nicht dürfen. „muss nicht“ hieße nur: es ist nicht nötig.",
     gegenbeispiel:"Englisch „must not“ ≠ deutsch „muss nicht“! Falscher Freund Nummer eins." , en:"Prohibition is <b>nicht dürfen</b>; <b>muss nicht</b> would only mean it is not necessary." },
-  { typ:"luecke", thema:"modalverben", satz:"Du ___ nicht kommen, wenn du keine Zeit hast — es ist freiwillig.", loesung:[["musst"]],
+  { typ:"luecke", thema:"modalverben", satz:"Du ___ nicht kommen, wenn du keine Zeit hast, es ist freiwillig.", loesung:[["musst"]],
     frage:"Keine Pflicht:", regel:"nicht müssen = nicht nötig. Die Sache ist erlaubt, aber optional." , en:"<b>nicht müssen</b> means no obligation: coming is still allowed, it is simply optional." },
   { typ:"luecke", thema:"modalverben", satz:"Als Kind ___ ich immer um acht ins Bett gehen.", loesung:[["musste"]],
     frage:"Vergangenheit:", regel:"Modalverben stehen in der Vergangenheit fast immer im Präteritum: musste." , en:"Modal verbs use Präteritum for the past, so <b>musste</b> rather than habe gemusst." },
   { typ:"luecke", thema:"modalverben", satz:"Der Arzt sagt, ich ___ mehr Sport machen.", loesung:[["soll","sollte"]],
     frage:"Empfehlung von außen:", regel:"„sollen“ = jemand anderes will es / empfiehlt es. Der eigene Wille wäre „wollen“." , en:"<b>sollen</b> reports someone else's advice or wish; your own intention would be <b>wollen</b>." },
-  { typ:"luecke", thema:"modalverben", satz:"In der Bibliothek ___ man leise sprechen — es ist erlaubt, aber nur leise.", loesung:[["darf"]],
+  { typ:"luecke", thema:"modalverben", satz:"In der Bibliothek ___ man leise sprechen, es ist erlaubt, aber nur leise.", loesung:[["darf"]],
     frage:"Erlaubnis:", regel:"dürfen = Erlaubnis haben." , en:"<b>dürfen</b> marks permission: speaking is allowed here, only the volume is restricted." },
   { typ:"ordnen", thema:"modalverben",
-    frage:"Bau den Satz — wohin mit dem Infinitiv?",
+    frage:"Bau den Satz, wohin mit dem Infinitiv?",
     woerter:["Ich","muss","heute","noch","viele","Vokabeln","lernen."],
     loesung:"Ich muss heute noch viele Vokabeln lernen.",
     regel:"Modalverb Position 2, Infinitiv „lernen“ ganz am Ende." , en:"The modal verb sits in position two and the infinitive <b>lernen</b> waits at the very end." },
@@ -662,24 +802,38 @@ items: [
     frage:"Modalverb im Nebensatz:", regel:"Im Nebensatz: Infinitiv + Modalverb ganz am Ende → „arbeiten muss“." , en:"In a Nebensatz the conjugated modal goes behind the infinitive, giving the ending <b>arbeiten muss</b>." },
   { typ:"mc", thema:"modalverben", frage:"Was ist höflicher im Restaurant?",
     optionen:["Ich will einen Kaffee.","Ich möchte einen Kaffee."],
-    richtig:1, regel:"„möchten“ ist der höfliche Wunsch. „wollen“ klingt fordernd — im Service-Kontext unhöflich.",
+    richtig:1, regel:"„möchten“ ist der höfliche Wunsch. „wollen“ klingt fordernd, im Service-Kontext unhöflich.",
     en:"möchten is the polite want." },
-  { typ:"mc", thema:"modalverben", frage:"„Sie kann sehr gut Deutsch.“ — Was drückt „können“ hier aus?",
+  { typ:"mc", thema:"modalverben", frage:"„Sie kann sehr gut Deutsch.“ Was drückt „können“ hier aus?",
     optionen:["Fähigkeit","Erlaubnis","Pflicht"], richtig:0,
     regel:"können = Fähigkeit. (Der Infinitiv „sprechen“ darf bei Sprachen sogar wegfallen.)" , en:"<b>können</b> here means ability, and with languages the infinitive <b>sprechen</b> can simply be left out." },
   { typ:"mc", thema:"modalverben", frage:"Welcher Satz ist im Perfekt korrekt?",
     optionen:["Ich habe gestern lange arbeiten müssen.","Ich habe gestern lange gemusst arbeiten."],
     richtig:0, regel:"Modalverb im Perfekt = doppelter Infinitiv am Ende: „arbeiten müssen“. (Deshalb nimmt man lieber Präteritum: „ich musste arbeiten“.)",
-    en:"Perfect of modals uses a double infinitive — which is why everyone prefers Präteritum." }
+    en:"Perfect of modals uses a double infinitive, which is why everyone prefers Präteritum." }
 ]},
 
 /* ---------------------------------------------------------- */
 "werden": {
-titel: "„werden“ — drei Jobs, ein Verb",
-kurz: "Lehrerliste Nr. 7 — Vollverb, Futur und Passiv auseinanderhalten",
+titel: "„werden“: drei Jobs, ein Verb",
+kurz: "Lehrerliste Nr. 7: Vollverb, Futur und Passiv auseinanderhalten",
 konzept: {
-  titel: "„werden“ — welcher Job liegt vor?",
-  de: "<p>„werden“ hat drei völlig verschiedene Aufgaben. Schau ans <b>Satzende</b> — dort steht die Antwort:</p>",
+  titel: "„werden“: welcher Job liegt vor?",
+  einfach: {
+    kern: "„werden“ macht drei ganz verschiedene Jobs. Das Satzende verrät dir welchen.",
+    paare: [
+      { satz: "Mein Deutsch <b>wird</b> jede Woche <b>besser</b>.",
+        notiz: "Am Ende steht ein Adjektiv. Dann heißt „werden“ einfach „to become“." },
+      { satz: "Ich <b>werde</b> dich morgen <b>anrufen</b>.",
+        notiz: "Am Ende steht ein Infinitiv. Dann geht es um die Zukunft." },
+      { satz: "Der Vertrag <b>wird</b> gerade <b>geprüft</b>.",
+        notiz: "Am Ende steht ein Partizip. Dann ist es Passiv: jemand prüft ihn gerade." },
+      { satz: "Er antwortet nicht, er <b>wird wohl</b> noch im Meeting <b>sein</b>.",
+        notiz: "Mit „wohl“ wird daraus eine Vermutung über jetzt, nicht über morgen." }
+    ],
+    merk: "Im Perfekt trennen sich die Wege: „Sie ist Ingenieurin <b>geworden</b>“ (become), aber „Die Mail ist gesendet <b>worden</b>“ (Passiv)."
+  },
+  de: "<p>„werden“ hat drei völlig verschiedene Aufgaben. Schau ans <b>Satzende</b>, dort steht die Antwort:</p>",
   tabelle: {
     kopf: ["Job", "Am Satzende steht …", "Beispiel"],
     zeilen: [
@@ -697,13 +851,13 @@ konzept: {
   en: "werden does three jobs. Look at the end of the sentence: a noun or adjective → to become; an infinitive → future tense; a past participle → passive. In the perfect, the full verb takes geworden but the passive takes worden. werden + wohl expresses probability."
 },
 items: [
-  { typ:"mc", thema:"werden", frage:"„Sie wird nächstes Jahr nach Berlin ziehen.“ — Welcher Job?",
+  { typ:"mc", thema:"werden", frage:"„Sie wird nächstes Jahr nach Berlin ziehen.“ Welcher Job?",
     optionen:["Futur (Zukunft)","Passiv","Vollverb (become)"], richtig:0,
     regel:"Am Ende steht der Infinitiv „ziehen“ → Futur I." , en:"An infinitive <b>ziehen</b> at the end after <b>wird</b> signals Futur I, not passive." },
-  { typ:"mc", thema:"werden", frage:"„Der Vertrag wird gerade geprüft.“ — Welcher Job?",
+  { typ:"mc", thema:"werden", frage:"„Der Vertrag wird gerade geprüft.“ Welcher Job?",
     optionen:["Futur","Passiv","Vollverb"], richtig:1,
     regel:"Am Ende steht das Partizip II „geprüft“ → Passiv." , en:"<b>wird</b> plus the Partizip II <b>geprüft</b> is passive: someone is checking the contract now." },
-  { typ:"mc", thema:"werden", frage:"„Es wird langsam dunkel.“ — Welcher Job?",
+  { typ:"mc", thema:"werden", frage:"„Es wird langsam dunkel.“ Welcher Job?",
     optionen:["Futur","Passiv","Vollverb (become)"], richtig:2,
     regel:"Am Ende steht ein Adjektiv → werden als Vollverb: etwas verändert sich." , en:"<b>wird</b> plus an adjective is the full verb become; nothing is done to it, it changes." },
   { typ:"luecke", thema:"werden", satz:"Ich ___ dich morgen nach dem Kurs anrufen.", loesung:[["werde"]],
@@ -712,23 +866,37 @@ items: [
     frage:"Vollverb:", regel:"werden + Adjektiv (besser) = sich verändern. Kein Futur, keine Zukunft nötig!" , en:"With an adjective <b>werden</b> means become and describes a change now, not future time." },
   { typ:"luecke", thema:"werden", satz:"Er ___ 1995 in Chennai geboren.", loesung:[["wurde"]],
     frage:"Präteritum:", regel:"„geboren werden“ ist Passiv → Präteritum: wurde geboren." , en:"<b>geboren werden</b> is passive, and for past events German takes the Präteritum <b>wurde</b>." },
-  { typ:"mc", thema:"werden", frage:"Sie ist nach dem Studium Beraterin ___. — Was fehlt?",
+  { typ:"mc", thema:"werden", frage:"Sie ist nach dem Studium Beraterin ___. Was fehlt?",
     optionen:["geworden","worden"], richtig:0,
     regel:"Vollverb (become) → <b>geworden</b>. Nur das Passiv nimmt „worden“.",
     gegenbeispiel:"Passiv: „Der Bericht ist geschrieben worden.“" , en:"The full verb become gives <b>geworden</b>; only the passive perfect uses the short form <b>worden</b>." },
-  { typ:"luecke", thema:"werden", satz:"Er antwortet nicht — er ___ wohl noch im Meeting sein.", loesung:[["wird"]],
+  { typ:"luecke", thema:"werden", satz:"Er antwortet nicht, er ___ wohl noch im Meeting sein.", loesung:[["wird"]],
     frage:"Vermutung:", regel:"werden + wohl + Infinitiv = Vermutung („wahrscheinlich“). Sehr nützlich fürs Sprechen auf B2-Niveau." , en:"<b>wird</b> plus <b>wohl</b> plus infinitive expresses a guess about right now, not a future plan." },
-  { typ:"mc", thema:"werden", frage:"Welcher Satz sagt: „Das Büro putzt jemand jeden Freitag“ — im Passiv?",
+  { typ:"mc", thema:"werden", frage:"Welcher Satz sagt: „Das Büro putzt jemand jeden Freitag“ im Passiv?",
     optionen:["Das Büro wird jeden Freitag geputzt.","Das Büro wird jeden Freitag putzen."],
-    richtig:0, regel:"Passiv braucht das Partizip II: geputzt. Mit Infinitiv („putzen“) wäre es Futur — das Büro würde selbst putzen!" , en:"Passive needs the participle <b>geputzt</b>; with the infinitive putzen the sentence becomes future instead." }
+    richtig:0, regel:"Passiv braucht das Partizip II: geputzt. Mit Infinitiv („putzen“) wäre es Futur, das Büro würde selbst putzen!" , en:"Passive needs the participle <b>geputzt</b>; with the infinitive putzen the sentence becomes future instead." }
 ]},
 
 /* ---------------------------------------------------------- */
 "adjektive-als-nomen": {
 titel: "Adjektive als Nomen",
-kurz: "Lehrerliste Nr. 10 — der Angestellte, ein Angestellter, die Verlobte",
+kurz: "Lehrerliste Nr. 10: der Angestellte, ein Angestellter, die Verlobte",
 konzept: {
-  titel: "Adjektive als Nomen — groß geschrieben, aber dekliniert wie Adjektive",
+  titel: "Adjektive als Nomen: groß geschrieben, aber dekliniert wie Adjektive",
+  einfach: {
+    kern: "Manche Wörter sehen aus wie Nomen, benehmen sich aber wie Adjektive.",
+    paare: [
+      { satz: "<b>Der</b> Angestellt<b>e</b> arbeitet seit zehn Jahren hier.",
+        notiz: "Nach „der“ reicht ein einfaches „-e“ am Ende." },
+      { satz: "Herr Meier ist <b>ein</b> Angestellt<b>er</b> bei Siemens.",
+        notiz: "Nach „ein“ braucht das Wort „-er“. Genau hier passiert der Fehler." },
+      { satz: "Ich habe am Wochenende <b>einen Bekannten</b> in Köln besucht.",
+        notiz: "Akkusativ maskulin, also „-en“. Die Endung folgt dem Kasus wie bei jedem Adjektiv." },
+      { satz: "Gibt es <b>etwas Neues</b>? Nein, <b>nichts Besonderes</b>.",
+        notiz: "Nach „etwas“ und „nichts“ endet das Wort auf „-es“ und wird großgeschrieben." }
+    ],
+    merk: "Test bei Zweifel: Setz gedanklich ein Nomen dahinter. „ein angestellter Mann“ wird zu „ein Angestellter“, die Endung bleibt dieselbe."
+  },
   de: "<p>Wörter wie <b>der Angestellte, die Verlobte, der Deutsche, der Erwachsene</b> sehen aus wie Nomen, " +
       "sind aber Adjektive. Sie werden <b>groß geschrieben</b>, behalten aber die <b>Adjektivendungen</b>:</p>",
   tabelle: {
@@ -743,9 +911,9 @@ konzept: {
   beispiele: [
     "Herr Weber ist <b>ein Angestellter</b> bei Bayer. <span class='en'>(ein + maskulin → -er!)</span>",
     "Ich habe <b>einen Bekannten</b> in Köln besucht. <span class='en'>(Akkusativ → -en)</span>",
-    "Gibt es <b>etwas Neues</b>? — Nein, <b>nichts Besonderes</b>."
+    "Gibt es <b>etwas Neues</b>? Nein, <b>nichts Besonderes</b>."
   ],
-  en: "Nouns like der Angestellte are really adjectives wearing a capital letter — they keep full adjective declension. The trap: ein Angestellter (masculine after ein takes -er), but der Angestellte. After etwas/nichts/viel, adjectives become neuter nouns in -es: etwas Neues, nichts Besonderes."
+  en: "Nouns like der Angestellte are really adjectives wearing a capital letter, they keep full adjective declension. The trap: ein Angestellter (masculine after ein takes -er), but der Angestellte. After etwas/nichts/viel, adjectives become neuter nouns in -es: etwas Neues, nichts Besonderes."
 },
 items: [
   { typ:"luecke", thema:"adjektive-als-nomen", satz:"Herr Meier ist ein ___ bei Siemens. (angestellt)", loesung:[["Angestellter"]],
@@ -753,13 +921,13 @@ items: [
     regel:"ein + maskulin Nominativ → starke Endung -er: ein Angestellt<b>er</b>. Großschreibung nicht vergessen!",
     gegenbeispiel:"Mit „der“: der Angestellt<b>e</b>." , en:"After <b>ein</b> nothing marks the masculine nominative, so the noun-adjective takes -er: ein Angestellter." },
   { typ:"luecke", thema:"adjektive-als-nomen", satz:"Die ___ von Herrn Kumar heißt Priya. (verlobt)", loesung:[["Verlobte"]],
-    frage:"Feminin:", regel:"die/eine Verlobt<b>e</b> — feminin Nominativ nimmt -e." , en:"Feminine nominative is -e after both <b>die</b> and <b>eine</b>, and the word stays capitalised." },
+    frage:"Feminin:", regel:"die/eine Verlobt<b>e</b>, feminin Nominativ nimmt -e." , en:"Feminine nominative is -e after both <b>die</b> and <b>eine</b>, and the word stays capitalised." },
   { typ:"luecke", thema:"adjektive-als-nomen", satz:"Ich habe am Wochenende einen ___ in Köln besucht. (bekannt)", loesung:[["Bekannten"]],
-    frage:"Akkusativ maskulin:", regel:"einen Bekannt<b>en</b> — Akkusativ maskulin → -en." , en:"Masculine is the only gender that changes in the accusative: einen Bekannten, not einen Bekannter." },
+    frage:"Akkusativ maskulin:", regel:"einen Bekannt<b>en</b>, Akkusativ maskulin → -en." , en:"Masculine is the only gender that changes in the accusative: einen Bekannten, not einen Bekannter." },
   { typ:"luecke", thema:"adjektive-als-nomen", satz:"Viele ___ suchen zurzeit eine neue Stelle. (arbeitslos)", loesung:[["Arbeitslose"]],
     frage:"Plural ohne Artikel:", regel:"Plural ohne Artikel → starke Endung -e: viele Arbeitslos<b>e</b>." , en:"With no article the adjective-noun carries the plural signal itself: strong -e, viele Arbeitslose." },
   { typ:"luecke", thema:"adjektive-als-nomen", satz:"Im Urlaub wohnen wir bei meinen ___. (verwandt)", loesung:[["Verwandten"]],
-    frage:"Dativ Plural:", regel:"bei meinen Verwandt<b>en</b> — Dativ Plural nimmt immer -en." , en:"Dative plural ends in -en with no exceptions, whatever article word stands in front." },
+    frage:"Dativ Plural:", regel:"bei meinen Verwandt<b>en</b>, Dativ Plural nimmt immer -en." , en:"Dative plural ends in -en with no exceptions, whatever article word stands in front." },
   { typ:"mc", thema:"adjektive-als-nomen", frage:"Welcher Satz ist korrekt?",
     optionen:["Er ist Deutscher.","Er ist Deutsche.","Er ist ein Deutsch."],
     richtig:0, regel:"Maskulin ohne Artikel (Nationalität als Prädikat) → Deutscher. Sie ist Deutsche.",
@@ -768,7 +936,7 @@ items: [
     frage:"Nach „etwas“:", regel:"etwas/nichts/viel + Adjektiv als Nomen auf -es, groß: etwas Neu<b>es</b>." , en:"<b>etwas</b>, <b>nichts</b> and <b>viel</b> take a neuter -es form, written with a capital letter: etwas Neues." },
   { typ:"luecke", thema:"adjektive-als-nomen", satz:"Erwachsene zahlen 10 Euro, ___ nur 5. (jugendlich)", loesung:[["Jugendliche"]],
     frage:"", regel:"Plural ohne Artikel → Jugendlich<b>e</b>." , en:"Bare plural with no article takes strong -e, exactly like the article <b>die</b> would." },
-  { typ:"mc", thema:"adjektive-als-nomen", frage:"„Das war wirklich nichts ___.“ — Was passt?",
+  { typ:"mc", thema:"adjektive-als-nomen", frage:"„Das war wirklich nichts ___.“ Was passt?",
     optionen:["Besonderes","Besondere","besonders"], richtig:0,
     regel:"nichts + Adjektiv als Nomen → -es und groß: nichts Besonder<b>es</b>." , en:"After nichts the adjective becomes a noun: capitalised and ending in -es, so nichts <b>Besonderes</b>." }
 ]},
@@ -776,9 +944,23 @@ items: [
 /* ---------------------------------------------------------- */
 "artikelwoerter": {
 titel: "Artikelwörter",
-kurz: "Lehrerliste Nr. 11 — Possessiv-, Demonstrativ- und Interrogativartikel",
+kurz: "Lehrerliste Nr. 11: Possessiv-, Demonstrativ- und Interrogativartikel",
 konzept: {
-  titel: "Artikelwörter — mein, dieser, welcher & Co.",
+  titel: "Artikelwörter: mein, dieser, welcher & Co.",
+  einfach: {
+    kern: "„mein“, „dieser“ und „welcher“ ersetzen den Artikel und tragen seine Endung.",
+    paare: [
+      { satz: "<b>Mein</b> Bruder wohnt noch in Indien.",
+        notiz: "„mein“ läuft wie „ein“. Und „ein“ hat hier gar keine Endung." },
+      { satz: "Ich helfe <b>meiner</b> Schwester beim Umzug.",
+        notiz: "„helfen“ will den Dativ. Feminin Dativ gibt „-er“." },
+      { satz: "<b>Welchen</b> Kurs besuchst du, den am Morgen oder den am Abend?",
+        notiz: "„welcher“ läuft dagegen wie „der“. Akkusativ maskulin gibt „-en“." },
+      { satz: "Sind das <b>eure</b> Bücher?",
+        notiz: "„euer“ verliert das innere „e“, sobald eine Endung dazukommt. Nie „euere“." }
+    ],
+    merk: "Zwei Familien: „mein, dein, kein“ folgen „ein“, und „dieser, jeder, welcher“ folgen „der“. Das höfliche „Ihr“ schreibst du immer groß."
+  },
   de: "<p>Artikelwörter stehen <b>vor</b> dem Nomen und übernehmen die Artikel-Endungen. " +
       "Drei Familien:</p>",
   tabelle: {
@@ -790,9 +972,9 @@ konzept: {
       ["Indefinit", "jeder, mancher, alle, einige", "jeder wie „der“ (nur Singular)"]
     ]
   },
-  regel: "„euer“ verliert beim Deklinieren das innere e: euer Buch, aber eure Bücher, mit eurem Auto. Und „Ihr“ (höflich) wird IMMER großgeschrieben — „ihr“ klein heißt „ihr/deren“ (sie).",
+  regel: "„euer“ verliert beim Deklinieren das innere e: euer Buch, aber eure Bücher, mit eurem Auto. Und „Ihr“ (höflich) wird IMMER großgeschrieben, „ihr“ klein heißt „ihr/deren“ (sie).",
   beispiele: [
-    "<b>Welchen</b> Kurs besuchst du? — <b>Diesen</b> hier. <span class='en'>(Akkusativ maskulin -en)</span>",
+    "<b>Welchen</b> Kurs besuchst du? <b>Diesen</b> hier. <span class='en'>(Akkusativ maskulin -en)</span>",
     "<b>Was für ein</b> Handy hast du? <span class='en'>(fragt nach der Art, nicht nach der Auswahl)</span>",
     "<b>Jeder</b> Teilnehmer bekommt ein Zertifikat. <span class='en'>(jeder = Singular!)</span>"
   ],
@@ -800,10 +982,10 @@ konzept: {
 },
 items: [
   { typ:"luecke", thema:"artikelwoerter", satz:"___ Bruder wohnt noch in Indien. (mein)", loesung:[["Mein"]],
-    frage:"Nominativ maskulin:", regel:"Wie „ein“: keine Endung im Nominativ maskulin — Mein Bruder." , en:"<b>mein</b> follows <b>ein</b>, and <b>ein</b> has no ending in the masculine nominative." },
+    frage:"Nominativ maskulin:", regel:"Wie „ein“: keine Endung im Nominativ maskulin, Mein Bruder." , en:"<b>mein</b> follows <b>ein</b>, and <b>ein</b> has no ending in the masculine nominative." },
   { typ:"luecke", thema:"artikelwoerter", satz:"Ich helfe ___ Schwester bei den Hausaufgaben. (mein)", loesung:[["meiner"]],
     frage:"Dativ feminin:", regel:"helfen + Dativ, feminin → mein<b>er</b> Schwester." , en:"<b>helfen</b> always takes the dative, and feminine dative on an ein-word is -er." },
-  { typ:"luecke", thema:"artikelwoerter", satz:"___ Kurs besuchst du — den am Morgen oder den am Abend? (welch-)", loesung:[["Welchen"]],
+  { typ:"luecke", thema:"artikelwoerter", satz:"___ Kurs besuchst du, den am Morgen oder den am Abend? (welch-)", loesung:[["Welchen"]],
     frage:"Akkusativ maskulin:", regel:"welcher dekliniert wie „der“: Akkusativ maskulin → Welch<b>en</b> Kurs." , en:"<b>welch-</b> copies the der-endings, so masculine accusative gives Welchen, not Welcher." },
   { typ:"luecke", thema:"artikelwoerter", satz:"___ Wörterbuch gehört dir? (dies-)", loesung:[["Dieses"]],
     frage:"Nominativ neutrum:", regel:"dieser wie „der/das“: neutrum → Dies<b>es</b> Wörterbuch." , en:"<b>dies-</b> follows der/das, and neuter takes -es: Dieses Wörterbuch." },
@@ -828,9 +1010,23 @@ items: [
 /* ---------------------------------------------------------- */
 "adjektivdeklination": {
 titel: "Adjektivdeklination",
-kurz: "Lehrerliste Nr. 12 · Einstufung: 4/7 — das System dahinter statt Auswendiglernen",
+kurz: "Lehrerliste Nr. 12 · Einstufung: 4/7, das System dahinter statt Auswendiglernen",
 konzept: {
-  titel: "Adjektivdeklination — EIN Prinzip statt drei Tabellen",
+  titel: "Adjektivdeklination: EIN Prinzip statt drei Tabellen",
+  einfach: {
+    kern: "Irgendwer muss den Fall zeigen: entweder der Artikel oder das Adjektiv.",
+    paare: [
+      { satz: "<b>Das</b> klein<b>e</b> Kind spielt im Garten.",
+        notiz: "„das“ zeigt schon alles. Das Adjektiv macht es sich leicht und nimmt nur „-e“." },
+      { satz: "<b>Ein</b> klein<b>es</b> Kind spielt im Garten.",
+        notiz: "„ein“ verrät nichts. Also springt das Adjektiv ein und nimmt „-es“, wie „das“." },
+      { satz: "Ich trinke morgens gern frisch<b>en</b> Kaffee.",
+        notiz: "Gar kein Artikel da. Das Adjektiv übernimmt die Endung von „den“." },
+      { satz: "Ich war gestern mit einem alt<b>en</b> Freund essen.",
+        notiz: "Dativ mit Artikel. Da ist die Endung immer „-en“, egal welches Geschlecht." }
+    ],
+    merk: "Abkürzung für 80 Prozent der Fälle: Nach jedem Artikel im Dativ, Genitiv oder Plural steht <b>-en</b>. Nur ohne Artikel musst du wirklich nachdenken."
+  },
   de: "<p>Vergiss drei Tabellen. Es gibt <b>ein Prinzip</b>: " +
       "<b>Irgendjemand muss den Kasus zeigen.</b></p>" +
       "<p><b>Zeigt der Artikel den Kasus?</b> (der, dem, den, dieses, jeder …) → Adjektiv nimmt die " +
@@ -849,10 +1045,10 @@ konzept: {
   regel: "Die 80-%-Abkürzung: Nach der/die/das im Nominativ → -e. Nach JEDEM Artikel im Dativ, Genitiv oder Plural → -en. Nur wenn kein Signal da ist, denk nach.",
   beispiele: [
     "<b>Der</b> deutsche Kurs / <b>ein</b> deutsch<b>er</b> Kurs / deutsch<b>er</b> Wein",
-    "Ich wünsche dir <b>einen schönen</b> Tag! <span class='en'>(feste Wendung — auswendig!)</span>",
+    "Ich wünsche dir <b>einen schönen</b> Tag! <span class='en'>(feste Wendung, auswendig!)</span>",
     "<b>Bei schönem</b> Wetter joggen wir. <span class='en'>(kein Artikel, Dativ neutrum → -em)</span>"
   ],
-  en: "One principle replaces three tables: somebody must show the case. If the article shows it (der, dem, diesen…), the adjective goes weak (-e/-en). If nothing shows it (no article, or bare ein), the adjective itself takes the strong ending — the one der/das/dem would have had. Shortcut: dative, genitive and plural with any article → always -en."
+  en: "One principle replaces three tables: somebody must show the case. If the article shows it (der, dem, diesen…), the adjective goes weak (-e/-en). If nothing shows it (no article, or bare ein), the adjective itself takes the strong ending, the one der/das/dem would have had. Shortcut: dative, genitive and plural with any article → always -en."
 },
 items: [
   { typ:"luecke", thema:"adjektivendungen", satz:"Das klein___ Kind spielt im Garten.", loesung:["e"],
@@ -871,10 +1067,10 @@ items: [
     optionen:["Ich suche eine neue Wohnung.","Ich suche eine neuen Wohnung."],
     richtig:0, regel:"„eine“ zeigt den Kasus (feminin Akkusativ) → schwache Endung -e." , en:"<b>eine</b> already signals feminine accusative, so the adjective stays weak: eine neue Wohnung." },
   { typ:"konjugation", thema:"adjektivendungen",
-    frage:"„nett“ + maskulin Nominativ — ergänze die volle Form (z. B. „nette“):",
+    frage:"„nett“ + maskulin Nominativ, ergänze die volle Form (z. B. „nette“):",
     kopf:["Kontext","Form von „nett“"],
     zeilen:[["der ___ Kollege","nette"],["ein ___ Kollege",["netter"]],["___ Kollegen (Plural, ohne Artikel)",["nette"]],["mit dem ___ Kollegen",["netten"]]],
-    regel:"Gleicher Kasus, drei Situationen — das Signal entscheidet, nicht das Nomen." , en:"Same case throughout, but the ending shifts with the article: der nette, ein netter, mit dem netten." },
+    regel:"Gleicher Kasus, drei Situationen, das Signal entscheidet, nicht das Nomen." , en:"Same case throughout, but the ending shifts with the article: der nette, ein netter, mit dem netten." },
   { typ:"luecke", thema:"adjektivendungen", satz:"Bei schön___ Wetter gehen wir am Rhein joggen.", loesung:["em"],
     frage:"Kein Artikel, Dativ neutrum:", regel:"Niemand zeigt den Dativ → das Adjektiv: schön<b>em</b> (wie „dem“)." , en:"No article marks this dative, so the adjective takes the dem-signal itself: schönem Wetter." },
   { typ:"luecke", thema:"adjektivendungen", satz:"Ich wünsche dir einen schön___ Tag!", loesung:["en"],
@@ -884,9 +1080,23 @@ items: [
 /* ---------------------------------------------------------- */
 "pronomen-praep": {
 titel: "Pronomen & Präpositionen",
-kurz: "Lehrerliste Nr. 13 — Personalpronomen im Kasus, da-/wo-Wörter, Präpositionsgruppen",
+kurz: "Lehrerliste Nr. 13: Personalpronomen im Kasus, da-/wo-Wörter, Präpositionsgruppen",
 konzept: {
-  titel: "Pronomen und Präpositionen — das Ordnungssystem",
+  titel: "Pronomen und Präpositionen: das Ordnungssystem",
+  einfach: {
+    kern: "Wann heißt es „mich“, wann „mir“, und wann klebst du alles zu „dafür“ zusammen?",
+    paare: [
+      { satz: "<b>Hilfst</b> du <b>mir</b> morgen beim Umzug?",
+        notiz: "„helfen“ nimmt den Dativ, also „mir“ und nicht „mich“. Das Englische führt dich hier in die Irre." },
+      { satz: "Ich habe <b>ihn</b> gestern im Kurs gesehen.",
+        notiz: "„sehen“ nimmt den Akkusativ, also „ihn“. Das Verb bestimmt die Form, nicht du." },
+      { satz: "Wartest du auf Anna? Ja, ich warte <b>auf sie</b>.",
+        notiz: "Bei Personen bleibt die Präposition stehen, dahinter kommt das Pronomen." },
+      { satz: "Wartest du auf den Bus? Ja, ich warte <b>darauf</b>.",
+        notiz: "Bei Sachen klebst du „da(r)“ vor die Präposition: dafür, damit, darauf." }
+    ],
+    merk: "Zwei Listen lohnen sich auswendig: <b>durch, für, gegen, ohne, um</b> sind immer Akkusativ, <b>aus, bei, mit, nach, seit, von, zu</b> immer Dativ."
+  },
   de: "<p><b>Personalpronomen</b> ändern sich mit dem Kasus:</p>",
   tabelle: {
     kopf: ["Nominativ", "Akkusativ", "Dativ"],
@@ -900,12 +1110,12 @@ konzept: {
   },
   regel: "Präpositionsgruppen auswendig: IMMER Akkusativ: durch, für, gegen, ohne, um. IMMER Dativ: aus, bei, mit, nach, seit, von, zu. Der Rest sind Wechselpräpositionen (wo?→Dativ, wohin?→Akkusativ).",
   beispiele: [
-    "Über <b>Sachen</b>: da-Wort → Interessierst du dich für Fußball? — Ja, ich interessiere mich <b>dafür</b>.",
-    "Über <b>Personen</b>: Präposition + Pronomen → Wartest du auf Anna? — Ja, ich warte <b>auf sie</b>.",
+    "Über <b>Sachen</b>: da-Wort → Interessierst du dich für Fußball? Ja, ich interessiere mich <b>dafür</b>.",
+    "Über <b>Personen</b>: Präposition + Pronomen → Wartest du auf Anna? Ja, ich warte <b>auf sie</b>.",
     "Frage nach Sache: <b>Worauf</b> wartest du? · Frage nach Person: <b>Auf wen</b> wartest du?",
     "Pronomen-Reihenfolge: Ich gebe <b>es ihm</b>. <span class='en'>(zwei Pronomen: Akkusativ VOR Dativ)</span>"
   ],
-  en: "Three systems in one: (1) personal pronouns by case — the table above; (2) preposition groups: durch/für/gegen/ohne/um always accusative, aus/bei/mit/nach/seit/von/zu always dative; (3) da-/wo-compounds for things (dafür, worauf) versus preposition + pronoun for people (auf sie, an wen). With two pronouns, accusative comes before dative: Ich gebe es ihm."
+  en: "Three systems in one: (1) personal pronouns by case, the table above; (2) preposition groups: durch/für/gegen/ohne/um always accusative, aus/bei/mit/nach/seit/von/zu always dative; (3) da-/wo-compounds for things (dafür, worauf) versus preposition + pronoun for people (auf sie, an wen). With two pronouns, accusative comes before dative: Ich gebe es ihm."
 },
 items: [
   { typ:"luecke", thema:"kasus", satz:"Hilfst du ___ morgen beim Umzug? (ich)", loesung:[["mir"]],
@@ -914,7 +1124,7 @@ items: [
     frage:"", regel:"sehen + Akkusativ → ihn." , en:"<b>sehen</b> takes a plain accusative object, so the masculine pronoun is ihn." },
   { typ:"luecke", thema:"kasus", satz:"Gib ___ bitte das Wörterbuch zurück. (deine Schwester)", loesung:[["ihr"]],
     frage:"", regel:"geben + Dativ (wem?) → ihr." , en:"The recipient of <b>geben</b> is dative, and the feminine dative pronoun is ihr." },
-  { typ:"mc", thema:"kasus", frage:"Zwei Pronomen — welche Reihenfolge ist richtig?",
+  { typ:"mc", thema:"kasus", frage:"Zwei Pronomen, welche Reihenfolge ist richtig?",
     optionen:["Ich gebe es ihm.","Ich gebe ihm es."], richtig:0,
     regel:"Sind BEIDE Objekte Pronomen, steht Akkusativ vor Dativ: es ihm.",
     en:"Two pronouns: accusative before dative." },
@@ -922,10 +1132,10 @@ items: [
     frage:"", regel:"„ohne“ gehört zu den reinen Akkusativpräpositionen (durch, für, gegen, ohne, um) → dich." , en:"<b>ohne</b> is always accusative: durch, für, gegen, ohne, um take no dative ever." },
   { typ:"luecke", thema:"kasus", satz:"Nach d___ Unterricht gehe ich ins Fitnessstudio.", loesung:["em"],
     frage:"", regel:"„nach“ ist reine Dativpräposition → nach dem Unterricht." , en:"<b>nach</b> is a fixed dative preposition, so the masculine article becomes dem." },
-  { typ:"luecke", thema:"verben-mit-praep", satz:"Interessierst du dich für Fußball? — Ja, ich interessiere mich sehr ___.", loesung:[["dafür"]],
+  { typ:"luecke", thema:"verben-mit-praep", satz:"Interessierst du dich für Fußball? Ja, ich interessiere mich sehr ___.", loesung:[["dafür"]],
     frage:"Sache → da-Wort:", regel:"Bei Sachen: da(r) + Präposition = dafür, darauf, damit, darüber." , en:"For things you replace the preposition plus pronoun with da(r) + preposition: dafür, not für es." },
-  { typ:"luecke", thema:"verben-mit-praep", satz:"___ wartest du? — Auf den Bus.", loesung:[["Worauf"]],
-    frage:"Frage nach einer Sache:", regel:"wo(r) + Präposition: Worauf? Womit? Wovon? — nur für Sachen." , en:"Questions about things use wo(r) + preposition, so warten auf becomes Worauf, not Auf was." },
+  { typ:"luecke", thema:"verben-mit-praep", satz:"___ wartest du? Auf den Bus.", loesung:[["Worauf"]],
+    frage:"Frage nach einer Sache:", regel:"wo(r) + Präposition: Worauf? Womit? Wovon? nur für Sachen." , en:"Questions about things use wo(r) + preposition, so warten auf becomes Worauf, not Auf was." },
   { typ:"mc", thema:"verben-mit-praep", frage:"Du fragst nach einer PERSON: „___ denkst du gerade?“",
     optionen:["An wen","Woran"], richtig:0,
     regel:"Personen: Präposition + Fragewort (an wen, auf wen, mit wem). „Woran“ fragt nach Sachen.",
@@ -946,7 +1156,7 @@ items: [
    ------------------------------------------------------------------ */
 /* 15 Themen: die Lehrerliste (13) + Nebensatz-Wortstellung und Passiv aus dem Einstufungstest.
    Die ersten sechs bleiben in der bekannten Reihenfolge (Mi=Nebensatz, Do=Passiv, Fr=Konjunktiv II),
-   danach geht die Rotation durch den Rest — ein voller Zyklus dauert drei Kurswochen. */
+   danach geht die Rotation durch den Rest, ein voller Zyklus dauert drei Kurswochen. */
 KURS.fundamentPlan = [
   "verben-mit-praep",        // Lehrerliste 9  · Einstufung 0/6
   "relativsatz",             // Lehrerliste 1  · Einstufung 0/4
@@ -1061,7 +1271,7 @@ KURS.fundamentAbdeckung = (function () {
   return m;
 })();
 
-/* Priorität je Fundament-Thema — aggregiert über alle Themen, die es abdeckt */
+/* Priorität je Fundament-Thema, aggregiert über alle Themen, die es abdeckt */
 KURS.fundamentPrio = function () {
   var st = KURS.lernstand().themen;
   var liste = KURS.fundamentPlan.map(function (k) {
@@ -1080,9 +1290,9 @@ KURS.fundamentPrio = function () {
       prio: luecke * 0.7 + faellig * 0.3,
       grund: quote === null ? "noch nie geübt"
            : quote < 50 ? "zuletzt nur " + quote + " % richtig"
-           : quote < 70 ? quote + " % — sitzt noch nicht"
+           : quote < 70 ? quote + " %, sitzt noch nicht"
            : tage >= 5 ? "seit " + tage + " Tagen nicht geübt"
-           : quote + " % — kurze Auffrischung"
+           : quote + " %, kurze Auffrischung"
     };
   });
   liste.sort(function (a, b) { return b.prio - a.prio || a.thema.localeCompare(b.thema); });
@@ -1097,7 +1307,7 @@ KURS.planBerechnen = function (tagNr) {
   /* Ohne Daten: fester Rotationsplan, damit der erste Tag sinnvoll startet. */
   var thema = hatDaten ? prio[0].thema
                        : KURS.fundamentPlan[(tagNr - 1) % KURS.fundamentPlan.length];
-  var grund = hatDaten ? prio[0].grund : "Startplan — noch keine Daten";
+  var grund = hatDaten ? prio[0].grund : "Startplan, noch keine Daten";
 
   var fehler = fehlerSchluessel();
   var wdhKeys = Object.keys(fehler).sort(function (a, b) { return fehler[b] - fehler[a]; }).slice(0, 3);
@@ -1156,7 +1366,7 @@ KURS.fundamentBlock = function (tagNr, seiteId) {
   var stand = KURS.fundamentPrio ? KURS.fundamentPrio().filter(function (x) { return x.thema === plan.thema; })[0] : null;
 
   return {
-    titel: "Fundament — " + topf.titel,
+    titel: "Fundament: " + topf.titel,
     telc: "Sprachbausteine",
     adaptiv: true,
     phase: 3,
@@ -1207,7 +1417,7 @@ KURS.planNeu = function (seiteId) {
   KURS.seiten["b1-fundament"] = {
     id: "b1-fundament", nr: 0, datum: "",
     titel: "B1-Fundament",
-    untertitel: "Die offizielle Wiederholungsliste deiner Lehrerin (13 Themen) plus Nebensatz-Wortstellung und Passiv aus dem Einstufungstest — das Fundament, auf dem der B2-Kurs aufbaut.",
+    untertitel: "Die offizielle Wiederholungsliste deiner Lehrerin (13 Themen) plus Nebensatz-Wortstellung und Passiv aus dem Einstufungstest, das Fundament, auf dem der B2-Kurs aufbaut.",
     themen: KURS.fundamentPlan,
     konzepte: konzepte,
     bloecke: bloecke,
@@ -1219,9 +1429,9 @@ KURS.planNeu = function (seiteId) {
       "<li><b>Relativpronomen:</b> Genus vom Bezugswort, Kasus von der Rolle im Relativsatz. Nur denen / dessen / deren weichen vom Artikel ab.</li>" +
       "<li><b>Nebensatz:</b> konjugiertes Verb ans Ende; bei zwei Verben steht das Hilfsverb ganz hinten.</li>" +
       "<li><b>Passiv:</b> werden + Partizip II. Im Perfekt heißt es <b>worden</b>, nie „geworden“.</li>" +
-      "<li><b>Konjunktiv II:</b> hätte, wäre, könnte, müsste, würde — der Rest mit würde + Infinitiv.</li>" +
+      "<li><b>Konjunktiv II:</b> hätte, wäre, könnte, müsste, würde, der Rest mit würde + Infinitiv.</li>" +
       "<li><b>Zeitformen:</b> Perfekt beim Sprechen, Präteritum beim Schreiben, nach „nachdem“ Plusquamperfekt. sein/haben/Modalverben immer Präteritum.</li>" +
-      "<li><b>Infinitiv mit „zu“:</b> kein „zu“ nach Modal- und Wahrnehmungsverben. Trennbar: auf<b>zu</b>stehen — ein Wort.</li>" +
+      "<li><b>Infinitiv mit „zu“:</b> kein „zu“ nach Modal- und Wahrnehmungsverben. Trennbar: auf<b>zu</b>stehen, ein Wort.</li>" +
       "<li><b>Zweiteilige Konnektoren:</b> weder…noch ist schon negativ. je + Nebensatz, desto + Verb-Subjekt.</li>" +
       "<li><b>Temporalsätze:</b> „als“ nur einmalig in der Vergangenheit, sonst „wenn“. seit + Präsens.</li>" +
       "<li><b>Modalverben:</b> nicht müssen = nicht nötig, nicht dürfen = verboten.</li>" +
@@ -1232,7 +1442,7 @@ KURS.planNeu = function (seiteId) {
       "<li><b>Pronomen &amp; Präpositionen:</b> Sachen → da-/wo-Wörter, Personen → Präposition + Pronomen.</li>" +
       "</ul>",
     dialog:
-      "<p>Schreib mir im Chat drei Sätze auf Deutsch — je einen mit:</p>" +
+      "<p>Schreib mir im Chat drei Sätze auf Deutsch, je einen mit:</p>" +
       "<p><b>1.</b> einem Relativsatz über deine Arbeit<br>" +
       "<b>2.</b> einer höflichen Bitte im Konjunktiv II<br>" +
       "<b>3.</b> einem Passivsatz</p>" +

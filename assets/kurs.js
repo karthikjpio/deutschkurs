@@ -1,5 +1,5 @@
 /* ============================================================
-   Deutsch B2 — Kurs-Engine
+   Deutsch B2, Kurs-Engine
    Ein gemeinsamer Motor für alle Seiten. Verbesserungen hier
    wirken rückwirkend auf jeden Tag.
 
@@ -14,7 +14,7 @@
 var KURS = window.KURS = window.KURS || {};
 KURS.seiten = KURS.seiten || {};
 KURS.SCHLUESSEL = "deutschB2.v1";
-KURS.ENGINE = "2.1.1";
+KURS.ENGINE = "2.3.0";
 
 /* ---------- Themen-Register: Anzeigenamen für Schwachstellen ---------- */
 KURS.THEMEN = {
@@ -65,17 +65,16 @@ KURS.band = function (pz) {
 KURS.statusHtml = function (pz) {
   var b = KURS.band(pz);
   return '<span class="st ' + b.k + '" title="' + b.t + '"><span class="st-i">' + b.i + '</span>' +
-         (pz === null || pz === undefined ? "—" : pz + " %") + '</span>';
+         (pz === null || pz === undefined ? "" : pz + " %") + '</span>';
 };
 
 KURS.themaName = function (t) { return (KURS.THEMEN[t] || [t, ""])[0]; };
 KURS.themaEn   = function (t) { return (KURS.THEMEN[t] || [t, ""])[1]; };
 
 /* ============================================================
-   0b. SPRACHMODUS — „de" | „beide" | „en"
+   0b. SPRACHMODUS, „de" | „beide" | „en"
    Standard ist „beide": Deutsch zuerst, Englisch direkt darunter.
-   Karthik schaltet Englisch selbst ab, wenn er es nicht mehr braucht —
-   das ist der ehrlichste Fortschrittsmarker, den es gibt.
+   Karthik schaltet Englisch selbst ab, wenn er es nicht mehr braucht, das ist der ehrlichste Fortschrittsmarker, den es gibt.
    ============================================================ */
 KURS.SPRACHE_KEY = "deutschB2.sprache";
 KURS.sprache = (function () {
@@ -91,14 +90,14 @@ KURS.spracheSetzen = function (m) {
   location.reload();
 };
 
-/* Zweisprachige Beschriftung: „Prüfen · Check" — im Modus „de"/„en" nur eine Seite */
+/* Zweisprachige Beschriftung: „Prüfen · Check", im Modus „de"/„en" nur eine Seite */
 KURS.bl = function (de, en) {
   if (KURS.sprache === "de") return de;
   if (KURS.sprache === "en") return en;
   return de + ' <span class="bl-en">· ' + en + '</span>';
 };
 
-/* Englischer Erklärblock — nur wenn der Modus ihn zeigt */
+/* Englischer Erklärblock, nur wenn der Modus ihn zeigt */
 KURS.enBlock = function (txt, klasse) {
   if (!txt || !KURS.zeigtEn()) return "";
   return '<div class="en-hilfe ' + (klasse || "") + '"><span class="en-flagge">EN</span>' + txt + '</div>';
@@ -143,7 +142,7 @@ function schreib(d) {
 }
 
 /* Schema-Migration: hier kommt jede künftige Änderung rein.
-   Niemals Felder löschen — nur ergänzen. */
+   Niemals Felder löschen, nur ergänzen. */
 /* Umbau 08/2026: aus Kurstagen wurden Buchmodule. Alter Fortschritt darf
    dabei nicht verwaisen, deshalb wandern die Schlüssel einmalig mit. */
 var UMBENANNT = { "tag-01": "e1-a", "tag-02": "e1-b", "tag-03": "e1-c", "tag-04": "e1-d" };
@@ -196,12 +195,12 @@ function warnbanner() {
   b.className = "hinweisbox";
   b.style.margin = "12px 18px";
   b.innerHTML = "<b>⚠️ Fortschritt kann nicht gespeichert werden</b>Dein Browser blockiert den Speicher für lokale Dateien. " +
-    "Öffne die Seite bitte in <b>Chrome</b> — dort funktioniert das Tracking. " +
+    "Öffne die Seite bitte in <b>Chrome</b>, dort funktioniert das Tracking. " +
     "<span class='en'>Your browser blocks local storage. Use Chrome so progress is saved.</span>";
   document.body.insertBefore(b, document.body.firstChild);
 }
 
-function heute() { return new Date().toLocaleDateString("sv"); }  /* lokal, nicht UTC — sonst wechselt der Tag um 02:00 */
+function heute() { return new Date().toLocaleDateString("sv"); }  /* lokal, nicht UTC, sonst wechselt der Tag um 02:00 */
 function jetzt()  { return new Date().toISOString(); }
 function dtKurz(iso) { var t = iso.slice(0, 10).split("-"); return t[2] + "." + t[1] + "."; }
 
@@ -211,7 +210,7 @@ function esc(s) {
 }
 KURS.esc = esc;
 
-/* 3 statt 3, 2.5 statt 2.5 — aber nie 2.4999999 */
+/* 3 statt 3, 2.5 statt 2.5, aber nie 2.4999999 */
 function pkt(n) { return Math.round(n * 2) / 2; }
 KURS.pkt = pkt;
 
@@ -259,7 +258,7 @@ KURS.seitenStand = function (id) {
 };
 
 /* ============================================================
-   2b. LERNSTAND — die Datenbasis für adaptives Lernen
+   2b. LERNSTAND, die Datenbasis für adaptives Lernen
    Aggregiert alle Versuche zu einem Bild pro Thema und pro Aufgabe.
    Neuere Versuche zählen mehr als alte (Halbwertszeit ~7 Tage).
    ============================================================ */
@@ -326,16 +325,16 @@ KURS.prioritaeten = function (kandidaten) {
       prio: luecke * 0.7 + faellig * 0.3,
       grund: quote === null ? "noch nie geübt"
            : quote < 50 ? "zuletzt nur " + quote + " % richtig"
-           : quote < 70 ? quote + " % — sitzt noch nicht"
+           : quote < 70 ? quote + " %, sitzt noch nicht"
            : tage >= 5 ? "seit " + tage + " Tagen nicht geübt"
-           : quote + " % — kurze Auffrischung"
+           : quote + " %, kurze Auffrischung"
     };
   });
   liste.sort(function (a, b) { return b.prio - a.prio || a.thema.localeCompare(b.thema); });
   return liste;
 };
 
-/* Aufgaben, bei denen er zuletzt Fehler gemacht hat — Futter für Wiederholung */
+/* Aufgaben, bei denen er zuletzt Fehler gemacht hat, Futter für Wiederholung */
 KURS.fehlerListe = function (n) {
   var f = KURS.lernstand().fehler;
   var liste = Object.keys(f).map(function (k) { var x = f[k]; x.key = k; return x; });
@@ -344,11 +343,10 @@ KURS.fehlerListe = function (n) {
 };
 
 /* ============================================================
-   2b-bis. SPICKZETTEL — die Theorie direkt über den Aufgaben
+   2b-bis. SPICKZETTEL, die Theorie direkt über den Aufgaben
    Karthik: „Meistens erinnere ich mich halb an das Konzept und liege dann
    falsch." Deshalb steht über jedem Aufgabenblock eine eingeklappte
-   Kurzerklärung. Bei Themen unter 40 % klappt sie von selbst auf —
-   dort ist Erst-Raten-dann-Lernen nur Frust ohne Nutzen.
+   Kurzerklärung. Bei Themen unter 40 % klappt sie von selbst auf, dort ist Erst-Raten-dann-Lernen nur Frust ohne Nutzen.
    ============================================================ */
 KURS.spickIndex = function () {
   if (KURS._spick) return KURS._spick;
@@ -364,7 +362,7 @@ KURS.spickIndex = function () {
   }
   ausTopf(KURS.fundament, KURS.fundamentAbdeckung);
   ausTopf(KURS.beruf, null);
-  /* dazu die Konzeptkarten der Tagesseiten — sie tragen ein eigenes „thema" */
+  /* dazu die Konzeptkarten der Tagesseiten, sie tragen ein eigenes „thema" */
   Object.keys(KURS.seiten || {}).forEach(function (id) {
     ((KURS.seiten[id] || {}).konzepte || []).forEach(function (k) {
       if (k && k.thema && !idx[k.thema]) idx[k.thema] = k;
@@ -382,15 +380,14 @@ KURS.themaQuote = function (thema) {
 };
 
 /* ============================================================
-   2c. DIE ABENDEINHEIT — 30 Minuten in vier Phasen
+   2c. DIE ABENDEINHEIT, 30 Minuten in vier Phasen
    Karthik hat 30 Minuten am Abend zugesagt. Die erste Fassung machte
-   daraus 5 Pflichtaufgaben und klappte den Rest als „freiwillig" weg —
-   und die fünf Aufgaben kamen nicht einmal aus dem Unterricht des Tages.
+   daraus 5 Pflichtaufgaben und klappte den Rest als „freiwillig" weg, und die fünf Aufgaben kamen nicht einmal aus dem Unterricht des Tages.
    Jetzt: vier sichtbare Phasen, ein Balken über die ganze Einheit.
-     ① Aufwärmen  — verteilte Wiederholung + eigene Fehler   ~5 Min
-     ② Heute      — der Stoff des Kurstages                  ~10 Min
-     ③ Fundament  — B1-Lücken, Regel zuerst wenn schwach     ~8 Min
-     ④ Prüfung    — telc B1 (Mo–Do), freitags B2             ~7 Min
+     ① Aufwärmen, verteilte Wiederholung + eigene Fehler   ~5 Min
+     ② Heute, der Stoff des Kurstages                  ~10 Min
+     ③ Fundament, B1-Lücken, Regel zuerst wenn schwach     ~8 Min
+     ④ Prüfung, telc B1 (Mo–Do), freitags B2             ~7 Min
    ============================================================ */
 KURS.DOSIS = 5;          /* Umfang von Phase ① */
 /* ---- Phase ①: verteilte Wiederholung ----------------------------
@@ -410,7 +407,7 @@ KURS.warmup = function (tagNr, seiteId) {
     out.push(c);
   }
 
-  /* 1. Eigene Fehler — die Aufgaben, die er zuletzt falsch hatte */
+  /* 1. Eigene Fehler, die Aufgaben, die er zuletzt falsch hatte */
   var fehler = KURS.fehlerListe ? KURS.fehlerListe(20) : [];
   var fehlerThemen = {};
   fehler.forEach(function (f) { if (f.thema) fehlerThemen[f.thema] = (fehlerThemen[f.thema] || 0) + 1; });
@@ -431,7 +428,7 @@ KURS.warmup = function (tagNr, seiteId) {
   }
   /* Themen, in denen er Fehler hatte, kommen zuerst */
   frueher.sort(function (a, b) { return (b.schwach - a.schwach) || (b.tag - a.tag); });
-  /* höchstens zwei Aufgaben aus demselben Block — sonst ist das Aufwärmen
+  /* höchstens zwei Aufgaben aus demselben Block, sonst ist das Aufwärmen
      nur ein Ausschnitt einer einzigen Übung von gestern */
   var proBlock = {};
   frueher.forEach(function (x) {
@@ -478,13 +475,13 @@ KURS.dosisMerken = function (seiteId, erledigt, fertig) {
   schreib(d);
 };
 
-/* Alle Tage, an denen die Dosis geschafft wurde — Basis für Wochenband und Zähler */
+/* Alle Tage, an denen die Dosis geschafft wurde, Basis für Wochenband und Zähler */
 KURS.geuebteTage = function () {
   var d = lies();
   return Object.keys(d.geuebteTage || {}).sort();
 };
 
-/* Aufgearbeitete Kurstage (tag-01, tag-02 …) — kann nie über 40 steigen */
+/* Aufgearbeitete Kurstage (tag-01, tag-02 …), kann nie über 40 steigen */
 KURS.geuebteSeiten = function () {
   var d = lies();
   return Object.keys(d.geuebteSeiten || {}).sort();
@@ -560,7 +557,7 @@ KURS.importieren = function (datei, fertig) {
    4. GEMEINSAME KOPFZEILE
    ============================================================ */
 /* Eine Leiste für ALLE Seiten. Drei Ziele, immer beschriftet, auch auf dem Handy.
-   Vorher: drei verschiedene, von Hand kopierte Varianten — daher „wo bin ich?".
+   Vorher: drei verschiedene, von Hand kopierte Varianten, daher „wo bin ich?".
    `ziel` ist eines von: lernen | nachschlagen | fortschritt */
 KURS.ZIELE = [
   { id: "lernen",       href: "index.html",         txt: "Lernen" },
@@ -664,7 +661,7 @@ Uebung.prototype.render = function (seite) {
         '<span class="ph-zeit">' + p.min + ' Min · ' + p.anzahl + ' ' + KURS.bl("Aufgaben", "tasks") + '</span>' +
       '</div>');
 
-    /* Konzepte gehören in Phase ② — vor die Aufgaben, nicht in einen eigenen Abschnitt */
+    /* Konzepte gehören in Phase ②, vor die Aufgaben, nicht in einen eigenen Abschnitt */
     if (p.konzepte && p.konzepte.length) {
       p.konzepte.forEach(function (k) { h.push(konzeptHtml(k)); });
     }
@@ -751,7 +748,7 @@ Uebung.prototype.render = function (seite) {
   }
 
   /* --- Versuchsvergleich + Feedback --- */
-  h.push('<h2>Mein Fortschritt <span class="en">— my progress</span></h2>');
+  h.push('<h2>Mein Fortschritt <span class="en">· my progress</span></h2>');
   h.push('<div class="card" id="k-versuche"></div>');
   h.push(feedbackHtml(this.seiteId));
 
@@ -778,7 +775,7 @@ Uebung.prototype.baueEinheit = function (seite, tagNr) {
   var tiefBl  = alle.filter(function (b) { return b.phase === 3; });
 
   /* Phase ②: der Stoff des Tages, auf ~12 Aufgaben begrenzt.
-     Schreibaufgaben (typ "frei") wandern nach hinten — sie kosten 20 Minuten. */
+     Schreibaufgaben (typ "frei") wandern nach hinten, sie kosten 20 Minuten. */
   var heuteItems = [], rest = [];
   heuteBl.forEach(function (b) {
     (b.items || []).forEach(function (it) {
@@ -813,7 +810,7 @@ Uebung.prototype.baueEinheit = function (seite, tagNr) {
   }
 
   /* Das Modul selbst. Die B1-Anteile (Fundament, Berufsdeutsch, telc-B1-Prüfung)
-     standen früher als Phase ③ und ④ in JEDER Tagesseite — sie leben jetzt
+     standen früher als Phase ③ und ④ in JEDER Tagesseite, sie leben jetzt
      geschlossen im Kurs „B2-Fundamente", damit ein Modul ein Modul bleibt. */
   var bl2 = grupp(genommen);
   phasen.push({ nr: 2, titel: seite.modulTitel || "Das Modul", en: "The module", min: 15,
@@ -856,7 +853,7 @@ Uebung.prototype.phasenPruefen = function () {
 
   var alles = gesamt > 0 && fertig >= gesamt;
   var vorher = KURS.dosisStand(this.seiteId);
-  /* Der Tag zählt, sobald Phase ① und ② durch sind — nicht erst nach 30 Minuten. */
+  /* Der Tag zählt, sobald Phase ① und ② durch sind, nicht erst nach 30 Minuten. */
   var kern = (proPhase[1] ? proPhase[1][0] === proPhase[1][1] : true) &&
              (proPhase[2] ? proPhase[2][0] === proPhase[2][1] : false);
   KURS.dosisMerken(this.seiteId, fertig, kern || alles || vorher.fertig);
@@ -904,7 +901,7 @@ Uebung.prototype.renderModul = function (seite) {
     '<button class="btn primary" id="k-fertig" onclick="KURS.aktiv.auswerten()">' + KURS.bl("Auswertung", "Results") + '</button>' +
     '<button class="btn" onclick="KURS.aktiv.nochmal()">' + KURS.bl("Nochmal üben", "Try again") + '</button></div>' +
     '<div id="k-ergebnis"></div>');
-  h.push('<h2>Mein Fortschritt <span class="en">— my progress</span></h2>');
+  h.push('<h2>Mein Fortschritt <span class="en">· my progress</span></h2>');
   h.push('<div class="card" id="k-versuche"></div>');
   h.push(feedbackHtml(this.seiteId));
   this.el.innerHTML = h.join("");
@@ -914,7 +911,7 @@ Uebung.prototype.renderModul = function (seite) {
 };
 
 /* Der Spickzettel über einem Aufgabenblock.
-   Kein Abklatsch der Lösungen — die allgemeine Regel, die Tabelle und zwei Beispiele. */
+   Kein Abklatsch der Lösungen, die allgemeine Regel, die Tabelle und zwei Beispiele. */
 function spickHtml(items, gesehen) {
   var idx = KURS.spickIndex(), zaehl = {};
   (items || []).forEach(function (it) { if (it.thema) zaehl[it.thema] = (zaehl[it.thema] || 0) + 1; });
@@ -941,8 +938,8 @@ function spickHtml(items, gesehen) {
       '<div class="sp-body">' +
         (schwach ? '<p class="sp-warum">' +
           (q === null
-            ? KURS.bl("Neues Thema — lies das einmal, bevor du anfängst.",
-                      "New topic — read this once before you start.")
+            ? KURS.bl("Neues Thema, lies das einmal, bevor du anfängst.",
+                      "New topic, read this once before you start.")
             : KURS.bl("Hier lagst du zuletzt bei " + q + " %. Deshalb steht die Regel offen.",
                       "You were at " + q + " % here last time, so the rule opens by default.")) +
           '</p>' : '') +
@@ -967,10 +964,44 @@ function spickHtml(items, gesehen) {
 }
 
 /* Konzeptkarte: kurze Kernaussage sichtbar, Details einklappbar.
-   Der lange Lesetext war einer der Gründe, warum die Seite abgeschreckt hat —
-   sichtbar bleiben jetzt nur die Regel (DE) und ihre englische Fassung. */
+   Der lange Lesetext war einer der Gründe, warum die Seite abgeschreckt hat, sichtbar bleiben jetzt nur die Regel (DE) und ihre englische Fassung. */
+/* „Einfach erklärt": ein Beispiel VOR jedem Fachwort.
+   Vorher stand als Erstes „Nebensatzkonnektor → Verb ans Ende", wer den
+   Begriff nicht kennt, ist beim ersten Wort raus, und die konkreten Sätze
+   lagen eingeklappt darunter. Jetzt zuerst der Satz, dann der Name dafür. */
+function einfachHtml(e) {
+  if (!e) return "";
+  var h = ['<div class="einfach"><div class="ef-kopf">Einfach erklärt' +
+           (KURS.zeigtEn() ? ' <span class="bl-en">· in plain words</span>' : '') + '</div>'];
+  if (e.kern) h.push('<p class="ef-kern">' + e.kern + '</p>');
+  if (e.paare && e.paare.length) {
+    h.push('<div class="ef-paare">');
+    e.paare.forEach(function (p) {
+      h.push('<div class="ef-p"><div class="ef-satz">' + p.satz + '</div>' +
+             (p.notiz ? '<div class="ef-notiz">' + p.notiz + '</div>' : '') + '</div>');
+    });
+    h.push('</div>');
+  }
+  if (e.merk) h.push('<p class="ef-merk"><b>Merksatz:</b> ' + e.merk + '</p>');
+  return h.join("") + '</div>';
+}
+
 function konzeptHtml(k) {
   var kern = k.regel || "";
+
+  /* Karte mit „Einfach erklärt": Titel und einfache Fassung stehen AUSSERHALB
+     des <details>. Sonst klappt jeder Klick auf einen Beispielsatz die Karte zu
+     und man kann den Satz nicht einmal markieren. */
+  if (k.einfach && KURS.zeigtDe()) {
+    return '<div class="konzeptkarte card mit-einfach">' +
+      '<div class="kk-kopf"><span class="kk-titel">' + esc(k.titel) + '</span></div>' +
+      einfachHtml(k.einfach) +
+      '<details class="kk-genauer"><summary>Genauer: Regel, Tabelle und mehr Beispiele' +
+        (KURS.zeigtEn() ? ' <span class="bl-en">· the precise version</span>' : '') +
+      '</summary><div class="kk-body">' + konzeptKoerper(k) + '</div></details>' +
+    '</div>';
+  }
+
   var h = ['<details class="konzeptkarte card" ' + (kern ? "" : "open") + '>',
            '<summary><span class="kk-titel">' + esc(k.titel) + '</span>'];
   if (kern) {
@@ -980,7 +1011,12 @@ function konzeptHtml(k) {
   h.push('<span class="kk-mehr">Erklärung, Tabelle und Beispiele öffnen' +
          (KURS.zeigtEn() ? ' <span class="bl-en">· open full explanation</span>' : '') + '</span>');
   h.push('</summary><div class="kk-body">');
+  return h.join("") + konzeptKoerper(k) + '</div></details>';
+}
 
+/* Der ausführliche Teil, gemeinsam für beide Kartenformen. */
+function konzeptKoerper(k) {
+  var h = [];
   if (k.de && KURS.zeigtDe()) h.push('<div>' + k.de + '</div>');
   if (k.regel && KURS.zeigtDe()) h.push('<div class="regel">📌 ' + k.regel + '</div>');
   if (k.tabelle) {
@@ -997,14 +1033,13 @@ function konzeptHtml(k) {
     k.beispiele.forEach(function (b) { h.push('<li>' + b + '</li>'); });
     h.push('</ul>');
   }
-  /* Englische Fassung sichtbar statt hinter einem Klick */
   h.push(KURS.enBlock(k.en, "gross"));
-  return h.join("") + '</div></details>';
+  return h.join("");
 }
 
 function feedbackHtml(seiteId) {
   return '<div class="card fb">' +
-    '<div class="card-title">💬 Dein Feedback <span class="en">— what should I improve?</span></div>' +
+    '<div class="card-title">💬 Dein Feedback <span class="en">· what should I improve?</span></div>' +
     '<p class="sub">Was war unklar? Was fehlt? Was soll ich an dieser Seite ändern? ' +
     'Ich lese das vor der nächsten Einheit und verbessere den Kurs.</p>' +
     '<textarea class="frei" id="k-fb" placeholder="z. B. „Die Erklärung zu den Adjektivendungen war zu schnell" oder „Ich brauche mehr Übungen zu Nebensätzen"…"></textarea>' +
@@ -1080,8 +1115,7 @@ function hMc(it, id) {
 }
 
 /* Deterministischer Fisher-Yates mit LCG: gleiche Reihenfolge bei jedem Laden,
-   aber wirklich gemischt. Eine Quelle für „Wörter ordnen" UND „Zuordnen" —
-   das Zuordnen hatte vorher einen eigenen Ausdruck, der bei vier Paaren nur
+   aber wirklich gemischt. Eine Quelle für „Wörter ordnen" UND „Zuordnen", das Zuordnen hatte vorher einen eigenen Ausdruck, der bei vier Paaren nur
    die Liste umdrehte und ab sieben Paaren gar nichts mehr tat. */
 function mischen(arr, id) {
   var mix = arr.slice();
@@ -1126,7 +1160,7 @@ function hCloze(it, id) {
   var n = -1;
   var text = String(it.text).replace(/___/g, function () {
     n++;
-    var l = it.luecken[n], o = ['<select class="luecke" style="width:auto" id="cl-' + id + '-' + n + '" data-i="' + n + '"><option value="-1">— wählen —</option>'];
+    var l = it.luecken[n], o = ['<select class="luecke" style="width:auto" id="cl-' + id + '-' + n + '" data-i="' + n + '"><option value="-1"> wählen </option>'];
     l.optionen.forEach(function (x, i) { o.push('<option value="' + i + '">' + esc(x) + '</option>'); });
     return o.join("") + '</select>';
   });
@@ -1165,7 +1199,7 @@ Uebung.prototype.pruefe = function (id) {
   var e = findeItem(this, id); if (!e || e.erledigt) return;
   var it = e.def, ok = 0, deine = [], richtig = [], umlautHinweis = [];
 
-  e.roh = [];   /* Rohantwort — damit ein Reload den Stand wiederherstellen kann */
+  e.roh = [];   /* Rohantwort, damit ein Reload den Stand wiederherstellen kann */
 
   if (it.typ === "luecke") {
     var loes = Array.isArray(it.loesung) ? it.loesung : [it.loesung];
@@ -1176,10 +1210,10 @@ Uebung.prototype.pruefe = function (id) {
       var fast = gut ? null : fastPasst(val, l, it.auch && it.auch[i], it.nichtVerwechseln);
       if (fast) { gut = true; umlautHinweis.push(fast); }
       inp.classList.add(gut ? (fast ? "fast" : "richtig") : "falsch"); inp.disabled = true;
-      if (!gut) inp.value = val ? val : "—";
+      if (!gut) inp.value = val ? val : "";
       else if (fast) inp.value = fast;
       if (gut) ok++;
-      deine.push(val || "—"); richtig.push(hauptLoesung(l));
+      deine.push(val || ""); richtig.push(hauptLoesung(l));
     });
   } else if (it.typ === "ordnen") {
     var zi = document.getElementById("zi-" + id);
@@ -1190,7 +1224,7 @@ Uebung.prototype.pruefe = function (id) {
     if (gut) ok = 1;
     [].forEach.call(zi.children, function (b) { b.classList.add(gut ? "richtig" : "falsch"); b.disabled = true; });
     [].forEach.call(document.getElementById("po-" + id).children, function (b) { b.disabled = true; });
-    deine.push(gebaut || "—"); richtig.push(soll);
+    deine.push(gebaut || ""); richtig.push(soll);
   } else if (it.typ === "cloze") {
     it.luecken.forEach(function (l, i) {
       var sel = document.getElementById("cl-" + id + "-" + i); if (!sel) return;
@@ -1198,7 +1232,7 @@ Uebung.prototype.pruefe = function (id) {
       e.roh.push(sel.value);
       sel.classList.add(gut ? "richtig" : "falsch"); sel.disabled = true;
       if (gut) ok++;
-      deine.push(w > -1 ? l.optionen[w] : "—"); richtig.push(l.optionen[l.richtig]);
+      deine.push(w > -1 ? l.optionen[w] : ""); richtig.push(l.optionen[l.richtig]);
     });
   } else if (it.typ === "konjugation") {
     it.zeilen.forEach(function (z, i) {
@@ -1207,11 +1241,11 @@ Uebung.prototype.pruefe = function (id) {
       e.roh.push(inp.value);
       inp.classList.add(gut ? "richtig" : "falsch"); inp.disabled = true;
       if (gut) ok++;
-      deine.push(inp.value || "—"); richtig.push(hauptLoesung(z[1]));
+      deine.push(inp.value || ""); richtig.push(hauptLoesung(z[1]));
     });
   }
 
-  /* Fehlender Umlaut: halber Punkt. Voll wäre gelogen — „würde" ohne Punkte ist
+  /* Fehlender Umlaut: halber Punkt. Voll wäre gelogen, „würde" ohne Punkte ist
      „wurde", ein anderes Wort. Null wäre entmutigend und falsch, denn das Wort saß.
      Der halbe Punkt hält außerdem die adaptive Auswahl ehrlich. */
   if (umlautHinweis.length) ok -= 0.5 * umlautHinweis.length;
@@ -1225,7 +1259,7 @@ Uebung.prototype.pruefe = function (id) {
 
 function hauptLoesung(l) { return Array.isArray(l) ? l[0] : l; }
 
-/* Umlaute ohne Punkte — reines Tastaturproblem, kein Deutschproblem.
+/* Umlaute ohne Punkte, reines Tastaturproblem, kein Deutschproblem.
    Karthik tippt auf einer englischen Tastatur; „ausdrucke" für „Ausdrücke"
    war das einzige echte Tippproblem in seinem ersten Lauf.
    ACHTUNG: nur akzeptiert, wenn KEINE andere Lösung dieser Aufgabe dadurch
@@ -1241,7 +1275,7 @@ function passt(eingabe, loesung, extra) {
   return false;
 }
 
-/* „richtig, aber die Umlautpunkte fehlen" — gibt den Punkt und sagt es dazu */
+/* „richtig, aber die Umlautpunkte fehlen", gibt den Punkt und sagt es dazu */
 function fastPasst(eingabe, loesung, extra, alleOptionen) {
   var kandidaten = (Array.isArray(loesung) ? loesung : [loesung]).concat(extra || []);
   var e = ohneUmlaut(eingabe);
@@ -1333,7 +1367,7 @@ Uebung.prototype.musterZeigen = function (id) {
   var box = document.getElementById("mu-" + id);
   box.innerHTML = '<div class="rueck ok"><b>Musterlösung</b><br>' + e.def.muster +
     (e.def.kriterien ? '<div class="warum"><span class="warum-t">Worauf telc achtet</span>' + e.def.kriterien + '</div>' : '') +
-    '<span class="eng">Vergleiche Satzbau und Redemittel — nicht Wort für Wort.</span></div>';
+    '<span class="eng">Vergleiche Satzbau und Redemittel, nicht Wort für Wort.</span></div>';
   this.merkeLauf();
 };
 
@@ -1349,7 +1383,7 @@ Uebung.prototype.rueckmeldung = function (id, ok, max, it, richtigTxt, umlaut) {
   /* Dritter Zustand zwischen richtig und falsch: das Wort saß, der Umlaut fehlte. */
   if (!gut && nurUmlaut) {
     h.push('<b>' + KURS.bl("≈ Fast richtig.", "Almost.") + '</b> ' +
-           KURS.bl("Das Wort saß — es fehlten nur die Umlautpunkte: ",
+           KURS.bl("Das Wort saß, es fehlten nur die Umlautpunkte: ",
                    "You had the word, only the umlaut dots were missing: ") +
            '<b>' + umlaut.map(esc).join(", ") + '</b>. ' +
            KURS.bl(pkt(ok) + " von " + max + " Punkten.", pkt(ok) + " of " + max + " points."));
@@ -1364,7 +1398,7 @@ Uebung.prototype.rueckmeldung = function (id, ok, max, it, richtigTxt, umlaut) {
            (KURS.zeigtDe() && it.regel ? it.regel : ""));
 
   } else {
-    h.push('<b>✗ ' + ok + " / " + max + '</b> — ' +
+    h.push('<b>✗ ' + ok + " / " + max + '</b>, ' +
            KURS.bl("richtig ist:", "correct answer:") + ' <b>' + esc(richtigTxt) + '</b>');
     var warum = KURS.zeigtDe() ? (it.regel || "Vergleiche die Form genau.")
                                 : (it.en || "Compare the form closely.");
@@ -1394,7 +1428,7 @@ Uebung.prototype.stand = function () {
     if (e.erledigt) { fertig++; mB += e.max; }
   });
   /* maxB = nur die tatsächlich bearbeiteten Aufgaben.
-     Die Trefferquote wird daran gemessen — sonst würde eine halb bearbeitete
+     Die Trefferquote wird daran gemessen, sonst würde eine halb bearbeitete
      Seite wie ein schlechtes Ergebnis aussehen. */
   return { punkte: p, max: m, maxB: mB, fertig: fertig, gesamt: gesamt,
            quote: mB ? Math.round(p / mB * 100) : 0 };
@@ -1404,8 +1438,7 @@ Uebung.prototype.aktualisiere = function () {
   var s = this.stand();
   var el = document.getElementById("k-punkte");
   if (el) {
-    /* Auf Tagesseiten zählt die Einheit, nicht jede Aufgabe der Seite —
-       „0/66" war genau die Zahl, die abschreckt. */
+    /* Auf Tagesseiten zählt die Einheit, nicht jede Aufgabe der Seite, „0/66" war genau die Zahl, die abschreckt. */
     var ges = s.gesamt;
     if (this.phasen && this.phasen.length) {
       ges = this.phasen.reduce(function (n, p) { return n + p.anzahl; }, 0);
@@ -1441,7 +1474,7 @@ Uebung.prototype.stelleWiederHer = function () {
 };
 
 /* Ein unterbrochener Lauf wird nach dem Neuladen exakt wiederhergestellt.
-   Ohne das war jede Antwort nach einem Reload weg — und der Tagesdosis-Ring
+   Ohne das war jede Antwort nach einem Reload weg, und der Tagesdosis-Ring
    sprang zurück, obwohl der Tag längst als geübt gespeichert war. */
 Uebung.prototype.spieleLaufAb = function (lauf) {
   if (!lauf || !lauf.items) return;
@@ -1506,16 +1539,16 @@ Uebung.prototype.auswerten = function () {
 };
 
 Uebung.prototype.zeigeErgebnis = function (v, alle) {
-  var h = ['<div class="card"><div class="card-title">📊 Auswertung — Versuch ' + v.nr + '</div>'];
+  var h = ['<div class="card"><div class="card-title">📊 Auswertung, Versuch ' + v.nr + '</div>'];
   var note = v.prozent >= 85 ? "Sehr gut. Das sitzt." :
-             v.prozent >= 70 ? "Gut — aber telc B2 verlangt Genauigkeit. Schau dir die Fehler an." :
+             v.prozent >= 70 ? "Gut, aber telc B2 verlangt Genauigkeit. Schau dir die Fehler an." :
              v.prozent >= 50 ? "Ausbaufähig. Diese Themen brauchen Wiederholung." :
                                "Ehrlich: das reicht noch nicht für B2. Wir gehen das nochmal durch.";
   h.push('<p style="font-size:22px;font-weight:750;margin:4px 0">' + v.punkte + ' / ' + v.max + ' · ' + v.prozent + '%</p>');
   h.push('<p class="sub">' + note +
     (v.bearbeitet < v.aufgaben
       ? ' <b>Achtung:</b> Du hast nur ' + v.bearbeitet + ' von ' + v.aufgaben +
-        ' Aufgaben bearbeitet — die Quote zählt nur die bearbeiteten.'
+        ' Aufgaben bearbeitet, die Quote zählt nur die bearbeiteten.'
       : '') + '</p>');
 
   if (alle.length > 1) {
@@ -1537,7 +1570,7 @@ Uebung.prototype.zeigeErgebnis = function (v, alle) {
   });
 
   if (v.falsch.length) {
-    h.push('<h3>Deine Fehler <span class="en">— review these</span></h3>');
+    h.push('<h3>Deine Fehler <span class="en">· review these</span></h3>');
     v.falsch.forEach(function (f) {
       h.push('<div class="fb-eintrag" style="border-left-color:var(--bad)"><span class="meta">' +
         esc(KURS.themaName(f.thema)) + '</span>' + esc(f.frage) +
@@ -1548,16 +1581,16 @@ Uebung.prototype.zeigeErgebnis = function (v, alle) {
     if (schwach.length) {
       h.push('<div class="hinweisbox"><b>Wiederholen</b>' +
         schwach.map(function (t) { return KURS.themaName(t); }).join(" · ") +
-        ' — diese Themen kommen in der nächsten Einheit als Wiederholungsaufgaben zurück.</div>');
+        ', diese Themen kommen in der nächsten Einheit als Wiederholungsaufgaben zurück.</div>');
     }
   } else {
-    h.push('<div class="hinweisbox info"><b>Alles richtig 🎉</b>Sag mir Bescheid — dann mache ich die nächste Runde schwerer.</div>');
+    h.push('<div class="hinweisbox info"><b>Alles richtig 🎉</b>Sag mir Bescheid, dann mache ich die nächste Runde schwerer.</div>');
   }
 
   h.push('<div class="btnrow"><button class="btn primary" onclick="KURS.aktiv.nochmal()">' + KURS.bl("Nochmal üben", "Try again") + '</button>' +
     '<button class="btn" onclick="KURS.exportieren()">⬇︎ Fortschritt exportieren</button>' +
     '<a class="btn" href="index.html">Zur Übersicht</a></div>');
-  h.push('<p class="sub">Leg die exportierte Datei in den Ordner <b>_Fortschritt</b> — dann sehe ich deine Fehler und baue die nächste Einheit darauf auf.</p>');
+  h.push('<p class="sub">Leg die exportierte Datei in den Ordner <b>_Fortschritt</b>, dann sehe ich deine Fehler und baue die nächste Einheit darauf auf.</p>');
   h.push('</div>');
   document.getElementById("k-ergebnis").innerHTML = h.join("");
 };
@@ -1567,13 +1600,13 @@ Uebung.prototype.zeigeVersuche = function () {
   var d = lies(), s = d.seiten[this.seiteId];
   if (!s || !s.versuche.length) {
     box.innerHTML = '<div class="card-title">Versuche</div><p class="sub">Noch kein abgeschlossener Versuch. ' +
-      'Bearbeite die Übungen und klicke auf <b>Auswertung</b> — danach kannst du jederzeit „Nochmal üben" ' +
+      'Bearbeite die Übungen und klicke auf <b>Auswertung</b>, danach kannst du jederzeit „Nochmal üben" ' +
       'und siehst hier den direkten Vergleich.</p>';
     return;
   }
   var v = s.versuche, best = 0;
   v.forEach(function (x) { if (x.prozent > best) best = x.prozent; });
-  var h = ['<div class="card-title">Versuche <span class="en">— attempt history</span></div><div class="versuche">'];
+  var h = ['<div class="card-title">Versuche <span class="en">· attempt history</span></div><div class="versuche">'];
   v.forEach(function (x, i) {
     if (i) {
       var dif = x.prozent - v[i - 1].prozent;
@@ -1627,7 +1660,7 @@ Uebung.prototype.feedbackSenden = function () {
   s.feedback.push({ datum: jetzt(), text: txt });
   schreib(d);
   ta.value = "";
-  document.getElementById("k-fb-ok").innerHTML = '<span class="fb-gesendet">✓ Gespeichert — kommt in den nächsten Export</span>';
+  document.getElementById("k-fb-ok").innerHTML = '<span class="fb-gesendet">✓ Gespeichert, kommt in den nächsten Export</span>';
   zeigeFeedbackListe(this.seiteId);
 };
 
@@ -1646,7 +1679,7 @@ function zeigeFeedbackListe(seiteId) {
 KURS.seitenkopf = function (seiteId) {
   var s = KURS.seiten[seiteId]; if (!s) return "";
   var st = KURS.seitenStand(seiteId);
-  /* Eyebrow zeigt Einheit und Modul, kein Datum — der Kalender ist weg. */
+  /* Eyebrow zeigt Einheit und Modul, kein Datum, der Kalender ist weg. */
   var e = KURS.einheitVon ? KURS.einheitVon(seiteId) : null;
   var oben = e ? 'Einheit ' + e.einheit.nr + ' · ' + e.einheit.thema +
                  ' · Modul ' + e.modul.m + ' · ' + KURS.FERTIGKEITEN[e.modul.fertigkeit][0]
@@ -1661,7 +1694,7 @@ KURS.seitenkopf = function (seiteId) {
     '</div>';
 };
 
-/* Modul ohne Inhalt — kommt nur vor, wenn ein Manifest-Eintrag auf eine
+/* Modul ohne Inhalt, kommt nur vor, wenn ein Manifest-Eintrag auf eine
    Datendatei zeigt, die es noch nicht gibt. */
 KURS.leereSeite = function () {
   return '<div class="leerzustand"><div class="gross">📄</div>' +

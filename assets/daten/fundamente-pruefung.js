@@ -3,7 +3,7 @@
    Hängt die telc-B1-Formate an den Kurs „B2-Fundamente" an.
 
    Vorher lagen diese Aufgaben als Phase ④ in JEDER Tagesseite und
-   rotierten nach Wochentag durch — dadurch war das B1-Training über
+   rotierten nach Wochentag durch, dadurch war das B1-Training über
    40 Seiten verstreut und nirgends vollständig oder abhakbar.
    Jetzt steht alles, was die B1-Prüfung verlangt, an einem Ort.
 
@@ -15,7 +15,7 @@
 
   var bloecke = [];
 
-  /* KURS.pruefung[k] ist ein Objekt mit titel/hinweis/items — nicht die Liste selbst. */
+  /* KURS.pruefung[k] ist ein Objekt mit titel/hinweis/items, nicht die Liste selbst. */
   function ausTeil(schluessel, kuerzel) {
     var q = KURS.pruefung && KURS.pruefung[schluessel];
     if (!q || !q.items || !q.items.length) return;
@@ -41,7 +41,7 @@
     bloecke.push({
       titel: "telc B1 · Schriftliche Kommunikation",
       telc: "Schreiben",
-      hinweis: "Zehn Briefe mit je vier Leitpunkten. telc zieht Punkte ab, wenn ein Leitpunkt fehlt — " +
+      hinweis: "Zehn Briefe mit je vier Leitpunkten. telc zieht Punkte ab, wenn ein Leitpunkt fehlt, " +
                "nimm dir 30 Minuten pro Brief. Muster und Bewertungskriterien stehen unter jeder Aufgabe.",
       items: briefe.map(function (a, i) {
         var c = Object.assign({}, a);

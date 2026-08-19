@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deutsch — Lernen</title>
-<link rel="stylesheet" href="assets/kurs.css?v=2.1.1">
-<script src="assets/kurs.js?v=2.1.1"></script>
-<script src="assets/daten/alle.js?v=2.1.1"></script>
+<title>Deutsch · Lernen</title>
+<link rel="stylesheet" href="assets/kurs.css?v=2.3.0">
+<script src="assets/kurs.js?v=2.3.0"></script>
+<script src="assets/daten/alle.js?v=2.3.0"></script>
 </head>
 <body>
 <script>KURS.kopf("lernen");</script>
@@ -19,17 +19,60 @@
       <span class="en">Two courses: the foundations first, then the ten textbook units.</span></p>
   </div>
 
+  <details class="card starthier" id="starthier">
+    <summary><b>Wie funktioniert das hier?</b> <span class="en">· 30 Sekunden lesen</span></summary>
+    <div class="sh-body">
+      <div class="sh-zeile">
+        <span class="sh-nr">1</span>
+        <span class="sh-txt"><b>Oben sind drei Knöpfe, mehr nicht.</b>
+          <small><b>Lernen</b> ist diese Seite: hier übst du. <b>Nachschlagen</b> ist zum Blättern,
+          wenn du etwas vergessen hast. <b>Fortschritt</b> zeigt, wie du stehst.</small></span>
+      </div>
+      <div class="sh-zeile">
+        <span class="sh-nr">2</span>
+        <span class="sh-txt"><b>Fang mit Kurs ① an.</b>
+          <small>Das ist die Grundlage: die Themen deiner Lehrerin plus alles, was die B1-Prüfung
+          verlangt. Kompakt gehalten. Einmal durch, dann bist du für B2 bereit.</small></span>
+      </div>
+      <div class="sh-zeile">
+        <span class="sh-nr">3</span>
+        <span class="sh-txt"><b>Danach Kurs ②, Modul für Modul.</b>
+          <small>Jede Einheit ist eine Lektion aus dem Buch und hat vier Module (A, B, C, D).
+          Ein Modul ist eine Portion für einen Abend. Der blaue Knopf oben bringt dich immer
+          zum nächsten offenen Modul.</small></span>
+      </div>
+      <div class="sh-zeile">
+        <span class="sh-nr">4</span>
+        <span class="sh-txt"><b>Erklärung zuerst, dann die Aufgaben.</b>
+          <small>Jedes Modul beginnt mit dem blauen Kasten <b>„Einfach erklärt“</b>: ein
+          Beispielsatz und ein Satz dazu, was passiert. Wenn du es genauer willst, klapp die
+          Karte auf. Deine Antworten werden automatisch gespeichert.</small></span>
+      </div>
+    </div>
+  </details>
+
   <div id="weiter"></div>
 
-  <h2>① B2-Fundamente <span class="en">— the B1 base B2 builds on</span></h2>
+  <h2>① B2-Fundamente <span class="en">· the B1 base B2 builds on</span></h2>
   <div id="kurs-fundament"></div>
 
-  <h2>② B2 · Einheit 1–10 <span class="en">— Kompass DaF</span></h2>
+  <h2>② B2 · Einheit 1 bis 10 <span class="en">· Kompass DaF</span></h2>
   <div id="kurs-b2"></div>
 
 </div>
 
 <script>
+/* Orientierung beim ersten Besuch offen zeigen, Wahl merken. */
+(function () {
+  var el = document.getElementById("starthier"), K = "deutschB2.starthier";
+  var zu = null;
+  try { zu = localStorage.getItem(K); } catch (e) {}
+  if (zu !== "zu") el.setAttribute("open", "");
+  el.addEventListener("toggle", function () {
+    try { localStorage.setItem(K, el.open ? "auf" : "zu"); } catch (e) {}
+  });
+})();
+
 /* ---------- Weitermachen ---------- */
 (function () {
   var n = KURS.naechstesModul();
@@ -54,7 +97,7 @@
   document.getElementById("kurs-fundament").innerHTML =
     '<div class="card">' +
       '<p class="sub">Die ' + themen + ' Grammatikthemen deiner Lehrerin, die telc-B1-Aufgabenformate ' +
-      'und die B1-Briefe — zusammen an einem Ort. Alles, was die B1-Prüfung verlangt und was B2 ' +
+      'und die B1-Briefe, zusammen an einem Ort. Alles, was die B1-Prüfung verlangt und was B2 ' +
       'voraussetzt. Kompakt gehalten: einmal durchziehen, dann weiter zu B2.</p>' +
       '<div class="kursreihe">' +
         kurszeile("b1-fundament.html", "Grammatik & Übungen",
@@ -113,7 +156,7 @@
     '<span class="ehk-txt"><span class="ehk-t">B2.2 · Lektion 6–10</span>' +
     '<span class="ehk-s">gleicher Aufbau: vier Module + Prüfungstraining</span></span></div>' +
     '<div class="ehk-fuss">Werden angelegt, sobald das B2.2-PDF im Projekt liegt. ' +
-    'Am Code ändert sich dafür nichts — nur fünf neue Datendateien.</div></div>');
+    'Am Code ändert sich dafür nichts, nur fünf neue Datendateien.</div></div>');
 
   document.getElementById("kurs-b2").innerHTML = h.join("");
 })();

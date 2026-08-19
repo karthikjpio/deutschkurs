@@ -1,8 +1,8 @@
 /* ============================================================
-   TAG 3 — 29.07.2026
-   Quelle: Kursbuch S. 12 (B3d, B4 — Abschluss von Teil B), S. 13–14 (Teil C: C1, C2, C3)
+   TAG 3, 29.07.2026
+   Quelle: Kursbuch S. 12 (B3d, B4, Abschluss von Teil B), S. 13–14 (Teil C: C1, C2, C3)
            Arbeitsbuch S. 140–141 (B5d, B5e, B6 a–d, B7, B8), S. 142–143 (C1 a–b, C2 a–b, C3 a–d)
-   Kernthemen: (1) Alternativen ausdrücken — anstatt dass / anstatt … zu / stattdessen / statt / anstelle
+   Kernthemen: (1) Alternativen ausdrücken, anstatt dass / anstatt … zu / stattdessen / statt / anstelle
                (2) Angaben mit Präposition (wegen, trotz, aus + Genitiv/Dativ) ↔ Nebensatz
                (3) Hörstile: globales und selektives Hören
                (4) Wortbildung mit „Schrift“
@@ -12,26 +12,40 @@
    ============================================================ */
 KURS.seiten["e1-c"] = {
 id: "e1-c",
-modulTitel: "Modul C · Mit der Hand schreiben — wozu?", nr: 3, datum: "2026-07-29",
-titel: "Mit der Hand schreiben — wozu?",
+modulTitel: "Modul C · Mit der Hand schreiben, wozu?", nr: 3, datum: "2026-07-29",
+titel: "Mit der Hand schreiben: wozu?",
 untertitel: "Alternativen ausdrücken: anstatt dass / anstatt … zu / stattdessen · Angaben mit Präposition und ihre Nebensätze · globales und selektives Hören · Wortbildung mit „Schrift“",
 themen: ["konnektoren", "infinitiv-zu", "kasus", "hoerverstehen", "wortbildung"],
 
 videos: [
-  { titel: "Von ANSTATT DASS zu ANSTATT ZU — geht das immer?", kanal: "Rocking German Grammar", sprache: "Deutsch", warum: "Das Kernthema von heute inklusive der Subjektregel, bei der du im Unterricht den Fehler hattest.", url: "https://www.youtube.com/watch?v=V012Lo1rz3k" },
+  { titel: "Von ANSTATT DASS zu ANSTATT ZU: geht das immer?", kanal: "Rocking German Grammar", sprache: "Deutsch", warum: "Das Kernthema von heute inklusive der Subjektregel, bei der du im Unterricht den Fehler hattest.", url: "https://www.youtube.com/watch?v=V012Lo1rz3k" },
   { titel: "statt, anstatt oder stattdessen?", kanal: "lingoni GERMAN", sprache: "Deutsch", warum: "In unter einer Minute: Präposition statt/anstatt + Genitiv gegen das Adverb stattdessen.", url: "https://www.youtube.com/shorts/fGnNiavrGhc" },
-  { titel: "„anstatt … dass“ und „ohne … dass“ richtig benutzen", kanal: "Lysann – Deutsch lernen", sprache: "Deutsch", warum: "Beide Konstruktionen als EIN Muster — spart dir später das Lernen von „ohne … zu“.", url: "https://www.youtube.com/watch?v=VgL3QWlCSzQ" },
-  { titel: "OBWOHL / TROTZDEM / TROTZ — Konzessivangaben", kanal: "Frag Amalia", sprache: "Deutsch", warum: "Die Dreier-Verwechslung isoliert: Nebensatz, Adverb, Präposition + Genitiv. Direkt zu Arbeitsbuch B6/B7.", url: "https://www.youtube.com/watch?v=4ybe9OskzOs" },
-  { titel: "B1 — Lesson 16 | anstatt … zu | anstatt dass", kanal: "Learn German", sprache: "Englisch erklärt", warum: "Falls die Regel auf Deutsch nicht klickt: dieselbe Sache ruhig auf Englisch erklärt.", url: "https://www.youtube.com/watch?v=DcWpmjmA-gU" }
+  { titel: "„anstatt … dass“ und „ohne … dass“ richtig benutzen", kanal: "Lysann – Deutsch lernen", sprache: "Deutsch", warum: "Beide Konstruktionen als EIN Muster: spart dir später das Lernen von „ohne … zu“.", url: "https://www.youtube.com/watch?v=VgL3QWlCSzQ" },
+  { titel: "OBWOHL / TROTZDEM / TROTZ: Konzessivangaben", kanal: "Frag Amalia", sprache: "Deutsch", warum: "Die Dreier-Verwechslung isoliert: Nebensatz, Adverb, Präposition + Genitiv. Direkt zu Arbeitsbuch B6/B7.", url: "https://www.youtube.com/watch?v=4ybe9OskzOs" },
+  { titel: "B1: Lesson 16 | anstatt … zu | anstatt dass", kanal: "Learn German", sprache: "Englisch erklärt", warum: "Falls die Regel auf Deutsch nicht klickt: dieselbe Sache ruhig auf Englisch erklärt.", url: "https://www.youtube.com/watch?v=DcWpmjmA-gU" }
 ],
 
 konzepte: [
 {
-  titel: "① Alternativen ausdrücken — die vierte Konnektoren-Familie",
+  titel: "① Alternativen ausdrücken: die vierte Konnektoren-Familie",
   thema: "konnektoren",
+  einfach: {
+    kern: "Du sagst, was du nicht machst, und was du dafür machst.",
+    paare: [
+      { satz: "<b>Anstatt</b> abends Serien <b>zu schauen</b>, mache ich zehn Übungen.",
+        notiz: "Nach „anstatt“ steht das, was NICHT passiert. Die Serien fallen weg." },
+      { satz: "Ich schaue abends keine Serien. <b>Stattdessen</b> mache ich zehn Übungen.",
+        notiz: "„stattdessen“ zeigt das, was wirklich passiert. Genau andersherum als „anstatt“." },
+      { satz: "<b>Anstatt dass</b> mein Chef mir alles erklärt, lese ich es selbst nach.",
+        notiz: "Hier machen zwei verschiedene Personen etwas, deshalb „anstatt dass“ und das Verb ganz hinten." },
+      { satz: "<b>Anstelle der</b> Handschrift lernen viele Kinder nur noch das Tippen.",
+        notiz: "„anstelle“ steht direkt vor einem Nomen, ganz ohne zweites Verb." }
+    ],
+    merk: "anstatt und anstelle zeigen, was wegfällt. stattdessen zeigt, was dafür kommt."
+  },
   de: "<p>An Tag 2 hattest du <b>Grund</b> (weil, deshalb) und <b>Gegengrund</b> (obwohl, trotzdem). " +
       "Heute kommt die dritte Bedeutung dazu: die <b>Alternative</b>. " +
-      "Man sagt, was <b>nicht</b> passiert — und was <b>stattdessen</b> passiert.</p>" +
+      "Man sagt, was <b>nicht</b> passiert, und was <b>stattdessen</b> passiert.</p>" +
       "<p>Wie immer gibt es dieselbe Aussage in drei Bauformen. Genau das prüft telc.</p>",
   tabelle: {
     kopf: ["Bauform", "Wort", "Beispiel aus dem Kursbuch"],
@@ -53,7 +67,19 @@ konzepte: [
 {
   titel: "② Die wichtigste Regel des Tages: „anstatt dass“ oder „anstatt … zu“?",
   thema: "infinitiv-zu",
-  de: "<p>Das ist die Regel aus Arbeitsbuch C3a — und genau hier hast du im Unterricht einen Fehler gemacht. " +
+  einfach: {
+    kern: "Es hängt nur daran, ob in beiden Satzteilen dieselbe Person handelt.",
+    paare: [
+      { satz: "<b>Anstatt</b> mit dem Bus <b>zu fahren</b>, gehe ich zu Fuß ins Büro.",
+        notiz: "Beide Male bin ich es. Dann nennst du die Person nur einmal, im zweiten Teil." },
+      { satz: "<b>Anstatt dass</b> <u>meine Kollegin</u> die Mail schreibt, schreibe <u>ich</u> sie.",
+        notiz: "Hier handeln zwei verschiedene Personen. Dann brauchst du „anstatt dass“ und nennst beide." },
+      { satz: "Falsch: „Anstatt <u>ich</u> mit dem Bus zu fahren, gehe ich zu Fuß.“",
+        notiz: "Bei „anstatt … zu“ darf vorne keine Person stehen. Genau das war dein Fehler im Unterricht." }
+    ],
+    merk: "Gleiche Person: „anstatt … zu“, ohne Person im vorderen Teil. Zwei Personen: nur „anstatt dass“."
+  },
+  de: "<p>Das ist die Regel aus Arbeitsbuch C3a, und genau hier hast du im Unterricht einen Fehler gemacht. " +
       "Es hängt <b>nur</b> davon ab, ob beide Sätze dasselbe Subjekt haben.</p>",
   tabelle: {
     kopf: ["Subjekte", "erlaubt", "Beispiel"],
@@ -62,17 +88,31 @@ konzepte: [
       ["<b>verschieden</b> (die Kinder / man)", "<b>nur</b> „anstatt dass“", "<u>Die Kinder</u> schreiben in Druckschrift, <b>anstatt dass</b> <u>man</u> ihnen mehr Zeit gibt."]
     ]
   },
-  regel: "Bei „anstatt … zu“ wird das Subjekt NICHT genannt — es ist automatisch dasselbe wie im Hauptsatz. Wenn du es trotzdem hinschreibst, ist der Satz falsch.",
+  regel: "Bei „anstatt … zu“ wird das Subjekt NICHT genannt, es ist automatisch dasselbe wie im Hauptsatz. Wenn du es trotzdem hinschreibst, ist der Satz falsch.",
   beispiele: [
     "✅ <b>Anstatt</b> die Schreibschrift <b>zu verwenden</b>, schreiben viele Erwachsene in Druckschrift.",
-    "❌ <b>Anstatt</b> <u>Erwachsene</u> Schreibschrift zu verwenden, … <span class='en'>— dein Fehler im Unterricht: bei „anstatt … zu“ darf kein Subjekt stehen.</span>",
+    "❌ <b>Anstatt</b> <u>Erwachsene</u> Schreibschrift zu verwenden, … <span class='en'> dein Fehler im Unterricht: bei „anstatt … zu“ darf kein Subjekt stehen.</span>",
     "✅ Mit verschiedenen Subjekten: <b>Anstatt dass</b> <u>der Lehrer</u> erklärt, lesen <u>die Schüler</u> selbst."
   ],
-  en: "The rule from workbook C3a, and the exact mistake you made in class: with anstatt … zu the subject is implicit — it is automatically the same as the main clause, so you must NOT name it. Only when the two subjects differ do you need anstatt dass."
+  en: "The rule from workbook C3a, and the exact mistake you made in class: with anstatt … zu the subject is implicit, it is automatically the same as the main clause, so you must NOT name it. Only when the two subjects differ do you need anstatt dass."
 },
 {
   titel: "③ Angaben mit Präposition ↔ Nebensatz",
   thema: "kasus",
+  einfach: {
+    kern: "Dieselbe Information geht kurz mit einem Nomen oder lang mit einem halben Satz.",
+    paare: [
+      { satz: "<b>Wegen des Regens</b> bin ich zu spät gekommen.",
+        notiz: "Kurze Form: ein kleines Wort plus Nomen. Es kommt kein zweites Verb dazu." },
+      { satz: "Ich bin zu spät gekommen, <b>weil</b> es geregnet <b>hat</b>.",
+        notiz: "Lange Form: derselbe Grund als Satz, und das Verb steht am Ende." },
+      { satz: "<b>Trotz meiner Erkältung</b> bin ich zur Arbeit gegangen.",
+        notiz: "Lang heißt das: „Obwohl ich erkältet war, bin ich zur Arbeit gegangen.“ Gleiche Aussage." },
+      { satz: "<b>Aus Zeitmangel</b> habe ich gestern nicht gelernt.",
+        notiz: "Bei Gefühlen und abstrakten Wörtern steht „aus“ ganz ohne Artikel: aus Angst, aus Langeweile." }
+    ],
+    merk: "wegen und trotz verlangen den Genitiv, „aus“ verlangt den Dativ und lässt den Artikel weg."
+  },
   de: "<p>Dieselbe Information, einmal <b>kurz</b> mit Präposition + Nomen, einmal <b>lang</b> als Nebensatz. " +
       "In telc-Sprachbausteinen wird ständig zwischen beiden Formen umgeschaltet.</p>",
   tabelle: {
@@ -94,10 +134,22 @@ konzepte: [
   en: "The same information in short form (preposition + noun) or long form (subordinate clause). telc constantly switches between them. Note aus + dative for abstract nouns without an article: aus Zeitmangel, aus Angst."
 },
 {
-  titel: "④ Genitivendungen — hier verlierst du Punkte",
+  titel: "④ Genitivendungen: hier verlierst du Punkte",
   thema: "kasus",
+  einfach: {
+    kern: "Nach wegen und trotz ändert sich das kleine Wort vor dem Nomen.",
+    paare: [
+      { satz: "<b>Wegen der</b> Verspätung habe ich meinen Termin verpasst.",
+        notiz: "die Verspätung ist feminin, also wird „die“ zu „der“. Das Nomen bleibt, wie es ist." },
+      { satz: "<b>Trotz des</b> Regen<b>s</b> bin ich mit dem Rad gefahren.",
+        notiz: "der Regen ist maskulin: „der“ wird zu „des“, und das Nomen bekommt zusätzlich ein -s." },
+      { satz: "<b>Trotz ihrer</b> Probleme hat sie den Kurs geschafft.",
+        notiz: "Im Plural ist die Endung auch -er, genau wie beim Femininum." }
+    ],
+    merk: "Maskulin und Neutrum: -es plus -s am Nomen. Feminin und Plural: -er, sonst nichts. Also „wegen ihrer Krankheit“, nicht „wegen ihren Krankheit“."
+  },
   de: "<p>„wegen“ und „trotz“ verlangen den <b>Genitiv</b>. Im Unterricht hattest du „wegen ihr<u>en</u> Krankheit“ " +
-      "geschrieben — richtig ist „wegen ihr<b>er</b> Krankheit“. Diese Tabelle ist Arbeitsbuch B6b.</p>",
+      "geschrieben, richtig ist „wegen ihr<b>er</b> Krankheit“. Diese Tabelle ist Arbeitsbuch B6b.</p>",
   tabelle: {
     kopf: ["", "Maskulinum", "Neutrum", "Femininum", "Plural"],
     zeilen: [
@@ -111,11 +163,23 @@ konzepte: [
     "Ohne Artikel bleibt nur die Adjektivendung: trotz <b>zahlreicher</b> Ratgeber, trotz <b>gegenteiliger</b> Behauptungen.",
     "Merke fürs Schreiben: „<b>aufgrund</b>“ (+ Genitiv) klingt im formellen Brief besser als „wegen“."
   ],
-  en: "wegen and trotz take the genitive — this is where you lost points in class. Masculine and neuter take -es (and the noun adds -s); feminine and plural take -er."
+  en: "wegen and trotz take the genitive, this is where you lost points in class. Masculine and neuter take -es (and the noun adds -s); feminine and plural take -er."
 },
 {
   titel: "⑤ Hörstile: global und selektiv (telc Hörverstehen)",
   thema: "hoerverstehen",
+  einfach: {
+    kern: "Beim Hören suchst du entweder das große Thema oder eine einzelne Information.",
+    paare: [
+      { satz: "Aufgabe: „Worum <b>geht</b> es in der Sendung?“",
+        notiz: "Nichts mitschreiben, einfach zuhören. Danach sagst du es in einem Satz: es ging um das Schreiben mit der Hand." },
+      { satz: "Aufgabe: „Stimmt der Satz: <b>Handschrift aktiviert viele Bereiche im Gehirn</b>?“",
+        notiz: "Hier hörst du gezielt. Lies die Aussage <b>vor</b> dem Hören und markiere zwei Schlüsselwörter, dann wartest du darauf." },
+      { satz: "Im Hörtext kommt „Gehirnareal“, in der Aufgabe steht „Bereich im Gehirn“.",
+        notiz: "Du hörst fast nie genau dasselbe Wort, sondern ein ähnliches. Rechne fest damit." }
+    ],
+    merk: "Beim großen Thema ist ein einzelnes Detail nie die Antwort, auch wenn es im Text wirklich vorkommt."
+  },
   de: "<p>Parallel zu den Lesestilen von Tag 2 gibt es zwei <b>Hörstile</b>. Im Unterricht ging es um " +
       "ein Radiointerview aus der Reihe „Neurowissenschaft und Lernen“.</p>",
   tabelle: {
@@ -125,33 +189,45 @@ konzepte: [
       ["<b>Selektives Hören</b>", "Auf bestimmte Ausdrücke konzentrieren, die mit der Frage zu tun haben.", "Aussagen als richtig/falsch markieren."]
     ]
   },
-  regel: "Beim globalen Hören ist das Hauptthema immer der ÜBERGEORDNETE Rahmen — nie ein einzelnes Detail aus dem Text. Ein Detail kann richtig sein und trotzdem nicht das Hauptthema.",
+  regel: "Beim globalen Hören ist das Hauptthema immer der ÜBERGEORDNETE Rahmen, nie ein einzelnes Detail aus dem Text. Ein Detail kann richtig sein und trotzdem nicht das Hauptthema.",
   beispiele: [
     "Wie beim selektiven Lesen gilt: du hörst meist <b>nicht dasselbe Wort</b>, sondern einen ähnlichen Begriff (Synonym).",
-    "Strategie: <b>vor</b> dem Hören die Aussagen lesen und die Schlüsselwörter markieren — genau das ist Aufgabe 1c und 1e im Kursbuch.",
-    "Zeit im Kurs laut deiner Notiz: <b>7 Minuten Hören</b> — in der Prüfung hast du ähnlich wenig Zeit. Deshalb vorher lesen."
+    "Strategie: <b>vor</b> dem Hören die Aussagen lesen und die Schlüsselwörter markieren, genau das ist Aufgabe 1c und 1e im Kursbuch.",
+    "Zeit im Kurs laut deiner Notiz: <b>7 Minuten Hören</b>, in der Prüfung hast du ähnlich wenig Zeit. Deshalb vorher lesen."
   ],
   en: "Two listening styles matching the reading styles from Day 2. Global = the umbrella topic, never a single detail. Selective = hunt for specific info, and expect synonyms rather than the exact words. Always read the questions before listening."
 },
 {
   titel: "⑥ Wortbildung: alles mit „Schrift“",
   thema: "wortbildung",
-  de: "<p>Wie „Lern-“ an Tag 2, aber diesmal mit <b>Schrift</b> — einmal als Grundwort, einmal mit Vorsilbe.</p>",
+  einfach: {
+    kern: "Bei langen zusammengesetzten Wörtern entscheidet immer der letzte Teil über der, die oder das.",
+    paare: [
+      { satz: "Auf dem Vertrag fehlt noch <b>die</b> Unter<b>schrift</b>.",
+        notiz: "Das Wort endet auf -schrift, und „die Schrift“ ist feminin. Also immer die." },
+      { satz: "<b>Der</b> Schrift<b>typ</b> auf dem Formular ist zu klein.",
+        notiz: "Hier steht Schrift vorne. Jetzt zählt „der Typ“, also der Schrifttyp." },
+      { satz: "<b>Das</b> Schrift<b>zeichen</b> auf der Tastatur kenne ich nicht.",
+        notiz: "Gleiche Logik: „das Zeichen“ gibt den Artikel weiter." }
+    ],
+    merk: "Immer auf den letzten Teil schauen. Deshalb der Schriftexperte, nicht „den Schriftexperte“."
+  },
+  de: "<p>Wie „Lern-“ an Tag 2, aber diesmal mit <b>Schrift</b>, einmal als Grundwort, einmal mit Vorsilbe.</p>",
   tabelle: {
     kopf: ["Nomen + Schrift", "Bedeutung", "Schrift + Nomen / Vorsilbe + Schrift"],
     zeilen: [
-      ["die <b>Druck</b>schrift", "Schrift sieht aus wie gedruckt", "das <b>Schriftzeichen</b> — graphisches Zeichen"],
-      ["die <b>Hand</b>schrift", "wenn man mit der Hand schreibt", "der <b>Schriftexperte</b> — Fachmann für Schriften"],
-      ["die <b>Zeit</b>schrift", "regelmäßig erscheinendes Druckerzeugnis", "die <b>Schriftprobe</b> — kurzer Beispieltext"],
-      ["die <b>Noten</b>schrift", "System von Zeichen für Musiknoten", "der <b>Schrifttyp</b> — Schriftart"],
-      ["die <b>Über</b>schrift", "steht über einem Text", "die <b>Unter</b>schrift — Name unter einem Schreiben"],
-      ["die <b>Mit</b>schrift", "das Protokoll", "die <b>An</b>schrift — die Adresse"],
-      ["die <b>Vor</b>schrift", "Anweisung, die für alle gilt", "die <b>Schreib</b>schrift — verbundene Handschrift"]
+      ["die <b>Druck</b>schrift", "Schrift sieht aus wie gedruckt", "das <b>Schriftzeichen</b>, graphisches Zeichen"],
+      ["die <b>Hand</b>schrift", "wenn man mit der Hand schreibt", "der <b>Schriftexperte</b>, Fachmann für Schriften"],
+      ["die <b>Zeit</b>schrift", "regelmäßig erscheinendes Druckerzeugnis", "die <b>Schriftprobe</b>, kurzer Beispieltext"],
+      ["die <b>Noten</b>schrift", "System von Zeichen für Musiknoten", "der <b>Schrifttyp</b>, Schriftart"],
+      ["die <b>Über</b>schrift", "steht über einem Text", "die <b>Unter</b>schrift, Name unter einem Schreiben"],
+      ["die <b>Mit</b>schrift", "das Protokoll", "die <b>An</b>schrift, die Adresse"],
+      ["die <b>Vor</b>schrift", "Anweisung, die für alle gilt", "die <b>Schreib</b>schrift, verbundene Handschrift"]
     ]
   },
-  regel: "„die Schrift“ ist feminin — deshalb sind ALLE Wörter, die auf -schrift enden, feminin: die Handschrift, die Überschrift, die Vorschrift. Aber: Schrift+Nomen nimmt den Artikel des zweiten Wortes: der Schrifttyp, der Schriftexperte, das Schriftzeichen.",
+  regel: "„die Schrift“ ist feminin, deshalb sind ALLE Wörter, die auf -schrift enden, feminin: die Handschrift, die Überschrift, die Vorschrift. Aber: Schrift+Nomen nimmt den Artikel des zweiten Wortes: der Schrifttyp, der Schriftexperte, das Schriftzeichen.",
   beispiele: [
-    "Im Unterricht hattest du „<u>den</u> Schriftexperte“ und „<u>dere</u> Schrifttyp“ geschrieben — richtig: <b>der</b> Schriftexperte, <b>der</b> Schrifttyp.",
+    "Im Unterricht hattest du „<u>den</u> Schriftexperte“ und „<u>dere</u> Schrifttyp“ geschrieben, richtig: <b>der</b> Schriftexperte, <b>der</b> Schrifttyp.",
     "Nützlich für Formulare: „Bitte in <b>Druckschrift</b> ausfüllen.“ · „Ihre <b>Unterschrift</b>, bitte.“ · „Ihre <b>Anschrift</b>?“"
   ],
   en: "Compounds again, this time with Schrift. Everything ending in -schrift is feminine because die Schrift is. But Schrift + noun takes the gender of the second word: der Schrifttyp, das Schriftzeichen."
@@ -162,7 +238,7 @@ bloecke: [
 
 /* ---------------- 1. Alternativen erkennen ---------------- */
 {
-titel: "Alternativen erkennen — welche Bauform?",
+titel: "Alternativen erkennen: welche Bauform?",
 telc: "Sprachbausteine Teil 1",
 hinweis: "Kursbuch C2a/2b (S. 14). Alle Sätze stammen aus dem Radiointerview.",
 items: [
@@ -174,7 +250,7 @@ items: [
   { typ:"mc", thema:"konnektoren",
     frage:"„Die eine Gruppe schrieb mit dem Laptop, die andere Gruppe schrieb <b>stattdessen</b> mit der Hand.“",
     optionen:["Nebensatzkonnektor","Verbindungsadverb","Präposition"], richtig:1,
-    regel:"„stattdessen“ ist ein Verbindungsadverb — es verbindet zwei Hauptsätze, das Verb bleibt an Position 2.",
+    regel:"„stattdessen“ ist ein Verbindungsadverb, es verbindet zwei Hauptsätze, das Verb bleibt an Position 2.",
     en:"stattdessen is an adverb, so verb stays in position 2." },
   { typ:"mc", thema:"konnektoren",
     frage:"„Es wäre ein großer Fehler, <b>anstelle der</b> Handschrift nur noch das Schreiben auf der Tastatur zu lehren.“",
@@ -199,14 +275,14 @@ items: [
       ["Verbindungsadverb","stattdessen"],
       ["Präposition + Genitiv","statt / anstelle"]
     ],
-    regel:"Kursbuch C2b — die Tabelle, die du im Unterricht ausgefüllt hast." , en:"<b>anstatt dass</b> takes a full clause with the verb last, <b>anstatt ... zu</b> an infinitive, <b>stattdessen</b> links two main clauses." }
+    regel:"Kursbuch C2b, die Tabelle, die du im Unterricht ausgefüllt hast." , en:"<b>anstatt dass</b> takes a full clause with the verb last, <b>anstatt ... zu</b> an infinitive, <b>stattdessen</b> links two main clauses." }
 ]},
 
 /* ---------------- 2. Die Subjektregel ---------------- */
 {
-titel: "„anstatt dass“ oder „anstatt … zu“? — die Subjektregel",
+titel: "„anstatt dass“ oder „anstatt … zu“?: die Subjektregel",
 telc: "Sprachbausteine Teil 1",
-hinweis: "Arbeitsbuch C3a–d (S. 143). Genau hier war dein Fehler im Unterricht — bitte langsam lesen.",
+hinweis: "Arbeitsbuch C3a–d (S. 143). Genau hier war dein Fehler im Unterricht, bitte langsam lesen.",
 items: [
   { typ:"mc", thema:"infinitiv-zu",
     frage:"Wenn die Subjekte in Haupt- und Nebensatz <b>nicht identisch</b> sind, kann man …",
@@ -224,7 +300,7 @@ items: [
       "Anstatt Erwachsene die Schreibschrift zu verwenden, schreiben viele in Druckschrift.",
       "Anstatt die Schreibschrift zu verwenden, schreiben viele Erwachsene in Druckschrift."
     ], richtig:1,
-    regel:"Bei „anstatt … zu“ darf das Subjekt NICHT im anstatt-Teil stehen — es ist implizit dasselbe wie im Hauptsatz.",
+    regel:"Bei „anstatt … zu“ darf das Subjekt NICHT im anstatt-Teil stehen, es ist implizit dasselbe wie im Hauptsatz.",
     gegenbeispiel:"Das war genau dein Fehler bei Arbeitsbuch C3c Nr. 3.",
     en:"With anstatt … zu the subject must not appear in the anstatt-part." },
   { typ:"luecke", thema:"infinitiv-zu",
@@ -239,7 +315,7 @@ items: [
     loesung:["zu","lesen"],
     regel:"Objekt zuerst, dann „zu“ + Infinitiv." , en:"The object comes first, then <b>zu</b> plus the infinitive at the very end of the anstatt-phrase." },
   { typ:"luecke", thema:"konnektoren",
-    frage:"Arbeitsbuch C3b Nr. 1 — verschiedene Subjekte (Lucky / seine Freunde):",
+    frage:"Arbeitsbuch C3b Nr. 1, verschiedene Subjekte (Lucky / seine Freunde):",
     satz:"___ ___ Lucky seinen Lernplan alleine erstellt, helfen ihm seine Freunde.",
     loesung:["Anstatt","dass"],
     regel:"Zwei verschiedene Subjekte → nur „anstatt dass“ möglich. Verb „erstellt“ ans Ende." , en:"The two clauses have different subjects (Lucky vs his friends), so only <b>anstatt dass</b> works, verb last." },
@@ -262,18 +338,18 @@ items: [
 {
 titel: "Angaben mit Präposition ↔ Nebensatz",
 telc: "Sprachbausteine Teil 1",
-hinweis: "Arbeitsbuch B6 und B7 (S. 140–141). Die Umformung in beide Richtungen — telc-Lieblingsaufgabe.",
+hinweis: "Arbeitsbuch B6 und B7 (S. 140–141). Die Umformung in beide Richtungen, telc-Lieblingsaufgabe.",
 items: [
   { typ:"mc", thema:"konnektoren",
-    frage:"„<b>Wegen ihrer Krankheit</b> konnte Paula sich nicht gut vorbereiten.“ — Was drückt der Satz aus?",
+    frage:"„<b>Wegen ihrer Krankheit</b> konnte Paula sich nicht gut vorbereiten.“ Was drückt der Satz aus?",
     optionen:["Grund + logische Folge","Gegengrund + nicht erwartete Folge"], richtig:0,
     regel:"„wegen“ nennt einen Grund. Die Folge ist logisch: krank → keine Vorbereitung. (Arbeitsbuch B6a, Satz 1)" , en:"<b>wegen</b> gives a cause, and the result follows logically from it, no contrast involved." },
   { typ:"mc", thema:"konnektoren",
     frage:"„Paula hat die Prüfung <b>trotz ihrer Krankheit</b> bestanden.“",
     optionen:["Grund + logische Folge","Gegengrund + nicht erwartete Folge"], richtig:1,
-    regel:"„trotz“ nennt einen Gegengrund — man erwartet: krank → durchgefallen. Aber sie hat bestanden." , en:"<b>trotz</b> gives a counter-reason: you expect failure, and the opposite happens." },
+    regel:"„trotz“ nennt einen Gegengrund, man erwartet: krank → durchgefallen. Aber sie hat bestanden." , en:"<b>trotz</b> gives a counter-reason: you expect failure, and the opposite happens." },
   { typ:"luecke", thema:"kasus",
-    frage:"Genitivendungen (Arbeitsbuch B6b) — Maskulinum:",
+    frage:"Genitivendungen (Arbeitsbuch B6b), Maskulinum:",
     satz:"wegen d___ Professor___", loesung:["es","s"],
     regel:"Maskulinum Genitiv: der → des, und das Nomen bekommt zusätzlich ein -s: wegen des Professors." , en:"Masculine genitive is <b>des</b>, and the noun itself also takes an -s ending." },
   { typ:"luecke", thema:"kasus",
@@ -287,7 +363,7 @@ items: [
     frage:"Neutrum:", satz:"trotz ihr___ Seminar___", loesung:["es","s"],
     regel:"Neutrum wie Maskulinum: -es + Nomen mit -s." , en:"Neuter behaves like masculine here: -es on the article plus -s on the noun." },
   { typ:"luecke", thema:"konnektoren",
-    frage:"Arbeitsbuch B7 Nr. 1 — Präposition → Nebensatz: „<b>Aus Angst vor der Prüfung</b> beginne ich früh mit dem Lernen.“",
+    frage:"Arbeitsbuch B7 Nr. 1, Präposition → Nebensatz: „<b>Aus Angst vor der Prüfung</b> beginne ich früh mit dem Lernen.“",
     satz:"Weil ___ Angst vor der Prüfung ___, beginne ich früh mit dem Lernen.",
     loesung:["ich","habe"],
     regel:"„aus Angst“ → „weil ich Angst habe“. Das Verb steht im Nebensatz am Ende." , en:"The noun phrase <b>aus Angst</b> unpacks into a weil-clause, and the verb <b>habe</b> lands at the end." },
@@ -296,9 +372,9 @@ items: [
     satz:"Obwohl es zahlreich___ Studien ___, hat man die optimale Lernmethode noch nicht gefunden.",
     loesung:["e","gibt"],
     regel:"„es gibt“ + Akkusativ Plural ohne Artikel → starke Endung -e: zahlreich<b>e</b> Studien.",
-    gegenbeispiel:"Im Unterricht hattest du „zahlreichen“ geschrieben — das wäre Dativ." , en:"After <b>es gibt</b> you get accusative plural with no article, so the adjective takes the strong ending -e." },
+    gegenbeispiel:"Im Unterricht hattest du „zahlreichen“ geschrieben, das wäre Dativ." , en:"After <b>es gibt</b> you get accusative plural with no article, so the adjective takes the strong ending -e." },
   { typ:"luecke", thema:"konnektoren",
-    frage:"Arbeitsbuch B7 Nr. 3 — jetzt umgekehrt, Nebensatz → Präposition: „<b>Obwohl man es kritisiert</b>, finde ich das Hervorheben nützlich.“",
+    frage:"Arbeitsbuch B7 Nr. 3, jetzt umgekehrt, Nebensatz → Präposition: „<b>Obwohl man es kritisiert</b>, finde ich das Hervorheben nützlich.“",
     satz:"Trotz ___ ___ finde ich das Hervorheben von Informationen sehr nützlich.",
     loesung:[["der"],["Kritik","kritik"]],
     regel:"<b>die</b> Kritik → Genitiv feminin: trotz <b>der</b> Kritik.",
@@ -314,7 +390,7 @@ items: [
     satz:"___ Zeitmangel hat Nia nicht alle Aufgaben geschafft.", loesung:[["Aus","aus"]],
     regel:"„aus“ + Dativ, bei abstrakten Nomen OHNE Artikel: aus Zeitmangel, aus Langeweile, aus Angst, aus Freude." , en:"<b>aus</b> plus an abstract noun drops the article completely: aus Zeitmangel, aus Langeweile." },
   { typ:"ordnen", thema:"kasus",
-    frage:"Arbeitsbuch B6d — die Angabe in die Satzmitte stellen.",
+    frage:"Arbeitsbuch B6d, die Angabe in die Satzmitte stellen.",
     woerter:["Viele","lernen","trotz","zahlreicher","Ratgeber","nicht","effizient."],
     loesung:"Viele lernen trotz zahlreicher Ratgeber nicht effizient.",
     regel:"Angaben mit Präposition stehen am Satzanfang ODER in der Satzmitte. In der Mitte: nach dem Verb, vor der Negation." , en:"A prepositional phrase can sit mid-sentence: right after the verb and before <b>nicht</b>." }
@@ -322,9 +398,9 @@ items: [
 
 /* ---------------- 4. Hörverstehen (Transkript-Simulation) ---------------- */
 {
-titel: "Hörverstehen — globales und selektives Hören",
+titel: "Hörverstehen: globales und selektives Hören",
 telc: "Hörverstehen Teil 1 & 2",
-hinweis: "Das Radiointerview „Neurowissenschaft und Lernen“ aus Kursbuch C1. Ich kann kein Audio abspielen — " +
+hinweis: "Das Radiointerview „Neurowissenschaft und Lernen“ aus Kursbuch C1. Ich kann kein Audio abspielen, " +
          "deshalb arbeitest du hier mit den Aussagen. <b>Lies zuerst alle Aussagen, dann entscheide.</b>",
 items: [
   { typ:"mc", thema:"hoerverstehen",
@@ -333,39 +409,39 @@ items: [
       "Das Hauptthema ist, dass Kinder nicht mehr flüssig mit der Hand schreiben können.",
       "Das Hauptthema ist, welche Rolle das Schreiben mit der Hand im digitalen Zeitalter spielt."
     ], richtig:1,
-    regel:"Beim globalen Hören suchst du den ÜBERGEORDNETEN Rahmen. Dass Kinder nicht mehr flüssig schreiben, ist ein <b>Detail</b> innerhalb dieses Themas — es kommt im Text vor, ist aber nicht das Thema selbst.",
-    gegenbeispiel:"Prüfe es an Aussage 1c/1: „In Schule und Forschung beschäftigt man sich mit der Zukunft der Handschrift“ — das ist richtig, und es passt nur zu Antwort b.",
-    en:"Global listening asks for the umbrella topic. A true detail from the text is still not the main topic — a classic exam trap." },
+    regel:"Beim globalen Hören suchst du den ÜBERGEORDNETEN Rahmen. Dass Kinder nicht mehr flüssig schreiben, ist ein <b>Detail</b> innerhalb dieses Themas, es kommt im Text vor, ist aber nicht das Thema selbst.",
+    gegenbeispiel:"Prüfe es an Aussage 1c/1: „In Schule und Forschung beschäftigt man sich mit der Zukunft der Handschrift“ das ist richtig, und es passt nur zu Antwort b.",
+    en:"Global listening asks for the umbrella topic. A true detail from the text is still not the main topic, a classic exam trap." },
   { typ:"mc", thema:"hoerverstehen",
     frage:"<b>Selektiv</b> (C1c/1): „In Schule und Forschung beschäftigt man sich mit der Zukunft der Handschrift.“",
     optionen:["richtig","falsch"], richtig:0,
-    regel:"Richtig — das ist der Rahmen des ganzen Interviews." , en:"Selective listening: this statement just restates the interview's overall topic, so it is true." },
+    regel:"Richtig, das ist der Rahmen des ganzen Interviews." , en:"Selective listening: this statement just restates the interview's overall topic, so it is true." },
   { typ:"mc", thema:"hoerverstehen",
     frage:"(C1c/3): „In der Schule wird nur noch die Druckschrift unterrichtet und nicht die Schreibschrift.“",
     optionen:["richtig","falsch"], richtig:1,
-    regel:"Falsch. Es wird <b>diskutiert</b>, ob man nur noch Druckschrift lehren sollte — beschlossen ist das nicht. Achte auf solche Übertreibungen („nur noch“, „immer“, „nie“): sie sind in telc fast immer falsch.",
-    en:"Watch for absolutes like nur noch / immer / nie — in telc they are usually the false ones." },
+    regel:"Falsch. Es wird <b>diskutiert</b>, ob man nur noch Druckschrift lehren sollte, beschlossen ist das nicht. Achte auf solche Übertreibungen („nur noch“, „immer“, „nie“): sie sind in telc fast immer falsch.",
+    en:"Watch for absolutes like nur noch / immer / nie, in telc they are usually the false ones." },
   { typ:"mc", thema:"hoerverstehen",
     frage:"(C1e/1): „Tippen ist immer effektiver, als mit der Hand zu schreiben.“",
     optionen:["richtig","falsch"], richtig:1,
-    regel:"Falsch — „immer“ ist die Übertreibung. Das Interview sagt das Gegenteil: Handschrift aktiviert mehr Gehirnbereiche." , en:"The absolute word <b>immer</b> is the trap; the interview claims handwriting activates more brain regions." },
+    regel:"Falsch, „immer“ ist die Übertreibung. Das Interview sagt das Gegenteil: Handschrift aktiviert mehr Gehirnbereiche." , en:"The absolute word <b>immer</b> is the trap; the interview claims handwriting activates more brain regions." },
   { typ:"mc", thema:"hoerverstehen",
     frage:"(C1e/3): „Beim Schreiben mit der Hand werden viele Bereiche des Gehirns aktiviert.“",
     optionen:["richtig","falsch"], richtig:0,
-    regel:"Richtig — das ist das zentrale Argument der Neurowissenschaft im Interview." , en:"True, and it is the core neuroscience point the interview builds its argument on." },
+    regel:"Richtig, das ist das zentrale Argument der Neurowissenschaft im Interview." , en:"True, and it is the core neuroscience point the interview builds its argument on." },
   { typ:"mc", thema:"hoerverstehen",
     frage:"(C1e/4): „Mit dem Laptop kann man schneller mehr Informationen notieren, deshalb lernt man besser.“",
     optionen:["richtig","falsch"], richtig:1,
-    regel:"Falsch — der erste Teil stimmt, aber die Schlussfolgerung nicht. <b>Typische telc-Falle:</b> halb richtig ist falsch. Lies immer den ganzen Satz.",
+    regel:"Falsch, der erste Teil stimmt, aber die Schlussfolgerung nicht. <b>Typische telc-Falle:</b> halb richtig ist falsch. Lies immer den ganzen Satz.",
     en:"Classic telc trap: half true is false. Read the whole statement." },
   { typ:"mc", thema:"hoerverstehen",
     frage:"(C1e/5): „Wenn man Notizen mit der Hand macht, verarbeitet man gleichzeitig die Informationen.“",
     optionen:["richtig","falsch"], richtig:0,
-    regel:"Richtig — Handschrift zwingt zum Zusammenfassen, dadurch verarbeitet man den Inhalt." , en:"True: writing by hand forces you to condense, and that processing happens as you write." },
+    regel:"Richtig, Handschrift zwingt zum Zusammenfassen, dadurch verarbeitet man den Inhalt." , en:"True: writing by hand forces you to condense, and that processing happens as you write." },
   { typ:"mc", thema:"hoerverstehen",
     frage:"(C1e/6): „Man sollte Notizen nur handschriftlich machen.“",
     optionen:["richtig","falsch"], richtig:1,
-    regel:"Falsch — wieder „nur“. Das Interview empfiehlt keine Extremposition." , en:"The word <b>nur</b> makes it too absolute; the interview never takes an all-or-nothing position." }
+    regel:"Falsch, wieder „nur“. Das Interview empfiehlt keine Extremposition." , en:"The word <b>nur</b> makes it too absolute; the interview never takes an all-or-nothing position." }
 ]},
 
 /* ---------------- 5. Wortschatz & Wortbildung ---------------- */
@@ -375,7 +451,7 @@ telc: "Leseverstehen Teil 2 · Sprachbausteine Teil 2",
 hinweis: "Arbeitsbuch C1 und C2 (S. 142).",
 items: [
   { typ:"zuordnen", thema:"wortschatz",
-    frage:"Arbeitsbuch C1a — was bedeuten die Wörter?",
+    frage:"Arbeitsbuch C1a, was bedeuten die Wörter?",
     paare:[
       ["die Ausführungen (Pl.)","Erklärungen"],
       ["das Gedächtnis","Erinnerungsfähigkeit"],
@@ -389,9 +465,9 @@ items: [
       ["die Ergonomie","Anpassung zwischen Mensch und Arbeitsumgebung"],
       ["die Neurowissenschaft","Beschäftigung mit Struktur und Funktionen von Nervensystemen"]
     ],
-    regel:"Beide sind internationale Wörter — nutze dein Englisch: ergonomics, neuroscience." , en:"Both are international words, so map them straight onto ergonomics and neuroscience." },
+    regel:"Beide sind internationale Wörter, nutze dein Englisch: ergonomics, neuroscience." , en:"Both are international words, so map them straight onto ergonomics and neuroscience." },
   { typ:"cloze", thema:"wortschatz",
-    frage:"Arbeitsbuch C1b — welches Adjektiv passt?",
+    frage:"Arbeitsbuch C1b, welches Adjektiv passt?",
     text:"Früher wurde vieles handschriftlich geschrieben, heute wird so viel mit Tablets und Laptops gearbeitet, " +
          "dass auch Erwachsene bemerken, dass sie nicht mehr so ___ mit der Hand schreiben können. " +
          "„Welche Zukunft hat die Handschrift überhaupt noch im digitalen Zeitalter?“ Das ist eine Frage, die ___ diskutiert wird. " +
@@ -402,26 +478,26 @@ items: [
       { optionen:["intensiver","kontrovers","effektiver"], richtig:1, regel:"„kontrovers diskutieren“ = mit gegensätzlichen Meinungen. Feste Verbindung!" },
       { optionen:["aktiver","effektiver","flüssiger"], richtig:1, regel:"Komparativ im Vergleich: Tippen ist effektiver (als Schreiben)." },
       { optionen:["intensiver","kontroverser","flüssiger"], richtig:0, regel:"„den Stoff intensiver verarbeiten“ = gründlicher." },
-      { optionen:["effektiv","aktiv","flüssig"], richtig:1, regel:"„Bereiche des Gehirns sind aktiv“ — Standardkollokation." }
+      { optionen:["effektiv","aktiv","flüssig"], richtig:1, regel:"„Bereiche des Gehirns sind aktiv“ Standardkollokation." }
     ],
     en:"Note the fixed collocations: kontrovers diskutieren, flüssig schreiben, Bereiche sind aktiv." },
   { typ:"luecke", thema:"wortbildung",
-    frage:"Arbeitsbuch C2a — Nomen + „Schrift“ mit Artikel:",
+    frage:"Arbeitsbuch C2a, Nomen + „Schrift“ mit Artikel:",
     satz:"___ Zeitschrift = regelmäßig erscheinendes Druckerzeugnis", loesung:[["die"]],
     regel:"Alle Wörter auf -schrift sind feminin, weil „die Schrift“ feminin ist." , en:"In a compound the last part sets the gender, and <b>die Schrift</b> is feminine." },
   { typ:"luecke", thema:"wortbildung",
-    frage:"Aber Achtung — „Schrift“ am ANFANG:",
+    frage:"Aber Achtung, „Schrift“ am ANFANG:",
     satz:"___ Schriftexperte = Fachmann für Schriften", loesung:[["der"]],
     regel:"Hier steht „Schrift“ vorne, also entscheidet das zweite Wort: <b>der</b> Experte → <b>der</b> Schriftexperte.",
     gegenbeispiel:"Dein Fehler im Unterricht: „den Schriftexperte“." , en:"Here Schrift is the first part, so the gender comes from <b>der</b> Experte instead." },
   { typ:"luecke", thema:"wortbildung",
     frage:"Genauso hier:", satz:"___ Schrifttyp = die Schriftart", loesung:[["der"]],
-    regel:"der Typ → der Schrifttyp. (Im Unterricht: „dere Schrifttyp“ — Artikel prüfen!)" , en:"Same rule: the head noun is <b>der</b> Typ, so the compound is der Schrifttyp." },
+    regel:"der Typ → der Schrifttyp. (Im Unterricht: „dere Schrifttyp“ Artikel prüfen!)" , en:"Same rule: the head noun is <b>der</b> Typ, so the compound is der Schrifttyp." },
   { typ:"luecke", thema:"wortbildung",
     frage:"Und neutrum:", satz:"___ Schriftzeichen = graphisches Zeichen zum Schreiben", loesung:[["das"]],
     regel:"das Zeichen → das Schriftzeichen." , en:"The head noun is <b>das</b> Zeichen, which makes the whole compound neuter." },
   { typ:"zuordnen", thema:"wortbildung",
-    frage:"Arbeitsbuch C2b — Vorsilbe + „Schrift“:",
+    frage:"Arbeitsbuch C2b, Vorsilbe + „Schrift“:",
     paare:[
       ["die Überschrift","steht über einem Text und kennzeichnet ihn"],
       ["die Unterschrift","Name unter einem Schreiben"],
@@ -436,19 +512,19 @@ items: [
 {
 titel: "Wiederholung aus Tag 2",
 telc: "Sprachbausteine Teil 1",
-hinweis: "Deine Fehler von gestern kommen zurück — plus die Sätze aus Arbeitsbuch B5d/B5e, die du heute im Kurs gemacht hast.",
+hinweis: "Deine Fehler von gestern kommen zurück, plus die Sätze aus Arbeitsbuch B5d/B5e, die du heute im Kurs gemacht hast.",
 items: [
   { typ:"luecke", thema:"zweiteilige-konnektoren", wdh:true,
-    frage:"Arbeitsbuch B5e Nr. 2 — mit „zwar …, aber“:",
+    frage:"Arbeitsbuch B5e Nr. 2, mit „zwar …, aber“:",
     satz:"___ gibt es viele Lerntechniken, ___ oft wenden Lerner nur eine an.",
     loesung:["Zwar","aber"],
     regel:"„zwar“ auf Position 1 → Verb „gibt“ auf Position 2. Nach „aber“ ein normaler Hauptsatz.",
-    gegenbeispiel:"Achte auf „der Lern<b>er</b>“ (die Person) — nicht „lernen“ (das Verb)." , en:"<b>zwar</b> occupies position one, so the verb <b>gibt</b> comes second; after aber the word order is normal." },
+    gegenbeispiel:"Achte auf „der Lern<b>er</b>“ (die Person), nicht „lernen“ (das Verb)." , en:"<b>zwar</b> occupies position one, so the verb <b>gibt</b> comes second; after aber the word order is normal." },
   { typ:"luecke", thema:"zweiteilige-konnektoren", wdh:true,
-    frage:"Arbeitsbuch B5e Nr. 3 — hier hattest du eine Präposition verwechselt:",
+    frage:"Arbeitsbuch B5e Nr. 3, hier hattest du eine Präposition verwechselt:",
     satz:"Zwar hilft häufiges Wiederholen beim Lernen, aber viele lernen nur kurz ___ der Prüfung.",
     loesung:[["vor"]],
-    regel:"„<b>vor</b> der Prüfung“ = zeitlich davor. Du hattest „von“ geschrieben — das heißt „from/of“.",
+    regel:"„<b>vor</b> der Prüfung“ = zeitlich davor. Du hattest „von“ geschrieben, das heißt „from/of“.",
     en:"vor der Prüfung = before the exam; von = from/of." },
   { typ:"luecke", thema:"konnektoren", wdh:true,
     frage:"Grund mit Nebensatz (Tag 2):",
@@ -461,7 +537,7 @@ items: [
     loesung:[["Deshalb","Deswegen","Daher"],["mache"]],
     regel:"Verbindungsadverb Position 1 → Verb Position 2 → dann das Subjekt. Das war dein häufigster Fehler im Chat." , en:"<b>Deshalb</b> sits in position one, so the verb comes second and the subject only after it." },
   { typ:"ordnen", thema:"nebensatz", wdh:true,
-    frage:"Nebensatz vorne — was passiert mit dem Hauptsatz?",
+    frage:"Nebensatz vorne, was passiert mit dem Hauptsatz?",
     woerter:["Obwohl","der","Unterricht","schwer","war,","habe","ich","die","Übungen","richtig","gemacht."],
     loesung:"Obwohl der Unterricht schwer war, habe ich die Übungen richtig gemacht.",
     regel:"Genau dein Satz aus dem Chat, jetzt korrekt: „war“ ans Ende des obwohl-Satzes, „habe“ direkt nach dem Komma." , en:"The obwohl-clause fills position one, so <b>habe</b> follows immediately after the comma." }
@@ -469,9 +545,9 @@ items: [
 
 /* ---------------- 7. Schreiben ---------------- */
 {
-titel: "Schriftlicher Ausdruck — Forumsbeitrag ergänzen",
+titel: "Schriftlicher Ausdruck: Forumsbeitrag ergänzen",
 telc: "Schriftlicher Ausdruck",
-hinweis: "Arbeitsbuch B8 (S. 141) — der Beitrag, den du im Kurs noch nicht fertig hattest.",
+hinweis: "Arbeitsbuch B8 (S. 141), der Beitrag, den du im Kurs noch nicht fertig hattest.",
 items: [
   { typ:"cloze", thema:"schreiben",
     frage:"Ergänze den Forumsbeitrag mit den passenden Wendungen.",
@@ -495,7 +571,7 @@ items: [
     mindestWorte:80,
     hinweise:["Anstatt … zu …","stattdessen","trotz + Genitiv","wegen + Genitiv","Meiner Erfahrung nach …","Aus diesem Grund …"],
     muster:"Ich arbeite jeden Tag am Laptop, <b>trotzdem</b> mache ich meine Notizen lieber mit der Hand. " +
-      "<b>Anstatt</b> alles mitzutippen, schreibe ich nur Stichpunkte auf — <b>stattdessen</b> höre ich genauer zu. " +
+      "<b>Anstatt</b> alles mitzutippen, schreibe ich nur Stichpunkte auf, <b>stattdessen</b> höre ich genauer zu. " +
       "<b>Wegen der aktiven Beschäftigung</b> mit dem Inhalt bleibt der Stoff bei mir besser im Gedächtnis. " +
       "<b>Trotz meiner schlechten Handschrift</b> ist das für mich effektiver. " +
       "Beim Deutschlernen schreibe ich neue Wörter deshalb immer handschriftlich auf, <b>anstatt</b> sie nur <b>zu lesen</b>.",
@@ -539,7 +615,7 @@ zusammenfassung:
   "</ul>",
 
 dialog:
-  "<p>Antworte mir im Chat auf Deutsch — <b>sprich jeden Satz zuerst laut</b>:</p>" +
+  "<p>Antworte mir im Chat auf Deutsch, <b>sprich jeden Satz zuerst laut</b>:</p>" +
   "<p><b>1.</b> Was machst du beim Deutschlernen, <b>anstatt</b> etwas anderes zu tun? Ein Satz mit „anstatt … zu“.<br>" +
   "<b>2.</b> Nenne etwas, das du <b>trotz</b> einer Schwierigkeit schaffst. Ein Satz mit „trotz“ + Genitiv.<br>" +
   "<b>3.</b> Schreibst du lieber mit der Hand oder tippst du? Begründe in zwei Sätzen und benutze einmal „stattdessen“.</p>"

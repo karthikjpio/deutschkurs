@@ -1,10 +1,10 @@
 /* ============================================================
-   SCHREIBEN — telc-Prüfungstraining Schriftliche Kommunikation
+   SCHREIBEN, telc-Prüfungstraining Schriftliche Kommunikation
    b1: telc Deutsch B1, Schriftliche Kommunikation. Ein Brief oder
        eine E-Mail, Situation plus vier Leitpunkte, 30 Minuten.
        Bewertet werden Inhalt/Aufgabengerechtheit (alle vier
        Leitpunkte), Kommunikative Gestaltung (Anrede, Aufbau,
-       Register, Gruß) und Formale Richtigkeit — je 5 Punkte,
+       Register, Gruß) und Formale Richtigkeit, je 5 Punkte,
        mal 3 gerechnet = 45 Punkte, 15 % der Gesamtprüfung.
    b2: telc Deutsch B2, Schriftlicher Ausdruck. Eine von zwei
        Aufgaben, halbformelle E-Mail, Leserbrief oder Forums-
@@ -42,7 +42,7 @@ b1: [
     "wann die nächste telc-Prüfung stattfindet?<br><br>" +
     "<b>Über eine baldige Antwort würde ich mich sehr freuen.</b><br><br>" +
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
-  kriterien:"Alle vier Leitpunkte müssen erkennbar vorkommen — telc zieht pro fehlendem Punkt Inhaltspunkte ab. " +
+  kriterien:"Alle vier Leitpunkte müssen erkennbar vorkommen, telc zieht pro fehlendem Punkt Inhaltspunkte ab. " +
     "Die sicheren Punkte liegen in der Kommunikativen Gestaltung: „Sehr geehrte Damen und Herren,“ mit Komma, " +
     "danach klein weiter, ein Absatz pro Leitpunkt und „Mit freundlichen Grüßen“ ohne Komma am Ende.",
   regel:"Formelle E-Mail: Anrede mit Komma, dann kleingeschrieben weiter. Bitten stehen im Konjunktiv II (könnten Sie …), das ist höflicher als eine direkte Frage.",
@@ -71,12 +71,12 @@ b1: [
     "nach München geschickt hat. Der Einsatz wurde erst gestern kurzfristig entschieden, deshalb melde ich mich sofort bei Ihnen.<br><br>" +
     "<b>Wäre es möglich, den Termin auf</b> die Woche ab dem 18. November <b>zu verschieben?</b> " +
     "Am Montag und am Mittwoch bin ich den ganzen Tag in Aachen und könnte jederzeit kommen. " +
-    "Außerdem wüsste ich gern, welche Unterlagen ich mitbringen soll — reichen Arbeitsvertrag, " +
+    "Außerdem wüsste ich gern, welche Unterlagen ich mitbringen soll, reichen Arbeitsvertrag, " +
     "Gehaltsabrechnungen und Meldebescheinigung aus?<br><br>" +
     "<b>Vielen Dank im Voraus für Ihre Mühe.</b><br><br>" +
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
   kriterien:"telc achtet hier besonders auf den Adressatenbezug: eine Behörde ist immer „Sie“. " +
-    "Die konkrete Angabe von Datum und Uhrzeit ist ein eigener Leitpunkt — vergisst man sie, fehlt ein Viertel des Inhalts. " +
+    "Die konkrete Angabe von Datum und Uhrzeit ist ein eigener Leitpunkt, vergisst man sie, fehlt ein Viertel des Inhalts. " +
     "Ein Terminvorschlag zählt nur, wenn er wirklich einen Tag nennt.",
   regel:"Bei Terminabsagen gilt: erst der alte Termin, dann der Grund mit „da“ oder „weil“, dann der neue Vorschlag als Frage im Konjunktiv II.",
   en:"Tests rescheduling: naming the existing appointment, giving a reason and proposing a concrete alternative." },
@@ -110,7 +110,7 @@ b1: [
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
   kriterien:"Eine Beschwerde bewertet telc als sachlich, nicht als emotional: keine Ausrufezeichen, keine Vorwürfe. " +
     "Sichere Punkte gibt es für Bestellnummer und Datum (Aufgabengerechtheit) und für eine klare Forderung mit Frist am Schluss.",
-  regel:"Die Beschwerde folgt vier Schritten: Fakten, Problem, bisherige Versuche, Forderung mit Frist. Bleib sachlich — „Leider musste ich feststellen“ statt „Das ist eine Frechheit“.",
+  regel:"Die Beschwerde folgt vier Schritten: Fakten, Problem, bisherige Versuche, Forderung mit Frist. Bleib sachlich, „Leider musste ich feststellen“ statt „Das ist eine Frechheit“.",
   en:"Tests a written complaint: facts first, problem second, then a clear demand with a deadline." },
 
 /* ---------------------------------------------------------- 4 */
@@ -140,10 +140,10 @@ b1: [
     "<b>Darf ich außerdem fragen, wie hoch</b> die Nebenkosten monatlich sind und wie viele Monatsmieten " +
     "als Kaution verlangt werden?<br><br>" +
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
-  kriterien:"Wenn der Name genannt wird, erwartet telc die persönliche Anrede „Sehr geehrter Herr Berger,“ — " +
+  kriterien:"Wenn der Name genannt wird, erwartet telc die persönliche Anrede „Sehr geehrter Herr Berger,“ " +
     "„Sehr geehrte Damen und Herren“ kostet Punkte in der Kommunikativen Gestaltung. " +
     "Beide Fragen (Nebenkosten und Kaution) sind ein einziger Leitpunkt, aber beide müssen vorkommen.",
-  regel:"Anrede mit Namen: „Sehr geehrter Herr Berger,“ / „Sehr geehrte Frau Berger,“. Bei einer Wohnungsanfrage nennt man immer Beruf und Einkommenssicherheit — das erwartet der deutsche Vermieter.",
+  regel:"Anrede mit Namen: „Sehr geehrter Herr Berger,“ / „Sehr geehrte Frau Berger,“. Bei einer Wohnungsanfrage nennt man immer Beruf und Einkommenssicherheit, das erwartet der deutsche Vermieter.",
   en:"Tests a flat-viewing enquiry: where you saw the ad, who you are, when you can come, what you still need to know." },
 
 /* ---------------------------------------------------------- 5 */
@@ -172,7 +172,7 @@ b1: [
     "für Absprachen zur Verfügung stehen. Im Homeoffice bin ich zu den üblichen Zeiten erreichbar.<br><br>" +
     "<b>Hätten Sie in den nächsten Tagen Zeit für ein kurzes Gespräch?</b> Gern richte ich mich nach Ihrem Kalender.<br><br>" +
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
-  kriterien:"Der Leitpunkt „zwei Gründe“ muss wirklich zwei Gründe enthalten — telc zählt hier nach. " +
+  kriterien:"Der Leitpunkt „zwei Gründe“ muss wirklich zwei Gründe enthalten, telc zählt hier nach. " +
     "Punkte in der Kommunikativen Gestaltung gibt es für das höfliche Register gegenüber der Vorgesetzten: " +
     "„ich möchte Sie um … bitten“ statt „ich will“.",
   regel:"Eine Bitte an Vorgesetzte steht im Konjunktiv II (würde, könnte, hätte). Wer eine Sonderregelung will, bietet im selben Brief an, was er dafür sicherstellt.",
@@ -226,16 +226,16 @@ b1: [
     "Wir könnten zusammen …",
     "Denk bitte daran, … mitzubringen."],
   muster:"<b>Lieber Ravi,</b><br><br>" +
-    "<b>ich habe mich riesig über deine Nachricht gefreut.</b> Natürlich kannst du kommen — " +
+    "<b>ich habe mich riesig über deine Nachricht gefreut.</b> Natürlich kannst du kommen, " +
     "das Gästezimmer ist frei und wir haben uns viel zu erzählen.<br><br>" +
     "<b>Wie wäre es, wenn du</b> das zweite Dezemberwochenende <b>kommst?</b> " +
     "Da habe ich Urlaub und muss nicht in den Sprachkurs. Wenn dir das zu früh ist, geht auch das Wochenende danach.<br><br>" +
     "<b>Wir könnten zusammen</b> über den Weihnachtsmarkt am Dom laufen, dort gibt es die berühmten Aachener Printen. " +
     "Am Samstag schlage ich einen Ausflug in die Therme vor, und abends koche ich für dich indisch. " +
     "Wenn du Lust hast, fahren wir sonntags kurz nach Maastricht, das ist nur eine halbe Stunde entfernt.<br><br>" +
-    "<b>Denk bitte daran,</b> warme Kleidung und deine Badesachen <b>mitzubringen</b> — hier ist es im Dezember richtig kalt.<br><br>" +
+    "<b>Denk bitte daran,</b> warme Kleidung und deine Badesachen <b>mitzubringen</b>, hier ist es im Dezember richtig kalt.<br><br>" +
     "Ich freue mich auf dich!<br>Viele Grüße<br>Karthik",
-  kriterien:"Im informellen Brief prüft telc das Register: durchgehend „du“, „dein“, „dir“ — ein einziges „Sie“ zerstört die Kommunikative Gestaltung. " +
+  kriterien:"Im informellen Brief prüft telc das Register: durchgehend „du“, „dein“, „dir“ ein einziges „Sie“ zerstört die Kommunikative Gestaltung. " +
     "Anrede „Lieber Ravi,“ und ein persönlicher Gruß wie „Viele Grüße“ sind sichere Punkte.",
   regel:"Informeller Brief: „Lieber/Liebe“ + Vorname, Komma, klein weiter. Gruß ohne Komma: „Viele Grüße“ oder „Liebe Grüße“. Du-Formen im ganzen Text konsequent klein.",
   en:"Tests the informal register: an invitation with a date, a plan, and a practical request." },
@@ -259,7 +259,7 @@ b1: [
   muster:"<b>Liebe Anna,</b><br><br>" +
     "<b>danke für deine Nachricht.</b> Schön, dass du endlich die Wohnung in der Nähe des Parks bekommen hast!<br><br>" +
     "<b>Leider muss ich dir absagen, weil</b> ich am Samstag den ganzen Tag in meinem Deutschkurs bin. " +
-    "Wir haben Prüfungssimulation, und im November schreibe ich die telc-Prüfung — den Termin kann ich " +
+    "Wir haben Prüfungssimulation, und im November schreibe ich die telc-Prüfung, den Termin kann ich " +
     "wirklich nicht verschieben. Das tut mir sehr leid, denn ich hätte dir gern geholfen.<br><br>" +
     "<b>Stattdessen könnte ich</b> am Sonntag kommen. Wenn ihr am Samstag die Möbel transportiert, " +
     "helfe ich dir sonntags beim Auspacken und beim Aufbauen der Regale. Werkzeug bringe ich mit.<br><br>" +
@@ -267,7 +267,7 @@ b1: [
     "du seine Nummer haben möchtest, dann frage ich ihn für dich.<br><br>" +
     "Viel Erfolg beim Umzug und bis bald!<br>Liebe Grüße<br>Karthik",
   kriterien:"Absagen sind eine typische telc-Aufgabe: Ohne Entschuldigung und Alternative wirkt der Text unhöflich " +
-    "und verliert Punkte in der Kommunikativen Gestaltung. Vorschlag und zusätzliche Hilfe sind zwei getrennte Leitpunkte — " +
+    "und verliert Punkte in der Kommunikativen Gestaltung. Vorschlag und zusätzliche Hilfe sind zwei getrennte Leitpunkte, " +
     "beide müssen sichtbar sein.",
   regel:"Eine Absage hat immer drei Teile: Bedauern, Grund, Alternative. „Leider“ und „Das tut mir leid“ sind die Signalwörter, die der Prüfer sucht.",
   en:"Tests declining politely: regret, a reason, an alternative and an extra offer of help." },
@@ -289,7 +289,7 @@ b1: [
     "Was mir dagegen leichtfällt, ist …",
     "Wie machst du das eigentlich mit …?"],
   muster:"<b>Hallo Mehdi,</b><br><br>" +
-    "<b>entschuldige, dass ich mich so lange nicht gemeldet habe</b> — zwischen Arbeit und Kurs bleibt kaum Zeit.<br><br>" +
+    "<b>entschuldige, dass ich mich so lange nicht gemeldet habe</b>, zwischen Arbeit und Kurs bleibt kaum Zeit.<br><br>" +
     "Mein Intensivkurs läuft seit August, viermal pro Woche von 18 bis 21 Uhr. Wir sind zwölf Leute aus acht Ländern, " +
     "und die Lehrerin lässt uns sehr viel sprechen. Jede Woche schreiben wir außerdem einen Brief oder eine Stellungnahme.<br><br>" +
     "<b>Am schwersten fällt mir</b> immer noch der Konjunktiv II und die Wortstellung in langen Nebensätzen. " +
@@ -298,7 +298,7 @@ b1: [
     "Am Sonntag mache ich immer einen kompletten Übungstest.<br><br>" +
     "<b>Wie machst du das eigentlich mit</b> dem Sprechen? Hast du einen Tandempartner gefunden?<br><br>" +
     "Melde dich bald!<br>Viele Grüße<br>Karthik",
-  kriterien:"Der vierte Leitpunkt ist eine Frage an den Adressaten — genau daran erkennt telc echte Kommunikation. " +
+  kriterien:"Der vierte Leitpunkt ist eine Frage an den Adressaten, genau daran erkennt telc echte Kommunikation. " +
     "Wer nur über sich schreibt, verliert Punkte. „Hallo“ ist als Anrede unter Freunden zulässig, der Gruß am Ende bleibt trotzdem Pflicht.",
   regel:"Im persönlichen Brief nutzt man Verbindungswörter wie „dagegen“, „außerdem“, „trotzdem“, damit die vier Punkte nicht wie eine Liste wirken.",
   en:"Tests narrating your own learning situation and turning the letter back to the reader with a question." },
@@ -343,7 +343,7 @@ b2: [
 
 /* ---------------------------------------------------------- 1 */
 { typ:"frei", thema:"schreiben", niveau:"b2",
-  frage:"In einem Online-Forum für Berufstätige lesen Sie den Beitrag: <b>„Homeoffice macht Teams kaputt — zurück ins Büro!“</b> " +
+  frage:"In einem Online-Forum für Berufstätige lesen Sie den Beitrag: <b>„Homeoffice macht Teams kaputt, zurück ins Büro!“</b> " +
     "Der Autor behauptet, dass im Homeoffice die Kommunikation leidet, neue Kolleginnen und Kollegen nicht integriert werden " +
     "und die Produktivität sinke. Schreiben Sie einen <b>Forumsbeitrag</b> von mindestens 150 Wörtern. " +
     "Gehen Sie darauf ein, worum es in dem Beitrag geht, nennen Sie Ihre eigene Meinung mit mindestens zwei Argumenten, " +
@@ -373,7 +373,7 @@ b2: [
     "telc bewertet Berücksichtigung der Leitpunkte, Kommunikative Gestaltung und Formale Richtigkeit. " +
     "Sichere Punkte: eine klare These im ersten Absatz, mindestens ein Konzessiv-Zug („Richtig ist … Falsch ist jedoch …“) " +
     "und ein Schluss, der einen echten Vorschlag enthält statt einer Zusammenfassung.",
-  regel:"Ein Forumsbeitrag auf B2 folgt dem Muster These — Gegenargument entkräften — eigene Argumente — Vorschlag. Absätze sind Pflicht, ein Textblock wirkt ungegliedert.",
+  regel:"Ein Forumsbeitrag auf B2 folgt dem Muster These, Gegenargument entkräften, eigene Argumente, Vorschlag. Absätze sind Pflicht, ein Textblock wirkt ungegliedert.",
   en:"Tests argumentative writing: restating a position, conceding partly, adding your own evidence and proposing a solution." },
 
 /* ---------------------------------------------------------- 2 */
@@ -398,13 +398,13 @@ b2: [
     "<b>Diese Einschätzung halte ich für zu pauschal, denn</b> sie verwechselt einzelne Tätigkeiten mit ganzen Berufen. " +
     "Verschwinden werden Aufgaben, nicht zwangsläufig Stellen. <b>Ein Beispiel aus meinem Berufsalltag verdeutlicht das:</b> " +
     "In meinem Team schreibt ein Sprachmodell inzwischen einen Teil der Testfälle. Die Arbeit ist dadurch nicht " +
-    "weniger geworden, sie hat sich verschoben — wir prüfen, bewerten und tragen weiterhin die Verantwortung.<br><br>" +
+    "weniger geworden, sie hat sich verschoben, wir prüfen, bewerten und tragen weiterhin die Verantwortung.<br><br>" +
     "Bedenklich finde ich allerdings, dass Weiterbildung bislang Privatsache bleibt. Wer sich nicht selbst " +
     "qualifiziert, gerät tatsächlich unter Druck, und das trifft ältere Beschäftigte besonders hart.<br><br>" +
     "<b>Statt</b> Technologie <b>zu verbieten, sollte man vielmehr</b> Unternehmen verpflichten, ihre Mitarbeitenden " +
     "während der Arbeitszeit weiterzubilden. Ein Verbot schützt keinen einzigen Arbeitsplatz, Qualifikation dagegen schon.<br><br>" +
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
-  kriterien:"Der Leserbrief braucht formell Anrede und Gruß — anders als der Forumsbeitrag. " +
+  kriterien:"Der Leserbrief braucht formell Anrede und Gruß, anders als der Forumsbeitrag. " +
     "telc erwartet einen klaren Bezug auf den Artikel im ersten Satz (Datum, Titel oder Thema). " +
     "Punkte in der Kommunikativen Gestaltung holt man mit einer Position, die differenziert bleibt: " +
     "erst widersprechen, dann ein Zugeständnis, dann die Forderung.",
@@ -441,7 +441,7 @@ b2: [
     "<b>Sollte ich bis zum</b> 15. Dezember <b>keine Antwort erhalten, behalte ich mir weitere Schritte vor.</b><br><br>" +
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
   kriterien:"Auf B2 erwartet telc eine gegliederte Beschwerde: Sachverhalt, Mängelliste, Begründung des Schadens, Forderung mit Frist. " +
-    "Sichere Punkte liegen im sachlichen Ton und in den Präzisionssignalen — Buchungsnummer, Daten, Beträge. " +
+    "Sichere Punkte liegen im sachlichen Ton und in den Präzisionssignalen, Buchungsnummer, Daten, Beträge. " +
     "Die Formale Richtigkeit wird hier oft im Passiv und im Konjunktiv geprüft („zugesagt worden war“, „sollte vorliegen“).",
   regel:"Formelle Beschwerde: nummerierbare Mängel statt allgemeiner Kritik, jede Behauptung mit Datum oder Zahl belegt, am Schluss eine Frist. Drohungen bleiben angedeutet, nie ausgesprochen.",
   en:"Tests a formal complaint at length: itemising defects, justifying the damage and demanding redress by a deadline." },
@@ -467,7 +467,7 @@ b2: [
     "Bei der Arbeit lernt man den Wortschatz, den man täglich hört, und gewöhnt sich an das Tempo. " +
     "Was man dort nicht lernt, sind die Strukturen: Wer nie korrigiert wird, wiederholt seine Fehler jahrelang. " +
     "<b>Der entscheidende Vorteil eines Kurses besteht darin, dass</b> jemand einem systematisch zeigt, " +
-    "warum ein Satz falsch klingt — im Büro sagt das niemand, weil alle höflich sind.<br><br>" +
+    "warum ein Satz falsch klingt, im Büro sagt das niemand, weil alle höflich sind.<br><br>" +
     "<b>Nicht verschweigen möchte ich, dass</b> die Doppelbelastung erheblich ist. Nach acht Stunden Arbeit " +
     "noch drei Stunden Unterricht zu haben, kostet Kraft, und am Wochenende bleibt wenig Freizeit. " +
     "Wer das unterschätzt, bricht nach wenigen Wochen ab.<br><br>" +
@@ -477,7 +477,7 @@ b2: [
   kriterien:"telc prüft auf B2 die Fähigkeit, abzuwägen. Ein Text, der nur Vorteile nennt, verliert Punkte bei der " +
     "Berücksichtigung der Leitpunkte, weil der Nachteil-Leitpunkt fehlt. " +
     "Der direkte Rat am Ende („Mein Rat wäre …“) sichert den Adressatenbezug, den die Kommunikative Gestaltung verlangt.",
-  regel:"Im Forum duzt man in der Regel. Abwägende Texte brauchen Signalwörter: „allerdings“, „dagegen“, „nicht verschweigen möchte ich“ — sie zeigen dem Prüfer die Struktur.",
+  regel:"Im Forum duzt man in der Regel. Abwägende Texte brauchen Signalwörter: „allerdings“, „dagegen“, „nicht verschweigen möchte ich“ sie zeigen dem Prüfer die Struktur.",
   en:"Tests balanced argumentation in an informal register: pros, cons and personal advice to another user." },
 
 /* ---------------------------------------------------------- 5 */
@@ -510,7 +510,7 @@ b2: [
     "Zweitens brauchen wir eine befristete Arbeitserlaubnis, die schon während des laufenden Verfahrens gilt.<br><br>" +
     "<b>Es liegt im Interesse aller Beteiligten, dass</b> aus Wartezeit endlich Arbeitszeit wird.<br><br>" +
     "Mit freundlichen Grüßen<br>Karthik Jayaprakash",
-  kriterien:"Die Aufgabe verlangt ausdrücklich zwei Maßnahmen — telc zählt sie einzeln. " +
+  kriterien:"Die Aufgabe verlangt ausdrücklich zwei Maßnahmen, telc zählt sie einzeln. " +
     "„Erstens … Zweitens …“ macht dem Prüfer sichtbar, dass der Leitpunkt vollständig bearbeitet ist. " +
     "Für die Formale Richtigkeit lohnt sich die indirekte Rede beim Zitat des Kommentars („wer hier arbeiten wolle, müsse …“).",
   regel:"Beim Zitieren fremder Meinungen steht im Deutschen die indirekte Rede mit Konjunktiv I. Vorschläge werden nummeriert, damit kein Leitpunkt übersehen wird.",

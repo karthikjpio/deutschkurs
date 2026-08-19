@@ -1,12 +1,11 @@
 /* ============================================================
-   EINHEITEN-MANIFEST — ersetzt den 40-Tage-Kalender aus kurs-liste.js
+   EINHEITEN-MANIFEST, ersetzt den 40-Tage-Kalender aus kurs-liste.js
    Quelle: Kompass DaF B2.1, Inhaltsverzeichnis (gedruckte S. 4–5),
            gegengeprüft an den Lektions-Auftaktseiten.
 
    Wichtig: das Lehrwerk gibt den Lektionen KEINE Titel, nur Nummern.
    `thema` ist unsere Bezeichnung, `titel` je Modul ist wörtlich aus dem Buch.
-   Jede Lektion hat vier Module A–D mit je einer zugewiesenen Fertigkeit —
-   deshalb brauchen wir keine erfundenen Phasen mehr.
+   Jede Lektion hat vier Module A–D mit je einer zugewiesenen Fertigkeit, deshalb brauchen wir keine erfundenen Phasen mehr.
 
    `seite` verweist auf einen Schlüssel in KURS.seiten. null = noch nicht gebaut.
    ============================================================ */
@@ -25,7 +24,7 @@ KURS.einheiten = [
     module: [
       { m: "A", fertigkeit: "sprechen",  titel: "Zur Sprache kommen",             seite: "e1-a" },
       { m: "B", fertigkeit: "lesen",     titel: "Auf dem Weg zum Wissen",         seite: "e1-b" },
-      { m: "C", fertigkeit: "hoeren",    titel: "Mit der Hand schreiben — wozu?", seite: "e1-c" },
+      { m: "C", fertigkeit: "hoeren",    titel: "Mit der Hand schreiben, wozu?", seite: "e1-c" },
       { m: "D", fertigkeit: "schreiben", titel: "In einer Lerngruppe oder allein?", seite: "e1-d" }
     ] },
 
@@ -54,9 +53,9 @@ KURS.einheiten = [
     pruefung: "Musikrezeption früher und heute", film: "Das Smartphone und wir",
     module: [
       { m: "A", fertigkeit: "lesen",     titel: "Digitale Welten",                      seite: null },
-      { m: "B", fertigkeit: "hoeren",    titel: "Jobmesse — Unternehmen stellen sich vor", seite: null },
+      { m: "B", fertigkeit: "hoeren",    titel: "Jobmesse, Unternehmen stellen sich vor", seite: null },
       { m: "C", fertigkeit: "schreiben", titel: "Das digitalisierte Zuhause",           seite: null },
-      { m: "D", fertigkeit: "sprechen",  titel: "Telemedizin — Für und Wider im Video", seite: null }
+      { m: "D", fertigkeit: "sprechen",  titel: "Telemedizin, Für und Wider im Video", seite: null }
     ] },
 
   { nr: 5, thema: "Wetter & Klima", band: "B2.1", kb: "58–69", ub: "118–129",
@@ -71,7 +70,7 @@ KURS.einheiten = [
 ];
 
 /* Lektion 6–10 stehen in B2.2. Sobald das PDF da ist, kommen sie als
-   fünf weitere Einträge hierher — am Code ändert sich dafür nichts. */
+   fünf weitere Einträge hierher, am Code ändert sich dafür nichts. */
 KURS.einheitenOffen = 5;
 
 /* Alle Module einer Einheit, die schon gebaut sind */
@@ -79,7 +78,7 @@ KURS.einheitFertig = function (e) {
   return (e.module || []).filter(function (m) { return m.seite && KURS.seiten[m.seite]; });
 };
 
-/* Nächstes offenes Modul über alle Einheiten — für „Weitermachen" */
+/* Nächstes offenes Modul über alle Einheiten, für „Weitermachen" */
 KURS.naechstesModul = function () {
   for (var i = 0; i < KURS.einheiten.length; i++) {
     var e = KURS.einheiten[i];

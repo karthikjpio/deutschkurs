@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deutsch — Fortschritt</title>
-<link rel="stylesheet" href="assets/kurs.css?v=2.1.1">
-<script src="assets/kurs.js?v=2.1.1"></script>
-<script src="assets/daten/alle.js?v=2.1.1"></script>
+<title>Deutsch · Fortschritt</title>
+<link rel="stylesheet" href="assets/kurs.css?v=2.3.0">
+<script src="assets/kurs.js?v=2.3.0"></script>
+<script src="assets/daten/alle.js?v=2.3.0"></script>
 </head>
 <body>
 <script>KURS.kopf("fortschritt");</script>
@@ -15,26 +15,26 @@
 
   <div class="pagehead">
     <h1>Fortschritt</h1>
-    <p class="sub">Alles, was vorher die Startseite verstopft hat — an einem Ort.
+    <p class="sub">Alles, was vorher die Startseite verstopft hat, an einem Ort.
       <span class="en">Everything that used to clog the home page, in one place.</span></p>
   </div>
 
   <div class="grid c4" id="statistik"></div>
 
-  <h2>Meine Schwachstellen <span class="en">— what to fix first</span></h2>
+  <h2>Meine Schwachstellen <span class="en">· what to fix first</span></h2>
   <div class="card" id="schwachstellen"></div>
 
-  <h2>Entwicklung <span class="en">— first attempt → now</span></h2>
+  <h2>Entwicklung <span class="en">· first attempt → now</span></h2>
   <div class="card" id="entwicklung"></div>
 
-  <h2>Prüfungsteile <span class="en">— readiness by exam part</span></h2>
+  <h2>Prüfungsteile <span class="en">· readiness by exam part</span></h2>
   <div class="card" id="pruefungsteile"></div>
 
-  <h2>Sichern <span class="en">— export &amp; backup</span></h2>
+  <h2>Sichern <span class="en">· export &amp; backup</span></h2>
   <div class="card">
     <div class="card-title">⬇︎ Fortschritt exportieren</div>
     <p class="sub">Lädt <b>fortschritt-JJJJ-MM-TT.json</b> herunter. Leg die Datei in den Ordner
-      <b>_Fortschritt</b>. Der Fortschritt liegt sonst nur in diesem Browser — wird der Speicher
+      <b>_Fortschritt</b>. Der Fortschritt liegt sonst nur in diesem Browser, wird der Speicher
       gelöscht, ist er weg.</p>
     <div class="btnrow">
       <button class="btn primary" onclick="KURS.exportieren()">⬇︎ Exportieren</button>
@@ -72,7 +72,7 @@ document.getElementById("ver").textContent = KURS.ENGINE;
   document.getElementById("statistik").innerHTML =
     kachel(seiten, "Module bearbeitet", "modules done") +
     kachel(aufgaben, "Aufgaben gelöst", "exercises done") +
-    kachel(max ? quote + "%" : "—", "Trefferquote", "accuracy", quote) +
+    kachel(max ? quote + "%" : "", "Trefferquote", "accuracy", quote) +
     kachel(versuche, "Versuche gesamt", "attempts");
 })();
 
@@ -91,7 +91,7 @@ function kachel(wert, lbl, en, farbe) {
 
   if (!mitDaten.length) {
     box.innerHTML = '<div class="leerzustand"><div class="gross">🎯</div>' +
-      '<p><b>Noch keine Daten.</b><br>Mach den <a href="einstufungstest.html">Einstufungstest</a> — ' +
+      '<p><b>Noch keine Daten.</b><br>Mach den <a href="einstufungstest.html">Einstufungstest</a>, ' +
       'danach steht hier, woran wir zuerst arbeiten.</p></div>';
     return;
   }
@@ -108,7 +108,7 @@ function kachel(wert, lbl, en, farbe) {
   });
   var f = KURS.fehlerListe(6);
   if (f.length) {
-    h.push('<h3>Aufgaben, die du wiederholen solltest <span class="en">— these come back automatically</span></h3>');
+    h.push('<h3>Aufgaben, die du wiederholen solltest <span class="en">· these come back automatically</span></h3>');
     f.forEach(function (x) {
       h.push('<div class="fb-eintrag" style="border-left-color:var(--bad)"><span class="meta">' +
         KURS.esc(KURS.themaName(x.thema)) + (x.anzahl > 1 ? ' · ' + x.anzahl + '× falsch' : '') + '</span>' +
@@ -175,7 +175,7 @@ function kachel(wert, lbl, en, farbe) {
     h.push('<div class="themerow"><div class="nm">' + teil +
       '<small>' + (g ? r + '/' + g + ' Punkte' : 'noch keine Daten') + '</small>' +
       '<span class="bar ' + (pz === null ? "" : pz >= 80 ? "ok" : pz >= 60 ? "mid" : "bad") + '"><i style="width:' + (pz || 0) + '%"></i></span></div>' +
-      '<div class="pct">' + (pz === null ? "—" : pz + "%") + '</div></div>');
+      '<div class="pct">' + (pz === null ? "" : pz + "%") + '</div></div>');
   });
   if (!irgendwas) h.push('<div class="hinweisbox">Mach den <a href="einstufungstest.html">Einstufungstest</a>, damit hier echte Werte stehen.</div>');
   document.getElementById("pruefungsteile").innerHTML = h.join("");
@@ -190,7 +190,7 @@ function fbSenden() {
   d.seiten["index"].feedback.push({ datum: new Date().toISOString(), text: txt });
   KURS.speichern(d);
   ta.value = "";
-  document.getElementById("fb-ok").innerHTML = '<span class="fb-gesendet">✓ Gespeichert — kommt in den nächsten Export</span>';
+  document.getElementById("fb-ok").innerHTML = '<span class="fb-gesendet">✓ Gespeichert, kommt in den nächsten Export</span>';
   fbListe();
 }
 function fbListe() {
@@ -205,7 +205,7 @@ function einlesen(inp) {
   if (!inp.files || !inp.files[0]) return;
   KURS.importieren(inp.files[0], function (ok) {
     document.getElementById("imp-ok").innerHTML = ok
-      ? '<span class="fb-gesendet">✓ Eingelesen — Seite wird neu geladen</span>'
+      ? '<span class="fb-gesendet">✓ Eingelesen, Seite wird neu geladen</span>'
       : '<span style="color:var(--bad)">Datei konnte nicht gelesen werden.</span>';
     if (ok) setTimeout(function () { location.reload(); }, 800);
   });

@@ -1,5 +1,5 @@
 /* ============================================================
-   Deutsch B2 — Kurs Design System
+   Deutsch B2, Kurs Design System
    Shared by every page. Editing this improves all Tage at once.
    ============================================================ */
 
@@ -16,7 +16,7 @@
   --accent-soft:   #e8effc;
   --accent-text:   #1c4099;
 
-  /* Status-Palette — validiert mit dataviz/validate_palette.js (light + dark).
+  /* Status-Palette, validiert mit dataviz/validate_palette.js (light + dark).
      Fest, nie gethemt. Wird IMMER mit Icon + Label gepaart, nie Farbe allein. */
   --ok:            #0ca30c;   /* good     */
   --ok-soft:       #e4f5e4;
@@ -29,7 +29,7 @@
   --ok-text:       #0a7d0a;   /* lesbare Textvariante auf hellem Grund */
   --warn-text:     #8a6100;
 
-  /* Höhe der Kopfleiste — alles, was darunter klebt, rechnet damit. */
+  /* Höhe der Kopfleiste, alles, was darunter klebt, rechnet damit. */
   --topbar-h:      56px;
 
   --radius:        12px;
@@ -103,7 +103,7 @@ body {
 }
 .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
 
-/* Die drei Ziele. Immer beschriftet — auch auf dem Handy, das war der ganze Punkt. */
+/* Die drei Ziele. Immer beschriftet, auch auf dem Handy, das war der ganze Punkt. */
 .hauptnav { display: flex; gap: 4px; flex: 0 0 auto; }
 
 .navbtn {
@@ -165,7 +165,7 @@ h3 { font-size: 16px; margin: 20px 0 8px; }
 .bar.ser > i { background: var(--mid); }
 .bar.bad > i { background: var(--bad); }
 
-/* Status-Icon — Pflicht neben jeder Statusfarbe (nie Farbe allein) */
+/* Status-Icon, Pflicht neben jeder Statusfarbe (nie Farbe allein) */
 .st { display: inline-flex; align-items: center; gap: 4px; font-variant-numeric: tabular-nums; }
 .st-i { font-size: 11px; line-height: 1; }
 .st.ok  { color: var(--ok-text); }
@@ -456,8 +456,7 @@ hr.tr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
   :root { --topbar-h: 50px; }
   .topbar-in { padding: 9px 12px; gap: 6px; }
   .navbtn { padding: 5px 9px; font-size: 12.5px; }
-  /* Die Labels bleiben. Vorher standen hier fünf unbeschriftete Emoji —
-     genau daran ist die Navigation gescheitert. Stattdessen weicht der Markenname. */
+  /* Die Labels bleiben. Vorher standen hier fünf unbeschriftete Emoji, genau daran ist die Navigation gescheitert. Stattdessen weicht der Markenname. */
   .brand-t { display: none; }
   .brand { font-size: 13.5px; }
 }
@@ -504,7 +503,7 @@ hr.tr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
 /* Englische Fassung neben einer deutschen Beschriftung: „Prüfen · Check" */
 .bl-en { color: var(--text-faint); font-weight: 500; font-style: italic; }
 
-/* Englischer Erklärblock — ruhiger als der deutsche Text, nie lauter */
+/* Englischer Erklärblock, ruhiger als der deutsche Text, nie lauter */
 .en-hilfe {
   margin: 9px 0 2px; padding: 9px 12px 9px 11px;
   background: var(--surface-2); border-left: 2px solid var(--border);
@@ -521,7 +520,7 @@ hr.tr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
 .en-hilfe b { color: var(--text); font-weight: 650; }
 
 /* ============================================================
-   Die Abendeinheit — Kopf, Phasenleiste, Phasen
+   Die Abendeinheit, Kopf, Phasenleiste, Phasen
    ============================================================ */
 .einheit {
   position: sticky; top: var(--topbar-h); z-index: 20;
@@ -692,7 +691,7 @@ hr.tr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
 }
 
 /* Im reinen DE-Modus verschwinden die englischen Zusatztexte vollständig.
-   (Vorher blieben sie sichtbar — der Umschalter wirkte nur halb.) */
+   (Vorher blieben sie sichtbar, der Umschalter wirkte nur halb.) */
 html[data-sprache="de"] .en,
 html[data-sprache="de"] .en-hilfe,
 html[data-sprache="de"] .bl-en { display: none; }
@@ -706,7 +705,7 @@ html[data-sprache="de"] .bl-en { display: none; }
 }
 
 /* ============================================================
-   Spickzettel — die Theorie direkt über den Aufgaben
+   Spickzettel, die Theorie direkt über den Aufgaben
    ============================================================ */
 .spick {
   margin: 4px 0 16px;
@@ -779,11 +778,11 @@ input.luecke.fast {
 }
 
 /* ============================================================
-   Einheiten-Übersicht (Startseite) — ersetzt Heute-Karte,
+   Einheiten-Übersicht (Startseite), ersetzt Heute-Karte,
    Wochenband, Anker und das 41-zeilige Inhaltsverzeichnis.
    ============================================================ */
 
-/* „Weitermachen" — der eine Knopf, der zählt */
+/* „Weitermachen", der eine Knopf, der zählt */
 .weiterkarte {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   flex-wrap: wrap; text-decoration: none; color: inherit;
@@ -798,12 +797,12 @@ input.luecke.fast {
 .wk-t { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
 .wk-s { font-size: 13px; color: var(--text-soft); }
 
-/* Kurs ① — Zeilenliste.
+/* Kurs ①, Zeilenliste.
    minmax(0,1fr) statt der Vorgabe: Grid-Kinder haben min-width:auto und
    würden sonst auf ihre Textbreite wachsen statt zu schrumpfen. */
 .kursreihe { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; margin-top: 10px; }
 
-/* Kurs ② — eine Karte je Einheit */
+/* Kurs ②, eine Karte je Einheit */
 .ehk {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 14px 15px 12px; margin-bottom: 10px; box-shadow: var(--shadow);
@@ -868,4 +867,78 @@ input.luecke.fast {
   .mo-t { white-space: normal; }
   .mo { flex-wrap: wrap; gap: 6px 8px; }
   .weiterkarte .btn { width: 100%; text-align: center; }
+}
+
+/* ============================================================
+   „Einfach erklärt", die Fassung ohne Fachwörter, immer sichtbar.
+   Steht bewusst VOR der Regel: erst der Beispielsatz, dann der Name.
+   ============================================================ */
+.einfach {
+  background: var(--accent-soft); border: 1px solid var(--accent);
+  border-radius: var(--radius-s); padding: 12px 14px; margin: 10px 0 4px;
+}
+.ef-kopf {
+  font-size: 10.5px; font-weight: 750; letter-spacing: .11em; text-transform: uppercase;
+  color: var(--accent-text); margin-bottom: 7px;
+}
+.ef-kern {
+  margin: 0 0 10px; font-size: 15.5px; font-weight: 650; line-height: 1.45; color: var(--text);
+}
+.ef-paare { display: grid; gap: 7px; }
+.ef-p {
+  background: var(--surface); border-radius: var(--radius-s);
+  padding: 9px 11px; border: 1px solid var(--border);
+}
+.ef-satz { font-size: 15px; line-height: 1.5; }
+.ef-satz b { color: var(--accent-text); }
+.ef-notiz { font-size: 13px; color: var(--text-soft); margin-top: 4px; }
+.ef-merk {
+  margin: 10px 0 0; font-size: 13.5px; line-height: 1.5;
+  color: var(--text-soft); border-top: 1px solid var(--border); padding-top: 8px;
+}
+.ef-merk b { color: var(--text); }
+
+/* Karte mit einfacher Fassung: Titel und Kasten stehen frei, nur der
+   genauere Teil steckt in einem <details>. */
+.konzeptkarte.mit-einfach { padding: 15px 18px 6px; }
+.konzeptkarte.mit-einfach .kk-kopf { margin-bottom: 2px; }
+.konzeptkarte.mit-einfach .einfach { margin: 10px 0 2px; }
+.kk-genauer > summary {
+  cursor: pointer; list-style: none; font-size: 12.5px; color: var(--text-faint);
+  padding: 9px 0 10px; display: flex; align-items: center; gap: 7px;
+}
+.kk-genauer > summary::-webkit-details-marker { display: none; }
+.kk-genauer > summary::after {
+  content: "▾"; margin-left: auto; font-size: 12px; transition: transform .2s;
+}
+.kk-genauer[open] > summary::after { transform: rotate(180deg); }
+.kk-genauer > summary:hover { color: var(--accent-text); }
+.kk-genauer .kk-body { padding: 0 0 12px; }
+
+/* ============================================================
+   „Wie funktioniert das hier?" auf der Startseite.
+   Beim ersten Besuch offen, danach merkt sich die Seite, dass
+   sie zu war. Orientierung soll man nicht suchen muessen.
+   ============================================================ */
+.starthier { padding: 14px 16px; }
+.starthier > summary {
+  cursor: pointer; list-style: none; font-size: 15px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.starthier > summary::-webkit-details-marker { display: none; }
+.starthier > summary::after {
+  content: "▾"; margin-left: auto; color: var(--text-faint); font-size: 13px;
+  transition: transform .15s;
+}
+.starthier[open] > summary::after { transform: rotate(180deg); }
+.sh-body { display: grid; gap: 11px; margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--border); }
+.sh-zeile { display: grid; grid-template-columns: 24px 1fr; gap: 11px; align-items: start; }
+.sh-nr {
+  width: 24px; height: 24px; border-radius: 6px; display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent-text);
+  font-size: 12px; font-weight: 750; font-variant-numeric: tabular-nums;
+}
+.sh-txt { font-size: 14.5px; line-height: 1.5; }
+.sh-txt small {
+  display: block; font-size: 13.5px; color: var(--text-soft); margin-top: 2px; line-height: 1.55;
 }

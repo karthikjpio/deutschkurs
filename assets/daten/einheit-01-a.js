@@ -1,9 +1,9 @@
 /* ============================================================
-   TAG 1 — 27.07.2026  ·  NACHGEHOLT (vollständig)
+   TAG 1, 27.07.2026  ·  NACHGEHOLT (vollständig)
    Quelle: Kursbuch S. 8–9 (Lektion 1, Teil A: A1 a–c, A2 a–d)
            Arbeitsbuch S. 136–137 oben (A1, A2 a–b, A3 a–b)
    Kernthema: Lernstrategien + mündlich Stellung nehmen (Redemittel)
-   ABGRENZUNG: Teil B (KB S.10ff / AB S.137 unten) gehört zu Tag 2 — hier NICHT wiederholen.
+   ABGRENZUNG: Teil B (KB S.10ff / AB S.137 unten) gehört zu Tag 2, hier NICHT wiederholen.
    ============================================================ */
 KURS.seiten["e1-a"] = {
 id: "e1-a",
@@ -13,25 +13,47 @@ untertitel: "Lernstrategien beschreiben · mündlich Stellung nehmen: zustimmen 
 themen: ["redemittel", "sprechen", "wortschatz", "nebensatz"],
 
 videos: [
-  { titel: "Telc B1 Mündliche Prüfung — komplett durchgespielt", kanal: "Judi Aegi – Deutsch Schule", sprache: "Deutsch", warum: "Deine Prüfung im November, einmal komplett vorgeführt: Kontaktaufnahme, Thema, gemeinsam planen. Schau das früh an.", url: "https://www.youtube.com/watch?v=lDdpsWBhsTk" },
-  { titel: "telc B1 — Mündliche Prüfung Teil 1, 2 und 3", kanal: "NEWbornSCHOOL", sprache: "Deutsch", warum: "Zweite Durchspielung mit anderen Themen — damit du das Format verstehst und nicht auswendig lernst.", url: "https://www.youtube.com/watch?v=2tE6yMXEJZA" },
-  { titel: "Nicos Weg B1 — ganzer Film", kanal: "Deutsch lernen mit der DW", sprache: "Deutsch mit Untertiteln", warum: "Deine systematische B1-Wiederholung: längeres Hörverstehen in normalem Tempo, erst ohne, dann mit Untertiteln.", url: "https://www.youtube.com/watch?v=LkufozluseI" }
+  { titel: "Telc B1 Mündliche Prüfung: komplett durchgespielt", kanal: "Judi Aegi – Deutsch Schule", sprache: "Deutsch", warum: "Deine Prüfung im November, einmal komplett vorgeführt: Kontaktaufnahme, Thema, gemeinsam planen. Schau das früh an.", url: "https://www.youtube.com/watch?v=lDdpsWBhsTk" },
+  { titel: "telc B1: Mündliche Prüfung Teil 1, 2 und 3", kanal: "NEWbornSCHOOL", sprache: "Deutsch", warum: "Zweite Durchspielung mit anderen Themen: damit du das Format verstehst und nicht auswendig lernst.", url: "https://www.youtube.com/watch?v=2tE6yMXEJZA" },
+  { titel: "Nicos Weg B1: ganzer Film", kanal: "Deutsch lernen mit der DW", sprache: "Deutsch mit Untertiteln", warum: "Deine systematische B1-Wiederholung: längeres Hörverstehen in normalem Tempo, erst ohne, dann mit Untertiteln.", url: "https://www.youtube.com/watch?v=LkufozluseI" }
 ],
 
 konzepte: [
 {
-  titel: "Nachgeholt — jetzt vollständig",
+  titel: "Nachgeholt: jetzt vollständig",
   thema: "wortschatz",
+  einfach: {
+    kern: "Diese Stunde hast du verpasst. Hier ist sie komplett, mit Fokus auf Sprechen.",
+    paare: [
+      { satz: "Heute lernst du <b>fertige Sätze</b>, mit denen du auf eine Meinung antwortest.",
+        notiz: "Kein neues Grammatikthema. Du übst, wie du reagierst und deine Meinung begründest." },
+      { satz: "Die Sache mit den <b>Verbindungswörtern</b> (weil, obwohl, deshalb) kommt erst an Tag 2.",
+        notiz: "Also keine Sorge. Heute reicht es, die fertigen Sätze sicher zu können." }
+    ],
+    merk: "Lies die Sätze nicht nur, sprich sie laut. In der Prüfung musst du sie sofort parat haben."
+  },
   de: "<p>Diese Einheit hast du verpasst. Sie ist jetzt <b>komplett</b> aus deinen Fotos gebaut: " +
       "Kursbuch S. 8–9 (Teil A) und Arbeitsbuch S. 136–137 oben.</p>" +
-      "<p>Inhaltlich ist Tag 1 die <b>Sprech-Einheit</b> der Lektion — genau dein Hauptziel. " +
+      "<p>Inhaltlich ist Tag 1 die <b>Sprech-Einheit</b> der Lektion, genau dein Hauptziel. " +
       "Die Grammatik (Konnektoren) beginnt erst an Tag 2.</p>",
   regel: "Teil A = Fokus Sprechen. Hier lernst du die Redemittel, mit denen du in der mündlichen Prüfung auf deinen Partner reagierst. Auswendig lernen, nicht nur verstehen.",
-  en: "This is the session you missed, now rebuilt in full from your photos. Part A is the speaking unit of the chapter — exactly your main goal. Grammar starts on Day 2."
+  en: "This is the session you missed, now rebuilt in full from your photos. Part A is the speaking unit of the chapter, exactly your main goal. Grammar starts on Day 2."
 },
 {
-  titel: "① Wie lernt man? — die Ausdrücke aus dem Kursbuch",
+  titel: "① Wie lernt man?: die Ausdrücke aus dem Kursbuch",
   thema: "redemittel",
+  einfach: {
+    kern: "Diese Wörter brauchst du, wenn du erzählst, wie du Deutsch lernst.",
+    paare: [
+      { satz: "Ich <b>schreibe</b> neue Wörter jeden Abend <b>auf</b>.",
+        notiz: "Das Verb heißt „aufschreiben“. Im normalen Satz rutscht das kleine „auf“ ganz nach hinten." },
+      { satz: "Ich <b>fasse</b> den Text <b>mit eigenen Worten zusammen</b>.",
+        notiz: "„zusammenfassen“ macht dasselbe: „zusammen“ steht am Satzende." },
+      { satz: "In der <b>Lerngruppe</b> reden wir über den Stoff, das hilft mir mehr als stilles Lesen.",
+        notiz: "So beschreibst du eine Methode in einem Satz: was du machst und was es dir bringt." }
+    ],
+    merk: "aufschreiben, zusammenfassen, anwenden, nachsprechen: der erste Teil springt ans Satzende."
+  },
   de: "<p>Kursbuch A1a zeigt sechs Fotos von Deutschlernenden. Mit diesen Ausdrücken beschreibt man, " +
       "was die Leute machen. Du brauchst sie später, um über <b>dich</b> zu sprechen.</p>",
   tabelle: {
@@ -51,15 +73,27 @@ konzepte: [
   },
   regel: "Achte auf die trennbaren Verben: auf|schreiben, zusammen|fassen, an|wenden, nach|sprechen, herum|laufen. Im Hauptsatz steht das Präfix am Ende: „Ich fasse den Stoff zusammen.“",
   beispiele: [
-    "Kursbuch-Dialog: „Wie lernst du neue Wörter?“ — „Ich schreibe alle Wörter <b>auf</b>, dann notiere ich Beispielsätze.“",
+    "Kursbuch-Dialog: „Wie lernst du neue Wörter?“ „Ich schreibe alle Wörter <b>auf</b>, dann notiere ich Beispielsätze.“",
     "„Ich schreibe Wörter und Ausdrücke <b>auf</b>, dann nehme ich sie mit dem Handy <b>auf</b> und höre sie oft <b>an</b>. Und du?“",
     "Für dich: „Ich <b>wende</b> Deutsch praktisch <b>an</b>, weil ich in Aachen einkaufe und arbeite.“"
   ],
-  en: "Vocabulary for describing HOW you learn. You will reuse all of it in the speaking exam when introducing yourself. Watch the separable verbs — the prefix goes to the end of a main clause."
+  en: "Vocabulary for describing HOW you learn. You will reuse all of it in the speaking exam when introducing yourself. Watch the separable verbs, the prefix goes to the end of a main clause."
 },
 {
-  titel: "② Die Redemittel — das Prüfungsgold der Lektion",
-  thema: "verben-mit-praep",
+  titel: "② Die Redemittel: das Prüfungsgold der Lektion",
+  thema: "redemittel",
+  einfach: {
+    kern: "Du sagst nie nur „ja“ oder „nein“, du sagst immer auch warum.",
+    paare: [
+      { satz: "Ich finde auch, <b>dass</b> Deutsch lernen viel Arbeit <b>ist</b>.",
+        notiz: "Nach „dass“ rutscht das Verb ganz nach hinten. Hier steht „ist“ am Schluss." },
+      { satz: "Ich bin der gleichen Meinung, <b>denn</b> ohne Üben <b>geht</b> es nicht.",
+        notiz: "Nach „denn“ ändert sich nichts. Das Verb steht an zweiter Stelle wie in einem normalen Satz." },
+      { satz: "<b>Im Prinzip stimmt das, aber</b> mir macht diese Arbeit Spaß.",
+        notiz: "Erst ein bisschen zustimmen, dann widersprechen. Das ist die höflichste Art, anderer Meinung zu sein." }
+    ],
+    merk: "„Ja, das finde ich auch.“ bringt null Punkte. Immer ein fertiges Satzstück plus deinen Grund."
+  },
   de: "<p>Kursbuch A2 heißt „<b>mündlich Stellung nehmen</b>“. Genau das prüft telc im mündlichen Teil: " +
       "Du musst auf eine Aussage reagieren <b>und begründen</b>. Nie nur „Ja, das finde ich auch.“</p>" +
       "<p>Diese acht Sätze sind die Originale aus dem Buch. Lerne sie als <b>ganze Bausteine</b> auswendig.</p>",
@@ -72,20 +106,32 @@ konzepte: [
       ["Das ist ein guter Vorschlag, <b>weil</b> …", ""]
     ]
   },
-  regel: "Achtung auf die Wortstellung — jedes Redemittel endet mit einem anderen Konnektor: nach dass / weil / als → Verb ans ENDE. Nach denn / aber → normale Wortstellung (Verb an Position 2).",
+  regel: "Achtung auf die Wortstellung, jedes Redemittel endet mit einem anderen Konnektor: nach dass / weil / als → Verb ans ENDE. Nach denn / aber → normale Wortstellung (Verb an Position 2).",
   beispiele: [
     "Ich finde auch, dass Sprachenlernen viel Arbeit <b>ist</b>. <span class='en'>(dass → Verb ans Ende)</span>",
     "Ich bin der gleichen Meinung, denn ohne Üben <b>geht</b> es nicht. <span class='en'>(denn → Verb Position 2)</span>",
     "Im Prinzip stimmt das, aber das <b>ist</b> eine Arbeit, die Spaß macht. <span class='en'>(Original aus dem Kursbuch!)</span>",
     "Ja, das stimmt, diese Erfahrung habe ich auch gemacht, als ich nach Deutschland <b>gekommen bin</b>."
   ],
-  en: "These eight phrases are exam gold. In the telc speaking test you must react to your partner AND justify. Learn them as whole chunks — but note each one ends in a different connector, so the word order changes: dass/weil/als push the verb to the end, denn/aber do not."
+  en: "These eight phrases are exam gold. In the telc speaking test you must react to your partner AND justify. Learn them as whole chunks, but note each one ends in a different connector, so the word order changes: dass/weil/als push the verb to the end, denn/aber do not."
 },
 {
   titel: "③ Die fünf Aussagen aus dem Kurs",
-  thema: "konjunktiv2",
+  thema: "infinitiv-zu",
+  einfach: {
+    kern: "Zu jeder dieser Aussagen sollst du deine Meinung sagen, immer mit Grund.",
+    paare: [
+      { satz: "Jemand sagt: „Grammatik lernen ist am wichtigsten.“ Du sagst: „<b>Im Prinzip stimmt das, aber</b> ohne Sprechen bringt mir das wenig.“",
+        notiz: "Zwei Teile, mehr nicht: das fertige Satzstück, dann dein eigener Grund." },
+      { satz: "<b>Es hilft</b>, jeden Tag zehn Minuten laut <b>zu sprechen</b>.",
+        notiz: "Nach „Es hilft,“ kommt am Ende immer „zu“ plus Verb." },
+      { satz: "<b>Es hilft</b>, neue Wörter sofort <b>anzuwenden</b>.",
+        notiz: "Bei Verben wie „anwenden“ sitzt das „zu“ mitten drin: anzuwenden, alles ein Wort." }
+    ],
+    merk: "„Es hilft, …“ ohne „zu“ ist falsch. Bei anwenden, aufschreiben, mitmachen steht das „zu“ in der Mitte."
+  },
   de: "<p>Im Unterricht wurde über diese fünf Aussagen diskutiert (Kursbuch A2a). " +
-      "Du solltest zu jeder Stellung nehmen können — das üben wir unten.</p>",
+      "Du solltest zu jeder Stellung nehmen können, das üben wir unten.</p>",
   beispiele: [
     "„Lernen muss immer Spaß machen!“",
     "„Chats sind super, da achtet man nicht so sehr auf Fehler.“",
@@ -93,13 +139,25 @@ konzepte: [
     "„Grammatik lernen ist am wichtigsten.“",
     "„Oft Videos in Originalsprache anschauen, das hilft!“"
   ],
-  regel: "Aufgabe A2b: Schreib selbst eine Aussage, die mit „Es hilft, …“ beginnt. Achtung — danach folgt ein Infinitiv mit „zu“: „Es hilft, jeden Tag Videos anzuschauen.“",
+  regel: "Aufgabe A2b: Schreib selbst eine Aussage, die mit „Es hilft, …“ beginnt. Achtung, danach folgt ein Infinitiv mit „zu“: „Es hilft, jeden Tag Videos anzuschauen.“",
   en: "Five statements the class discussed. You should be able to react to each one. Note task A2b starts with 'Es hilft, …' which forces an infinitive with zu."
 },
 {
   titel: "④ Aussprache: Satzakzent in kurzen Sätzen",
-  thema: "sprachbausteine",
-  de: "<p>In kurzen Sätzen wird <b>ein</b> Wort besonders betont — das trägt den <b>Satzakzent</b>. " +
+  thema: "sprechen",
+  einfach: {
+    kern: "In jedem kurzen Satz sprichst du ein Wort kräftiger, den Rest ganz normal.",
+    paare: [
+      { satz: "Ich finde das <b>gut</b>.",
+        notiz: "Neu ist dein Urteil. Also wird „gut“ lauter und ein bisschen länger gesprochen." },
+      { satz: "Da stimme ich <b>zu</b>.",
+        notiz: "Das kleine „zu“ am Ende trägt die ganze Bedeutung, deshalb liegt die Betonung dort." },
+      { satz: "Ich bin der <b>gleichen</b> Meinung.",
+        notiz: "Nicht „Meinung“ betonen, sondern „gleichen“. Das ist das Wort mit der Information." }
+    ],
+    merk: "Sprich die Sätze dreimal laut. Die richtige Betonung ist der Unterschied zwischen verständlich und deutsch klingend."
+  },
+  de: "<p>In kurzen Sätzen wird <b>ein</b> Wort besonders betont, das trägt den <b>Satzakzent</b>. " +
       "Es ist das Wort mit der wichtigsten Information, nicht automatisch das letzte.</p>",
   tabelle: {
     kopf: ["Satz", "betontes Wort", "warum"],
@@ -110,14 +168,14 @@ konzepte: [
       ["Im Prinzip <b>stimmt</b> das.", "stimmt", "das Verb trägt die Aussage"]
     ]
   },
-  regel: "Sprich diese vier Sätze laut — dreimal, mit deutlicher Betonung. Der Satzakzent ist der Unterschied zwischen „verständlich“ und „klingt deutsch“.",
-  en: "One word per short sentence carries the main stress — the one with the key information. Say all four out loud three times; sentence stress is what makes you sound German rather than merely understandable."
+  regel: "Sprich diese vier Sätze laut, dreimal, mit deutlicher Betonung. Der Satzakzent ist der Unterschied zwischen „verständlich“ und „klingt deutsch“.",
+  en: "One word per short sentence carries the main stress, the one with the key information. Say all four out loud three times; sentence stress is what makes you sound German rather than merely understandable."
 }
 ],
 
 bloecke: [
 {
-titel: "Lernstrategien — die Sätze aus dem Arbeitsbuch",
+titel: "Lernstrategien: die Sätze aus dem Arbeitsbuch",
 telc: "Sprachbausteine Teil 2",
 hinweis: "Arbeitsbuch A1 (S. 136), alle zehn Sätze. Ergänze den fehlenden Ausdruck.",
 items: [
@@ -125,16 +183,16 @@ items: [
     regel:"„in“ + Dativ (wo?) → im Raum. Das Beispiel steht schon im Buch.", en:"in + dative for location" },
   { typ:"luecke", thema:"wortschatz", frage:"Satz 2:", satz:"Ich schreibe wichtige Wörter und ___ auf.", loesung:[["Ausdrücke","ausdrücke"]],
     regel:"der Ausdruck, die Ausdrücke = expression/phrase. Trennbares Verb: auf|schreiben.", en:"expressions" },
-  { typ:"luecke", thema:"infinitiv-zu", frage:"Satz 3 — Achtung, trennbares Verb mit „zu“:", satz:"Es ist gut, etwas praktisch ___.", loesung:[["anzuwenden"]],
-    regel:"„Es ist gut, …“ verlangt Infinitiv mit „zu“. Bei trennbaren Verben steht „zu“ in der Mitte: an<b>zu</b>wenden — ein Wort!",
+  { typ:"luecke", thema:"infinitiv-zu", frage:"Satz 3, Achtung, trennbares Verb mit „zu“:", satz:"Es ist gut, etwas praktisch ___.", loesung:[["anzuwenden"]],
+    regel:"„Es ist gut, …“ verlangt Infinitiv mit „zu“. Bei trennbaren Verben steht „zu“ in der Mitte: an<b>zu</b>wenden, ein Wort!",
     gegenbeispiel:"Falsch: „zu anwenden“ oder „an zu wenden“.", en:"anwenden → anzuwenden (zu goes inside)" },
   { typ:"luecke", thema:"wortschatz", frage:"Satz 4:", satz:"Ich fasse den Stoff mit ___ Worten zusammen.", loesung:[["eigenen"]],
-    regel:"Feste Wendung: „mit eigenen Worten“ — immer Plural, immer Dativ.", en:"in your own words" },
+    regel:"Feste Wendung: „mit eigenen Worten“ immer Plural, immer Dativ.", en:"in your own words" },
   { typ:"luecke", thema:"wortschatz", frage:"Satz 5:", satz:"Wir diskutieren den Stoff in der ___.", loesung:[["Lerngruppe","lerngruppe"]],
     regel:"die Lerngruppe, -n. Kompositum: die Gruppe → die Lerngruppe.", en:"study group" },
   { typ:"luecke", thema:"wortschatz", frage:"Satz 6:", satz:"Ich ordne den Stoff gern nach ___.", loesung:[["Farben","farben"]],
     regel:"„nach Farben ordnen“ = mit verschiedenen Farben strukturieren.", en:"organise by colour" },
-  { typ:"luecke", thema:"wortschatz", frage:"Satz 7 — zwei Verben:", satz:"Wörter ___ und ___ übt die Aussprache.", loesung:[["hören"],["nachsprechen"]],
+  { typ:"luecke", thema:"wortschatz", frage:"Satz 7, zwei Verben:", satz:"Wörter ___ und ___ übt die Aussprache.", loesung:[["hören"],["nachsprechen"]],
     regel:"nach|sprechen = repeat after someone. Hier als Infinitiv-Subjekt, deshalb nicht getrennt.", en:"listen and repeat" },
   { typ:"luecke", thema:"wortschatz", frage:"Satz 8:", satz:"Ich notiere ___ auf Kärtchen.", loesung:[["Stichpunkte","stichpunkte"]],
     regel:"der Stichpunkt, -e = bullet point. Das Kärtchen = kleine Karte (Verkleinerung mit -chen, immer neutrum).", en:"bullet points" },
@@ -146,7 +204,7 @@ items: [
 ]},
 
 {
-titel: "Redemittel — zustimmen oder widersprechen?",
+titel: "Redemittel: zustimmen oder widersprechen?",
 telc: "Mündlicher Ausdruck",
 hinweis: "Arbeitsbuch A2a (S. 136). Ordne jedes Original-Redemittel richtig zu.",
 items: [
@@ -158,7 +216,7 @@ items: [
       ["Ich bin der gleichen Meinung, denn …","zustimmen (mit Begründung)"],
       ["Im Prinzip stimmt das, aber …","teilweise widersprechen"]
     ],
-    regel:"„Im Prinzip stimmt das, aber …“ ist die höflichste Form des Widerspruchs — erst ein bisschen zustimmen, dann einwenden. Sehr gut für die Prüfung." , en:"Match by function: <b>Im Prinzip stimmt das, aber</b> agrees first, then objects - the politest disagreement." },
+    regel:"„Im Prinzip stimmt das, aber …“ ist die höflichste Form des Widerspruchs, erst ein bisschen zustimmen, dann einwenden. Sehr gut für die Prüfung." , en:"Match by function: <b>Im Prinzip stimmt das, aber</b> agrees first, then objects - the politest disagreement." },
   { typ:"mc", thema:"redemittel", frage:"„Das ist ein guter Vorschlag, weil …“",
     optionen:["zustimmen","widersprechen"], richtig:0,
     regel:"„guter Vorschlag“ ist positiv → Zustimmung mit Begründung." , en:"Guter Vorschlag is praise, so this counts as agreement, and <b>weil</b> then adds the reason." },
@@ -167,9 +225,9 @@ items: [
     regel:"„Ich meine nicht, dass …“ = höflicher, indirekter Widerspruch. Sehr B2." , en:"<b>Ich meine nicht, dass</b> softens a no; the negation sits on meinen, not on the content." },
   { typ:"luecke", thema:"nebensatz", frage:"Wortstellung nach „dass“:",
     satz:"Ich finde auch, dass man jeden Tag ein bisschen lernen ___.", loesung:[["sollte","soll","muss"]],
-    regel:"Nach „dass“ steht das konjugierte Verb ganz am Ende — beim Modalverb also nach dem Infinitiv: „lernen sollte“.",
+    regel:"Nach „dass“ steht das konjugierte Verb ganz am Ende, beim Modalverb also nach dem Infinitiv: „lernen sollte“.",
     en:"After dass: infinitive then modal, both at the end." },
-  { typ:"luecke", thema:"nebensatz", frage:"Wortstellung nach „denn“ — Achtung, anders!",
+  { typ:"luecke", thema:"nebensatz", frage:"Wortstellung nach „denn“ Achtung, anders!",
     satz:"Ich bin der gleichen Meinung, denn ohne Üben ___ es nicht.", loesung:[["geht"]],
     regel:"„denn“ ist KEIN Nebensatzkonnektor. Die Wortstellung bleibt normal: Verb an Position 2.",
     gegenbeispiel:"Vergleiche: „…, weil es ohne Üben nicht geht.“ (weil → Verb ans Ende)",
@@ -187,12 +245,12 @@ items: [
 ]},
 
 {
-titel: "Stellung nehmen — deine eigenen Antworten",
+titel: "Stellung nehmen: deine eigenen Antworten",
 telc: "Mündlicher Ausdruck",
-hinweis: "Arbeitsbuch A2b (S. 136). Zu jeder Aussage Stellung nehmen — mit Redemittel UND Begründung.",
+hinweis: "Arbeitsbuch A2b (S. 136). Zu jeder Aussage Stellung nehmen, mit Redemittel UND Begründung.",
 items: [
   { typ:"mc", thema:"sprechen",
-    frage:"„Am wichtigsten ist es, eine Sprache einfach gleich zu sprechen.“ — Welche Reaktion ist auf B2-Niveau?",
+    frage:"„Am wichtigsten ist es, eine Sprache einfach gleich zu sprechen.“ Welche Reaktion ist auf B2-Niveau?",
     optionen:[
       "Nein, das finde ich nicht.",
       "Ich meine nicht, dass man sagen kann „Am wichtigsten ist es, eine Sprache einfach gleich zu sprechen“, denn Grammatik ist auch wichtig.",
@@ -201,7 +259,7 @@ items: [
     regel:"B2 verlangt: Redemittel + Aussage aufgreifen + Begründung. Kurze Ja/Nein-Antworten geben in der Prüfung keine Punkte.",
     en:"B2 requires: set phrase + restate + justify. Short yes/no answers score nothing." },
   { typ:"frei", thema:"sprechen",
-    frage:"<b>Aussage 2:</b> „Man sollte sich in der Lerngruppe gegenseitig aufnehmen und korrigieren.“ — Nimm Stellung (2–3 Sätze).",
+    frage:"<b>Aussage 2:</b> „Man sollte sich in der Lerngruppe gegenseitig aufnehmen und korrigieren.“ Nimm Stellung (2–3 Sätze).",
     mindestWorte:30,
     hinweise:["Ich finde auch, dass …","Da bin ich ganz anderer Ansicht, weil …","Im Prinzip stimmt das, aber …"],
     muster:"<b>Im Prinzip stimmt das, aber</b> ich glaube, viele Lerner haben Angst vor der Aufnahme. " +
@@ -209,12 +267,12 @@ items: [
       "Diese Erfahrung habe ich auch gemacht, <b>als</b> ich zum ersten Mal ein Video von mir gesehen habe.",
     kriterien:"telc bewertet: Redemittel benutzt? Meinung begründet? Beispiel gegeben? Drei Sätze mit je einem anderen Konnektor sind eine sichere Struktur." , en:"Points come from using a Redemittel, justifying your view, and adding one example - vary the connectors." },
   { typ:"frei", thema:"sprechen",
-    frage:"<b>Aussage 4:</b> „Man sollte jeden Tag 20 neue Wörter lernen.“ — Nimm Stellung (2–3 Sätze).",
+    frage:"<b>Aussage 4:</b> „Man sollte jeden Tag 20 neue Wörter lernen.“ Nimm Stellung (2–3 Sätze).",
     mindestWorte:30,
     hinweise:["Das ist ein guter Vorschlag, weil …","Ich bin der gleichen Meinung, denn …","Ich meine nicht, dass …"],
     muster:"<b>Ich meine nicht, dass</b> man sagen kann, 20 Wörter pro Tag seien für alle richtig. " +
       "<b>Im Prinzip stimmt das, aber</b> ohne Wiederholung vergisst man sie sofort wieder. " +
-      "<b>Das ist ein guter Vorschlag, weil</b> Regelmäßigkeit hilft — ich würde aber lieber zehn Wörter lernen und sie dreimal wiederholen.",
+      "<b>Das ist ein guter Vorschlag, weil</b> Regelmäßigkeit hilft, ich würde aber lieber zehn Wörter lernen und sie dreimal wiederholen.",
     kriterien:"Gute B2-Technik: erst widersprechen, dann relativieren, dann einen eigenen Vorschlag machen." , en:"Strong B2 move: disagree first, then soften that, then offer your own concrete alternative." },
   { typ:"frei", thema:"infinitiv-zu",
     frage:"<b>Arbeitsbuch A2b, eigene Aussage:</b> Schreib deine eigene Aussage über das Deutschlernen. Beginne mit „<b>Es hilft, …</b>“",
@@ -226,20 +284,20 @@ items: [
 ]},
 
 {
-titel: "Aussprache — Satzakzent",
+titel: "Aussprache: Satzakzent",
 telc: "Mündlicher Ausdruck",
 hinweis: "Arbeitsbuch A3 (S. 137 oben). Sprich jeden Satz laut, bevor du klickst.",
 items: [
-  { typ:"mc", thema:"sprechen", frage:"„Ich finde das ___.“ — Welches Wort trägt den Satzakzent?",
+  { typ:"mc", thema:"sprechen", frage:"„Ich finde das ___.“ Welches Wort trägt den Satzakzent?",
     optionen:["Ich","finde","gut"], richtig:2,
     regel:"Die Bewertung ist die neue Information → „gut“ wird betont." , en:"Stress falls on the new information - the judgement <b>gut</b>, not the subject or the verb." },
-  { typ:"mc", thema:"sprechen", frage:"„Da stimme ich ___.“ — Welches Wort wird betont?",
+  { typ:"mc", thema:"sprechen", frage:"„Da stimme ich ___.“ Welches Wort wird betont?",
     optionen:["Da","stimme","zu"], richtig:2,
     regel:"Bei trennbaren Verben trägt oft das Präfix den Akzent: zu|stimmen → „Da stimme ich ZU.“" , en:"Separable prefixes carry the sentence stress, so the detached <b>zu</b> at the end is stressed." },
-  { typ:"mc", thema:"sprechen", frage:"„Ich bin der gleichen Meinung.“ — Welches Wort wird betont?",
+  { typ:"mc", thema:"sprechen", frage:"„Ich bin der gleichen Meinung.“ Welches Wort wird betont?",
     optionen:["bin","gleichen","Meinung"], richtig:1,
-    regel:"„gleichen“ ist der Kern der Aussage — nicht „Meinung“, das ist nur das Nomen dazu." , en:"The contrast word <b>gleichen</b> carries the meaning; <b>Meinung</b> is only the noun it attaches to." },
-  { typ:"mc", thema:"sprechen", frage:"„Im Prinzip stimmt das.“ — Welches Wort wird betont?",
+    regel:"„gleichen“ ist der Kern der Aussage, nicht „Meinung“, das ist nur das Nomen dazu." , en:"The contrast word <b>gleichen</b> carries the meaning; <b>Meinung</b> is only the noun it attaches to." },
+  { typ:"mc", thema:"sprechen", frage:"„Im Prinzip stimmt das.“ Welches Wort wird betont?",
     optionen:["Prinzip","stimmt","das"], richtig:1,
     regel:"Das Verb trägt hier die Aussage: es STIMMT (aber nur im Prinzip)." , en:"The verb <b>stimmt</b> carries the point here: it does hold true, though only in principle." }
 ]},
@@ -248,7 +306,7 @@ items: [
 titel: "B1-Check",
 hinweis: "Grundlagen, die du für die Redemittel brauchst.",
 items: [
-  { typ:"luecke", thema:"kasus", b1:true, frage:"Wechselpräposition — wohin?",
+  { typ:"luecke", thema:"kasus", b1:true, frage:"Wechselpräposition, wohin?",
     satz:"Ich lege die Kärtchen ___ den Tisch.", loesung:[["auf"]],
     regel:"„legen“ = Bewegung, wohin? → Akkusativ: auf den Tisch. Gegenprobe: „Die Kärtchen liegen auf dem Tisch.“ (wo? → Dativ)" , en:"<b>legen</b> is movement, so wohin plus Akkusativ: auf den Tisch. <b>liegen</b> takes Dativ: auf dem Tisch." },
   { typ:"luecke", thema:"artikelwoerter", b1:true, frage:"Possessivartikel im Dativ:",
@@ -258,7 +316,7 @@ items: [
   { typ:"mc", thema:"n-deklination", b1:true, frage:"Welche Form ist richtig?",
     optionen:["Ich lerne mit einem Lernpartner.","Ich lerne mit einem Lernpartnern."], richtig:0,
     regel:"„der Partner“ gehört nicht zur n-Deklination. Zur n-Deklination gehören z. B. der Student → dem Studenten, der Kollege → dem Kollegen." , en:"<b>Partner</b> is not an n-noun, so Dativ stays Partner; Student and Kollege do add -n." },
-  { typ:"luecke", thema:"perfekt-praeteritum", b1:true, frage:"Perfekt — Hilfsverb:",
+  { typ:"luecke", thema:"perfekt-praeteritum", b1:true, frage:"Perfekt, Hilfsverb:",
     satz:"Diese Erfahrung ___ ich auch gemacht.", loesung:[["habe"]],
     regel:"„machen“ nimmt „haben“. Merke den Original-Redemittel-Satz: „Ja, das stimmt, diese Erfahrung habe ich auch gemacht, als ich …“" , en:"<b>machen</b> forms the Perfekt with haben, so the auxiliary here is habe, not bin." }
 ]}
@@ -284,17 +342,17 @@ wortschatz: [
 
 zusammenfassung:
   "<ul class='bsp'>" +
-  "<li><b>Wortschatz:</b> Lernstrategien — aufschreiben, zusammenfassen, anwenden, nachsprechen, nach Farben ordnen, auf Kärtchen notieren.</li>" +
+  "<li><b>Wortschatz:</b> Lernstrategien, aufschreiben, zusammenfassen, anwenden, nachsprechen, nach Farben ordnen, auf Kärtchen notieren.</li>" +
   "<li><b>Zustimmen:</b> Ich finde auch, dass … · Ich bin der gleichen Meinung, denn … · Ja, das stimmt, diese Erfahrung habe ich auch gemacht, als ich … · Das ist ein guter Vorschlag, weil …</li>" +
   "<li><b>Widersprechen:</b> Ich meine nicht, dass man sagen kann „…“. · Da bin ich ganz anderer Ansicht, weil … · Im Prinzip stimmt das, aber …</li>" +
   "<li><b>Wortstellung:</b> nach dass/weil/als → Verb ans Ende. Nach denn/aber → normal (Verb Position 2).</li>" +
   "<li><b>„Es hilft, …“</b> verlangt Infinitiv mit „zu“; bei trennbaren Verben: anzuwenden.</li>" +
-  "<li><b>Satzakzent:</b> ein Wort pro kurzem Satz — das mit der wichtigsten Information.</li>" +
+  "<li><b>Satzakzent:</b> ein Wort pro kurzem Satz, das mit der wichtigsten Information.</li>" +
   "</ul>",
 
 dialog:
-  "<p>Nachhol-Aufgabe — antworte mir im Chat auf Deutsch. <b>Sprich jeden Satz zuerst laut</b>, dann tippe ihn:</p>" +
+  "<p>Nachhol-Aufgabe, antworte mir im Chat auf Deutsch. <b>Sprich jeden Satz zuerst laut</b>, dann tippe ihn:</p>" +
   "<p><b>1.</b> Wie lernst du am liebsten? Benutze drei Ausdrücke aus dem Wortschatz oben.<br>" +
-  "<b>2.</b> Reagiere auf: „<i>Grammatik lernen ist am wichtigsten.</i>“ — einmal zustimmend, einmal widersprechend, jeweils mit Begründung.<br>" +
+  "<b>2.</b> Reagiere auf: „<i>Grammatik lernen ist am wichtigsten.</i>“ einmal zustimmend, einmal widersprechend, jeweils mit Begründung.<br>" +
   "<b>3.</b> Schreib eine eigene Aussage mit „<b>Es hilft, … zu …</b>“.</p>"
 };

@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deutsch — Einheit</title>
-<link rel="stylesheet" href="assets/kurs.css?v=2.1.1">
-<script src="assets/kurs.js?v=2.1.1"></script>
+<title>Deutsch · Einheit</title>
+<link rel="stylesheet" href="assets/kurs.css?v=2.3.0">
+<script src="assets/kurs.js?v=2.3.0"></script>
 <!-- Eine Seite für JEDES Modul: seite.html?id=e1-b
      Vorher waren das 40 fast identische Dateien, die alle ihre eigene
-     Script-Liste pflegen mussten — und dabei auseinanderliefen.
+     Script-Liste pflegen mussten, und dabei auseinanderliefen.
      Die Ladeliste steht jetzt genau einmal in daten/alle.js. -->
-<script src="assets/daten/alle.js?v=2.1.1"></script>
+<script src="assets/daten/alle.js?v=2.3.0"></script>
 </head>
 <body>
 <script>KURS.kopf("lernen");</script>
@@ -34,7 +34,7 @@
   /* Unbekannte oder fehlende id: kein Sackgassen-Text, sondern ein Weg zurück. */
   kopf.innerHTML = '<div class="pagehead"><div class="eyebrow">Nicht gefunden</div>' +
     '<h1>Diese Einheit gibt es (noch) nicht</h1>' +
-    '<p class="sub">Die Adresse zeigt auf <b>' + KURS.esc(id || "—") + '</b>. ' +
+    '<p class="sub">Die Adresse zeigt auf <b>' + KURS.esc(id || "") + '</b>. ' +
     'Wähle links eine Einheit, die schon steht.</p></div>';
 
   var da = Object.keys(KURS.seiten);

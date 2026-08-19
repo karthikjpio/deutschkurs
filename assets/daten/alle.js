@@ -11,7 +11,7 @@
    pruefung.js und schreiben.js an und muss danach kommen.
    ============================================================ */
 (function () {
-  var V = "2.1.1";
+  var V = "2.3.0";
   var dateien = [
     "kurs-liste",
     "fundament",
@@ -20,7 +20,7 @@
     "schreiben",
     "einstufung",
 
-    /* Einheit 1 — Kompass DaF B2.1, Lektion 1, Module A–D.
+    /* Einheit 1, Kompass DaF B2.1, Lektion 1, Module A–D.
        einheit-01-d.js legt am Ende auch e2-a an (der Kurstag umfasste
        zwei Buchmodule). */
     "einheit-01-a",
